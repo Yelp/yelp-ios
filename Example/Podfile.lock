@@ -1,7 +1,50 @@
 PODS:
-  - YelpAPI (0.1.0)
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - OCMock (3.1.5)
+  - OHHTTPStubs (4.6.0):
+    - OHHTTPStubs/Default (= 4.6.0)
+  - OHHTTPStubs/Core (4.6.0)
+  - OHHTTPStubs/Default (4.6.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (4.6.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (4.6.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (4.6.0)
+  - OMGHTTPURLRQ/UserAgent (3.0.2)
+  - TDOAuth (1.1.2):
+    - OMGHTTPURLRQ/UserAgent
+  - YelpAPI (0.1.0):
+    - AFNetworking (~> 2.3)
+    - TDOAuth (~> 1.1)
 
 DEPENDENCIES:
+  - OCMock (~> 3.1.5)
+  - OHHTTPStubs (= 4.6.0)
+  - TDOAuth (~> 1.1)
   - YelpAPI (from `../`)
 
 EXTERNAL SOURCES:
@@ -9,6 +52,11 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  YelpAPI: beae091c1259623b9b16e1b669cb86efba80e8c2
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  OCMock: 4c2925291f80407c3738dd1db14d21d0cc278864
+  OHHTTPStubs: cb1aefbbeb4de4e741644455d4b945538e5248a2
+  OMGHTTPURLRQ: 8376dc887d76a5a7e2a67881dc788f917a2f437c
+  TDOAuth: f7e356e834295b83c7b5066ee72a30f128c5f722
+  YelpAPI: a049eaa5e4f41fef89e352ea83fa3cdb61396de3
 
 COCOAPODS: 0.38.2
