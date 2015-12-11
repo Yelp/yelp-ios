@@ -14,16 +14,19 @@
 @interface YLPClient () {
 }
 
-@property NSString *_consumerSecret;
-@property NSString *_consumerKey;
-@property NSString *_token;
-@property NSString *_tokenSecret;
+@property NSString *consumerSecret;
+@property NSString *consumerKey;
+@property NSString *token;
+@property NSString *tokenSecret;
+
+- (NSURLRequest *)requestWithPath: (NSString *)path;
+- (NSURLRequest *)requestWithPath: (NSString *)path params:(NSDictionary *)params;
+
+- (void)queryWithRequest:(NSURLRequest *)request completionHandler:(void (^)(NSDictionary *jsonResponse, NSError *error))completionHandler;
 
 @end
 
 @implementation YLPClient
-
-@synthesize _consumerKey, _consumerSecret, _token, _tokenSecret;
 
 - (instancetype)initWithConsumerKey: (NSString *)consumerKey consumerSecret:(NSString *)consumerSecret token:(NSString *)token tokenSecret:(NSString *)tokenSecret {
     if (self = [super init]) {
@@ -36,31 +39,31 @@
 }
 
 - (NSURLRequest *)requestWithPath: (NSString*)path {
-  return [self requestWithPath:path params:nil];
+    return [self requestWithPath:path params:nil];
 }
 
 - (NSURLRequest *)requestWithPath: (NSString *)path params:(NSDictionary *)params {
-  return [TDOAuth URLRequestForPath:path
-                      GETParameters:params
-                             scheme:@"https"
-                               host:kAPIHost
-                        consumerKey:[self _consumerKey]
-                     consumerSecret:[self _consumerSecret]
-                        accessToken:[self _token]
-                        tokenSecret:[self _tokenSecret]];
+    return [TDOAuth URLRequestForPath:path
+                        GETParameters:params
+                               scheme:@"https"
+                                 host:kYLPAPIHost
+                          consumerKey:[self consumerKey]
+                       consumerSecret:[self consumerSecret]
+                          accessToken:[self token]
+                          tokenSecret:[self tokenSecret]];
 }
 
 - (void)queryWithRequest:(NSURLRequest *)request completionHandler:(void (^)(NSDictionary *jsonResponse, NSError *error))completionHandler {
-  NSURLSession *session = [NSURLSession sharedSession];
-  [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-    if (!error && httpResponse.statusCode == 200) {
-      NSDictionary *responseJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-      completionHandler(responseJSON, error);
-    } else {
-      completionHandler(nil, error);
-    }
-  }] resume];
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        if (!error && httpResponse.statusCode == 200) {
+            NSDictionary *responseJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            completionHandler(responseJSON, error);
+        } else {
+            completionHandler(nil, error);
+        }
+    }] resume];
 }
 
 @end

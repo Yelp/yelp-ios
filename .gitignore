@@ -41,7 +41,6 @@ Example/Pods/
 Example/Podfile.lock
 Example/Pods
 Example/**/Pods
-*.xcodeproj
 coverage/
 .coveralls.yml
 
