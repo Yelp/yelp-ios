@@ -1,13 +1,12 @@
 //
-//  YLPClientTestCase.m
-//  YelpAPI
+//  YelpAPITests.m
+//  YelpAPITests
 //
-//  Created by David Chen on 12/8/15.
-//  Copyright (c) 2015 David Chen. All rights reserved.
+//  Created by David Chen on 12/14/15.
+//
 //
 #import <OCMock/OCMock.h>
 #import <OHHTTPStubs/OHHTTPStubs.h>
-#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import <TDOAuth/TDOAuth.h>
 #import <YelpAPI/YLPClient.h>
