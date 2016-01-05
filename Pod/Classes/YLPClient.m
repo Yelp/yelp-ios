@@ -10,25 +10,21 @@
 #import <TDOAuth/TDOAuth.h>
 #import "YLPClient.h"
 
+NSString *const kYLPAPIHost = @"api.yelp.com";
 
-@interface YLPClient () {
+@interface YLPClient(){
 }
 
-@property NSString *consumerSecret;
-@property NSString *consumerKey;
-@property NSString *token;
-@property NSString *tokenSecret;
-
-- (NSURLRequest *)requestWithPath: (NSString *)path;
-- (NSURLRequest *)requestWithPath: (NSString *)path params:(NSDictionary *)params;
-
-- (void)queryWithRequest:(NSURLRequest *)request completionHandler:(void (^)(NSDictionary *jsonResponse, NSError *error))completionHandler;
+@property (nonatomic, copy) NSString *consumerSecret;
+@property (nonatomic, copy) NSString *consumerKey;
+@property (nonatomic, copy) NSString *token;
+@property (nonatomic, copy) NSString *tokenSecret;
 
 @end
 
 @implementation YLPClient
 
-- (instancetype)initWithConsumerKey: (NSString *)consumerKey consumerSecret:(NSString *)consumerSecret token:(NSString *)token tokenSecret:(NSString *)tokenSecret {
+- (instancetype)initWithConsumerKey:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret token:(NSString *)token tokenSecret:(NSString *)tokenSecret {
     if (self = [super init]) {
         _consumerKey = consumerKey;
         _consumerSecret = consumerSecret;
@@ -38,19 +34,19 @@
     return self;
 }
 
-- (NSURLRequest *)requestWithPath: (NSString*)path {
+- (NSURLRequest *)requestWithPath:(NSString*)path {
     return [self requestWithPath:path params:nil];
 }
 
-- (NSURLRequest *)requestWithPath: (NSString *)path params:(NSDictionary *)params {
+- (NSURLRequest *)requestWithPath:(NSString *)path params:(NSDictionary *)params {
     return [TDOAuth URLRequestForPath:path
                         GETParameters:params
                                scheme:@"https"
                                  host:kYLPAPIHost
-                          consumerKey:[self consumerKey]
-                       consumerSecret:[self consumerSecret]
-                          accessToken:[self token]
-                          tokenSecret:[self tokenSecret]];
+                          consumerKey:self.consumerKey
+                       consumerSecret:self.consumerSecret
+                          accessToken:self.token
+                          tokenSecret:self.tokenSecret];
 }
 
 - (void)queryWithRequest:(NSURLRequest *)request completionHandler:(void (^)(NSDictionary *jsonResponse, NSError *error))completionHandler {

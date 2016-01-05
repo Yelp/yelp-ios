@@ -8,20 +8,19 @@
 #import <OCMock/OCMock.h>
 #import <OHHTTPStubs/OHHTTPStubs.h>
 #import <XCTest/XCTest.h>
-#import <TDOAuth/TDOAuth.h>
 #import <YelpAPI/YLPClient.h>
 
 @interface YLPClientTestCase : XCTestCase
 
-@property YLPClient *client;
-@property NSString *bogusTestPath;
+@property (nonatomic) YLPClient *client;
+@property (nonatomic, copy) NSString *bogusTestPath;
 
 @end
 
 @interface YLPClient (Testing)
 
-- (NSURLRequest *)requestWithPath: (NSString *)path;
-- (NSURLRequest *)requestWithPath: (NSString *)path params:(NSDictionary *)params;
+- (NSURLRequest *)requestWithPath:(NSString *)path;
+- (NSURLRequest *)requestWithPath:(NSString *)path params:(NSDictionary *)params;
 
 - (void)queryWithRequest:(NSURLRequest *)request completionHandler:(void (^)(NSDictionary *jsonResponse, NSError *error))completionHandler;
 
@@ -31,8 +30,8 @@
 
 - (void)setUp {
     [super setUp];
-    [self setClient:[[YLPClient alloc] initWithConsumerKey:@"consumerKey" consumerSecret:@"consumerSecret" token:@"token" tokenSecret:@"tokenSecret"]];
-    [self setBogusTestPath:@"/bogusPath"];
+    self.client = [[YLPClient alloc] initWithConsumerKey:@"consumerKey" consumerSecret:@"consumerSecret" token:@"token" tokenSecret:@"tokenSecret"];
+    self.bogusTestPath = @"/bogusPath";
 }
 
 - (void)tearDown {
@@ -54,10 +53,7 @@
 
 - (void)testQueryWithRequestReturnsDictionary {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Client query unit test, success case."];
-    NSDictionary *expectedDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  @"false", @"is_claimed",
-                                  @"3.5", @"rating",
-                                  nil];
+    NSDictionary *expectedDict = @{@"is_claimed":@"false", @"rating":@"3.5"};
     
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return [request.URL.host isEqualToString:kYLPAPIHost];
