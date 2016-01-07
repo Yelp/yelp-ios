@@ -9,37 +9,14 @@
 #import <OHHTTPStubs/OHHTTPStubs.h>
 #import <XCTest/XCTest.h>
 #import <YelpAPI/YLPClient.h>
+#import "YLPClientTestCaseBase.h"
 
-@interface YLPClientTestCase : XCTestCase
-
-@property (nonatomic) YLPClient *client;
-@property (nonatomic, copy) NSString *bogusTestPath;
-
-@end
-
-@interface YLPClient (Testing)
-
-- (NSURLRequest *)requestWithPath:(NSString *)path;
-- (NSURLRequest *)requestWithPath:(NSString *)path params:(NSDictionary *)params;
-
-- (void)queryWithRequest:(NSURLRequest *)request completionHandler:(void (^)(NSDictionary *jsonResponse, NSError *error))completionHandler;
-
+@interface YLPClientTestCase : YLPClientTestCaseBase
 @end
 
 @implementation YLPClientTestCase
 
-- (void)setUp {
-    [super setUp];
-    self.client = [[YLPClient alloc] initWithConsumerKey:@"consumerKey" consumerSecret:@"consumerSecret" token:@"token" tokenSecret:@"tokenSecret"];
-    self.bogusTestPath = @"/bogusPath";
-}
-
-- (void)tearDown {
-    [super tearDown];
-    [OHHTTPStubs removeAllStubs];
-}
-
-- (id)mockRequestWithParams {
+- (instancetype)mockRequestWithParams {
     id mockRequestWithParams = OCMPartialMock(self.client);
     OCMStub([mockRequestWithParams requestWithPath:[OCMArg any] params:[OCMArg any]]);
     return mockRequestWithParams;
