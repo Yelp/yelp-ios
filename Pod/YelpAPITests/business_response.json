@@ -1,0 +1,65 @@
+{
+    "is_claimed": true,
+    "rating": 4.5,
+    "mobile_url": "http://m.yelp.com/biz/gary-danko-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_business&utm_source=iVCuYETQ-P8VeICYOQS7pA",
+    "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+    "review_count": 4350,
+    "name": "Gary Danko",
+    "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+    "url": "http://www.yelp.com/biz/gary-danko-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_business&utm_source=iVCuYETQ-P8VeICYOQS7pA",
+    "categories": [
+                   [
+                    "American (New)",
+                    "newamerican"
+                    ]
+                   ],
+    "menu_date_updated": 1441955932,
+    "reviews": [
+                {
+                "rating": 5,
+                "excerpt": "I had been wanting to go here for some time now and my boyfriend finally made reservations for my birthday. We didn't have to wait 3 months like others...",
+                "time_created": 1451413287,
+                "rating_image_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+                "rating_image_small_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+                "user": {
+                "image_url": "http://s3-media4.fl.yelpcdn.com/photo/Mn3DgnGELzPzlYKsG27hZg/ms.jpg",
+                "id": "sCshdCwCQlXh_NVcPeTObg",
+                "name": "Lena V."
+                },
+                "rating_image_large_url": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+                "id": "edLGlfy7hCgUtvT8xhk5YA"
+                }
+                ],
+    "phone": "4157492060",
+    "snippet_text": "I had been wanting to go here for some time now and my boyfriend finally made reservations for my birthday. We didn't have to wait 3 months like others...",
+    "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/UMuLfbLrWnkQyrEToDq9bg/ms.jpg",
+    "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/Mn3DgnGELzPzlYKsG27hZg/ms.jpg",
+    "display_phone": "+1-415-749-2060",
+    "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+    "menu_provider": "single_platform",
+    "id": "gary-danko-san-francisco",
+    "is_closed": false,
+    "location": {
+        "city": "San Francisco",
+        "display_address": [
+                            "800 N Point St",
+                            "Russian Hill",
+                            "San Francisco, CA 94109"
+                            ],
+        "geo_accuracy": 8.0,
+        "neighborhoods": [
+                          "Russian Hill",
+                          "Fisherman's Wharf"
+                          ],
+        "postal_code": "94109",
+        "country_code": "US",
+        "address": [
+                    "800 N Point St"
+                    ], 
+        "coordinate": {
+            "latitude": 37.80587, 
+            "longitude": -122.42058
+        }, 
+        "state_code": "CA"
+    }
+}
