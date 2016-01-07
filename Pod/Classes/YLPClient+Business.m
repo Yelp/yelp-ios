@@ -25,14 +25,6 @@
     return [self requestWithPath:businessPath params:params];
 }
 
-- (NSMutableDictionary *)removeNullValuesFromParams:(NSMutableDictionary *)params {
-    NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
-    for(id key in params)
-        if ([params objectForKey:key] != [NSNull null])
-            [result setObject:[params objectForKey: key] forKey:key];
-    return result;
-}
-
 - (void)getBusinessWithId:(NSString *)businessId completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler {
     [self getBusinessWithId:businessId params:nil completionHandler:completionHandler];
 }
