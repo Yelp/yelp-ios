@@ -12,8 +12,7 @@
 
 NSString *const kYLPAPIHost = @"api.yelp.com";
 
-@interface YLPClient(){
-}
+@interface YLPClient ()
 
 @property (nonatomic, copy) NSString *consumerSecret;
 @property (nonatomic, copy) NSString *consumerKey;
@@ -34,7 +33,7 @@ NSString *const kYLPAPIHost = @"api.yelp.com";
     return self;
 }
 
-- (NSURLRequest *)requestWithPath:(NSString*)path {
+- (NSURLRequest *)requestWithPath:(NSString *)path {
     return [self requestWithPath:path params:nil];
 }
 
