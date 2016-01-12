@@ -1,10 +1,8 @@
-xcodeproj './YelpAPI.xcodeproj'
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target 'YelpAPI_Example', :exclusive => true do
   pod 'TDOAuth', '~> 1.1'
-  pod 'OMGHTTPURLRQ', '~>3.0.2'
   pod "YelpAPI", :path => "../"
 end
 
@@ -12,6 +10,5 @@ target 'YelpAPI_Tests', :exclusive => true do
   pod 'TDOAuth', '~> 1.1'
   pod 'OCMock', '~> 3.1.5'
   pod 'OHHTTPStubs', '4.6.0'
-  pod 'OMGHTTPURLRQ', '~>3.0.2'
   pod "YelpAPI", :path => "../"
 end

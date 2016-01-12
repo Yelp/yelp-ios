@@ -27,9 +27,12 @@
                                     @"lang_filter": @(languageFilter),
                                     @"actionlinks": @(actionLinks)
                                     }];
-    
-    !countryCode ? :[params setObject:countryCode forKey:@"cc"];
-    !languageCode ? :[params setObject:languageCode forKey:@"lang"];
+    if (countryCode) {
+        params[@"cc"] = countryCode;
+    }
+    if (languageCode) {
+        params[@"lang"] = languageCode;
+    }
     [self getBusinessWithId:businessId params:params completionHandler:completionHandler];
 }
 

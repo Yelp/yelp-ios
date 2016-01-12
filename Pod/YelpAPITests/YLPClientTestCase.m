@@ -16,7 +16,7 @@
 
 @implementation YLPClientTestCase
 
-- (instancetype)mockRequestWithParams {
+- (id)mockRequestWithParams {
     id mockRequestWithParams = OCMPartialMock(self.client);
     OCMStub([mockRequestWithParams requestWithPath:[OCMArg any] params:[OCMArg any]]);
     return mockRequestWithParams;
