@@ -7,6 +7,8 @@
 //
 
 #import "YLPBusiness.h"
+#import "YLPCategory.h"
+#import "YLPResponsePrivate.h"
 
 @implementation YLPBusiness
 
@@ -38,12 +40,19 @@
         
         _menuDateUpdated = [NSDate dateWithTimeIntervalSince1970:[businessDict[@"menu_date_updated"] doubleValue]];
         
-        _categories = businessDict[@"categories"];
+        [self setCategories:businessDict[@"categories"]];
         _reviews = businessDict[@"reviews"];
         _location = businessDict[@"location"];
         _giftCertificates = businessDict[@"gift_certificates"];
         _deals = businessDict[@"deals"];
     }
     return self;
+}
+
+- (void)setCategories:(NSArray *)categories {
+    _categories = [[NSMutableArray alloc] init];
+    for (id category in categories) {
+        [_categories addObject:[[YLPCategory alloc] initWithName:category[0] alias:category[1]]];
+    }
 }
 @end

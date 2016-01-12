@@ -9,6 +9,7 @@
 #import "YLPClient+Business.h"
 #import "YLPBusiness.h"
 #import "YLPClientPrivate.h"
+#import "YLPResponsePrivate.h"
 
 @implementation YLPClient (Business)
 

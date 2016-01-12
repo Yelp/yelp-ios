@@ -5,7 +5,7 @@
 //  Created by David Chen on 1/8/16.
 //
 //
-#import "YLPClient.h"
+@class YLPCLient;
 
 NS_ASSUME_NONNULL_BEGIN
 

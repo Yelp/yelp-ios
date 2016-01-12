@@ -10,6 +10,9 @@
 #import <TDOAuth/TDOAuth.h>
 #import "YLPClient.h"
 #import "YLPClientPrivate.h"
+#import "YLPResponsePrivate.h"
+#import "YLPCategory.h"
+#import "YLPBusiness.h"
 
 NSString *const kYLPAPIHost = @"api.yelp.com";
 

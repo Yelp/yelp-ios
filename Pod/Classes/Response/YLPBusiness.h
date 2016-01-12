@@ -8,8 +8,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPBusiness : NSObject
-- (instancetype)initWithDictionary:(NSDictionary *)businessDict;
-
 @property (nonatomic, readonly) BOOL claimed;
 @property (nonatomic, readonly) BOOL closed;
 
@@ -35,9 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *identifier;
 
 @property (nonatomic, readonly, nullable, copy) NSDate *menuDateUpdated;
+@property (nonatomic, readonly, copy) NSMutableArray *categories;
 
 //TODO: Convert these to actual objects
-@property (nonatomic, readonly, copy) NSMutableArray *categories;
 @property (nonatomic, readonly, nullable, copy) NSMutableArray *reviews;
 @property (nonatomic, readonly, copy) NSMutableArray *location;
 @property (nonatomic, readonly, nullable, copy) NSMutableArray *giftCertificates;
