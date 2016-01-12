@@ -13,12 +13,6 @@ PODS:
   - OHHTTPStubs/NSURLSession (4.6.0):
     - OHHTTPStubs/Core
   - OHHTTPStubs/OHPathHelpers (4.6.0)
-  - OMGHTTPURLRQ (3.0.2):
-    - OMGHTTPURLRQ/RQ (= 3.0.2)
-  - OMGHTTPURLRQ/FormURLEncode (3.0.2)
-  - OMGHTTPURLRQ/RQ (3.0.2):
-    - OMGHTTPURLRQ/FormURLEncode
-    - OMGHTTPURLRQ/UserAgent
   - OMGHTTPURLRQ/UserAgent (3.0.2)
   - TDOAuth (1.1.2):
     - OMGHTTPURLRQ/UserAgent
@@ -28,7 +22,6 @@ PODS:
 DEPENDENCIES:
   - OCMock (~> 3.1.5)
   - OHHTTPStubs (= 4.6.0)
-  - OMGHTTPURLRQ (~> 3.0.2)
   - TDOAuth (~> 1.1)
   - YelpAPI (from `../`)
 
@@ -41,6 +34,6 @@ SPEC CHECKSUMS:
   OHHTTPStubs: cb1aefbbeb4de4e741644455d4b945538e5248a2
   OMGHTTPURLRQ: 8376dc887d76a5a7e2a67881dc788f917a2f437c
   TDOAuth: f7e356e834295b83c7b5066ee72a30f128c5f722
-  YelpAPI: 2f613d9852bd5298b21183c0d3c196d2e229079e
+  YelpAPI: be4fdf3883adbbbfc440adbe2a05d842e8850dc2
 
 COCOAPODS: 0.38.2

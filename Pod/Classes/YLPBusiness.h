@@ -8,17 +8,16 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPBusiness : NSObject
-- (instancetype)initWithDictionary:(NSDictionary *)businessDict;
 
-@property (nonatomic, readonly) BOOL claimed;
-@property (nonatomic, readonly) BOOL closed;
+@property (nonatomic, getter=isClaimed, readonly) BOOL claimed;
+@property (nonatomic, getter=isClosed, readonly) BOOL closed;
 
 @property (nonatomic, readonly, copy) NSURL *snippetImageURL;
 @property (nonatomic, readonly, copy) NSURL *ratingImgURL;
 @property (nonatomic, readonly, copy) NSURL *ratingImgURLSmall;
 @property (nonatomic, readonly, copy) NSURL *ratingImgURLLarge;
 @property (nonatomic, readonly, copy) NSURL *mobileURL;
-@property (nonatomic, readonly, copy) NSURL *imageURL;
+@property (nonatomic, readonly, nullable, copy) NSURL *imageURL;
 @property (nonatomic, readonly, copy) NSURL *URL;
 @property (nonatomic, readonly, copy, nullable) NSURL *reservationURL;
 @property (nonatomic, readonly, copy, nullable) NSURL *eat24URL;

@@ -15,13 +15,12 @@
 #import "YLPClientTestCaseBase.h"
 
 @interface YLPBusinessClientTestCase : YLPClientTestCaseBase
-@property YLPClient *realClient;
 @end
 
 @interface YLPClient (BusinessClientTest)
 
-- (NSMutableDictionary *)removeNullValuesFromParams:(NSMutableDictionary *)params;
 - (void)getBusinessWithId:(NSString *)businessId params:(NSDictionary *)params completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler;
+
 @end
 
 @implementation YLPBusinessClientTestCase
@@ -62,6 +61,8 @@
         XCTAssertEqualObjects([business.URL absoluteString], [expectedResponse objectForKey:@"url"]);
         //Number assignment testing
         XCTAssertEqual(business.rating, [expectedResponse[@"rating"] doubleValue]);
+        //Bool assignment testing
+        XCTAssertEqual(business.isClosed, [expectedResponse[@"is_closed"] boolValue]);
         [expectation fulfill];
         
     }];

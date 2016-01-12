@@ -46,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B7E8F321C45B8CA00CD590C /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		0BC02EAC1C3F4B600020F9A7 /* YLPClientTestCaseBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YLPClientTestCaseBase.m; path = ../../Pod/YelpAPITests/YLPClientTestCaseBase.m; sourceTree = "<group>"; };
 		0BC02EAD1C3F4B600020F9A7 /* YLPClientTestCaseBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YLPClientTestCaseBase.h; path = ../../Pod/YelpAPITests/YLPClientTestCaseBase.h; sourceTree = "<group>"; };
 		0BC02EAE1C3F4B600020F9A7 /* YLPClientTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YLPClientTestCase.m; path = ../../Pod/YelpAPITests/YLPClientTestCase.m; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 				0BC02EAF1C3F4B600020F9A7 /* YLPBusinessClientTestCase.m */,
 				0BC02EB01C3F4B600020F9A7 /* business_response.json */,
 				0BC02EBB1C3F4BD20020F9A7 /* Supporting Files */,
+				0B7E8F321C45B8CA00CD590C /* Header.h */,
 			);
 			path = YelpAPI_PodsTests;
 			sourceTree = "<group>";
@@ -722,6 +724,7 @@
 				0BC02EC31C3F4BD20020F9A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6003F585195388D10070C39A /* Build configuration list for PBXProject "YelpAPI" */ = {
 			isa = XCConfigurationList;
