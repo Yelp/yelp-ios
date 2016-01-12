@@ -7,16 +7,8 @@
 //
 
 #import "YLPClient+Business.h"
-
-@interface YLPClient (Business)
-// Defined in YLPClient.m
-- (NSURLRequest *)requestWithPath:(NSString *)path;
-- (NSURLRequest *)requestWithPath:(NSString *)path params:(NSDictionary *)params;
-- (void)queryWithRequest:(NSURLRequest *)request completionHandler:(void (^)(NSDictionary *responseDict, NSError *error))completionHandler;
-
-- (NSURLRequest *)businessRequestWithId:(NSString *)businessId params:(NSDictionary *)params;
-- (void)getBusinessWithId:(NSString *)businessId params:(NSDictionary *)params completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler;
-@end
+#import "YLPBusiness.h"
+#import "YLPClientPrivate.h"
 
 @implementation YLPClient (Business)
 
@@ -29,27 +21,27 @@
     [self getBusinessWithId:businessId params:nil completionHandler:completionHandler];
 }
 
-- (void)getBusinessWithId:(NSString *)businessId countryCode:(NSString *)countryCode languageCode:(NSString *)languageCode languageFilter:(bool)languageFilter actionLinks:(bool)actionLinks completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler {
-    NSDictionary *params = @{
-                            @"cc": countryCode,
-                            @"lang": languageCode,
-                            @"lang_filter": @(languageFilter),
-                            @"actionlinks": @(actionLinks)
-                            };
+- (void)getBusinessWithId:(NSString *)businessId countryCode:(NSString *)countryCode languageCode:(NSString *)languageCode languageFilter:(BOOL)languageFilter actionLinks:(BOOL)actionLinks completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler {
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{
+                                    @"lang_filter": @(languageFilter),
+                                    @"actionlinks": @(actionLinks)
+                                    }];
+    
+    !countryCode ? :[params setObject:countryCode forKey:@"cc"];
+    !languageCode ? :[params setObject:languageCode forKey:@"lang"];
     [self getBusinessWithId:businessId params:params completionHandler:completionHandler];
 }
 
 - (void)getBusinessWithId:(NSString *)businessId params:(NSDictionary *)params completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler {
     NSURLRequest *req = [self businessRequestWithId:businessId params:params];
     [self queryWithRequest:req completionHandler:^(NSDictionary *responseDict, NSError *error) {
-        if (error)
+        if (error) {
             completionHandler(nil, error);
-        else {
+        } else {
             YLPBusiness *business = [[YLPBusiness alloc] initWithDictionary:responseDict];
             completionHandler(business, nil);
         }
     }];
     
 }
-
 @end

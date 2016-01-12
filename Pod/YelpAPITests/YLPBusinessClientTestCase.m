@@ -26,27 +26,16 @@
 
 @implementation YLPBusinessClientTestCase
 
-- (void)setUp {
-    [super setUp];
-}
-
-- (void)tearDown {
-    [super tearDown];
-}
-
-- (instancetype)mockBusinessRequestWithAllArgs {
+- (id)mockBusinessRequestWithAllArgs {
     id mockBusinessRequestWithAllArgs = OCMPartialMock(self.client);
     OCMStub([mockBusinessRequestWithAllArgs getBusinessWithId:[OCMArg any] params:[OCMArg any] completionHandler:[OCMArg any]]);
     return mockBusinessRequestWithAllArgs;
 }
 
 //TODO: Add some unit testing for parameter passing
-
-- (void)testRemoveNullFromParams {
-    NSMutableDictionary *testParams = [[NSMutableDictionary alloc] initWithDictionary:@{@"nil": [NSNull null], @"notnil": @"somestring"}];
-    XCTAssertEqualObjects([self.client removeNullValuesFromParams:testParams], @{@"notnil": @"somestring"});
+- (void)testNullParams {
+    [self.client getBusinessWithId:@"gary-danko-san-francisco" countryCode:nil languageCode:nil languageFilter:nil actionLinks:nil completionHandler:^(YLPBusiness *business, NSError *error) {}];
 }
-
 - (void)testBusinessRequestWithId {
     id mockBusinessRequestWithIdWithAllArgs = [self mockBusinessRequestWithAllArgs];
     [self.client getBusinessWithId:@"bogusBusinessId" completionHandler:^(YLPBusiness *business, NSError *error) {}];
@@ -63,16 +52,16 @@
         return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"business_response.json",self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
     }];
     
-    NSDictionary *expected_response = [self loadExpectedResponse];
+    NSDictionary *expectedResponse = [self loadExpectedResponse];
     
     [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
         XCTAssertEqualObjects(error, nil);
         //String assignment testing
-        XCTAssertEqualObjects(business.id, @"gary-danko-san-francisco");
+        XCTAssertEqualObjects(business.identifier, @"gary-danko-san-francisco");
         //URL assignment testing
-        XCTAssertEqualObjects(business.url, [expected_response objectForKey:@"url"]);
+        XCTAssertEqualObjects([business.URL absoluteString], [expectedResponse objectForKey:@"url"]);
         //Number assignment testing
-        XCTAssertEqualObjects(business.rating, [expected_response objectForKey:@"rating"]);
+        XCTAssertEqual(business.rating, [expectedResponse[@"rating"] doubleValue]);
         [expectation fulfill];
         
     }];
@@ -83,7 +72,6 @@
 - (NSDictionary *)loadExpectedResponse {
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
     NSString *filePath = [bundle pathForResource:@"business_response" ofType:@"json"];
-    NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    return [NSJSONSerialization JSONObjectWithData:[content dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
+    return [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:nil error:nil];
 }
 @end

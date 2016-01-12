@@ -38,8 +38,6 @@
         NSData *data = [NSJSONSerialization dataWithJSONObject:expectedDict options:0 error:nil];
         return [OHHTTPStubsResponse responseWithData:data statusCode:200 headers:nil];
     }];
-    
-    
     [self.client queryWithRequest:[self.client requestWithPath:self.bogusTestPath] completionHandler:^(NSDictionary *responseDict, NSError *error) {
         XCTAssertEqualObjects(expectedDict, responseDict);
         [expectation fulfill];

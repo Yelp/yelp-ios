@@ -13,6 +13,12 @@ PODS:
   - OHHTTPStubs/NSURLSession (4.6.0):
     - OHHTTPStubs/Core
   - OHHTTPStubs/OHPathHelpers (4.6.0)
+  - OMGHTTPURLRQ (3.0.2):
+    - OMGHTTPURLRQ/RQ (= 3.0.2)
+  - OMGHTTPURLRQ/FormURLEncode (3.0.2)
+  - OMGHTTPURLRQ/RQ (3.0.2):
+    - OMGHTTPURLRQ/FormURLEncode
+    - OMGHTTPURLRQ/UserAgent
   - OMGHTTPURLRQ/UserAgent (3.0.2)
   - TDOAuth (1.1.2):
     - OMGHTTPURLRQ/UserAgent
@@ -22,6 +28,7 @@ PODS:
 DEPENDENCIES:
   - OCMock (~> 3.1.5)
   - OHHTTPStubs (= 4.6.0)
+  - OMGHTTPURLRQ (~> 3.0.2)
   - TDOAuth (~> 1.1)
   - YelpAPI (from `../`)
 
