@@ -11,6 +11,9 @@
 #import <OHHTTPStubs/OHPathHelpers.h>
 #import <XCTest/XCTest.h>
 #import <YelpAPI/YLPBusiness.h>
+#import <YelpAPI/YLPCategory.h>
+#import <YelpAPI/YLPLocation.h>
+#import <YelpAPI/YLPCoordinate.h>
 #import <YelpAPI/YLPClient+Business.h>
 #import "YLPClientTestCaseBase.h"
 
@@ -67,6 +70,74 @@
         
     }];
     
+    [self waitForExpectationsWithTimeout:5 handler:nil];
+}
+
+- (void)testCategoriesOnBusinessSetCorrectly {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"YLPCategory on YLPBusiness success case."];
+    
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return [request.URL.host isEqualToString:kYLPAPIHost];
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"business_response.json",self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+    }];
+    
+    NSDictionary *expectedResponse = [self loadExpectedResponse];
+    NSString *expectedAlias = expectedResponse[@"categories"][0][1];
+    NSString *expectedName = expectedResponse[@"categories"][0][0];
+    
+    [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
+        XCTAssertEqualObjects(((YLPCategory *)business.categories[0]).alias, expectedAlias);
+        XCTAssertEqualObjects(((YLPCategory *)business.categories[0]).name, expectedName);
+        [expectation fulfill];
+        
+    }];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
+}
+
+- (void)testLocationOnBusinessSetCorrectly {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"YLPLocation on YLPBusiness success case."];
+    
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return [request.URL.host isEqualToString:kYLPAPIHost];
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"business_response.json",self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+    }];
+    
+    NSDictionary *expectedResponse = [self loadExpectedResponse];
+    NSDictionary *expectedLocation = expectedResponse[@"location"];
+    [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
+        XCTAssertEqualObjects(business.location.displayAddress, expectedLocation[@"display_address"]);
+        XCTAssertEqualObjects(business.location.crossStreets, nil);
+        XCTAssertEqualObjects(business.location.postalCode, expectedLocation[@"postal_code"]);
+        XCTAssertEqual(business.location.coordinate.latitude,[expectedLocation[@"coordinate"][@"latitude"] doubleValue]);
+        XCTAssertEqual(business.location.coordinate.longitude, [expectedLocation[@"coordinate"][@"longitude"] doubleValue]);
+        [expectation fulfill];
+        
+    }];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
+}
+
+- (void)testLocationOnBusinessMinimalCaseSetCorrectly {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"YLPLocation on YLPBusiness success case with minimal set of response keys."];
+    
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return [request.URL.host isEqualToString:kYLPAPIHost];
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"minimum_business_response.json",self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+    }];
+    
+    NSDictionary *expectedResponse = [self loadExpectedResponse];
+    NSDictionary *expectedLocation = expectedResponse[@"location"];
+    [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
+        XCTAssertEqualObjects(business.location.displayAddress, expectedLocation[@"display_address"]);
+        XCTAssertEqualObjects(business.location.crossStreets, nil);
+        XCTAssertEqualObjects(business.location.postalCode, expectedLocation[@"postal_code"]);
+        XCTAssertEqualObjects(business.location.coordinate, nil);
+        XCTAssertEqualObjects(business.location.neighborhoods, nil);
+        [expectation fulfill];
+        
+    }];
     [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 

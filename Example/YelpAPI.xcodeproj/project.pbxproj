@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B1801E31C46DE1200B0CDF0 /* minimum_business_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 0B1801E21C46DE1200B0CDF0 /* minimum_business_response.json */; };
 		0BC02EC41C3F4C400020F9A7 /* YLPBusinessClientTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC02EAF1C3F4B600020F9A7 /* YLPBusinessClientTestCase.m */; };
 		0BC02EC51C3F4C440020F9A7 /* YLPClientTestCaseBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC02EAC1C3F4B600020F9A7 /* YLPClientTestCaseBase.m */; };
 		0BC02EC61C3F4C4A0020F9A7 /* YLPClientTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC02EAE1C3F4B600020F9A7 /* YLPClientTestCase.m */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B1801E21C46DE1200B0CDF0 /* minimum_business_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = minimum_business_response.json; sourceTree = "<group>"; };
 		0B7E8F321C45B8CA00CD590C /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		0BC02EAC1C3F4B600020F9A7 /* YLPClientTestCaseBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YLPClientTestCaseBase.m; path = ../../Pod/YelpAPITests/YLPClientTestCaseBase.m; sourceTree = "<group>"; };
 		0BC02EAD1C3F4B600020F9A7 /* YLPClientTestCaseBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YLPClientTestCaseBase.h; path = ../../Pod/YelpAPITests/YLPClientTestCaseBase.h; sourceTree = "<group>"; };
@@ -124,9 +126,10 @@
 				0BC02EAD1C3F4B600020F9A7 /* YLPClientTestCaseBase.h */,
 				0BC02EAE1C3F4B600020F9A7 /* YLPClientTestCase.m */,
 				0BC02EAF1C3F4B600020F9A7 /* YLPBusinessClientTestCase.m */,
-				0BC02EB01C3F4B600020F9A7 /* business_response.json */,
 				0BC02EBB1C3F4BD20020F9A7 /* Supporting Files */,
 				0B7E8F321C45B8CA00CD590C /* Header.h */,
+				0BC02EB01C3F4B600020F9A7 /* business_response.json */,
+				0B1801E21C46DE1200B0CDF0 /* minimum_business_response.json */,
 			);
 			path = YelpAPI_PodsTests;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BC02EC71C3F4C4E0020F9A7 /* business_response.json in Resources */,
+				0B1801E31C46DE1200B0CDF0 /* minimum_business_response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

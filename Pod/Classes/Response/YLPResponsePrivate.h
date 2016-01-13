@@ -7,6 +7,8 @@
 //
 #import "YLPCategory.h"
 #import "YLPBusiness.h"
+#import "YLPLocation.h"
+#import "YLPCoordinate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +18,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPBusiness ()
 - (instancetype)initWithDictionary:(NSDictionary *)businessDict;
+@end
+
+@interface YLPLocation()
+- (instancetype)initWithDictionary:(NSDictionary *)locationDict;
+@end
+
+@interface YLPCoordinate()
+- (instancetype)initWithLatitude:(double)latitude longitude:(double)longitude;
 @end
 
 NS_ASSUME_NONNULL_END
