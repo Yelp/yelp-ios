@@ -14,6 +14,8 @@
 #import <YelpAPI/YLPCategory.h>
 #import <YelpAPI/YLPLocation.h>
 #import <YelpAPI/YLPCoordinate.h>
+#import <YelpAPI/YLPReview.h>
+#import <YelpAPI/YLPUser.h>
 #import <YelpAPI/YLPClient+Business.h>
 #import "YLPClientTestCaseBase.h"
 
@@ -140,6 +142,29 @@
     }];
     [self waitForExpectationsWithTimeout:5 handler:nil];
 }
+
+- (void)testReviewOnBusinessSetCorrectly {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"YLPLocation on YLPBusiness success case with minimal set of response keys."];
+    
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return [request.URL.host isEqualToString:kYLPAPIHost];
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"business_response.json",self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+    }];
+    
+    NSDictionary *expectedResponse = [self loadExpectedResponse];
+    NSDictionary *expectedReview = expectedResponse[@"reviews"][0];
+    [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
+        XCTAssertEqual(((YLPReview *)business.reviews[0]).rating, [expectedReview[@"rating"] doubleValue]);
+        XCTAssertEqualObjects([((YLPReview *)business.reviews[0]).ratingImageURL absoluteString], expectedReview[@"rating_image_url"]);
+        XCTAssertEqualObjects(((YLPReview *)business.reviews[0]).user.name, expectedReview[@"user"][@"name"]);
+        XCTAssertEqualObjects([((YLPReview *)business.reviews[0]).user.imageURL absoluteString], expectedReview[@"user"][@"image_url"]);
+        [expectation fulfill];
+        
+    }];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
+}
+
 
 - (NSDictionary *)loadExpectedResponse {
     NSBundle *bundle = [NSBundle bundleForClass:self.class];

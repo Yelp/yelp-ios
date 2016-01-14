@@ -5,10 +5,12 @@
 //  Created by David Chen on 1/11/16.
 //
 //
-#import "YLPCategory.h"
 #import "YLPBusiness.h"
-#import "YLPLocation.h"
+#import "YLPCategory.h"
 #import "YLPCoordinate.h"
+#import "YLPLocation.h"
+#import "YLPReview.h"
+#import "YLPUser.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,12 +22,20 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithDictionary:(NSDictionary *)businessDict;
 @end
 
-@interface YLPLocation()
+@interface YLPLocation ()
 - (instancetype)initWithDictionary:(NSDictionary *)locationDict;
 @end
 
-@interface YLPCoordinate()
+@interface YLPCoordinate ()
 - (instancetype)initWithLatitude:(double)latitude longitude:(double)longitude;
+@end
+
+@interface YLPUser ()
+- (instancetype)initWithName:(NSString *)name identifier:(NSString *)identifier imageURLString:(NSURL *)imageURLString;
+@end
+
+@interface YLPReview ()
+- (instancetype)initWithDictionary:(NSDictionary *)reviewDict;
 @end
 
 NS_ASSUME_NONNULL_END

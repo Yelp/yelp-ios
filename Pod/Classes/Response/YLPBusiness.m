@@ -43,8 +43,8 @@
         _menuDateUpdated = [NSDate dateWithTimeIntervalSince1970:[businessDict[@"menu_date_updated"] doubleValue]];
         
         [self setCategories:businessDict[@"categories"]];
+        [self setReviews:businessDict[@"reviews"]];
         _location = [[YLPLocation alloc] initWithDictionary:businessDict[@"location"]];
-        _reviews = businessDict[@"reviews"];
         _giftCertificates = businessDict[@"gift_certificates"];
         _deals = businessDict[@"deals"];
     }
@@ -59,5 +59,14 @@
     _categories = [[NSArray alloc] initWithArray:mutableCategories];
 }
 
+- (void)setReviews:(NSArray *)reviews {
+    NSMutableArray *mutableReviews = [[NSMutableArray alloc] init];
+    
+    for (id review in reviews) {
+        [mutableReviews addObject:[[YLPReview alloc] initWithDictionary:review]];
+    }
+    
+    _reviews = [[NSArray alloc] initWithArray:mutableReviews];
+}
 
 @end
