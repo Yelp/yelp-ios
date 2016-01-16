@@ -46,8 +46,8 @@
         [self setCategories:businessDict[@"categories"]];
         [self setReviews:businessDict[@"reviews"]];
         [self setGiftCertificates:businessDict[@"gift_certificates"]];
+        [self setDeals:businessDict[@"deals"]];
         _location = [[YLPLocation alloc] initWithDictionary:businessDict[@"location"]];
-        _deals = businessDict[@"deals"];
     }
     return self;
 }
@@ -77,6 +77,16 @@
         [mutableGiftCertificates addObject:[[YLPGiftCertificate alloc] initWithDictionary:gc]];
     }
     _giftCertificates = [NSArray arrayWithArray:mutableGiftCertificates];
+}
+
+- (void)setDeals:(NSArray *)deals {
+    NSMutableArray *mutableDeals = [[NSMutableArray alloc] init];
+    
+    for (id deal in deals) {
+        [mutableDeals addObject:[[YLPDeal alloc] initWithDictionary:deal]];
+    }
+    
+    _deals = [[NSArray alloc] initWithArray:mutableDeals];
 }
 
 @end

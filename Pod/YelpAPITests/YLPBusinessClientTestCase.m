@@ -15,6 +15,8 @@
 #import <YelpAPI/YLPCoordinate.h>
 #import <YelpAPI/YLPGiftCertificate.h>
 #import <YelpAPI/YLPGiftCertificateOption.h>
+#import <YelpAPI/YLPDeal.h>
+#import <YelpAPI/YLPDealOption.h>
 #import <YelpAPI/YLPLocation.h>
 #import <YelpAPI/YLPReview.h>
 #import <YelpAPI/YLPUser.h>
@@ -191,6 +193,36 @@
         XCTAssertEqualObjects(actualOption.formattedPrice, expectedGCs[@"options"][0][@"formatted_price"]);
         [expectation fulfill];
         
+    }];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
+}
+
+- (void)testDealOnBusinessSetCorrectly {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"YLPDeal on YLPBusiness success case with full set of response keys."];
+    
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return [request.URL.host isEqualToString:kYLPAPIHost];
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"business_response.json",self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+    }];
+    
+    NSDictionary *expectedResponse = [self loadExpectedResponse];
+    NSDictionary *expectedDeal = expectedResponse[@"deals"][0];
+    [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
+        YLPDeal *actualDeal = business.deals[0];
+        XCTAssertEqualObjects([actualDeal.URL absoluteString], expectedDeal[@"url"]);
+        XCTAssertEqualObjects(actualDeal.whatYouGet, expectedDeal[@"what_you_get"]);
+        XCTAssertEqual([actualDeal.timeStart timeIntervalSince1970], [expectedDeal[@"time_start"] doubleValue]);
+        XCTAssertEqual(actualDeal.isPopular, [expectedDeal[@"is_popular"] boolValue]);
+        
+        YLPDealOption *actualOption = actualDeal.options[0];
+        NSDictionary *expectedOption = expectedDeal[@"options"][0];
+        
+        XCTAssertEqualObjects(actualOption.originalPrice, expectedOption[@"original_price"]);
+        XCTAssertEqualObjects(actualOption.title, expectedOption[@"title"]);
+        XCTAssertEqualObjects([actualOption.purchaseURL absoluteString], expectedOption[@"purchase_url"]);
+        XCTAssertEqual(actualOption.isQuantityLimited, [expectedOption[@"is_quantity_limited"] boolValue]);
+        [expectation fulfill];
     }];
     [self waitForExpectationsWithTimeout:5 handler:nil];
 }
