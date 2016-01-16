@@ -8,6 +8,8 @@
 #import "YLPBusiness.h"
 #import "YLPCategory.h"
 #import "YLPCoordinate.h"
+#import "YLPGiftCertificate.h"
+#import "YLPGiftCertificateOption.h"
 #import "YLPLocation.h"
 #import "YLPReview.h"
 #import "YLPUser.h"
@@ -36,6 +38,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPReview ()
 - (instancetype)initWithDictionary:(NSDictionary *)reviewDict;
+@end
+
+@interface YLPGiftCertificate ()
+- (instancetype)initWithDictionary:(NSDictionary *)giftCertificates;
+@end
+
+@interface YLPGiftCertificateOption ()
+- (instancetype)initWithPrice:(NSNumber *)price formattedPrice:(NSString *)formattedPrice;
 @end
 
 NS_ASSUME_NONNULL_END

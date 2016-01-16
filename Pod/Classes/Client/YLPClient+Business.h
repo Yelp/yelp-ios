@@ -6,7 +6,6 @@
 //
 //
 #import "YLPClient.h"
-#import <Foundation/Foundation.h>
 
 @class YLPBusiness;
 

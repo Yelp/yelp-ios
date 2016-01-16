@@ -9,14 +9,16 @@
 #import <OCMock/OCMock.h>
 #import <OHHTTPStubs/OHHTTPStubs.h>
 #import <OHHTTPStubs/OHPathHelpers.h>
-#import <XCTest/XCTest.h>
 #import <YelpAPI/YLPBusiness.h>
 #import <YelpAPI/YLPCategory.h>
-#import <YelpAPI/YLPLocation.h>
+#import <YelpAPI/YLPClient+Business.h>
 #import <YelpAPI/YLPCoordinate.h>
+#import <YelpAPI/YLPGiftCertificate.h>
+#import <YelpAPI/YLPGiftCertificateOption.h>
+#import <YelpAPI/YLPLocation.h>
 #import <YelpAPI/YLPReview.h>
 #import <YelpAPI/YLPUser.h>
-#import <YelpAPI/YLPClient+Business.h>
+#import <XCTest/XCTest.h>
 #import "YLPClientTestCaseBase.h"
 
 @interface YLPBusinessClientTestCase : YLPClientTestCaseBase
@@ -38,6 +40,7 @@
 
 //TODO: Add some unit testing for parameter passing
 - (void)testNullParams {
+    [self.client getBusinessWithId:@"gary-danko" countryCode:@"" languageCode:@"" languageFilter:NO actionLinks:nil completionHandler:^(YLPBusiness *business, NSError *error) {}];
     [self.client getBusinessWithId:@"gary-danko-san-francisco" countryCode:nil languageCode:nil languageFilter:nil actionLinks:nil completionHandler:^(YLPBusiness *business, NSError *error) {}];
 }
 - (void)testBusinessRequestWithId {
@@ -144,7 +147,7 @@
 }
 
 - (void)testReviewOnBusinessSetCorrectly {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"YLPLocation on YLPBusiness success case with minimal set of response keys."];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"YLPReview on YLPBusiness success case with full set of response keys."];
     
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return [request.URL.host isEqualToString:kYLPAPIHost];
@@ -165,6 +168,32 @@
     [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 
+- (void)testGCOnBusinessSetCorrectly {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"YLPGiftCertificate on YLPBusiness success case with full set of response keys."];
+    
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return [request.URL.host isEqualToString:kYLPAPIHost];
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"business_response.json",self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+    }];
+    
+    NSDictionary *expectedResponse = [self loadExpectedResponse];
+    NSDictionary *expectedGCs = expectedResponse[@"gift_certificates"][0];
+    [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
+        YLPGiftCertificate *actualGC = business.giftCertificates[0];
+        XCTAssertEqualObjects([actualGC.URL absoluteString], expectedGCs[@"url"]);
+        XCTAssertEqualObjects(actualGC.identifier, expectedGCs[@"id"]);
+        XCTAssertEqualObjects(actualGC.identifier, expectedGCs[@"id"]);
+        XCTAssertEqual([actualGC.options count], [expectedGCs[@"options"] count]);
+        
+        YLPGiftCertificateOption *actualOption = actualGC.options[0];
+        XCTAssertEqualObjects(actualOption.price, expectedGCs[@"options"][0][@"price"]);
+        XCTAssertEqualObjects(actualOption.formattedPrice, expectedGCs[@"options"][0][@"formatted_price"]);
+        [expectation fulfill];
+        
+    }];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
+}
 
 - (NSDictionary *)loadExpectedResponse {
     NSBundle *bundle = [NSBundle bundleForClass:self.class];

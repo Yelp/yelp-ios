@@ -8,6 +8,7 @@
 
 #import "YLPBusiness.h"
 #import "YLPCategory.h"
+#import "YLPGiftCertificate.h"
 #import "YLPLocation.h"
 #import "YLPResponsePrivate.h"
 
@@ -44,8 +45,8 @@
         
         [self setCategories:businessDict[@"categories"]];
         [self setReviews:businessDict[@"reviews"]];
+        [self setGiftCertificates:businessDict[@"gift_certificates"]];
         _location = [[YLPLocation alloc] initWithDictionary:businessDict[@"location"]];
-        _giftCertificates = businessDict[@"gift_certificates"];
         _deals = businessDict[@"deals"];
     }
     return self;
@@ -67,6 +68,15 @@
     }
     
     _reviews = [[NSArray alloc] initWithArray:mutableReviews];
+}
+
+- (void)setGiftCertificates:(NSArray *)giftCertificates {
+    NSMutableArray *mutableGiftCertificates = [[NSMutableArray alloc] init];
+    
+    for (id gc in giftCertificates) {
+        [mutableGiftCertificates addObject:[[YLPGiftCertificate alloc] initWithDictionary:gc]];
+    }
+    _giftCertificates = [NSArray arrayWithArray:mutableGiftCertificates];
 }
 
 @end

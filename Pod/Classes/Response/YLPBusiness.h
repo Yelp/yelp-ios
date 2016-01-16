@@ -40,9 +40,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSArray *categories;
 @property (nonatomic, readonly, copy) YLPLocation *location;
 @property (nonatomic, readonly, nullable, copy) NSArray *reviews;
+@property (nonatomic, readonly, nullable, copy) NSArray *giftCertificates;
 
 //TODO: Convert these to actual objects
-@property (nonatomic, readonly, nullable, copy) NSArray *giftCertificates;
 @property (nonatomic, readonly, nullable, copy) NSArray *deals;
 
 @end
