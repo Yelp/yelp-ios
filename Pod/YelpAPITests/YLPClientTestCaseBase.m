@@ -23,4 +23,9 @@
     [OHHTTPStubs removeAllStubs];
 }
 
+- (NSDictionary *)loadExpectedResponse:(NSString *)resource {
+    NSBundle *bundle = [NSBundle bundleForClass:self.class];
+    NSString *filePath = [bundle pathForResource:resource ofType:@""];
+    return [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:nil error:nil];
+}
 @end

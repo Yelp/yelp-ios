@@ -13,6 +13,7 @@
 #import "YLPGiftCertificate.h"
 #import "YLPGiftCertificateOption.h"
 #import "YLPLocation.h"
+#import "YLPPhoneSearch.h"
 #import "YLPReview.h"
 #import "YLPUser.h"
 
@@ -44,6 +45,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPGiftCertificateOption ()
 - (instancetype)initWithPrice:(NSNumber *)price formattedPrice:(NSString *)formattedPrice;
+@end
+
+@interface YLPPhoneSearch ()
+- (instancetype)initWithDictionary:(NSDictionary *)phoneSearch;
 @end
 
 @interface YLPLocation ()

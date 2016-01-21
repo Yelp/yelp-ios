@@ -1,0 +1,70 @@
+//
+//  YLPPhoneSearchClientTestCase.m
+//  YelpAPI
+//
+//  Created by David Chen on 1/19/16.
+//  Copyright © 2016 Yelp. All rights reserved.
+//
+
+#import <OCMock/OCMock.h>
+#import <OHHTTPStubs/OHHTTPStubs.h>
+#import <OHHTTPStubs/OHPathHelpers.h>
+#import <YelpAPI/YLPBusiness.h>
+#import <YelpAPI/YLPPhoneSearch.h>
+#import <YelpAPI/YLPClient+PhoneSearch.h>
+#import <XCTest/XCTest.h>
+#import "YLPClientTestCaseBase.h"
+
+@interface YLPPhoneSearchClientTestCase : YLPClientTestCaseBase
+@end
+
+@interface YLPClient (PhoneSearchTest)
+
+- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber params:(NSDictionary *)params completionHandler:(void (^)(YLPPhoneSearch *phoneSearch, NSError *error))completionHandler;
+@end
+
+@implementation YLPPhoneSearchClientTestCase
+
+- (void)setUp {
+    [super setUp];
+    self.defaultResource = @"phone_search_response.json";
+}
+
+- (id)mockPhoneSearchRequestWithAllArgs {
+    id mockPhoneSearchRequestWithAllArgs = OCMPartialMock(self.client);
+    OCMStub([mockPhoneSearchRequestWithAllArgs getBusinessWithPhoneNumber:[OCMArg any] params:[OCMArg any] completionHandler:[OCMArg any]]);
+    return mockPhoneSearchRequestWithAllArgs;
+}
+
+- (void)testPhoneSearchRequestPassesParameters {
+    id mockPhoneSearchRequestWithAllArgs = [self mockPhoneSearchRequestWithAllArgs];
+    
+    [self.client getBusinessWithPhoneNumber:@"bogusPhoneNumber" params:nil completionHandler:^(YLPPhoneSearch *phoneSearch, NSError *error) {}];
+    OCMVerify([mockPhoneSearchRequestWithAllArgs getBusinessWithPhoneNumber:@"bogusPhoneNumber" params:nil completionHandler:[OCMArg any]]);
+}
+
+- (void)testAttributesSetOnPhoneSearch{
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Test that YLPPhoneSearch has it's properties set, with full set of response keys."];
+    
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return [request.URL.host isEqualToString:kYLPAPIHost];
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.defaultResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+    }];
+    
+    NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
+    [self.client getBusinessWithPhoneNumber:@"4151231234" completionHandler:^(YLPPhoneSearch *phoneSearchResults, NSError *error) {
+        NSArray *actualBusinesses = phoneSearchResults.businesses;
+        XCTAssertEqual([actualBusinesses count], 2);
+        XCTAssertEqual(phoneSearchResults.total, [expectedResponse[@"total"] integerValue]);
+        XCTAssertNotNil(actualBusinesses[0]);
+        XCTAssertNotNil(actualBusinesses[1]);
+        XCTAssertNotNil(phoneSearchResults.region);
+        [expectation fulfill];
+        
+    }];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
+    
+}
+
+@end
