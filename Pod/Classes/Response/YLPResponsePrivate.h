@@ -8,12 +8,14 @@
 #import "YLPBusiness.h"
 #import "YLPCategory.h"
 #import "YLPCoordinate.h"
+#import "YLPCoordinateDelta.h"
 #import "YLPDeal.h"
 #import "YLPDealOption.h"
 #import "YLPGiftCertificate.h"
 #import "YLPGiftCertificateOption.h"
 #import "YLPLocation.h"
 #import "YLPPhoneSearch.h"
+#import "YLPRegion.h"
 #import "YLPReview.h"
 #import "YLPUser.h"
 
@@ -29,6 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPCoordinate ()
 - (instancetype)initWithLatitude:(double)latitude longitude:(double)longitude;
+@end
+
+@interface YLPCoordinateDelta ()
+- (instancetype)initWithLatitudeDelta:(double)latitudeDelta longitudeDelta:(double)longitudeDelta;
 @end
 
 @interface YLPDeal ()
@@ -53,6 +59,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPLocation ()
 - (instancetype)initWithDictionary:(NSDictionary *)locationDict;
+@end
+
+@interface YLPRegion ()
+- (instancetype)initWithDictionary:(NSDictionary *)regionDict;
 @end
 
 @interface YLPReview ()

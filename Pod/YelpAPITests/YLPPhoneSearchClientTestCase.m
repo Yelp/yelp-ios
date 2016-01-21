@@ -10,8 +10,11 @@
 #import <OHHTTPStubs/OHHTTPStubs.h>
 #import <OHHTTPStubs/OHPathHelpers.h>
 #import <YelpAPI/YLPBusiness.h>
-#import <YelpAPI/YLPPhoneSearch.h>
 #import <YelpAPI/YLPClient+PhoneSearch.h>
+#import <YelpAPI/YLPCoordinate.h>
+#import <YelpAPI/YLPCoordinateDelta.h>
+#import <YelpAPI/YLPPhoneSearch.h>
+#import <YelpAPI/YLPRegion.h>
 #import <XCTest/XCTest.h>
 #import "YLPClientTestCaseBase.h"
 
@@ -60,6 +63,29 @@
         XCTAssertNotNil(actualBusinesses[0]);
         XCTAssertNotNil(actualBusinesses[1]);
         XCTAssertNotNil(phoneSearchResults.region);
+        XCTAssertEqualObjects([actualBusinesses[1] class], [YLPBusiness class]);
+        XCTAssertEqualObjects([phoneSearchResults.region class], [YLPRegion class]);
+        [expectation fulfill];
+        
+    }];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
+    
+}
+
+- (void)testRegionSetOnPhoneSearch {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Test that YLPRegion is correctly set on YLPPhoneSearch."];
+    
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return [request.URL.host isEqualToString:kYLPAPIHost];
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.defaultResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+    }];
+    
+    NSDictionary *expectedRegion = [self loadExpectedResponse:self.defaultResource][@"region"];
+    [self.client getBusinessWithPhoneNumber:@"4151231234" completionHandler:^(YLPPhoneSearch *phoneSearchResults, NSError *error) {
+        YLPRegion *actualRegion = phoneSearchResults.region;
+        XCTAssertEqual(actualRegion.center.latitude, [expectedRegion[@"center"][@"latitude"] doubleValue]);
+        XCTAssertEqual(actualRegion.span.longitudeDelta, [expectedRegion[@"span"][@"longitude_delta"] doubleValue]);
         [expectation fulfill];
         
     }];

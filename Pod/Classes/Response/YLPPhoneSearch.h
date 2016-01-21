@@ -5,6 +5,7 @@
 //  Created by David Chen on 1/19/16.
 //
 //
+#import "YLPRegion.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSUInteger *total;
 
 //TODO: convert to YLPRegion object
-@property (nonatomic, copy, nullable, readonly) NSDictionary *region;
+@property (nonatomic, copy, nullable, readonly) YLPRegion *region;
 
 @end
 
