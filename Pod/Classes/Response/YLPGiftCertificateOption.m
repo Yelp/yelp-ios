@@ -9,7 +9,7 @@
 #import "YLPGiftCertificateOption.h"
 
 @implementation YLPGiftCertificateOption
-- (instancetype)initWithPrice:(NSNumber *)price formattedPrice:(NSString *)formattedPrice {
+- (instancetype)initWithPrice:(NSUInteger *)price formattedPrice:(NSString *)formattedPrice {
     if (self = [super init]) {
         _price = price;
         _formattedPrice = formattedPrice;

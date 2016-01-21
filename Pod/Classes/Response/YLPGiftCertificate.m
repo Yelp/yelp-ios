@@ -28,7 +28,7 @@
 - (void)setOptions:(NSDictionary *)options {
     NSMutableArray *mutableOptions = [[NSMutableArray alloc] init];
     for (id option in options) {
-        [mutableOptions addObject:[[YLPGiftCertificateOption alloc] initWithPrice:option[@"price"] formattedPrice:option[@"formatted_price"]]];
+        [mutableOptions addObject:[[YLPGiftCertificateOption alloc] initWithPrice:[option[@"price"] integerValue] formattedPrice:option[@"formatted_price"]]];
     }
     
     _options = [NSArray arrayWithArray:mutableOptions];
