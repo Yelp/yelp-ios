@@ -64,7 +64,7 @@
     NSDictionary *expectedResponse = [self loadExpectedResponse];
     
     [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
-        XCTAssertEqualObjects(error, nil);
+        XCTAssertNil(error);
         //String assignment testing
         XCTAssertEqualObjects(business.identifier, @"gary-danko-san-francisco");
         //URL assignment testing
@@ -230,6 +230,6 @@
 - (NSDictionary *)loadExpectedResponse {
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
     NSString *filePath = [bundle pathForResource:@"business_response" ofType:@"json"];
-    return [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:nil error:nil];
+    return [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:0 error:nil];
 }
 @end
