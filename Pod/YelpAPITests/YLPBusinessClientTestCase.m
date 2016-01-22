@@ -71,7 +71,7 @@
     NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
     
     [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
-        XCTAssertEqualObjects(error, nil);
+        XCTAssertNil(error);
         //String assignment testing
         XCTAssertEqualObjects(business.identifier, @"gary-danko-san-francisco");
         //URL assignment testing
@@ -196,7 +196,7 @@
         XCTAssertEqual([actualGC.options count], [expectedGCs[@"options"] count]);
         
         YLPGiftCertificateOption *actualOption = actualGC.options[0];
-        XCTAssertEqualObjects(actualOption.price, expectedGCs[@"options"][0][@"price"]);
+        XCTAssertEqual(actualOption.price, [expectedGCs[@"options"][0][@"price"] integerValue]);
         XCTAssertEqualObjects(actualOption.formattedPrice, expectedGCs[@"options"][0][@"formatted_price"]);
         [expectation fulfill];
         
@@ -225,7 +225,7 @@
         YLPDealOption *actualOption = actualDeal.options[0];
         NSDictionary *expectedOption = expectedDeal[@"options"][0];
         
-        XCTAssertEqualObjects(actualOption.originalPrice, expectedOption[@"original_price"]);
+        XCTAssertEqual(actualOption.originalPrice, [expectedOption[@"original_price"] integerValue]);
         XCTAssertEqualObjects(actualOption.title, expectedOption[@"title"]);
         XCTAssertEqualObjects([actualOption.purchaseURL absoluteString], expectedOption[@"purchase_url"]);
         XCTAssertEqual(actualOption.isQuantityLimited, [expectedOption[@"is_quantity_limited"] boolValue]);
@@ -233,5 +233,4 @@
     }];
     [self waitForExpectationsWithTimeout:5 handler:nil];
 }
-
 @end
