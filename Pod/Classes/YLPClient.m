@@ -9,17 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <TDOAuth/TDOAuth.h>
 #import "YLPClient.h"
+#import "YLPClientPrivate.h"
 
 NSString *const kYLPAPIHost = @"api.yelp.com";
-
-@interface YLPClient ()
-
-@property (nonatomic, copy) NSString *consumerSecret;
-@property (nonatomic, copy) NSString *consumerKey;
-@property (nonatomic, copy) NSString *token;
-@property (nonatomic, copy) NSString *tokenSecret;
-
-@end
 
 @implementation YLPClient
 

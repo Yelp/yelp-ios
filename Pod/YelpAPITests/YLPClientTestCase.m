@@ -9,35 +9,12 @@
 #import <OHHTTPStubs/OHHTTPStubs.h>
 #import <XCTest/XCTest.h>
 #import <YelpAPI/YLPClient.h>
+#import "YLPClientTestCaseBase.h"
 
-@interface YLPClientTestCase : XCTestCase
-
-@property (nonatomic) YLPClient *client;
-@property (nonatomic, copy) NSString *bogusTestPath;
-
-@end
-
-@interface YLPClient (Testing)
-
-- (NSURLRequest *)requestWithPath:(NSString *)path;
-- (NSURLRequest *)requestWithPath:(NSString *)path params:(NSDictionary *)params;
-
-- (void)queryWithRequest:(NSURLRequest *)request completionHandler:(void (^)(NSDictionary *jsonResponse, NSError *error))completionHandler;
-
+@interface YLPClientTestCase : YLPClientTestCaseBase
 @end
 
 @implementation YLPClientTestCase
-
-- (void)setUp {
-    [super setUp];
-    self.client = [[YLPClient alloc] initWithConsumerKey:@"consumerKey" consumerSecret:@"consumerSecret" token:@"token" tokenSecret:@"tokenSecret"];
-    self.bogusTestPath = @"/bogusPath";
-}
-
-- (void)tearDown {
-    [super tearDown];
-    [OHHTTPStubs removeAllStubs];
-}
 
 - (id)mockRequestWithParams {
     id mockRequestWithParams = OCMPartialMock(self.client);
@@ -61,8 +38,6 @@
         NSData *data = [NSJSONSerialization dataWithJSONObject:expectedDict options:0 error:nil];
         return [OHHTTPStubsResponse responseWithData:data statusCode:200 headers:nil];
     }];
-    
-    
     [self.client queryWithRequest:[self.client requestWithPath:self.bogusTestPath] completionHandler:^(NSDictionary *responseDict, NSError *error) {
         XCTAssertEqualObjects(expectedDict, responseDict);
         [expectation fulfill];
