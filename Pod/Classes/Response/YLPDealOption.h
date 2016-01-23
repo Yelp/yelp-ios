@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy, readonly) NSURL *purchaseURL;
 
-@property (nonatomic, readonly) NSUInteger *price;
-@property (nonatomic, readonly) NSUInteger *originalPrice;
+@property (nonatomic, readonly) NSUInteger price;
+@property (nonatomic, readonly) NSUInteger originalPrice;
 @property (nonatomic, copy, nullable, readonly) NSNumber *remainingCount;
 
 @property (nonatomic, getter=isQuantityLimited, readonly) BOOL quantityLimited;
