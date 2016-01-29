@@ -17,6 +17,7 @@
 #import "YLPPhoneSearch.h"
 #import "YLPRegion.h"
 #import "YLPReview.h"
+#import "YLPSearch.h"
 #import "YLPUser.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -67,6 +68,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPReview ()
 - (instancetype)initWithDictionary:(NSDictionary *)reviewDict;
+@end
+
+@interface YLPSearch ()
+- (instancetype)initWithDictionary:(NSDictionary *)searchDict;
 @end
 
 @interface YLPUser ()

@@ -8,15 +8,16 @@
 
 #import "YLPClient.h"
 
+@class YLPCll;
 @class YLPSearch;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPClient (Search)
 
-- (void)getBusinessWithTerm:(nullable NSString *)phoneNumber countryCode:(nullable NSString *)countryCode category:(nullable NSString *)category completionHandler:(nullable void (^)(YLPPhoneSearch * _Nullable phoneSearch, NSError * _Nullable error))completionHandler;
+- (void)getSearchWithLocation:(NSString *)location cll:(nullable YLPCll*)cll term:(nullable NSString *)term limit:(NSUInteger)limit offset:(NSUInteger)offset sort:(NSUInteger)sort completionHandler:(void (^)(YLPSearch * _Nullable search, NSError * _Nullable error))completionHandler;
 
-- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber completionHandler:(nullable void (^)(YLPPhoneSearch * _Nullable phoneSearch, NSError * _Nullable error))completionHandler;
+- (void)getSearchWithLocation:(NSString *)location completionHandler:(nullable void (^)(YLPSearch * _Nullable search, NSError * _Nullable error))completionHandler;
 
 @end
 
