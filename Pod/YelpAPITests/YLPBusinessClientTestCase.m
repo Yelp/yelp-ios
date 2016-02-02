@@ -160,10 +160,11 @@
     NSDictionary *expectedResponse = [self loadExpectedResponse];
     NSDictionary *expectedReview = expectedResponse[@"reviews"][0];
     [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
-        XCTAssertEqual(((YLPReview *)business.reviews[0]).rating, [expectedReview[@"rating"] doubleValue]);
-        XCTAssertEqualObjects([((YLPReview *)business.reviews[0]).ratingImageURL absoluteString], expectedReview[@"rating_image_url"]);
-        XCTAssertEqualObjects(((YLPReview *)business.reviews[0]).user.name, expectedReview[@"user"][@"name"]);
-        XCTAssertEqualObjects([((YLPReview *)business.reviews[0]).user.imageURL absoluteString], expectedReview[@"user"][@"image_url"]);
+        YLPReview *actualReview = business.reviews[0];
+        XCTAssertEqual(actualReview.rating, [expectedReview[@"rating"] doubleValue]);
+        XCTAssertEqualObjects([actualReview.ratingImageURL absoluteString], expectedReview[@"rating_image_url"]);
+        XCTAssertEqualObjects(actualReview.user.name, expectedReview[@"user"][@"name"]);
+        XCTAssertEqualObjects([actualReview.user.imageURL absoluteString], expectedReview[@"user"][@"image_url"]);
         [expectation fulfill];
         
     }];
@@ -187,6 +188,7 @@
         XCTAssertEqualObjects(actualGC.identifier, expectedGCs[@"id"]);
         XCTAssertEqualObjects(actualGC.identifier, expectedGCs[@"id"]);
         XCTAssertEqual([actualGC.options count], [expectedGCs[@"options"] count]);
+        XCTAssertEqual(actualGC.unusedBalances, YLPBalanceTypeCredit);
         
         YLPGiftCertificateOption *actualOption = actualGC.options[0];
         XCTAssertEqual(actualOption.price, [expectedGCs[@"options"][0][@"price"] integerValue]);

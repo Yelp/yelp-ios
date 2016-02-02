@@ -28,19 +28,18 @@
         
         _URL = [NSURL URLWithString:deal[@"url"]];
         _imageURL = [NSURL URLWithString:deal[@"image_url"]];
-        
-        [self setOptions:deal[@"options"]];
+        _options = [self.class optionsWithJSONArray:deal[@"options"]];
     }
     
     return self;
 }
 
-- (void)setOptions:(NSArray *)options {
++ (NSArray *)optionsWithJSONArray:(NSArray *)options {
     NSMutableArray *mutableOptions = [[NSMutableArray alloc] init];
-    for (id option in options) {
+    for (NSDictionary *option in options) {
         [mutableOptions addObject:[[YLPDealOption alloc] initWithDictionary:option]];
     }
-    _options = [NSArray arrayWithArray:mutableOptions];
+    return mutableOptions;
 }
 
 @end

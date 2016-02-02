@@ -14,12 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *city;
 @property (nonatomic, readonly, copy) NSString *stateCode;
 @property (nonatomic, readonly, copy) NSString *postalCode;
-@property (nonatomic, readonly, copy) NSString* countryCode;
-@property (nonatomic, readonly, nullable, copy) NSString* crossStreets;
+@property (nonatomic, readonly, copy) NSString *countryCode;
+@property (nonatomic, readonly, nullable, copy) NSString *crossStreets;
 
-@property (nonatomic, readonly, copy) NSArray *displayAddress;
-@property (nonatomic, readonly, nullable, copy) NSArray *neighborhoods;
-@property (nonatomic, readonly, copy) NSArray *address;
+@property (nonatomic, readonly, copy) NSArray<NSString *> *displayAddress;
+@property (nonatomic, readonly, nullable, copy) NSArray<NSString *> *neighborhoods;
+@property (nonatomic, readonly, copy) NSArray<NSString *> *address;
 
 @property (nonatomic, readonly) double geoAccuracy;
 

@@ -42,51 +42,50 @@
         _identifier = businessDict[@"id"];
         
         _menuDateUpdated = [NSDate dateWithTimeIntervalSince1970:[businessDict[@"menu_date_updated"] doubleValue]];
-        
-        [self setCategories:businessDict[@"categories"]];
-        [self setReviews:businessDict[@"reviews"]];
-        [self setGiftCertificates:businessDict[@"gift_certificates"]];
-        [self setDeals:businessDict[@"deals"]];
+        _categories = [self.class categoriesFromJSONArray:businessDict[@"categories"]];
+        _reviews = [self.class reviewsFromJSONArray:businessDict[@"reviews"]];
+        _giftCertificates = [self.class giftCertificatesFromJSONArray:businessDict[@"gift_certificates"]];
+        _deals = [self.class dealsFromJSONArray:businessDict[@"deals"]];
         _location = [[YLPLocation alloc] initWithDictionary:businessDict[@"location"]];
     }
     return self;
 }
 
-- (void)setCategories:(NSArray *)categories {
++ (NSArray *)categoriesFromJSONArray:(NSArray *)categoriesJSON {
     NSMutableArray *mutableCategories = [[NSMutableArray alloc] init];
-    for (id category in categories) {
+    for (NSArray *category in categoriesJSON) {
         [mutableCategories addObject:[[YLPCategory alloc] initWithName:category[0] alias:category[1]]];
     }
-    _categories = [[NSArray alloc] initWithArray:mutableCategories];
+    return mutableCategories;
 }
 
-- (void)setReviews:(NSArray *)reviews {
++ (NSArray *)reviewsFromJSONArray:(NSArray *)reviewsJSON {
     NSMutableArray *mutableReviews = [[NSMutableArray alloc] init];
     
-    for (id review in reviews) {
+    for (NSDictionary *review in reviewsJSON) {
         [mutableReviews addObject:[[YLPReview alloc] initWithDictionary:review]];
     }
     
-    _reviews = [[NSArray alloc] initWithArray:mutableReviews];
+    return mutableReviews;
 }
 
-- (void)setGiftCertificates:(NSArray *)giftCertificates {
++ (NSArray *)giftCertificatesFromJSONArray:(NSArray *)giftCertificatesJSON {
     NSMutableArray *mutableGiftCertificates = [[NSMutableArray alloc] init];
     
-    for (id gc in giftCertificates) {
+    for (NSDictionary *gc in giftCertificatesJSON) {
         [mutableGiftCertificates addObject:[[YLPGiftCertificate alloc] initWithDictionary:gc]];
     }
-    _giftCertificates = [NSArray arrayWithArray:mutableGiftCertificates];
+    
+    return mutableGiftCertificates;
 }
 
-- (void)setDeals:(NSArray *)deals {
++ (NSArray *)dealsFromJSONArray:(NSArray *)dealsJSON {
     NSMutableArray *mutableDeals = [[NSMutableArray alloc] init];
     
-    for (id deal in deals) {
+    for (NSDictionary *deal in dealsJSON) {
         [mutableDeals addObject:[[YLPDeal alloc] initWithDictionary:deal]];
     }
-    
-    _deals = [[NSArray alloc] initWithArray:mutableDeals];
+    return mutableDeals;
 }
 
 @end

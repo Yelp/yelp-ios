@@ -25,13 +25,10 @@
         _address = location[@"address"];
         
         _geoAccuracy = [location[@"geo_accuracy"] doubleValue];
-        
-        if (location[@"coordinate"]) {
-            double lat = [location[@"coordinate"][@"latitude"] doubleValue];
-            double longitude = [location[@"coordinate"][@"longitude"] doubleValue];
-            if (lat && longitude) {
-                _coordinate = [[YLPCoordinate alloc] initWithLatitude:lat longitude:longitude];
-            }
+        NSNumber *latitude = location[@"coordinate"][@"latitude"];
+        NSNumber *longitude = location[@"coordinate"][@"longitude"];
+        if (latitude && longitude) {
+            _coordinate = [[YLPCoordinate alloc] initWithLatitude:[latitude doubleValue] longitude:[longitude doubleValue]];
         }
     }
     
