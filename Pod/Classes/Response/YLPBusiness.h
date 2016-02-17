@@ -5,6 +5,13 @@
 //  Created by David Chen on 1/5/16.
 //
 //
+
+@class YLPLocation;
+@class YLPCategory;
+@class YLPReview;
+@class YLPGiftCertificate;
+@class YLPDeal;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPBusiness : NSObject
@@ -12,7 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, getter=isClaimed, readonly) BOOL claimed;
 @property (nonatomic, getter=isClosed, readonly) BOOL closed;
 
-@property (nonatomic, readonly, copy) NSURL *snippetImageURL;
 @property (nonatomic, readonly, copy) NSURL *ratingImgURL;
 @property (nonatomic, readonly, copy) NSURL *ratingImgURLSmall;
 @property (nonatomic, readonly, copy) NSURL *ratingImgURLLarge;
@@ -21,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSURL *URL;
 @property (nonatomic, readonly, copy, nullable) NSURL *reservationURL;
 @property (nonatomic, readonly, copy, nullable) NSURL *eat24URL;
+@property (nonatomic, readonly, copy, nullable) NSURL *snippetImageURL;
 
 
 @property (nonatomic, readonly) double rating;
@@ -35,12 +42,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly, nullable, copy) NSDate *menuDateUpdated;
 
-//TODO: Convert these to actual objects
-@property (nonatomic, readonly, copy) NSMutableArray *categories;
-@property (nonatomic, readonly, nullable, copy) NSMutableArray *reviews;
-@property (nonatomic, readonly, copy) NSMutableArray *location;
-@property (nonatomic, readonly, nullable, copy) NSMutableArray *giftCertificates;
-@property (nonatomic, readonly, nullable, copy) NSMutableArray *deals;
+@property (nonatomic, readonly, copy) NSArray<YLPCategory *> *categories;
+@property (nonatomic, readonly, nullable, copy) NSArray<YLPReview *> *reviews;
+@property (nonatomic, readonly, nullable, copy) NSArray<YLPGiftCertificate *> *giftCertificates;
+@property (nonatomic, readonly, nullable, copy) NSArray<YLPDeal *> *deals;
+
+@property (nonatomic, readonly, copy) YLPLocation *location;
 
 @end
 
