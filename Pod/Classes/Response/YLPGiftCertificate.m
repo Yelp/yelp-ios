@@ -15,22 +15,25 @@
     if (self = [super init]) {
         _identifier = giftCertificate[@"id"];
         _currencyCode = giftCertificate[@"currency_code"];
-        _unusedBalances = giftCertificate[@"unused_balances"];
+        if ([giftCertificate[@"unused_balances"] isEqual: @"CREDIT"]) {
+            _unusedBalances = YLPBalanceTypeCredit;
+        } else {
+            _unusedBalances = YLPBalanceTypeCash;
+        }
         
         _URL = [NSURL URLWithString:giftCertificate[@"url"]];
         _imageURL = [NSURL URLWithString:giftCertificate[@"image_url"]];
-        [self setOptions:giftCertificate[@"options"]];
+        _options = [self.class optionsWithJSONArray:giftCertificate[@"options"]];
     }
     
     return self;
 }
 
-- (void)setOptions:(NSDictionary *)options {
++ (NSArray *)optionsWithJSONArray:(NSArray *)options {
     NSMutableArray *mutableOptions = [[NSMutableArray alloc] init];
-    for (id option in options) {
+    for (NSDictionary *option in options) {
         [mutableOptions addObject:[[YLPGiftCertificateOption alloc] initWithPrice:[option[@"price"] integerValue] formattedPrice:option[@"formatted_price"]]];
     }
-    
-    _options = [NSArray arrayWithArray:mutableOptions];
+    return mutableOptions;
 }
 @end

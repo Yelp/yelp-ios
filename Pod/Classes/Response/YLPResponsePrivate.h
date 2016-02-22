@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface YLPGiftCertificateOption ()
-- (instancetype)initWithPrice:(NSUInteger *)price formattedPrice:(NSString *)formattedPrice;
+- (instancetype)initWithPrice:(NSUInteger)price formattedPrice:(NSString *)formattedPrice;
 @end
 
 @interface YLPPhoneSearch ()

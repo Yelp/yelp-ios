@@ -6,6 +6,8 @@
 //
 //
 
+@class YLPDealOption;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPDeal : NSObject
@@ -25,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, getter=isPopular, readonly) BOOL popular;
 
-@property (nonatomic, copy, readonly) NSArray *options;
+@property (nonatomic, copy, readonly) NSArray<YLPDealOption *> *options;
 
 @end
 
