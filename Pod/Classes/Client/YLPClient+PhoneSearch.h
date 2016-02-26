@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber countryCode:(nullable NSString *)countryCode category:(nullable NSString *)category completionHandler:(nullable void (^)(YLPPhoneSearch * _Nullable phoneSearch, NSError * _Nullable error))completionHandler;
 
-- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber completionHandler:(nullable void (^)(YLPPhoneSearch * _Nullable phoneSearch, NSError * _Nullable error))completionHandler;
+- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber completionHandler:(void (^)(YLPPhoneSearch * _Nullable phoneSearch, NSError * _Nullable error))completionHandler;
 
 @end
 

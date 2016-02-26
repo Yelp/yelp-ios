@@ -34,7 +34,7 @@
     if (category) {
         params[@"category"] = category;
     }
-    [self getBusinessWithPhoneNumber:phoneNumber params:params completionHandler:completionHandler];
+    [self getBusinessWithPhoneNumber:phoneNumber params:[NSDictionary dictionaryWithDictionary:params] completionHandler:completionHandler];
     
 }
 

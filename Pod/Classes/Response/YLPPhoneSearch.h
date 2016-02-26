@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) NSArray *businesses;
 @property (nonatomic, readonly) NSUInteger *total;
 
-//TODO: convert to YLPRegion object
 @property (nonatomic, copy, nullable, readonly) YLPRegion *region;
 
 @end

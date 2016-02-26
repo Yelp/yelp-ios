@@ -41,9 +41,9 @@
 
 - (void)testPhoneSearchRequestPassesParameters {
     id mockPhoneSearchRequestWithAllArgs = [self mockPhoneSearchRequestWithAllArgs];
-    
-    [self.client getBusinessWithPhoneNumber:@"bogusPhoneNumber" params:nil completionHandler:^(YLPPhoneSearch *phoneSearch, NSError *error) {}];
-    OCMVerify([mockPhoneSearchRequestWithAllArgs getBusinessWithPhoneNumber:@"bogusPhoneNumber" params:nil completionHandler:[OCMArg any]]);
+    NSDictionary *params = @{@"cc": @"US", @"category": @"donut"};
+    [self.client getBusinessWithPhoneNumber:@"bogusPhoneNumber" countryCode:@"US" category:@"donut" completionHandler:^(YLPPhoneSearch *phoneSearch, NSError *error) {}];
+    OCMVerify([mockPhoneSearchRequestWithAllArgs getBusinessWithPhoneNumber:@"bogusPhoneNumber" params:params completionHandler:[OCMArg any]]);
 }
 
 - (void)testAttributesSetOnPhoneSearch{
