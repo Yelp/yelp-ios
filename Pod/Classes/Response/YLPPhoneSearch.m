@@ -15,21 +15,24 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)phoneSearchDict {
     if (self = [super init]) {
-        [self setBusinesses:phoneSearchDict[@"businesses"]];
-        _region = [[YLPRegion alloc] initWithDictionary:phoneSearchDict[@"region"]];
+        _businesses = [self.class businessesFromJSONArray:phoneSearchDict[@"businesses"]];
+        if (phoneSearchDict[@"region"] != nil) {
+            _region = [[YLPRegion alloc] initWithDictionary:phoneSearchDict[@"region"]];
+        }
         _total = [phoneSearchDict[@"total"] integerValue];
     }
     
     return self;
 }
 
-- (void)setBusinesses:(NSArray *)businesses {
-    NSMutableArray *mutableBusinesses = [[NSMutableArray alloc] init];
++ (NSArray *)businessesFromJSONArray:(NSArray *)businessesJSON {
+    NSMutableArray *mutableBusinessesJSON = [[NSMutableArray alloc] init];
     
-    for (id business in businesses) {
-        [mutableBusinesses addObject:[[YLPBusiness alloc] initWithDictionary:business]];
+    for (NSDictionary *business in businessesJSON) {
+        [mutableBusinessesJSON addObject:[[YLPBusiness alloc] initWithDictionary:business]];
     }
-    _businesses = [NSArray arrayWithArray:mutableBusinesses];
+    
+    return mutableBusinessesJSON;
 }
 
 @end
