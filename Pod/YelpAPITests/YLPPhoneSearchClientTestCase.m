@@ -108,7 +108,7 @@
     NSDictionary *expectedRegion = [self loadExpectedResponse:self.defaultResource][@"region"];
     [self.client getBusinessWithPhoneNumber:@"4151231234" completionHandler:^(YLPPhoneSearch *phoneSearchResults, NSError *error) {
         YLPRegion *actualRegion = phoneSearchResults.region;
-        XCTAssertEqual(actualRegion, nil);
+        XCTAssertNil(actualRegion);
         [expectation fulfill];
         
     }];

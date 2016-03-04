@@ -13,10 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPPhoneSearch : NSObject
 
-@property (nonatomic, copy, readonly) NSArray <YLPBusiness *> *businesses;
+@property (nonatomic, readonly) NSArray <YLPBusiness *> *businesses;
 @property (nonatomic, readonly) NSUInteger total;
 
-@property (nonatomic, copy, nullable, readonly) YLPRegion *region;
+@property (nonatomic, nullable, readonly) YLPRegion *region;
 
 @end
 
