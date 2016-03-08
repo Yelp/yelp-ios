@@ -24,6 +24,7 @@
 #import "YLPClientTestCaseBase.h"
 
 @interface YLPBusinessClientTestCase : YLPClientTestCaseBase
+@property (nonatomic, copy) NSString *minimalResource;
 @end
 
 @interface YLPClient (BusinessClientTest)
@@ -33,6 +34,12 @@
 @end
 
 @implementation YLPBusinessClientTestCase
+
+- (void)setUp {
+    [super setUp];
+    self.defaultResource = @"business_response.json";
+    self.minimalResource = @"minimum_business_response.json";
+}
 
 - (id)mockBusinessRequestWithAllArgs {
     id mockBusinessRequestWithAllArgs = OCMPartialMock(self.client);
@@ -54,14 +61,14 @@
 
 - (void)testBusinessRequestResult {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Business query test, success case."];
-    
+
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return [request.URL.host isEqualToString:kYLPAPIHost];
     } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"business_response.json",self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.defaultResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
     }];
     
-    NSDictionary *expectedResponse = [self loadExpectedResponse];
+    NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
     
     [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
         XCTAssertNil(error);
@@ -86,10 +93,10 @@
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return [request.URL.host isEqualToString:kYLPAPIHost];
     } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"business_response.json",self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.defaultResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
     }];
     
-    NSDictionary *expectedResponse = [self loadExpectedResponse];
+    NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
     NSString *expectedAlias = expectedResponse[@"categories"][0][1];
     NSString *expectedName = expectedResponse[@"categories"][0][0];
     
@@ -108,10 +115,10 @@
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return [request.URL.host isEqualToString:kYLPAPIHost];
     } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"business_response.json",self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.defaultResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
     }];
     
-    NSDictionary *expectedResponse = [self loadExpectedResponse];
+    NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
     NSDictionary *expectedLocation = expectedResponse[@"location"];
     [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
         XCTAssertEqualObjects(business.location.displayAddress, expectedLocation[@"display_address"]);
@@ -131,10 +138,10 @@
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return [request.URL.host isEqualToString:kYLPAPIHost];
     } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"minimum_business_response.json",self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.minimalResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
     }];
     
-    NSDictionary *expectedResponse = [self loadExpectedResponse];
+    NSDictionary *expectedResponse = [self loadExpectedResponse:self.minimalResource];
     NSDictionary *expectedLocation = expectedResponse[@"location"];
     [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
         XCTAssertEqualObjects(business.location.displayAddress, expectedLocation[@"display_address"]);
@@ -154,10 +161,10 @@
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return [request.URL.host isEqualToString:kYLPAPIHost];
     } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"business_response.json",self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.defaultResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
     }];
     
-    NSDictionary *expectedResponse = [self loadExpectedResponse];
+    NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
     NSDictionary *expectedReview = expectedResponse[@"reviews"][0];
     [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
         YLPReview *actualReview = business.reviews[0];
@@ -177,10 +184,10 @@
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return [request.URL.host isEqualToString:kYLPAPIHost];
     } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"business_response.json",self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.defaultResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
     }];
     
-    NSDictionary *expectedResponse = [self loadExpectedResponse];
+    NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
     NSDictionary *expectedGCs = expectedResponse[@"gift_certificates"][0];
     [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
         YLPGiftCertificate *actualGC = business.giftCertificates[0];
@@ -205,10 +212,10 @@
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return [request.URL.host isEqualToString:kYLPAPIHost];
     } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"business_response.json",self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.defaultResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
     }];
     
-    NSDictionary *expectedResponse = [self loadExpectedResponse];
+    NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
     NSDictionary *expectedDeal = expectedResponse[@"deals"][0];
     [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
         YLPDeal *actualDeal = business.deals[0];
@@ -227,11 +234,5 @@
         [expectation fulfill];
     }];
     [self waitForExpectationsWithTimeout:5 handler:nil];
-}
-
-- (NSDictionary *)loadExpectedResponse {
-    NSBundle *bundle = [NSBundle bundleForClass:self.class];
-    NSString *filePath = [bundle pathForResource:@"business_response" ofType:@"json"];
-    return [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:0 error:nil];
 }
 @end
