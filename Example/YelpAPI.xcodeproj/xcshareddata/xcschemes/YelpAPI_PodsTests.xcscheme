@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9832935D95FFA920E64DE10718EE13E2"
+               BlueprintIdentifier = "B4D9F6CF1F548A5A9DBB4026265E587C"
                BuildableName = "OCMock.framework"
                BlueprintName = "OCMock"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E52CFF221B20A3B4725D6D6A00AA0749"
+               BlueprintIdentifier = "3A8CCC940A51C0DE3B3B8B41981EB764"
                BuildableName = "OHHTTPStubs.framework"
                BlueprintName = "OHHTTPStubs"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -42,21 +42,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BC511E0569F5099227D77CF9A271B9CC"
-               BuildableName = "OMGHTTPURLRQ.framework"
-               BlueprintName = "OMGHTTPURLRQ"
-               ReferencedContainer = "container:Pods/Pods.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C9E9222EAF11145F4796D0A60DE8E964"
+               BlueprintIdentifier = "8D3F1F1DBBE23E83F03D9A1ADE25CEAF"
                BuildableName = "YelpAPI.framework"
                BlueprintName = "YelpAPI"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -84,7 +70,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9832935D95FFA920E64DE10718EE13E2"
+            BlueprintIdentifier = "B4D9F6CF1F548A5A9DBB4026265E587C"
             BuildableName = "OCMock.framework"
             BlueprintName = "OCMock"
             ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -106,7 +92,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9832935D95FFA920E64DE10718EE13E2"
+            BlueprintIdentifier = "B4D9F6CF1F548A5A9DBB4026265E587C"
             BuildableName = "OCMock.framework"
             BlueprintName = "OCMock"
             ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -124,7 +110,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9832935D95FFA920E64DE10718EE13E2"
+            BlueprintIdentifier = "B4D9F6CF1F548A5A9DBB4026265E587C"
             BuildableName = "OCMock.framework"
             BlueprintName = "OCMock"
             ReferencedContainer = "container:Pods/Pods.xcodeproj">

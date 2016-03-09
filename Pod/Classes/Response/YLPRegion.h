@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPRegion : NSObject
 
-@property (nonatomic, copy, readonly) YLPCoordinateDelta *span;
-@property (nonatomic, copy, readonly) YLPCoordinate *center;
+@property (nonatomic, readonly) YLPCoordinateDelta *span;
+@property (nonatomic, readonly) YLPCoordinate *center;
 
 @end
 

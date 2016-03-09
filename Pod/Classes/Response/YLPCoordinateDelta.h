@@ -9,8 +9,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPCoordinateDelta : NSObject
 
-@property(nonatomic, readonly) double latitudeDelta;
-@property(nonatomic, readonly) double longitudeDelta;
+@property (nonatomic, readonly) double latitudeDelta;
+@property (nonatomic, readonly) double longitudeDelta;
 
 @end
 

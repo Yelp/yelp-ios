@@ -7,6 +7,10 @@
 //
 
 @class YLPLocation;
+@class YLPCategory;
+@class YLPReview;
+@class YLPGiftCertificate;
+@class YLPDeal;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -38,10 +42,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly, nullable, copy) NSDate *menuDateUpdated;
 
-@property (nonatomic, readonly, copy) NSArray *categories;
-@property (nonatomic, readonly, nullable, copy) NSArray *reviews;
-@property (nonatomic, readonly, nullable, copy) NSArray *giftCertificates;
-@property (nonatomic, readonly, nullable, copy) NSArray *deals;
+@property (nonatomic, readonly, copy) NSArray<YLPCategory *> *categories;
+@property (nonatomic, readonly, nullable, copy) NSArray<YLPReview *> *reviews;
+@property (nonatomic, readonly, nullable, copy) NSArray<YLPGiftCertificate *> *giftCertificates;
+@property (nonatomic, readonly, nullable, copy) NSArray<YLPDeal *> *deals;
 
 @property (nonatomic, readonly, copy) YLPLocation *location;
 
