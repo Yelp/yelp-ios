@@ -28,15 +28,15 @@
     NSString *baseStr = [self getLatLongStr];
     
     if (self.accuracy) {
-        baseStr = [self addAccuracyToBaseStr:baseStr];
+        baseStr = [self strWithAccuracy:baseStr];
     }
     
     if (self.altitude) {
-        baseStr = [self addAltitudeToBaseStr:baseStr];
+        baseStr = [self strWithAltitude:baseStr];
     }
     
     if (self.altitudeAccuracy) {
-        baseStr = [self addAltitudeAccuracyToBaseStr:baseStr];
+        baseStr = [self strWithAltitudeAccuracy:baseStr];
     }
     
     return baseStr;
@@ -46,15 +46,15 @@
    return [NSString stringWithFormat:@"%f,%f", self.latitude, self.longitude];
 }
 
-- (NSString *)addAccuracyToBaseStr:(NSString *)baseStr {
+- (NSString *)strWithAccuracy:(NSString *)baseStr {
     return [NSString stringWithFormat:@"%@,%f", baseStr, self.accuracy];
 }
 
-- (NSString *)addAltitudeToBaseStr:(NSString *)baseStr {
+- (NSString *)strWithAltitude:(NSString *)baseStr {
     return [NSString stringWithFormat:@"%@,%f", baseStr, self.altitude];
 }
 
-- (NSString *)addAltitudeAccuracyToBaseStr:(NSString *)baseStr {
+- (NSString *)strWithAltitudeAccuracy:(NSString *)baseStr {
     return [NSString stringWithFormat:@"%@,%f", baseStr, self.altitudeAccuracy];
 }
 

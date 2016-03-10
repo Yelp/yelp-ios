@@ -105,7 +105,6 @@
         return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.minimalResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
     }];
     
-    NSDictionary *expectedRegion = [self loadExpectedResponse:self.defaultResource][@"region"];
     [self.client getBusinessWithPhoneNumber:@"4151231234" completionHandler:^(YLPPhoneSearch *phoneSearchResults, NSError *error) {
         YLPRegion *actualRegion = phoneSearchResults.region;
         XCTAssertNil(actualRegion);

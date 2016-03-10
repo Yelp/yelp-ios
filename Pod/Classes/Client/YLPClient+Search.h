@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getSearchWithLocation:(NSString *)location cll:(nullable YLPCll*)cll term:(nullable NSString *)term limit:(NSUInteger)limit offset:(NSUInteger)offset sort:(NSUInteger)sort completionHandler:(void (^)(YLPSearch * _Nullable search, NSError * _Nullable error))completionHandler;
 
-- (void)getSearchWithLocation:(NSString *)location completionHandler:(nullable void (^)(YLPSearch * _Nullable search, NSError * _Nullable error))completionHandler;
+- (void)getSearchWithLocation:(NSString *)location completionHandler:(void (^)(YLPSearch * _Nullable search, NSError * _Nullable error))completionHandler;
 
 @end
 

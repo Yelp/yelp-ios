@@ -13,18 +13,23 @@
 - (instancetype)initWithDictionary:(NSDictionary *)searchDict {
     if (self = [super init]) {
         _total = [searchDict[@"total"] intValue];
-        [self setBusinesses:searchDict[@"businesses"]];
-        _region = [[YLPRegion alloc] initWithDictionary:searchDict[@"region"]];
+        _businesses = [self.class businessesFromJSONArray:searchDict[@"businesses"]];
+        if (searchDict[@"region"]) {
+            _region = [[YLPRegion alloc] initWithDictionary:searchDict[@"region"]];
+        }
     }
     
     return self;
 }
 
-- (void)setBusinesses:(NSArray *)businesses {
-    NSMutableArray<YLPBusiness *> *mutableBusinesses = [[NSMutableArray alloc] init];
-    for (NSDictionary *business in businesses) {
-        [mutableBusinesses addObject:[[YLPBusiness alloc] initWithDictionary:business]];
++ (NSArray *)businessesFromJSONArray:(NSArray *)businessesJSON {
+    NSMutableArray<YLPBusiness *> *mutableBusinessesJSON = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *business in businessesJSON) {
+        [mutableBusinessesJSON addObject:[[YLPBusiness alloc] initWithDictionary:business]];
     }
-    _businesses = mutableBusinesses;
+    
+    return mutableBusinessesJSON;
 }
+
 @end

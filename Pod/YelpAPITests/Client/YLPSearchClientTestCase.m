@@ -59,8 +59,7 @@
     [self.client getSearchWithLocation:location cll:cll term:expectedTerm limit:expectedLimit offset:0 sort:YLPSortTypeBestMatched completionHandler:^(YLPSearch *search, NSError *error) {}];
     
     NSDictionary *expectedDict = @{@"term": expectedTerm, @"limit": [NSNumber numberWithInteger:expectedLimit], @"location": location, @"cll": cll.toString};
-    
-    OCMVerify([mockSearchRequestWithAllArgs getSearchWithParams:expectedDict completionHandler:[OCMArg any]]);
+    OCMExpect([mockSearchRequestWithAllArgs getSearchWithParams:expectedDict completionHandler:[OCMArg any]]);
 }
 
 - (void)testGetSearchWithLocationCreatesExpectedParams {
