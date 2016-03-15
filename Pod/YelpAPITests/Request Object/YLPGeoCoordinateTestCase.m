@@ -32,7 +32,7 @@
 - (void)testGeoCoordinateFullStrRepresentation{
     YLPGeoCoordinate *geoCoord = [[YLPGeoCoordinate alloc] initWithLatitude:self.expectedLatitude longitude:self.expectedLongitude accuracy:self.expectedAccuracy altitude:self.expectedAltitude altitudeAccuracy:self.expectedAltitudeAccuracy];
     NSString *expectedStr = [NSString stringWithFormat:@"%f,%f,%f,%f,%f", self.expectedLatitude, self.expectedLongitude, self.expectedAccuracy, self.expectedAltitude, self.expectedAltitudeAccuracy];
-    XCTAssertEqualObjects([geoCoord toString], expectedStr);
+    XCTAssertEqualObjects(geoCoord.description, expectedStr);
 }
 
 @end

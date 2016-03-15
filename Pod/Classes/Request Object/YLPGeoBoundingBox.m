@@ -7,22 +7,21 @@
 //
 
 #import "YLPGeoBoundingBox.h"
+#import "YLPCoordinate.h"
+#import "YLPResponsePrivate.h"
 
 @implementation YLPGeoBoundingBox
 
 - (instancetype)initWithSouthWestLongitude:(double)southWestLongitude southWestLatitude:(double)southWestLatitude northEastLatitude:(double)northEastLatitude northEastLongitude:(double)northEastLongitude {
     if (self = [super init]) {
-        _southWestLatitude = southWestLatitude;
-        _southWestLongitude = southWestLongitude;
-        
-        _northEastLatitude = northEastLatitude;
-        _northEastLongitude = northEastLongitude;
+        _southWestCoordinate = [[YLPCoordinate alloc] initWithLatitude:southWestLatitude longitude:southWestLongitude];
+        _northEastCoordinate = [[YLPCoordinate alloc] initWithLatitude:northEastLatitude longitude:northEastLongitude];
     }
     
     return self;
 }
 
-- (NSString *)toString {
-    return [NSString stringWithFormat:@"%f,%f|%f,%f", self.southWestLatitude, self.southWestLongitude, self.northEastLatitude, self.northEastLongitude];
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%f,%f|%f,%f", self.southWestCoordinate.latitude, self.southWestCoordinate.longitude, self.northEastCoordinate.latitude, self.northEastCoordinate.longitude];
 }
 @end

@@ -7,22 +7,23 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <YelpAPI/YLPCll.h>
+#import <YelpAPI/YLPCurrentLatLong.h>
 
-@interface YLPCllTestCase : XCTestCase
+@interface YLPCurrentLatLongTestCase : XCTestCase
 
 @end
 
-@implementation YLPCllTestCase
+@implementation YLPCurrentLatLongTestCase
 
 - (void)testCLLReturnsExpectedString {
     double expectedLat = 30.12;
     double expectedLong = -122.22;
-    YLPCll *cll = [[YLPCll alloc] initWithLatitude:expectedLat longitude:expectedLong];
+    
+    YLPCurrentLatLong *cll = [[YLPCurrentLatLong alloc] initWithLatitude:expectedLat longitude:expectedLong];
     
     NSString *expectedString = [NSString stringWithFormat:@"%f,%f", expectedLat, expectedLong];
     
-    XCTAssertEqualObjects(expectedString, cll.toString);
+    XCTAssertEqualObjects(expectedString, cll.description);
 }
 
 @end

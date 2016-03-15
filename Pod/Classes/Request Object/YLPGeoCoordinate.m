@@ -7,14 +7,15 @@
 //
 
 #import "YLPGeoCoordinate.h"
+#import "YLPCoordinate.h"
+#import "YLPResponsePrivate.h"
 
 @implementation YLPGeoCoordinate
 
 - (instancetype)initWithLatitude:(double)latitude longitude:(double)longitude accuracy:(double)accuracy altitude:(double)altitude altitudeAccuracy:(double)altitudeAccuracy {
     
     if (self = [super init]) {
-        _latitude = latitude;
-        _longitude = longitude;
+        _coordinate = [[YLPCoordinate alloc] initWithLatitude:latitude longitude:longitude];
         _accuracy = accuracy;
         _altitude = altitude;
         _altitudeAccuracy = altitudeAccuracy;
@@ -24,7 +25,7 @@
     
 }
 
-- (NSString *)toString {
+- (NSString *)description {
     NSString *baseStr = [self getLatLongStr];
     
     if (self.accuracy) {
@@ -43,7 +44,7 @@
 }
 
 - (NSString *)getLatLongStr {
-   return [NSString stringWithFormat:@"%f,%f", self.latitude, self.longitude];
+   return [NSString stringWithFormat:@"%f,%f", self.coordinate.latitude, self.coordinate.longitude];
 }
 
 - (NSString *)strWithAccuracy:(NSString *)baseStr {

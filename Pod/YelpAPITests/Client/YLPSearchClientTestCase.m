@@ -11,9 +11,11 @@
 #import <OHHTTPStubs/OHPathHelpers.h>
 #import <YelpAPI/YLPBusiness.h>
 #import <YelpAPI/YLPClient+Search.h>
-#import <YelpAPI/YLPCll.h>
+#import <YelpAPI/YLPCurrentLatLong.h>
 #import <YelpAPI/YLPCoordinate.h>
 #import <YelpAPI/YLPCoordinateDelta.h>
+#import <YelpAPI/YLPGeoBoundingBox.h>
+#import <YelpAPI/YLPGeoCoordinate.h>
 #import <YelpAPI/YLPRegion.h>
 #import <YelpAPI/YLPSearch.h>
 #import <YelpAPI/YLPSortType.h>
@@ -53,12 +55,12 @@
     NSString *expectedTerm = @"some test term";
     double expectedLat = 30.1112322223;
     double expectedLong = -122.332322199980;
-    YLPCll *cll = [[YLPCll alloc] initWithLatitude:expectedLat longitude:expectedLong];
+    YLPCurrentLatLong *cll = [[YLPCurrentLatLong alloc] initWithLatitude:expectedLat longitude:expectedLong];
     NSUInteger expectedLimit = 3;
+    [self.client getSearchWithLocation:location currentLatLong:cll term:expectedTerm limit:expectedLimit offset:0 sort:YLPSortTypeBestMatched completionHandler:^(YLPSearch *search, NSError *error) {}];
     
-    [self.client getSearchWithLocation:location cll:cll term:expectedTerm limit:expectedLimit offset:0 sort:YLPSortTypeBestMatched completionHandler:^(YLPSearch *search, NSError *error) {}];
     
-    NSDictionary *expectedDict = @{@"term": expectedTerm, @"limit": [NSNumber numberWithInteger:expectedLimit], @"location": location, @"cll": cll.toString};
+    NSDictionary *expectedDict = @{@"term": expectedTerm, @"limit": [NSNumber numberWithInteger:expectedLimit], @"location": location, @"cll": cll.description};
     OCMExpect([mockSearchRequestWithAllArgs getSearchWithParams:expectedDict completionHandler:[OCMArg any]]);
 }
 
@@ -67,8 +69,27 @@
     NSString *location = @"San Fransokyo";
     [self.client getSearchWithLocation:location completionHandler:^(YLPSearch *search, NSError *error) {}];
     
-    NSDictionary *expectedDict = @{@"location": location};
-    OCMVerify([mockSearchRequestWithAllArgs getSearchWithParams:expectedDict completionHandler:[OCMArg any]]);
+    OCMExpect([mockSearchRequestWithAllArgs getSearchWithParams:@{@"location": location} completionHandler:[OCMArg any]]);
+    
+}
+
+- (void)testGetSearchWithBoundsCreatesExpectedParams {
+    id mockSearchRequestWithAllArgs = [self mockSearchRequestWithAllArgs];
+    
+    YLPGeoBoundingBox *bounds = [[YLPGeoBoundingBox alloc] initWithSouthWestLongitude:1 southWestLatitude:1.2 northEastLatitude:1.3 northEastLongitude:1.5];
+    [self.client getSearchWithBounds:bounds completionHandler:^(YLPSearch *search, NSError *error) {}];
+    
+    OCMExpect([mockSearchRequestWithAllArgs getSearchWithParams:@{@"bounds": bounds} completionHandler:[OCMArg any]]);
+}
+
+- (void)testGetSearchWithGeoCoordCreatesExpectedParams {
+    id mockSearchRequestWithAllArgs = [self mockSearchRequestWithAllArgs];
+    
+    YLPGeoCoordinate *coordinate = [[YLPGeoCoordinate alloc] initWithLatitude:10 longitude:20 accuracy:15 altitude:12 altitudeAccuracy:1];
+    
+    [self.client getSearchWithGeoCoordinate:coordinate completionHandler:^(YLPSearch *search, NSError *error) {}];
+    
+    OCMExpect([mockSearchRequestWithAllArgs getSearchWithParams:@{@"ll": coordinate} completionHandler:[OCMArg any]]);
     
 }
 

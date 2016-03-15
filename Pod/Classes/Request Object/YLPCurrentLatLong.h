@@ -6,15 +6,14 @@
 //
 //
 
+@class YLPCoordinate;
+
 NS_ASSUME_NONNULL_BEGIN
+@interface YLPCurrentLatLong : NSObject
 
-@interface YLPCll : NSObject
-
-@property (nonatomic, readonly) double latitude;
-@property (nonatomic, readonly) double longitude;
+@property (nonatomic, copy, readonly) YLPCoordinate *coordinate;
 
 - (instancetype)initWithLatitude:(double)latitude longitude:(double)longitude;
-- (NSString *)toString;
 
 @end
 

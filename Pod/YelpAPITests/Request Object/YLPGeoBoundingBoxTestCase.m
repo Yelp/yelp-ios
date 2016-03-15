@@ -24,7 +24,7 @@
     
     YLPGeoBoundingBox *geoBoundingBox = [[YLPGeoBoundingBox alloc] initWithSouthWestLongitude:swLong southWestLatitude:swLat northEastLatitude:neLat northEastLongitude:neLong];
     NSString *expected = [NSString stringWithFormat:@"%f,%f|%f,%f", swLat, swLong, neLat, neLong];
-    XCTAssertEqualObjects([geoBoundingBox toString], expected);
+    XCTAssertEqualObjects(geoBoundingBox.description, expected);
 }
 
 @end

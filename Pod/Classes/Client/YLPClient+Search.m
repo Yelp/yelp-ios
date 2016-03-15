@@ -8,18 +8,57 @@
 
 #import "YLPSearch.h"
 #import "YLPClient+Search.h"
-#import "YLPCll.h"
+#import "YLPCurrentLatLong.h"
+#import "YLPGeoBoundingBox.h"
+#import "YLPGeoCoordinate.h"
 #import "YLPResponsePrivate.h"
 #import "YLPClientPrivate.h"
 
 @implementation YLPClient (Search)
 
-- (void)getSearchWithLocation:(NSString *)location cll:(YLPCll *)cll term:(NSString *)term limit:(NSUInteger)limit offset:(NSUInteger)offset sort:(NSUInteger)sort completionHandler:(void (^)(YLPSearch *search, NSError *error))completionHandler {
+- (void)getSearchWithLocation:(NSString *)location completionHandler:(void (^)(YLPSearch *search, NSError *error))completionHandler {
+    
+    NSDictionary *params = @{@"location": location};
+    [self getSearchWithParams:params completionHandler:completionHandler];
+}
+
+- (void)getSearchWithLocation:(NSString *)location currentLatLong:(YLPCurrentLatLong *)cll term:(NSString *)term limit:(NSUInteger)limit offset:(NSUInteger)offset sort:(NSUInteger)sort completionHandler:(void (^)(YLPSearch *search, NSError *error))completionHandler {
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"location": location}];
+    [self buildParamsAndCallSearch:params currentLatLong:cll term:term limit:limit offset:offset sort:sort completionHandler:completionHandler];
+}
+
+- (void)getSearchWithBounds:(YLPGeoBoundingBox *)bounds currentLatLong:(YLPCurrentLatLong *)cll term:(NSString *)term limit:(NSUInteger)limit offset:(NSUInteger)offset sort:(NSUInteger)sort completionHandler:(void (^)(YLPSearch *search, NSError *error))completionHandler {
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"bounds": bounds.description}];
+    [self buildParamsAndCallSearch:params currentLatLong:cll term:term limit:limit offset:offset sort:sort completionHandler:completionHandler];
+}
+
+- (void)getSearchWithBounds:(YLPGeoBoundingBox *)bounds completionHandler:(void (^)(YLPSearch *search, NSError *error))completionHandler {
+    
+    [self getSearchWithBounds:bounds currentLatLong:nil term:nil limit:0 offset:0 sort:0 completionHandler:completionHandler];
+}
+
+- (void)getSearchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate currentLatLong:(YLPCurrentLatLong *)cll term:(NSString *)term limit:(NSUInteger)limit offset:(NSUInteger)offset sort:(NSUInteger)sort completionHandler:(void (^)(YLPSearch *search, NSError *error))completionHandler {
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"ll": geoCoordinate.description}];
+    [self buildParamsAndCallSearch:params currentLatLong:cll term:term limit:limit offset:offset sort:sort completionHandler:completionHandler];
+}
+
+- (void)getSearchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordiante completionHandler:(void (^)(YLPSearch *search, NSError *error))completionHandler {
+    [self getSearchWithGeoCoordinate:geoCoordiante currentLatLong:nil term:nil limit:0 offset:0 sort:0 completionHandler:completionHandler];
+}
+
+- (void)buildParamsAndCallSearch:(NSMutableDictionary *)params currentLatLong:(YLPCurrentLatLong *)cll term:(NSString *)term limit:(NSUInteger)limit offset:(NSUInteger)offset sort:(NSUInteger)sort completionHandler:(void (^)(YLPSearch *search, NSError *error))completionHandler {
+    [params addEntriesFromDictionary:[self buildParamsFromTerm:term currentLatLong:cll limit:limit offset:offset sort:sort]];
+    [self getSearchWithParams:params completionHandler:completionHandler];
+}
+
+- (NSDictionary *)buildParamsFromTerm:(NSString *)term currentLatLong:(YLPCurrentLatLong *)cll limit:(NSUInteger)limit offset:(NSUInteger)offset sort:(NSUInteger) sort {
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
     if (cll) {
-        params[@"cll"] = cll.toString;
+        params[@"cll"] = cll.description;
     }
     if (term) {
         params[@"term"] = term;
@@ -34,7 +73,7 @@
         params[@"sort"] = [NSNumber numberWithInteger:sort];
     }
     
-    [self getSearchWithParams:[NSDictionary dictionaryWithDictionary:params] completionHandler:completionHandler];
+    return params;
 }
 
 - (NSURLRequest *)searchRequestWithParams:(NSDictionary *)params {
@@ -54,11 +93,6 @@
         
     }];
     
-}
-
-- (void)getSearchWithLocation:(NSString *)location completionHandler:(void (^)(YLPSearch *search, NSError *error))completionHandler {
-    NSDictionary *params = @{@"location": location};
-    [self getSearchWithParams:params completionHandler:completionHandler];
 }
 
 @end
