@@ -14,7 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) YLPCoordinate *southWestCoordinate;
 @property (nonatomic, copy, readonly) YLPCoordinate *northEastCoordinate;
 
-- (instancetype)initWithSouthWestLongitude:(double)southWestLongitude southWestLatitude:(double)southWestLatitude northEastLatitude:(double)northEastLatitude northEastLongitude:(double)northEastLongitude;
+- (instancetype)initWithSouthWestLongitude:(double)southWestLongitude
+                         southWestLatitude:(double)southWestLatitude
+                         northEastLatitude:(double)northEastLatitude
+                        northEastLongitude:(double)northEastLongitude;
 
 @end
 

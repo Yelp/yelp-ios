@@ -14,18 +14,24 @@
 
 @implementation YLPClient (PhoneSearch)
 
-- (NSURLRequest *)businessRequestWithPhoneNumber:(NSString *)phoneNumber params:(NSDictionary *)params {
-    NSString *phoneSearchPath = [@"/v2/phone_search/" stringByAppendingString:phoneNumber];
+- (NSURLRequest *)businessRequestWithPhoneNumber:(NSString *)phoneNumber
+                                          params:(NSDictionary *)params {
     
+    NSString *phoneSearchPath = [@"/v2/phone_search/" stringByAppendingString:phoneNumber];
     return [self requestWithPath:phoneSearchPath params:params];
 }
 
-- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber completionHandler:(void (^)(YLPPhoneSearch *phoneSearch, NSError *error))completionHandler {
-    [self getBusinessWithPhoneNumber:phoneNumber params:nil completionHandler:completionHandler];
+- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber
+                 completionHandler:(void (^)(YLPPhoneSearch *phoneSearch, NSError *error))completionHandler {
     
+    [self getBusinessWithPhoneNumber:phoneNumber params:nil completionHandler:completionHandler];
 }
 
-- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber countryCode:(NSString *)countryCode category:(NSString *)category completionHandler:(void (^)(YLPPhoneSearch *phoneSearch, NSError *error))completionHandler {
+- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber
+                       countryCode:(NSString *)countryCode
+                          category:(NSString *)category
+                 completionHandler:(void (^)(YLPPhoneSearch *phoneSearch, NSError *error))completionHandler {
+    
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
     if (countryCode) {
@@ -38,7 +44,9 @@
     
 }
 
-- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber params:(NSDictionary *)params completionHandler:(void (^)(YLPPhoneSearch *phoneSearch, NSError *error))completionHandler {
+- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber
+                            params:(NSDictionary *)params
+                 completionHandler:(void (^)(YLPPhoneSearch *phoneSearch, NSError *error))completionHandler {
     
     NSURLRequest *req = [self businessRequestWithPhoneNumber:phoneNumber params:params];
     

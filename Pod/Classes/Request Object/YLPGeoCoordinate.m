@@ -12,7 +12,11 @@
 
 @implementation YLPGeoCoordinate
 
-- (instancetype)initWithLatitude:(double)latitude longitude:(double)longitude accuracy:(double)accuracy altitude:(double)altitude altitudeAccuracy:(double)altitudeAccuracy {
+- (instancetype)initWithLatitude:(double)latitude
+                       longitude:(double)longitude
+                        accuracy:(double)accuracy
+                        altitude:(double)altitude
+                altitudeAccuracy:(double)altitudeAccuracy {
     
     if (self = [super init]) {
         _coordinate = [[YLPCoordinate alloc] initWithLatitude:latitude longitude:longitude];

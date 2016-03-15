@@ -17,7 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) double altitude;
 @property (nonatomic, readonly) double altitudeAccuracy;
 
-- (instancetype)initWithLatitude:(double)latitude longitude:(double)longitude accuracy:(double)accuracy altitude:(double)altitude altitudeAccuracy:(double)altitudeAccuracy;
+- (instancetype)initWithLatitude:(double)latitude
+                       longitude:(double)longitude
+                        accuracy:(double)accuracy
+                        altitude:(double)altitude
+                altitudeAccuracy:(double)altitudeAccuracy;
 
 @end
 

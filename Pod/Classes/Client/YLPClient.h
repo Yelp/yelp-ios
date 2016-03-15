@@ -11,7 +11,10 @@ extern NSString *const kYLPAPIHost;
 
 @interface YLPClient : NSObject
 
-- (instancetype)initWithConsumerKey:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret token:(NSString *)token tokenSecret:(NSString *)tokenSecret;
+- (instancetype)initWithConsumerKey:(NSString *)consumerKey
+                     consumerSecret:(NSString *)consumerSecret
+                              token:(NSString *)token
+                        tokenSecret:(NSString *)tokenSecret;
 
 @end
 

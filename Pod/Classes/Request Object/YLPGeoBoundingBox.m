@@ -12,7 +12,11 @@
 
 @implementation YLPGeoBoundingBox
 
-- (instancetype)initWithSouthWestLongitude:(double)southWestLongitude southWestLatitude:(double)southWestLatitude northEastLatitude:(double)northEastLatitude northEastLongitude:(double)northEastLongitude {
+- (instancetype)initWithSouthWestLongitude:(double)southWestLongitude
+                         southWestLatitude:(double)southWestLatitude
+                         northEastLatitude:(double)northEastLatitude
+                        northEastLongitude:(double)northEastLongitude {
+    
     if (self = [super init]) {
         _southWestCoordinate = [[YLPCoordinate alloc] initWithLatitude:southWestLatitude longitude:southWestLongitude];
         _northEastCoordinate = [[YLPCoordinate alloc] initWithLatitude:northEastLatitude longitude:northEastLongitude];

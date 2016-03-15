@@ -13,16 +13,26 @@
 
 @implementation YLPClient (Business)
 
-- (NSURLRequest *)businessRequestWithId:(NSString *)businessId params:(NSDictionary *)params {
+- (NSURLRequest *)businessRequestWithId:(NSString *)businessId
+                                 params:(NSDictionary *)params {
+    
     NSString *businessPath = [@"/v2/business/" stringByAppendingString:businessId];
     return [self requestWithPath:businessPath params:params];
 }
 
-- (void)getBusinessWithId:(NSString *)businessId completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler {
+- (void)getBusinessWithId:(NSString *)businessId
+        completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler {
+    
     [self getBusinessWithId:businessId params:nil completionHandler:completionHandler];
 }
 
-- (void)getBusinessWithId:(NSString *)businessId countryCode:(NSString *)countryCode languageCode:(NSString *)languageCode languageFilter:(BOOL)languageFilter actionLinks:(BOOL)actionLinks completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler {
+- (void)getBusinessWithId:(NSString *)businessId
+              countryCode:(NSString *)countryCode
+             languageCode:(NSString *)languageCode
+           languageFilter:(BOOL)languageFilter
+              actionLinks:(BOOL)actionLinks
+        completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler {
+    
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{
                                     @"lang_filter": @(languageFilter),
                                     @"actionlinks": @(actionLinks)
@@ -36,7 +46,10 @@
     [self getBusinessWithId:businessId params:params completionHandler:completionHandler];
 }
 
-- (void)getBusinessWithId:(NSString *)businessId params:(NSDictionary *)params completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler {
+- (void)getBusinessWithId:(NSString *)businessId
+                   params:(NSDictionary *)params
+        completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler {
+    
     NSURLRequest *req = [self businessRequestWithId:businessId params:params];
     [self queryWithRequest:req completionHandler:^(NSDictionary *responseDict, NSError *error) {
         if (error) {
