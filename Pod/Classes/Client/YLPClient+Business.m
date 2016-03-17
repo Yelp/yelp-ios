@@ -31,7 +31,7 @@
              languageCode:(NSString *)languageCode
            languageFilter:(BOOL)languageFilter
               actionLinks:(BOOL)actionLinks
-        completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler {
+        completionHandler:(YLPBusinessCompletionHandler)completionHandler {
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{
                                     @"lang_filter": @(languageFilter),
@@ -48,7 +48,7 @@
 
 - (void)getBusinessWithId:(NSString *)businessId
                    params:(NSDictionary *)params
-        completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler {
+        completionHandler:(YLPBusinessCompletionHandler)completionHandler {
     
     NSURLRequest *req = [self businessRequestWithId:businessId params:params];
     [self queryWithRequest:req completionHandler:^(NSDictionary *responseDict, NSError *error) {

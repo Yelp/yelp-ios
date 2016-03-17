@@ -22,7 +22,7 @@
 }
 
 - (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber
-                 completionHandler:(void (^)(YLPPhoneSearch *phoneSearch, NSError *error))completionHandler {
+                 completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler {
     
     [self getBusinessWithPhoneNumber:phoneNumber params:nil completionHandler:completionHandler];
 }
@@ -30,7 +30,7 @@
 - (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber
                        countryCode:(NSString *)countryCode
                           category:(NSString *)category
-                 completionHandler:(void (^)(YLPPhoneSearch *phoneSearch, NSError *error))completionHandler {
+                 completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler {
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
@@ -46,7 +46,7 @@
 
 - (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber
                             params:(NSDictionary *)params
-                 completionHandler:(void (^)(YLPPhoneSearch *phoneSearch, NSError *error))completionHandler {
+                 completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler {
     
     NSURLRequest *req = [self businessRequestWithPhoneNumber:phoneNumber params:params];
     

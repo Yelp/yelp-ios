@@ -30,37 +30,37 @@
 }
 
 - (NSString *)description {
-    NSString *baseStr = [self getLatLongStr];
+    NSString *baseString = [self latLongString];
     
     if (self.accuracy) {
-        baseStr = [self strWithAccuracy:baseStr];
+        baseString = [self accuracyDescription:baseString];
     }
     
     if (self.altitude) {
-        baseStr = [self strWithAltitude:baseStr];
+        baseString = [self altitudeDescription:baseString];
     }
     
     if (self.altitudeAccuracy) {
-        baseStr = [self strWithAltitudeAccuracy:baseStr];
+        baseString = [self altitudeAccuracyDescription:baseString];
     }
     
-    return baseStr;
+    return baseString;
 }
 
-- (NSString *)getLatLongStr {
+- (NSString *)latLongString {
    return [NSString stringWithFormat:@"%f,%f", self.coordinate.latitude, self.coordinate.longitude];
 }
 
-- (NSString *)strWithAccuracy:(NSString *)baseStr {
-    return [NSString stringWithFormat:@"%@,%f", baseStr, self.accuracy];
+- (NSString *)accuracyDescription:(NSString *)baseString {
+    return [NSString stringWithFormat:@"%@,%f", baseString, self.accuracy];
 }
 
-- (NSString *)strWithAltitude:(NSString *)baseStr {
-    return [NSString stringWithFormat:@"%@,%f", baseStr, self.altitude];
+- (NSString *)altitudeDescription:(NSString *)baseString {
+    return [NSString stringWithFormat:@"%@,%f", baseString, self.altitude];
 }
 
-- (NSString *)strWithAltitudeAccuracy:(NSString *)baseStr {
-    return [NSString stringWithFormat:@"%@,%f", baseStr, self.altitudeAccuracy];
+- (NSString *)altitudeAccuracyDescription:(NSString *)baseString {
+    return [NSString stringWithFormat:@"%@,%f", baseString, self.altitudeAccuracy];
 }
 
 @end
