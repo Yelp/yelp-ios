@@ -11,9 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPClient (PhoneSearch)
-
 typedef void(^YLPPhoneSearchCompletionHandler)(YLPPhoneSearch * _Nullable phoneSearch, NSError * _Nullable error);
+
+@interface YLPClient (PhoneSearch)
 
 - (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber
                        countryCode:(nullable NSString *)countryCode

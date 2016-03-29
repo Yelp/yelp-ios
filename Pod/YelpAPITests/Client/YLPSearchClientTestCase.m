@@ -11,7 +11,7 @@
 #import <OHHTTPStubs/OHPathHelpers.h>
 #import <YelpAPI/YLPBusiness.h>
 #import <YelpAPI/YLPClient+Search.h>
-#import <YelpAPI/YLPCurrentLatLong.h>
+#import <YelpAPI/YLPCommonPrivate.h>
 #import <YelpAPI/YLPCoordinate.h>
 #import <YelpAPI/YLPCoordinateDelta.h>
 #import <YelpAPI/YLPGeoBoundingBox.h>
@@ -55,7 +55,7 @@
     NSString *expectedTerm = @"some test term";
     double expectedLat = 30.1112322223;
     double expectedLong = -122.332322199980;
-    YLPCurrentLatLong *cll = [[YLPCurrentLatLong alloc] initWithLatitude:expectedLat longitude:expectedLong];
+    YLPCoordinate *cll = [[YLPCoordinate alloc] initWithLatitude:expectedLat longitude:expectedLong];
     NSUInteger expectedLimit = 3;
     [self.client getSearchWithLocation:location currentLatLong:cll term:expectedTerm limit:expectedLimit offset:0 sort:YLPSortTypeBestMatched completionHandler:^(YLPSearch *search, NSError *error) {}];
     

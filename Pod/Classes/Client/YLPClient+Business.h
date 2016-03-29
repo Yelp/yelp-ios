@@ -11,9 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPClient (Business)
-
 typedef void(^YLPBusinessCompletionHandler)(YLPBusiness * _Nullable business, NSError * _Nullable error);
+
+@interface YLPClient (Business)
 
 - (void)getBusinessWithId:(NSString *)businessId
         completionHandler:(YLPBusinessCompletionHandler)completionHandler;

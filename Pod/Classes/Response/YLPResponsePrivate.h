@@ -7,7 +7,6 @@
 //
 #import "YLPBusiness.h"
 #import "YLPCategory.h"
-#import "YLPCoordinate.h"
 #import "YLPCoordinateDelta.h"
 #import "YLPDeal.h"
 #import "YLPDealOption.h"
@@ -28,10 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPCategory ()
 - (instancetype)initWithName:(NSString *)name alias:(NSString *)alias;
-@end
-
-@interface YLPCoordinate ()
-- (instancetype)initWithLatitude:(double)latitude longitude:(double)longitude;
 @end
 
 @interface YLPCoordinateDelta ()

@@ -15,9 +15,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPClient (Search)
-
 typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *_Nullable error);
+
+@interface YLPClient (Search)
 
 - (void)getSearchWithLocation:(NSString *)location
                currentLatLong:(nullable YLPCurrentLatLong *)cll
@@ -28,7 +28,7 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
             completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)getSearchWithLocation:(NSString *)location
-            completionHandler:(void (^)(YLPSearch * _Nullable search, NSError * _Nullable error))completionHandler;
+            completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)getSearchWithBounds:(YLPGeoBoundingBox *)bounds
              currentLatLong:(nullable YLPCurrentLatLong *)cll

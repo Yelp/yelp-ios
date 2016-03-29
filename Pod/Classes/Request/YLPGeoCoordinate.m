@@ -7,8 +7,7 @@
 //
 
 #import "YLPGeoCoordinate.h"
-#import "YLPCoordinate.h"
-#import "YLPResponsePrivate.h"
+#import "YLPCommonPrivate.h"
 
 @implementation YLPGeoCoordinate
 

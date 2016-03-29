@@ -7,7 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <YelpAPI/YLPCurrentLatLong.h>
+#import <YelpAPI/YLPCoordinate.h>
+#import <YelpAPI/YLPCommonPrivate.h>
 
 @interface YLPCurrentLatLongTestCase : XCTestCase
 
@@ -19,7 +20,7 @@
     double expectedLat = 30.12;
     double expectedLong = -122.22;
     
-    YLPCurrentLatLong *cll = [[YLPCurrentLatLong alloc] initWithLatitude:expectedLat longitude:expectedLong];
+    YLPCoordinate *cll = [[YLPCoordinate alloc] initWithLatitude:expectedLat longitude:expectedLong];
     
     NSString *expectedString = [NSString stringWithFormat:@"%f,%f", expectedLat, expectedLong];
     

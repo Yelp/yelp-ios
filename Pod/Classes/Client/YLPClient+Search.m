@@ -8,7 +8,7 @@
 
 #import "YLPSearch.h"
 #import "YLPClient+Search.h"
-#import "YLPCurrentLatLong.h"
+#import "YLPCoordinate.h"
 #import "YLPGeoBoundingBox.h"
 #import "YLPGeoCoordinate.h"
 #import "YLPResponsePrivate.h"
@@ -24,7 +24,7 @@
 }
 
 - (void)getSearchWithLocation:(NSString *)location
-               currentLatLong:(YLPCurrentLatLong *)cll
+               currentLatLong:(YLPCoordinate *)cll
                          term:(NSString *)term
                         limit:(NSUInteger)limit
                        offset:(NSUInteger)offset
@@ -36,7 +36,7 @@
 }
 
 - (void)getSearchWithBounds:(YLPGeoBoundingBox *)bounds
-             currentLatLong:(YLPCurrentLatLong *)cll
+             currentLatLong:(YLPCoordinate *)cll
                        term:(NSString *)term limit:(NSUInteger)limit
                      offset:(NSUInteger)offset
                        sort:(NSUInteger)sort
@@ -53,7 +53,7 @@
 }
 
 - (void)getSearchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
-                    currentLatLong:(YLPCurrentLatLong *)cll
+                    currentLatLong:(YLPCoordinate *)cll
                               term:(NSString *)term limit:(NSUInteger)limit
                             offset:(NSUInteger)offset
                               sort:(NSUInteger)sort
@@ -70,7 +70,7 @@
 }
 
 - (void)buildParamsAndCallSearch:(NSMutableDictionary *)params
-                  currentLatLong:(YLPCurrentLatLong *)cll
+                  currentLatLong:(YLPCoordinate *)cll
                             term:(NSString *)term
                            limit:(NSUInteger)limit
                           offset:(NSUInteger)offset
@@ -82,7 +82,7 @@
 }
 
 - (NSDictionary *)paramsWithTerm:(NSString *)term
-                       currentLatLong:(YLPCurrentLatLong *)cll
+                       currentLatLong:(YLPCoordinate *)cll
                                 limit:(NSUInteger)limit
                                offset:(NSUInteger)offset
                                  sort:(NSUInteger) sort {
