@@ -15,12 +15,12 @@ typedef void(^YLPPhoneSearchCompletionHandler)(YLPPhoneSearch * _Nullable phoneS
 
 @interface YLPClient (PhoneSearch)
 
-- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber
+- (void)businessWithPhoneNumber:(NSString *)phoneNumber
                        countryCode:(nullable NSString *)countryCode
                           category:(nullable NSString *)category
                  completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler;
 
-- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber
+- (void)businessWithPhoneNumber:(NSString *)phoneNumber
                  completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler;
 
 @end

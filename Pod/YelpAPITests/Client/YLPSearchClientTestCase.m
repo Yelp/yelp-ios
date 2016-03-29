@@ -26,7 +26,7 @@
 @end
 
 @interface YLPClient (SearchTest)
-- (void)getSearchWithParams:(NSDictionary *)params completionHandler:(void (^)(YLPSearch *search, NSError *error))completionHandler;
+- (void)searchWithParams:(NSDictionary *)params completionHandler:(void (^)(YLPSearch *search, NSError *error))completionHandler;
 @end
 
 @implementation YLPSearchClientTestCase
@@ -43,7 +43,7 @@
 
 - (id)mockSearchRequestWithAllArgs {
     id mockSearchRequestWithAllArgs = OCMPartialMock(self.client);
-    OCMStub([mockSearchRequestWithAllArgs getSearchWithParams:[OCMArg any] completionHandler:[OCMArg any]]);
+    OCMStub([mockSearchRequestWithAllArgs searchWithParams:[OCMArg any] completionHandler:[OCMArg any]]);
     
     return mockSearchRequestWithAllArgs;
     
@@ -57,19 +57,19 @@
     double expectedLong = -122.332322199980;
     YLPCoordinate *cll = [[YLPCoordinate alloc] initWithLatitude:expectedLat longitude:expectedLong];
     NSUInteger expectedLimit = 3;
-    [self.client getSearchWithLocation:location currentLatLong:cll term:expectedTerm limit:expectedLimit offset:0 sort:YLPSortTypeBestMatched completionHandler:^(YLPSearch *search, NSError *error) {}];
+    [self.client searchWithLocation:location currentLatLong:cll term:expectedTerm limit:expectedLimit offset:0 sort:YLPSortTypeBestMatched completionHandler:^(YLPSearch *search, NSError *error) {}];
     
     
     NSDictionary *expectedDict = @{@"term": expectedTerm, @"limit": [NSNumber numberWithInteger:expectedLimit], @"location": location, @"cll": cll.description};
-    OCMExpect([mockSearchRequestWithAllArgs getSearchWithParams:expectedDict completionHandler:[OCMArg any]]);
+    OCMExpect([mockSearchRequestWithAllArgs searchWithParams:expectedDict completionHandler:[OCMArg any]]);
 }
 
 - (void)testGetSearchWithLocationCreatesExpectedParams {
     id mockSearchRequestWithAllArgs = [self mockSearchRequestWithAllArgs];
     NSString *location = @"San Fransokyo";
-    [self.client getSearchWithLocation:location completionHandler:^(YLPSearch *search, NSError *error) {}];
+    [self.client searchWithLocation:location completionHandler:^(YLPSearch *search, NSError *error) {}];
     
-    OCMExpect([mockSearchRequestWithAllArgs getSearchWithParams:@{@"location": location} completionHandler:[OCMArg any]]);
+    OCMExpect([mockSearchRequestWithAllArgs searchWithParams:@{@"location": location} completionHandler:[OCMArg any]]);
     
 }
 
@@ -77,9 +77,9 @@
     id mockSearchRequestWithAllArgs = [self mockSearchRequestWithAllArgs];
     
     YLPGeoBoundingBox *bounds = [[YLPGeoBoundingBox alloc] initWithSouthWestLongitude:1 southWestLatitude:1.2 northEastLatitude:1.3 northEastLongitude:1.5];
-    [self.client getSearchWithBounds:bounds completionHandler:^(YLPSearch *search, NSError *error) {}];
+    [self.client searchWithBounds:bounds completionHandler:^(YLPSearch *search, NSError *error) {}];
     
-    OCMExpect([mockSearchRequestWithAllArgs getSearchWithParams:@{@"bounds": bounds} completionHandler:[OCMArg any]]);
+    OCMExpect([mockSearchRequestWithAllArgs searchWithParams:@{@"bounds": bounds} completionHandler:[OCMArg any]]);
 }
 
 - (void)testGetSearchWithGeoCoordCreatesExpectedParams {
@@ -87,9 +87,9 @@
     
     YLPGeoCoordinate *coordinate = [[YLPGeoCoordinate alloc] initWithLatitude:10 longitude:20 accuracy:15 altitude:12 altitudeAccuracy:1];
     
-    [self.client getSearchWithGeoCoordinate:coordinate completionHandler:^(YLPSearch *search, NSError *error) {}];
+    [self.client searchWithGeoCoordinate:coordinate completionHandler:^(YLPSearch *search, NSError *error) {}];
     
-    OCMExpect([mockSearchRequestWithAllArgs getSearchWithParams:@{@"ll": coordinate} completionHandler:[OCMArg any]]);
+    OCMExpect([mockSearchRequestWithAllArgs searchWithParams:@{@"ll": coordinate} completionHandler:[OCMArg any]]);
     
 }
 
@@ -103,7 +103,7 @@
     }];
     
     NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
-    [self.client getSearchWithLocation:@"Donut Land" completionHandler:^(YLPSearch *searchResults, NSError *error) {
+    [self.client searchWithLocation:@"Donut Land" completionHandler:^(YLPSearch *searchResults, NSError *error) {
         XCTAssertNil(error);
         YLPBusiness *actualFirstBiz = searchResults.businesses[0];
         NSDictionary *expectedFirstBiz = expectedResponse[@"businesses"][0];

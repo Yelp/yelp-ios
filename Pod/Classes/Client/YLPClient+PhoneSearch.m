@@ -21,13 +21,13 @@
     return [self requestWithPath:phoneSearchPath params:params];
 }
 
-- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber
+- (void)businessWithPhoneNumber:(NSString *)phoneNumber
                  completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler {
     
-    [self getBusinessWithPhoneNumber:phoneNumber params:nil completionHandler:completionHandler];
+    [self businessWithPhoneNumber:phoneNumber params:nil completionHandler:completionHandler];
 }
 
-- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber
+- (void)businessWithPhoneNumber:(NSString *)phoneNumber
                        countryCode:(NSString *)countryCode
                           category:(NSString *)category
                  completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler {
@@ -40,11 +40,11 @@
     if (category) {
         params[@"category"] = category;
     }
-    [self getBusinessWithPhoneNumber:phoneNumber params:[NSDictionary dictionaryWithDictionary:params] completionHandler:completionHandler];
+    [self businessWithPhoneNumber:phoneNumber params:[NSDictionary dictionaryWithDictionary:params] completionHandler:completionHandler];
     
 }
 
-- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber
+- (void)businessWithPhoneNumber:(NSString *)phoneNumber
                             params:(NSDictionary *)params
                  completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler {
     

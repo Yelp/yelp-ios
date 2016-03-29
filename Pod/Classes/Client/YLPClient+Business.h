@@ -15,10 +15,10 @@ typedef void(^YLPBusinessCompletionHandler)(YLPBusiness * _Nullable business, NS
 
 @interface YLPClient (Business)
 
-- (void)getBusinessWithId:(NSString *)businessId
+- (void)businessWithId:(NSString *)businessId
         completionHandler:(YLPBusinessCompletionHandler)completionHandler;
 
-- (void)getBusinessWithId:(NSString *)businessId
+- (void)businessWithId:(NSString *)businessId
               countryCode:(nullable NSString *)countryCode
              languageCode:(nullable NSString *)languageCode
            languageFilter:(BOOL)languageFilter

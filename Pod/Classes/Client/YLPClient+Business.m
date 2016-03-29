@@ -20,13 +20,13 @@
     return [self requestWithPath:businessPath params:params];
 }
 
-- (void)getBusinessWithId:(NSString *)businessId
+- (void)businessWithId:(NSString *)businessId
         completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler {
     
-    [self getBusinessWithId:businessId params:nil completionHandler:completionHandler];
+    [self businessWithId:businessId params:nil completionHandler:completionHandler];
 }
 
-- (void)getBusinessWithId:(NSString *)businessId
+- (void)businessWithId:(NSString *)businessId
               countryCode:(NSString *)countryCode
              languageCode:(NSString *)languageCode
            languageFilter:(BOOL)languageFilter
@@ -43,10 +43,10 @@
     if (languageCode) {
         params[@"lang"] = languageCode;
     }
-    [self getBusinessWithId:businessId params:params completionHandler:completionHandler];
+    [self businessWithId:businessId params:params completionHandler:completionHandler];
 }
 
-- (void)getBusinessWithId:(NSString *)businessId
+- (void)businessWithId:(NSString *)businessId
                    params:(NSDictionary *)params
         completionHandler:(YLPBusinessCompletionHandler)completionHandler {
     

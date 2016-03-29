@@ -19,7 +19,7 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
 
 @interface YLPClient (Search)
 
-- (void)getSearchWithLocation:(NSString *)location
+- (void)searchWithLocation:(NSString *)location
                currentLatLong:(nullable YLPCurrentLatLong *)cll
                          term:(nullable NSString *)term
                         limit:(NSUInteger)limit
@@ -27,10 +27,10 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
                          sort:(NSUInteger)sort
             completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
-- (void)getSearchWithLocation:(NSString *)location
+- (void)searchWithLocation:(NSString *)location
             completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
-- (void)getSearchWithBounds:(YLPGeoBoundingBox *)bounds
+- (void)searchWithBounds:(YLPGeoBoundingBox *)bounds
              currentLatLong:(nullable YLPCurrentLatLong *)cll
                        term:(nullable NSString *)term
                       limit:(NSUInteger)limit
@@ -38,10 +38,10 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
                        sort:(NSUInteger)sort
           completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
-- (void)getSearchWithBounds:(YLPGeoBoundingBox *)bounds
+- (void)searchWithBounds:(YLPGeoBoundingBox *)bounds
           completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
-- (void)getSearchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
+- (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
                     currentLatLong:(nullable YLPCurrentLatLong *)cll
                               term:(nullable NSString *)term
                              limit:(NSUInteger)limit
@@ -49,7 +49,7 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
                               sort:(NSUInteger)sort
                  completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
-- (void)getSearchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordiante
+- (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordiante
                  completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 @end
