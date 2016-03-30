@@ -7,7 +7,6 @@
 //
 #import "YLPBusiness.h"
 #import "YLPCategory.h"
-#import "YLPCoordinate.h"
 #import "YLPCoordinateDelta.h"
 #import "YLPDeal.h"
 #import "YLPDealOption.h"
@@ -17,6 +16,7 @@
 #import "YLPPhoneSearch.h"
 #import "YLPRegion.h"
 #import "YLPReview.h"
+#import "YLPSearch.h"
 #import "YLPUser.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -27,10 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPCategory ()
 - (instancetype)initWithName:(NSString *)name alias:(NSString *)alias;
-@end
-
-@interface YLPCoordinate ()
-- (instancetype)initWithLatitude:(double)latitude longitude:(double)longitude;
 @end
 
 @interface YLPCoordinateDelta ()
@@ -67,6 +63,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPReview ()
 - (instancetype)initWithDictionary:(NSDictionary *)reviewDict;
+@end
+
+@interface YLPSearch ()
+- (instancetype)initWithDictionary:(NSDictionary *)searchDict;
 @end
 
 @interface YLPUser ()

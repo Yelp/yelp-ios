@@ -11,10 +11,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPClient (Business)
-- (void)getBusinessWithId:(NSString *)businessId completionHandler:(void (^)(YLPBusiness * _Nullable business, NSError * _Nullable error))completionHandler;
+typedef void(^YLPBusinessCompletionHandler)(YLPBusiness * _Nullable business, NSError * _Nullable error);
 
-- (void)getBusinessWithId:(NSString *)businessId countryCode:(nullable NSString *)countryCode languageCode:(nullable NSString *)languageCode languageFilter:(BOOL)languageFilter actionLinks:(BOOL)actionLinks completionHandler:(void (^)(YLPBusiness * _Nullable business, NSError * _Nullable error))completionHandler;
+@interface YLPClient (Business)
+
+- (void)businessWithId:(NSString *)businessId
+        completionHandler:(YLPBusinessCompletionHandler)completionHandler;
+
+- (void)businessWithId:(NSString *)businessId
+              countryCode:(nullable NSString *)countryCode
+             languageCode:(nullable NSString *)languageCode
+           languageFilter:(BOOL)languageFilter
+              actionLinks:(BOOL)actionLinks
+        completionHandler:(YLPBusinessCompletionHandler)completionHandler;
 @end
 
 NS_ASSUME_NONNULL_END

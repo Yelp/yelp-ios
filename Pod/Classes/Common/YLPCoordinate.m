@@ -16,4 +16,9 @@
     }
     return self;
 }
+
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%f,%f", self.latitude, self.longitude];
+}
 @end

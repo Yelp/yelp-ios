@@ -11,11 +11,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^YLPPhoneSearchCompletionHandler)(YLPPhoneSearch * _Nullable phoneSearch, NSError * _Nullable error);
+
 @interface YLPClient (PhoneSearch)
 
-- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber countryCode:(nullable NSString *)countryCode category:(nullable NSString *)category completionHandler:(void (^)(YLPPhoneSearch * _Nullable phoneSearch, NSError * _Nullable error))completionHandler;
+- (void)businessWithPhoneNumber:(NSString *)phoneNumber
+                       countryCode:(nullable NSString *)countryCode
+                          category:(nullable NSString *)category
+                 completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler;
 
-- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber completionHandler:(void (^)(YLPPhoneSearch * _Nullable phoneSearch, NSError * _Nullable error))completionHandler;
+- (void)businessWithPhoneNumber:(NSString *)phoneNumber
+                 completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler;
 
 @end
 

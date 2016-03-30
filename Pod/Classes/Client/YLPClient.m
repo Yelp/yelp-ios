@@ -15,7 +15,11 @@ NSString *const kYLPAPIHost = @"api.yelp.com";
 
 @implementation YLPClient
 
-- (instancetype)initWithConsumerKey:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret token:(NSString *)token tokenSecret:(NSString *)tokenSecret {
+- (instancetype)initWithConsumerKey:(NSString *)consumerKey
+                     consumerSecret:(NSString *)consumerSecret
+                              token:(NSString *)token
+                        tokenSecret:(NSString *)tokenSecret {
+    
     if (self = [super init]) {
         _consumerKey = consumerKey;
         _consumerSecret = consumerSecret;
@@ -40,7 +44,9 @@ NSString *const kYLPAPIHost = @"api.yelp.com";
                           tokenSecret:self.tokenSecret];
 }
 
-- (void)queryWithRequest:(NSURLRequest *)request completionHandler:(void (^)(NSDictionary *jsonResponse, NSError *error))completionHandler {
+- (void)queryWithRequest:(NSURLRequest *)request
+       completionHandler:(void (^)(NSDictionary *jsonResponse, NSError *error))completionHandler {
+    
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;

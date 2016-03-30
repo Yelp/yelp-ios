@@ -24,7 +24,7 @@
 
 @interface YLPClient (PhoneSearchTest)
 
-- (void)getBusinessWithPhoneNumber:(NSString *)phoneNumber params:(NSDictionary *)params completionHandler:(void (^)(YLPPhoneSearch *phoneSearch, NSError *error))completionHandler;
+- (void)businessWithPhoneNumber:(NSString *)phoneNumber params:(NSDictionary *)params completionHandler:(void (^)(YLPPhoneSearch *phoneSearch, NSError *error))completionHandler;
 @end
 
 @implementation YLPPhoneSearchClientTestCase
@@ -38,15 +38,15 @@
 
 - (id)mockPhoneSearchRequestWithAllArgs {
     id mockPhoneSearchRequestWithAllArgs = OCMPartialMock(self.client);
-    OCMStub([mockPhoneSearchRequestWithAllArgs getBusinessWithPhoneNumber:[OCMArg any] params:[OCMArg any] completionHandler:[OCMArg any]]);
+    OCMStub([mockPhoneSearchRequestWithAllArgs businessWithPhoneNumber:[OCMArg any] params:[OCMArg any] completionHandler:[OCMArg any]]);
     return mockPhoneSearchRequestWithAllArgs;
 }
 
 - (void)testPhoneSearchRequestPassesParameters {
     id mockPhoneSearchRequestWithAllArgs = [self mockPhoneSearchRequestWithAllArgs];
     NSDictionary *params = @{@"cc": @"US", @"category": @"donut"};
-    [self.client getBusinessWithPhoneNumber:@"bogusPhoneNumber" countryCode:@"US" category:@"donut" completionHandler:^(YLPPhoneSearch *phoneSearch, NSError *error) {}];
-    OCMExpect([mockPhoneSearchRequestWithAllArgs getBusinessWithPhoneNumber:@"bogusPhoneNumber" params:params completionHandler:[OCMArg any]]);
+    [self.client businessWithPhoneNumber:@"bogusPhoneNumber" countryCode:@"US" category:@"donut" completionHandler:^(YLPPhoneSearch *phoneSearch, NSError *error) {}];
+    OCMExpect([mockPhoneSearchRequestWithAllArgs businessWithPhoneNumber:@"bogusPhoneNumber" params:params completionHandler:[OCMArg any]]);
 }
 
 - (void)testAttributesSetOnPhoneSearch{
@@ -59,7 +59,7 @@
     }];
     
     NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
-    [self.client getBusinessWithPhoneNumber:@"4151231234" completionHandler:^(YLPPhoneSearch *phoneSearchResults, NSError *error) {
+    [self.client businessWithPhoneNumber:@"4151231234" completionHandler:^(YLPPhoneSearch *phoneSearchResults, NSError *error) {
         NSArray *actualBusinesses = phoneSearchResults.businesses;
         XCTAssertEqual([actualBusinesses count], 2);
         XCTAssertEqual(phoneSearchResults.total, [expectedResponse[@"total"] integerValue]);
@@ -85,7 +85,7 @@
     }];
     
     NSDictionary *expectedRegion = [self loadExpectedResponse:self.defaultResource][@"region"];
-    [self.client getBusinessWithPhoneNumber:@"4151231234" completionHandler:^(YLPPhoneSearch *phoneSearchResults, NSError *error) {
+    [self.client businessWithPhoneNumber:@"4151231234" completionHandler:^(YLPPhoneSearch *phoneSearchResults, NSError *error) {
         YLPRegion *actualRegion = phoneSearchResults.region;
         XCTAssertEqual(actualRegion.center.latitude, [expectedRegion[@"center"][@"latitude"] doubleValue]);
         XCTAssertEqual(actualRegion.span.longitudeDelta, [expectedRegion[@"span"][@"longitude_delta"] doubleValue]);
@@ -105,8 +105,7 @@
         return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.minimalResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
     }];
     
-    NSDictionary *expectedRegion = [self loadExpectedResponse:self.defaultResource][@"region"];
-    [self.client getBusinessWithPhoneNumber:@"4151231234" completionHandler:^(YLPPhoneSearch *phoneSearchResults, NSError *error) {
+    [self.client businessWithPhoneNumber:@"4151231234" completionHandler:^(YLPPhoneSearch *phoneSearchResults, NSError *error) {
         YLPRegion *actualRegion = phoneSearchResults.region;
         XCTAssertNil(actualRegion);
         [expectation fulfill];

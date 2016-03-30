@@ -29,7 +29,7 @@
 
 @interface YLPClient (BusinessClientTest)
 
-- (void)getBusinessWithId:(NSString *)businessId params:(NSDictionary *)params completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler;
+- (void)businessWithId:(NSString *)businessId params:(NSDictionary *)params completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler;
 
 @end
 
@@ -43,20 +43,19 @@
 
 - (id)mockBusinessRequestWithAllArgs {
     id mockBusinessRequestWithAllArgs = OCMPartialMock(self.client);
-    OCMStub([mockBusinessRequestWithAllArgs getBusinessWithId:[OCMArg any] params:[OCMArg any] completionHandler:[OCMArg any]]);
+    OCMStub([mockBusinessRequestWithAllArgs businessWithId:[OCMArg any] params:[OCMArg any] completionHandler:[OCMArg any]]);
     return mockBusinessRequestWithAllArgs;
 }
 
-//TODO: Add some unit testing for parameter passing
 - (void)testNullParams {
-    [self.client getBusinessWithId:@"gary-danko" countryCode:@"" languageCode:@"" languageFilter:NO actionLinks:nil completionHandler:^(YLPBusiness *business, NSError *error) {}];
-    [self.client getBusinessWithId:@"gary-danko-san-francisco" countryCode:nil languageCode:nil languageFilter:nil actionLinks:nil completionHandler:^(YLPBusiness *business, NSError *error) {}];
+    [self.client businessWithId:@"gary-danko" countryCode:@"" languageCode:@"" languageFilter:NO actionLinks:nil completionHandler:^(YLPBusiness *business, NSError *error) {}];
+    [self.client businessWithId:@"gary-danko-san-francisco" countryCode:nil languageCode:nil languageFilter:nil actionLinks:nil completionHandler:^(YLPBusiness *business, NSError *error) {}];
 }
 - (void)testBusinessRequestWithId {
     id mockBusinessRequestWithIdWithAllArgs = [self mockBusinessRequestWithAllArgs];
-    [self.client getBusinessWithId:@"bogusBusinessId" completionHandler:^(YLPBusiness *business, NSError *error) {}];
+    [self.client businessWithId:@"bogusBusinessId" completionHandler:^(YLPBusiness *business, NSError *error) {}];
     
-    OCMVerify([mockBusinessRequestWithIdWithAllArgs getBusinessWithId:@"bogusBusinessId" params:nil completionHandler:[OCMArg any]]);
+    OCMVerify([mockBusinessRequestWithIdWithAllArgs businessWithId:@"bogusBusinessId" params:nil completionHandler:[OCMArg any]]);
 }
 
 - (void)testBusinessRequestResult {
@@ -70,7 +69,7 @@
     
     NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
     
-    [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
+    [self.client businessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
         XCTAssertNil(error);
         //String assignment testing
         XCTAssertEqualObjects(business.identifier, @"gary-danko-san-francisco");
@@ -100,7 +99,7 @@
     NSString *expectedAlias = expectedResponse[@"categories"][0][1];
     NSString *expectedName = expectedResponse[@"categories"][0][0];
     
-    [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
+    [self.client businessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
         XCTAssertEqualObjects(((YLPCategory *)business.categories[0]).alias, expectedAlias);
         XCTAssertEqualObjects(((YLPCategory *)business.categories[0]).name, expectedName);
         [expectation fulfill];
@@ -120,7 +119,7 @@
     
     NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
     NSDictionary *expectedLocation = expectedResponse[@"location"];
-    [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
+    [self.client businessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
         XCTAssertEqualObjects(business.location.displayAddress, expectedLocation[@"display_address"]);
         XCTAssertEqualObjects(business.location.crossStreets, nil);
         XCTAssertEqualObjects(business.location.postalCode, expectedLocation[@"postal_code"]);
@@ -143,7 +142,7 @@
     
     NSDictionary *expectedResponse = [self loadExpectedResponse:self.minimalResource];
     NSDictionary *expectedLocation = expectedResponse[@"location"];
-    [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
+    [self.client businessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
         XCTAssertEqualObjects(business.location.displayAddress, expectedLocation[@"display_address"]);
         XCTAssertEqualObjects(business.location.crossStreets, nil);
         XCTAssertEqualObjects(business.location.postalCode, expectedLocation[@"postal_code"]);
@@ -166,7 +165,7 @@
     
     NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
     NSDictionary *expectedReview = expectedResponse[@"reviews"][0];
-    [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
+    [self.client businessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
         YLPReview *actualReview = business.reviews[0];
         XCTAssertEqual(actualReview.rating, [expectedReview[@"rating"] doubleValue]);
         XCTAssertEqualObjects([actualReview.ratingImageURL absoluteString], expectedReview[@"rating_image_url"]);
@@ -189,7 +188,7 @@
     
     NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
     NSDictionary *expectedGCs = expectedResponse[@"gift_certificates"][0];
-    [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
+    [self.client businessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
         YLPGiftCertificate *actualGC = business.giftCertificates[0];
         XCTAssertEqualObjects([actualGC.URL absoluteString], expectedGCs[@"url"]);
         XCTAssertEqualObjects(actualGC.identifier, expectedGCs[@"id"]);
@@ -217,7 +216,7 @@
     
     NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
     NSDictionary *expectedDeal = expectedResponse[@"deals"][0];
-    [self.client getBusinessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
+    [self.client businessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
         YLPDeal *actualDeal = business.deals[0];
         XCTAssertEqualObjects([actualDeal.URL absoluteString], expectedDeal[@"url"]);
         XCTAssertEqualObjects(actualDeal.whatYouGet, expectedDeal[@"what_you_get"]);
