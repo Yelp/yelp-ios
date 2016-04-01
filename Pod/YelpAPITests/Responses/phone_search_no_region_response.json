@@ -1,5 +1,6 @@
 {
     "total": 2,
+    "region": null,
     "businesses": [
                    {
                    "is_claimed": true,

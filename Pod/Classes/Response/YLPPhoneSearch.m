@@ -16,7 +16,7 @@
 - (instancetype)initWithDictionary:(NSDictionary *)phoneSearchDict {
     if (self = [super init]) {
         _businesses = [self.class businessesFromJSONArray:phoneSearchDict[@"businesses"]];
-        if (phoneSearchDict[@"region"] != nil) {
+        if (phoneSearchDict[@"region"] != [NSNull null]) {
             _region = [[YLPRegion alloc] initWithDictionary:phoneSearchDict[@"region"]];
         }
         _total = [phoneSearchDict[@"total"] integerValue];
