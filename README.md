@@ -20,9 +20,9 @@ pod "YelpAPI"
 ### Basic Usage
 ```objective-c
     YLPClient *client = [[YLPClient alloc]initWithConsumerKey:<key>
-											   consumerSecret:<consumer_secret>
-													    token:<token>
-												  tokenSecret:<token_secret>];
+                                               consumerSecret:<consumer_secret>
+                                                        token:<token>
+                                                  tokenSecret:<token_secret>];
 ```
 
 ### [Search API](http://www.yelp.com/developers/documentation/v2/search_api)
@@ -31,39 +31,39 @@ Once you have a `YLPClient` object you can use the various search related functi
 ##### Search With Location
 ```objective-c
 - (void)searchWithLocation:(NSString *)location
-			currentLatLong:(nullable YLPCurrentLatLong *)cll
-            		  term:(nullable NSString *)term
-            		 limit:(NSUInteger)limit
-            		offset:(NSUInteger)offset
-            		  sort:(NSUInteger)sort
+            currentLatLong:(nullable YLPCurrentLatLong *)cll
+                      term:(nullable NSString *)term
+                     limit:(NSUInteger)limit
+                    offset:(NSUInteger)offset
+                      sort:(NSUInteger)sort
          completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithLocation:(NSString *)location
-		 completionHandler:(YLPSearchCompletionHandler)completionHandler;
+         completionHandler:(YLPSearchCompletionHandler)completionHandler;
 ```
 ---
 ##### Search With Geographic Bounding Box
 ```objective-c
 - (void)searchWithBounds:(YLPGeoBoundingBox *)bounds
-    	  currentLatLong:(nullable YLPCurrentLatLong *)cll
-					term:(nullable NSString *)term
-            	   limit:(NSUInteger)limit
-            	  offset:(NSUInteger)offset
-					sort:(NSUInteger)sort
-	   completionHandler:(YLPSearchCompletionHandler)completionHandler;
+          currentLatLong:(nullable YLPCurrentLatLong *)cll
+                    term:(nullable NSString *)term
+                   limit:(NSUInteger)limit
+                  offset:(NSUInteger)offset
+                    sort:(NSUInteger)sort
+       completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithBounds:(YLPGeoBoundingBox *)bounds
-	   completionHandler:(YLPSearchCompletionHandler)completionHandler;
+       completionHandler:(YLPSearchCompletionHandler)completionHandler;
 ```
 ---
 ##### Search With Geographic Coordinate
 ```objective-c
 - (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
-				 currentLatLong:(nullable YLPCurrentLatLong *)cll
-            			   term:(nullable NSString *)term
-						  limit:(NSUInteger)limit
-						 offset:(NSUInteger)offset
-						   sort:(NSUInteger)sort
+                 currentLatLong:(nullable YLPCurrentLatLong *)cll
+                           term:(nullable NSString *)term
+                          limit:(NSUInteger)limit
+                         offset:(NSUInteger)offset
+                           sort:(NSUInteger)sort
               completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
@@ -87,8 +87,8 @@ will be returned in the `NSError *` object.
 
 ```objective-c
 [self.client searchWithLocation:@"San Francisco, CA" completionHandler:^
-	(YLPSearch *search, NSError *error) {
-	// Perform any tasks you need to here
+    (YLPSearch *search, NSError *error) {
+    // Perform any tasks you need to here
 }];
 ``` 
 
@@ -98,10 +98,10 @@ relevant functions are:
 
 ```objective-c
 - (void)businessWithId:(NSString *)businessId
-	       countryCode:(nullable NSString *)countryCode
-		  languageCode:(nullable NSString *)languageCode
+           countryCode:(nullable NSString *)countryCode
+          languageCode:(nullable NSString *)languageCode
         languageFilter:(BOOL)languageFilter
-		   actionLinks:(BOOL)actionLinks
+           actionLinks:(BOOL)actionLinks
      completionHandler:(YLPBusinessCompletionHandler)completionHandler;
 
 - (void)businessWithId:(NSString *)businessId
@@ -117,8 +117,8 @@ be returned in the `NSError*` object.
 
 ```objective-c
 [self.client businessWithId:@"yelp-san-francisco" completionHandler:^
-	(YLPBusiness *search, NSError *error) {
-	// Perform any tasks you need to here
+    (YLPBusiness *search, NSError *error) {
+    // Perform any tasks you need to here
 }];
 ```
 
@@ -128,12 +128,12 @@ the relevant functions are:
 
 ```objective-c
 - (void)businessWithPhoneNumber:(NSString *)phoneNumber
-				    countryCode:(nullable NSString *)countryCode
-			           category:(nullable NSString *)category
-		      completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler;
+                    countryCode:(nullable NSString *)countryCode
+                       category:(nullable NSString *)category
+              completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler;
 
 - (void)businessWithPhoneNumber:(NSString *)phoneNumber
-			  completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler;
+              completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler;
 ```
 
 `YLPPhoneSearchCompletionHandler` is a block which takes a `YLPPhoneSearch*` and an `NSError*`
@@ -145,8 +145,8 @@ returned in the `NSError*` object.
 
 ```objective-c
 [self.client businessWithPhoneNumber:@"4159083801" completionHandler:^
-	(YLPPhoneSearch *search, NSError *error) {
-	// Perform any tasks you need to here
+    (YLPPhoneSearch *search, NSError *error) {
+    // Perform any tasks you need to here
 }];
 ```
 
