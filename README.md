@@ -28,7 +28,7 @@ pod "YelpAPI"
 ### [Search API](http://www.yelp.com/developers/documentation/v2/search_api)
 Once you have a `YLPClient` object you can use the various search related function:
 
-
+##### Search With Location
 ```objective-c
 - (void)searchWithLocation:(NSString *)location
 			currentLatLong:(nullable YLPCurrentLatLong *)cll
@@ -42,6 +42,7 @@ Once you have a `YLPClient` object you can use the various search related functi
 		 completionHandler:(YLPSearchCompletionHandler)completionHandler;
 ```
 ---
+##### Search With Geographic Bounding Box
 ```objective-c
 - (void)searchWithBounds:(YLPGeoBoundingBox *)bounds
     	  currentLatLong:(nullable YLPCurrentLatLong *)cll
@@ -55,6 +56,7 @@ Once you have a `YLPClient` object you can use the various search related functi
 	   completionHandler:(YLPSearchCompletionHandler)completionHandler;
 ```
 ---
+##### Search With Geographic Coordinate
 ```objective-c
 - (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
 				 currentLatLong:(nullable YLPCurrentLatLong *)cll
@@ -70,8 +72,7 @@ Once you have a `YLPClient` object you can use the various search related functi
 
 Each interface provides a different way to query the Search API depending on the
 type of information that you have on hand. There are three versions of 
-the Search API each of which accepts a different format for location input, these are:
-`Location`, `Geographical Bounding Box`, and `Geographic Coordinate` respectively.
+the Search API each of which accepts a different format for location input.
 Consequentially, there are three sets of functions in the clientlib to support
 calls into each version of the Search API. Each set of functions contains a 
 version to call the API with only the required paramets, while another which 
@@ -112,7 +113,7 @@ relevant functions are:
 result will be returned in the `YLPBusiness*` object, alternatively errors will
 be returned in the `NSError*` object. 
 
-#### Example Search Usage
+#### Example Business Usage
 
 ```objective-c
 [self.client businessWithId:@"yelp-san-francisco" completionHandler:^
@@ -140,7 +141,7 @@ object as arguments. Upon successful completion of an API call the result will b
 in the `YLPPhoneSearchCompletionHandler*` object, alternatively errors will be
 returned in the `NSError*` object. 
 
-#### Example Search Usage
+#### Example Phone Search Usage
 
 ```objective-c
 [self.client businessWithPhoneNumber:@"4159083801" completionHandler:^
