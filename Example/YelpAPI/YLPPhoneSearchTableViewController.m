@@ -8,7 +8,7 @@
 
 #import "YLPPhoneSearchTableViewController.h"
 #import "YLPDetailBusinessViewController.h"
-#import <YelpAPI/YLPClient+ClientSetup.h>
+#import "YLPClient+ClientSetup.h"
 #import <YelpAPI/YLPClient+PhoneSearch.h>
 #import <YelpAPI/YLPPhoneSearch.h>
 #import <YelpAPI/YLPBusiness.h>
@@ -24,13 +24,21 @@
     self.client = [YLPClient newClient];
     dispatch_group_t requestGroup = dispatch_group_create();
     dispatch_group_enter(requestGroup);
-    [self.client businessWithPhoneNumber:@"4158759656" completionHandler:^
+    
+    // Invalid response
+    [self.client businessWithPhoneNumber:@"+++4158759656" completionHandler:^
         (YLPPhoneSearch *phoneSearch, NSError* error) {
-            self.phoneSearch = phoneSearch;
-            YLPBusiness *business = self.phoneSearch.businesses[0];
+            NSString *cellDescription;
+            if (error) {
+                cellDescription = error.userInfo[@"error"][@"text"];
+            }
+            else {
+                self.phoneSearch = phoneSearch;
+                cellDescription = self.phoneSearch.businesses[0].name;
+            }
             dispatch_sync(dispatch_get_main_queue(), ^{
                 UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-                cell.textLabel.text = business.name;
+                cell.textLabel.text = cellDescription;
                 [self.tableView reloadData];
             });
             dispatch_group_leave(requestGroup);
@@ -59,8 +67,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     YLPDetailBusinessViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"YLPDetailBusinessViewController"];
-    vc.business = self.phoneSearch.businesses[indexPath.item];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (self.phoneSearch) {
+        vc.business = self.phoneSearch.businesses[indexPath.item];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 @end

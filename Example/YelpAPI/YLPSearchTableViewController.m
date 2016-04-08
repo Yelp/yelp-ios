@@ -8,7 +8,7 @@
 
 #import "YLPSearchTableViewController.h"
 #import "YLPDetailBusinessViewController.h"
-#import <YelpAPI/YLPClient+ClientSetup.h>
+#import "YLPClient+ClientSetup.h"
 #import <YelpAPI/YLPClient+Search.h>
 #import <YelpAPI/YLPSearch.h>
 #import <YelpAPI/YLPBusiness.h>

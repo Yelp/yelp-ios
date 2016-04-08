@@ -8,8 +8,8 @@
 
 #import "YLPBusinessViewController.h"
 #import "YLPDetailBusinessViewController.h"
+#import "YLPClient+ClientSetup.h"
 #import <YelpAPI/YLPClient+Business.h>
-#import <YelpAPI/YLPClient+ClientSetup.h>
 #import <YelpAPI/YLPBusiness.h>
 
 @interface YLPBusinessViewController ()

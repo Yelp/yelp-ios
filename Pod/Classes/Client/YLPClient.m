@@ -49,11 +49,19 @@ NSString *const kYLPAPIHost = @"api.yelp.com";
     
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary *responseJSON;
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        // This case handles cases where the request was processed by the API, thus
+        // resulting in a JSON object being passed back into `data`.
+        if (!error) {
+            responseJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        }
+        
         if (!error && httpResponse.statusCode == 200) {
-            NSDictionary *responseJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            completionHandler(responseJSON, error);
+            completionHandler(responseJSON, nil);
         } else {
+            // If a request fails due to systematic errors with the API then an NSError will be returned.
+            error = error ? error : [NSError errorWithDomain:[[NSBundle mainBundle] bundleIdentifier] code:-1 userInfo:responseJSON];
             completionHandler(nil, error);
         }
     }] resume];
