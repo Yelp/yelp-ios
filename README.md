@@ -7,14 +7,12 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-"""
 This is a Cocoapod for the Yelp API. It'll simplify the process of consuming data
 from the Yelp API for developers using Objective-C or Swift. The library encompasses Search
 , Business, and Phone Search API functions.
 
 Please remember to read and follow the Terms of Use and display requirements
 before creating your applications.
-"""
 
 ## Installation
 
