@@ -26,7 +26,7 @@
     [self.client searchWithLocation:@"San Francisco, CA" currentLatLong:nil term:nil limit:5 offset:0 sort:0 completionHandler:^
         (YLPSearch *search, NSError* error) {
             self.search = search;
-            dispatch_sync(dispatch_get_main_queue(), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
                 for (int i = 0; i < [self.search.businesses count]; i++) {
                     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
                     cell.textLabel.text = self.search.businesses[i].name;
@@ -35,10 +35,6 @@
                 [self.tableView reloadData];
             });
     }];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark - Table view data source

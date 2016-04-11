@@ -34,16 +34,12 @@
                 self.phoneSearch = phoneSearch;
                 cellDescription = self.phoneSearch.businesses[0].name;
             }
-            dispatch_sync(dispatch_get_main_queue(), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
                 UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
                 cell.textLabel.text = cellDescription;
                 [self.tableView reloadData];
             });
     }];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark - Table view data source

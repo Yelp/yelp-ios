@@ -25,16 +25,12 @@
     [self.client businessWithId:@"gary-danko-san-francisco" completionHandler:^
         (YLPBusiness *business, NSError* error) {
             self.business = business;
-            dispatch_sync(dispatch_get_main_queue(), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
                 UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
                 cell.textLabel.text = self.business.name;
                 [self.tableView reloadData];
             });
     }];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark - Table view data source
