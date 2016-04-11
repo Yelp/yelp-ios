@@ -20,8 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    dispatch_group_t requestGroup = dispatch_group_create();
-    dispatch_group_enter(requestGroup);
     self.client = [YLPClient newClient];
     
     [self.client businessWithId:@"gary-danko-san-francisco" completionHandler:^
@@ -32,7 +30,6 @@
                 cell.textLabel.text = self.business.name;
                 [self.tableView reloadData];
             });
-            dispatch_group_leave(requestGroup);
     }];
 }
 

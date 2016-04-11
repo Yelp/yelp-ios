@@ -22,8 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.client = [YLPClient newClient];
-    dispatch_group_t requestGroup = dispatch_group_create();
-    dispatch_group_enter(requestGroup);
     
     // Invalid response
     [self.client businessWithPhoneNumber:@"+++4158759656" completionHandler:^
@@ -41,7 +39,6 @@
                 cell.textLabel.text = cellDescription;
                 [self.tableView reloadData];
             });
-            dispatch_group_leave(requestGroup);
     }];
 }
 

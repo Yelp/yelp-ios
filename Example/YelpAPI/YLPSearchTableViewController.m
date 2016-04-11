@@ -23,8 +23,6 @@
     [super viewDidLoad];
     self.client = [YLPClient newClient];
     
-    dispatch_group_t requestGroup = dispatch_group_create();
-    dispatch_group_enter(requestGroup);
     [self.client searchWithLocation:@"San Francisco, CA" currentLatLong:nil term:nil limit:5 offset:0 sort:0 completionHandler:^
         (YLPSearch *search, NSError* error) {
             self.search = search;
@@ -36,7 +34,6 @@
                 }
                 [self.tableView reloadData];
             });
-            dispatch_group_leave(requestGroup);
     }];
 }
 
