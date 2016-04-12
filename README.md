@@ -1,10 +1,5 @@
 # YelpAPI
 
-[![CI Status](http://img.shields.io/travis/David Chen/YelpAPI.svg?style=flat)](https://travis-ci.org/David Chen/YelpAPI)
-[![Version](https://img.shields.io/cocoapods/v/YelpAPI.svg?style=flat)](http://cocoapods.org/pods/YelpAPI)
-[![License](https://img.shields.io/cocoapods/l/YelpAPI.svg?style=flat)](http://cocoapods.org/pods/YelpAPI)
-[![Platform](https://img.shields.io/cocoapods/p/YelpAPI.svg?style=flat)](http://cocoapods.org/pods/YelpAPI)
-
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 This is a Cocoapod for the Yelp API. It'll simplify the process of consuming data
