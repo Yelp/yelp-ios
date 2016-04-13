@@ -1,0 +1,7 @@
+{
+    "error": {
+        "field": "phone",
+        "id": "MISSING_PARAMETER",
+        "text": "One or more parameters are missing in request"
+    }
+}

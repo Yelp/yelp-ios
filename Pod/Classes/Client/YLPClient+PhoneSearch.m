@@ -14,17 +14,17 @@
 
 @implementation YLPClient (PhoneSearch)
 
-- (NSURLRequest *)businessRequestWithPhoneNumber:(NSString *)phoneNumber
-                                          params:(NSDictionary *)params {
+- (NSURLRequest *)businessRequestWithParams:(NSDictionary *)params {
+
     
-    NSString *phoneSearchPath = [@"/v2/phone_search/" stringByAppendingString:phoneNumber];
+    NSString *phoneSearchPath = @"/v2/phone_search/";
     return [self requestWithPath:phoneSearchPath params:params];
 }
 
 - (void)businessWithPhoneNumber:(NSString *)phoneNumber
                  completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler {
     
-    [self businessWithPhoneNumber:phoneNumber params:nil completionHandler:completionHandler];
+    [self businessWithParams:@{@"phone": phoneNumber} completionHandler:completionHandler];
 }
 
 - (void)businessWithPhoneNumber:(NSString *)phoneNumber
@@ -32,7 +32,7 @@
                           category:(NSString *)category
                  completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler {
     
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"phone": phoneNumber}];
     
     if (countryCode) {
         params[@"cc"] = countryCode;
@@ -40,15 +40,14 @@
     if (category) {
         params[@"category"] = category;
     }
-    [self businessWithPhoneNumber:phoneNumber params:[NSDictionary dictionaryWithDictionary:params] completionHandler:completionHandler];
+    [self businessWithParams:[NSDictionary dictionaryWithDictionary:params] completionHandler:completionHandler];
     
 }
 
-- (void)businessWithPhoneNumber:(NSString *)phoneNumber
-                            params:(NSDictionary *)params
-                 completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler {
+- (void)businessWithParams:(NSDictionary *)params
+         completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler {
     
-    NSURLRequest *req = [self businessRequestWithPhoneNumber:phoneNumber params:params];
+    NSURLRequest *req = [self businessRequestWithParams:params];
     
     [self queryWithRequest:req completionHandler:^(NSDictionary *responseDict, NSError *error) {
         if (error) {
