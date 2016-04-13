@@ -159,7 +159,7 @@ documented in our [API documentation](https://www.yelp.com/developers/documentat
 
 `Response` objects returned by an API call may contain other `Response` objects.
 For example, the `YLPPhoneSearch` object contains an array of `YLPBusiness` objects as well.
-All `Response` objects can be found [here](https://github.com/Yelp/yelp-ios/tree/master/Pod/Classes/Response)
+All `Response` objects can be found [here](https://github.com/Yelp/yelp-ios/tree/master/Classes/Response)
 
 ## Contributing
 1. Fork it (http://github.com/yelp/yelp-ios/fork)

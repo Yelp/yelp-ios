@@ -88,7 +88,7 @@
 		0BF144A61C8FC5F300F2918C /* YLPClientTestCaseBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPClientTestCaseBase.h; sourceTree = "<group>"; };
 		0BF144A71C8FC5F300F2918C /* YLPClientTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPClientTestCase.m; sourceTree = "<group>"; };
 		0BF144A81C8FC5F300F2918C /* YLPBusinessClientTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPBusinessClientTestCase.m; sourceTree = "<group>"; };
-		0BF144AD1C8FC90300F2918C /* search_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = search_response.json; path = YelpAPI_PodsTests/search_response.json; sourceTree = SOURCE_ROOT; };
+		0BF144AD1C8FC90300F2918C /* search_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search_response.json; sourceTree = "<group>"; };
 		330AC575A9AE8952CFD9B533 /* Pods-YelpAPI_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpAPI_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YelpAPI_Tests/Pods-YelpAPI_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* YelpAPI_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelpAPI_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -159,7 +159,7 @@
 				0B04B99D1C5715E100AED03C /* YLPGeoCoordinateTestCase.m */,
 			);
 			name = Request;
-			path = ../../Pod/YelpAPITests/Request;
+			path = ../../YelpAPITests/Request;
 			sourceTree = "<group>";
 		};
 		0B04B98F1C56ACC800AED03C /* Client */ = {
@@ -173,7 +173,7 @@
 				0B04B9A51C5ACA2900AED03C /* YLPSearchClientTestCase.m */,
 			);
 			name = Client;
-			path = ../../Pod/YelpAPITests/Client;
+			path = ../../YelpAPITests/Client;
 			sourceTree = "<group>";
 		};
 		0BA03FC21CAA17DC004C8D8B /* Common */ = {
@@ -182,8 +182,8 @@
 				0BA03FC31CAA17DC004C8D8B /* YLPCoordinateTestCase.m */,
 			);
 			name = Common;
-			path = ../../Pod/YelpAPITests/Common;
-			sourceTree = "<group>";
+			path = ../YelpAPITests/Common;
+			sourceTree = SOURCE_ROOT;
 		};
 		0BC02EBA1C3F4BD20020F9A7 /* YelpAPI_PodsTests */ = {
 			isa = PBXGroup;
@@ -217,7 +217,7 @@
 				0BC956411CB831F3004B8695 /* error.json */,
 			);
 			name = Responses;
-			path = ../../Pod/YelpAPITests/Responses;
+			path = ../../YelpAPITests/Responses;
 			sourceTree = "<group>";
 		};
 		10837F388A1456810DB33C2C /* Pods */ = {
