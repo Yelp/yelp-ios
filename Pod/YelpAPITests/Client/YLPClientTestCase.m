@@ -7,6 +7,7 @@
 //
 #import <OCMock/OCMock.h>
 #import <OHHTTPStubs/OHHTTPStubs.h>
+#import <OHHTTPStubs/OHPathHelpers.h>
 #import <XCTest/XCTest.h>
 #import <YelpAPI/YLPClient.h>
 #import "YLPClientTestCaseBase.h"
@@ -15,6 +16,14 @@
 @end
 
 @implementation YLPClientTestCase
+
+- (void)setUp {
+    [super setUp];
+    self.defaultResource = @"error.json";
+    id _mockNSBundle = [OCMockObject niceMockForClass:[NSBundle class]];
+    NSBundle *testMainBundle = [NSBundle bundleForClass:self.class];
+    [[[[_mockNSBundle stub] classMethod] andReturn:testMainBundle] mainBundle];
+}
 
 - (id)mockRequestWithParams {
     id mockRequestWithParams = OCMPartialMock(self.client);
@@ -46,6 +55,7 @@
 }
 
 - (void)testQueryWithRequestHandlesError {
+    // Error case when API did not process the request, and thus errors are returned as NSError.
     XCTestExpectation *expectation = [self expectationWithDescription:@"Client query unit test, error case."];
     NSError *expectedError = [NSError errorWithDomain:@"BogusTestingErrorDomain" code:-1 userInfo:@{@"error": @"error"}];
     
@@ -61,6 +71,24 @@
         [expectation fulfill];
     }];
     
+    [self waitForExpectationsWithTimeout:5 handler:nil];
+}
+
+- (void)testQueryWithRequestHandlesErrorInAsResponseJSON {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Client query unit test, graceful error case."];
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return [request.URL.host isEqualToString:kYLPAPIHost];
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.defaultResource, self.class) statusCode:400 headers:@{@"Content-Type":@"application/json"}];
+    }];
+    NSDictionary *expectedError = [self loadExpectedResponse:self.defaultResource];
+    NSURLRequest *req = [self.client requestWithPath:self.bogusTestPath];
+    
+    [self.client queryWithRequest:req completionHandler:^(NSDictionary *responseJSON, NSError *error) {
+        XCTAssertEqualObjects(expectedError, error.userInfo);
+        XCTAssertEqual((int)error.code, 400);
+        [expectation fulfill];
+    }];
     [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 
