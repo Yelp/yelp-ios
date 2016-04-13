@@ -11,11 +11,6 @@ Pod::Spec.new do |s|
   s.version          = "1.0.0"
   s.summary          = "Objective-C client library for accessing the Yelp Public API."
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
 			This pod is designed to help developers using both Objective-C 
 			and Swift in accessing the Yelp Public API. A thorough
@@ -36,7 +31,5 @@ Pod::Spec.new do |s|
   }
 
   s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'TDOAuth', '~> 1.1'
-  s.private_header_files = "Pod/Classes/Client/YLPClientPrivate.h", "Pod/Classes/Response/YLPResponsePrivate.h"
 end
