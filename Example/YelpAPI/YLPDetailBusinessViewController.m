@@ -11,7 +11,9 @@
 #import <YelpAPI/YLPLocation.h>
 
 @interface YLPDetailBusinessViewController ()
-
+@property (nonatomic) IBOutlet UILabel *businessName;
+@property (nonatomic) IBOutlet UILabel *businessAddress;
+@property (nonatomic) IBOutlet UILabel *businessPhone;
 @end
 
 @implementation YLPDetailBusinessViewController

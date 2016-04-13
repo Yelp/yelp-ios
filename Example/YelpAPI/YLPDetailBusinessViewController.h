@@ -11,9 +11,6 @@
 @class YLPBusiness;
 
 @interface YLPDetailBusinessViewController : UIViewController
-
 @property (nonatomic) YLPBusiness *business;
-@property (nonatomic) IBOutlet UILabel *businessName;
-@property (nonatomic) IBOutlet UILabel *businessAddress;
-@property (nonatomic) IBOutlet UILabel *businessPhone;
+
 @end
