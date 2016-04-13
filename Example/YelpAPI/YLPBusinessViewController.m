@@ -13,6 +13,8 @@
 #import <YelpAPI/YLPBusiness.h>
 
 @interface YLPBusinessViewController ()
+@property (nonatomic) YLPClient *client;
+@property (nonatomic) YLPBusiness *business;
 
 @end
 
@@ -26,8 +28,6 @@
         (YLPBusiness *business, NSError* error) {
             self.business = business;
             dispatch_async(dispatch_get_main_queue(), ^{
-                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-                cell.textLabel.text = self.business.name;
                 [self.tableView reloadData];
             });
     }];
@@ -45,6 +45,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LabelCell" forIndexPath:indexPath];
+    cell.textLabel.text = self.business.name;
     return cell;
 }
 

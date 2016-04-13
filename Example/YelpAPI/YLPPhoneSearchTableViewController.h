@@ -12,6 +12,4 @@
 @class YLPPhoneSearch;
 
 @interface YLPPhoneSearchTableViewController : UITableViewController<UITableViewDelegate>
-@property (nonatomic) YLPClient *client;
-@property (nonatomic) YLPPhoneSearch *phoneSearch;
 @end

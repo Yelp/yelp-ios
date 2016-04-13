@@ -14,7 +14,8 @@
 #import <YelpAPI/YLPBusiness.h>
 
 @interface YLPSearchTableViewController ()
-
+@property (nonatomic) YLPClient *client;
+@property (nonatomic) YLPSearch *search;
 @end
 
 @implementation YLPSearchTableViewController
@@ -27,11 +28,6 @@
         (YLPSearch *search, NSError* error) {
             self.search = search;
             dispatch_async(dispatch_get_main_queue(), ^{
-                for (int i = 0; i < [self.search.businesses count]; i++) {
-                    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-                    cell.textLabel.text = self.search.businesses[i].name;
-                    
-                }
                 [self.tableView reloadData];
             });
     }];
@@ -49,6 +45,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
+    if (indexPath.item > [self.search.businesses count]) {
+        cell.textLabel.text = @"";
+    }
+    else {
+        cell.textLabel.text = self.search.businesses[indexPath.item].name;
+    }
+    
     return cell;
 }
 

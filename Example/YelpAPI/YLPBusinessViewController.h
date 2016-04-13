@@ -11,6 +11,4 @@
 @class YLPBusiness;
 
 @interface YLPBusinessViewController : UITableViewController <UITableViewDelegate>
-@property (nonatomic) YLPClient *client;
-@property (nonatomic) YLPBusiness *business;
 @end

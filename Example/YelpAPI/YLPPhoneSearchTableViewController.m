@@ -14,6 +14,8 @@
 #import <YelpAPI/YLPBusiness.h>
 
 @interface YLPPhoneSearchTableViewController ()
+@property (nonatomic) YLPClient *client;
+@property (nonatomic) YLPPhoneSearch *phoneSearch;
 
 @end
 
@@ -23,17 +25,11 @@
     [super viewDidLoad];
     self.client = [YLPClient newClient];
     
-    // Invalid response
+    // Purposefully issue an invalid request.
     [self.client businessWithPhoneNumber:@"+++4158759656" completionHandler:^
         (YLPPhoneSearch *phoneSearch, NSError* error) {
             NSString *cellDescription;
-            if (error) {
-                cellDescription = error.userInfo[@"error"][@"text"];
-            }
-            else {
-                self.phoneSearch = phoneSearch;
-                cellDescription = self.phoneSearch.businesses[0].name;
-            }
+            cellDescription = error.userInfo[@"error"][@"text"];
             dispatch_async(dispatch_get_main_queue(), ^{
                 UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
                 cell.textLabel.text = cellDescription;
@@ -54,7 +50,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PhoneSearchCell" forIndexPath:indexPath];
-    
     return cell;
 }
 

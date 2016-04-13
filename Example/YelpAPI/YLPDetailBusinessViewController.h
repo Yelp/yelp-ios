@@ -16,5 +16,4 @@
 @property (nonatomic) IBOutlet UILabel *businessName;
 @property (nonatomic) IBOutlet UILabel *businessAddress;
 @property (nonatomic) IBOutlet UILabel *businessPhone;
-@property (nonatomic) IBOutlet UIView *view;
 @end

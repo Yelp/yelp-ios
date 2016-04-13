@@ -86,6 +86,7 @@
     
     [self.client queryWithRequest:req completionHandler:^(NSDictionary *responseJSON, NSError *error) {
         XCTAssertEqualObjects(expectedError, error.userInfo);
+        XCTAssertEqual((int)error.code, 400);
         [expectation fulfill];
     }];
     [self waitForExpectationsWithTimeout:5 handler:nil];
