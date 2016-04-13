@@ -16,7 +16,7 @@
 @interface YLPPhoneSearchTableViewController ()
 @property (nonatomic) YLPClient *client;
 @property (nonatomic) YLPPhoneSearch *phoneSearch;
-
+@property (nonatomic) NSError *error;
 @end
 
 @implementation YLPPhoneSearchTableViewController
@@ -28,11 +28,8 @@
     // Purposefully issue an invalid request.
     [self.client businessWithPhoneNumber:@"+++4158759656" completionHandler:^
         (YLPPhoneSearch *phoneSearch, NSError* error) {
-            NSString *cellDescription;
-            cellDescription = error.userInfo[@"error"][@"text"];
+            self.error = error;
             dispatch_async(dispatch_get_main_queue(), ^{
-                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-                cell.textLabel.text = cellDescription;
                 [self.tableView reloadData];
             });
     }];
@@ -50,6 +47,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PhoneSearchCell" forIndexPath:indexPath];
+    cell.textLabel.text = self.error.userInfo[@"error"][@"text"];
     return cell;
 }
 
