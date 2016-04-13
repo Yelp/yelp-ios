@@ -11,8 +11,6 @@
 		0B04B99E1C5715E100AED03C /* YLPGeoCoordinateTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B04B99D1C5715E100AED03C /* YLPGeoCoordinateTestCase.m */; };
 		0B04B9A61C5ACA2A00AED03C /* YLPSearchClientTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B04B9A51C5ACA2900AED03C /* YLPSearchClientTestCase.m */; };
 		0B0EC66F1CAC9B8C00C24FE3 /* YLPBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0EC66E1CAC9B8C00C24FE3 /* YLPBusinessViewController.m */; };
-		0B5080831CBEEA800071508E /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5080821CBEEA800071508E /* OCMock.framework */; };
-		0B5080851CBEEA950071508E /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5080841CBEEA950071508E /* OHHTTPStubs.framework */; };
 		0B70F36F1CADA7EA00359D83 /* YLPDetailBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B70F36E1CADA7EA00359D83 /* YLPDetailBusinessViewController.m */; };
 		0BA03FC41CAA17DC004C8D8B /* YLPCoordinateTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA03FC31CAA17DC004C8D8B /* YLPCoordinateTestCase.m */; };
 		0BC956331CADD170004B8695 /* YLPSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC956321CADD170004B8695 /* YLPSearchTableViewController.m */; };
@@ -57,8 +55,6 @@
 		0B04B9A51C5ACA2900AED03C /* YLPSearchClientTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPSearchClientTestCase.m; sourceTree = "<group>"; };
 		0B0EC66D1CAC9B8C00C24FE3 /* YLPBusinessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPBusinessViewController.h; sourceTree = "<group>"; };
 		0B0EC66E1CAC9B8C00C24FE3 /* YLPBusinessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPBusinessViewController.m; sourceTree = "<group>"; };
-		0B5080821CBEEA800071508E /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = "Pods/../build/Debug-iphoneos/OCMock.framework"; sourceTree = "<group>"; };
-		0B5080841CBEEA950071508E /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = "Pods/../build/Debug-iphoneos/OHHTTPStubs.framework"; sourceTree = "<group>"; };
 		0B70F36D1CADA7EA00359D83 /* YLPDetailBusinessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPDetailBusinessViewController.h; sourceTree = "<group>"; };
 		0B70F36E1CADA7EA00359D83 /* YLPDetailBusinessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPDetailBusinessViewController.m; sourceTree = "<group>"; };
 		0B7E8F321C45B8CA00CD590C /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
@@ -119,8 +115,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B5080851CBEEA950071508E /* OHHTTPStubs.framework in Frameworks */,
-				0B5080831CBEEA800071508E /* OCMock.framework in Frameworks */,
 				17C9A4A6350ADF9A0757B369 /* Pods_YelpAPI_PodsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,8 +239,6 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0B5080841CBEEA950071508E /* OHHTTPStubs.framework */,
-				0B5080821CBEEA800071508E /* OCMock.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
@@ -590,7 +582,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -616,7 +607,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = YelpAPI_PodsTests/Info.plist;
