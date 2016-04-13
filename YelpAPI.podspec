@@ -35,8 +35,8 @@ Pod::Spec.new do |s|
     'YelpAPI' => ['Pod/Assets/*.png']
   }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'TDOAuth', '~> 1.1'
-# s.private_header_files = "Pod/Classes/YLPClientPrivate.h", "Pod/Classes/YLPResponsePrivate.h"
+  s.private_header_files = "Pod/Classes/Client/YLPClientPrivate.h", "Pod/Classes/Response/YLPResponsePrivate.h"
 end
