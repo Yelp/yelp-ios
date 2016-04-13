@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9A9E825D02970D1B14A230428A00EAC8"
+               BlueprintIdentifier = "0B3A88F81B0EDE93DD967B9D37437117"
                BuildableName = "YelpAPI.framework"
                BlueprintName = "YelpAPI"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -32,20 +32,6 @@
                BuildableName = "YelpAPI_Example.app"
                BlueprintName = "YelpAPI_Example"
                ReferencedContainer = "container:YelpAPI.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3EAB538C6F87109BE02783043050BFB1"
-               BuildableName = "YelpAPI.bundle"
-               BlueprintName = "YelpAPI-YelpAPI"
-               ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -70,16 +56,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6003F5AD195388D20070C39A"
-               BuildableName = "YelpAPI_Tests.xctest"
-               BlueprintName = "YelpAPI_Tests"
-               ReferencedContainer = "container:YelpAPI.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
