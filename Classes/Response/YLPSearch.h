@@ -6,6 +6,8 @@
 //
 //
 
+#import <Foundation/Foundation.h>
+
 @class YLPRegion;
 @class YLPBusiness;
 
