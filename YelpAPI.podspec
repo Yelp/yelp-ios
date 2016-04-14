@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.homepage         = "https://github.com/Yelp/yelp-ios"
   s.license          = 'MIT'
-  s.author           = { "David Chen" => "ywchen@yelp.com" }
+  s.author           = 'Yelp'
   s.source           = { :git => "https://github.com/Yelp/yelp-ios.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '7.0'
