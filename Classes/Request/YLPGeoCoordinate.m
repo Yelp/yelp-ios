@@ -31,15 +31,15 @@
 - (NSString *)description {
     NSString *baseString = [self latLongString];
     
-    if (self.accuracy) {
+    if (self.accuracy != 0) {
         baseString = [self accuracyDescription:baseString];
     }
     
-    if (self.altitude) {
+    if (self.altitude != 0) {
         baseString = [self altitudeDescription:baseString];
     }
     
-    if (self.altitudeAccuracy) {
+    if (self.altitudeAccuracy != 0) {
         baseString = [self altitudeAccuracyDescription:baseString];
     }
     

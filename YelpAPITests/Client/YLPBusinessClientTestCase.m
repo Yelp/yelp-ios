@@ -48,8 +48,8 @@
 }
 
 - (void)testNullParams {
-    [self.client businessWithId:@"gary-danko" countryCode:@"" languageCode:@"" languageFilter:NO actionLinks:nil completionHandler:^(YLPBusiness *business, NSError *error) {}];
-    [self.client businessWithId:@"gary-danko-san-francisco" countryCode:nil languageCode:nil languageFilter:nil actionLinks:nil completionHandler:^(YLPBusiness *business, NSError *error) {}];
+    [self.client businessWithId:@"gary-danko" countryCode:@"" languageCode:@"" languageFilter:NO actionLinks:NO completionHandler:^(YLPBusiness *business, NSError *error) {}];
+    [self.client businessWithId:@"gary-danko-san-francisco" countryCode:nil languageCode:nil languageFilter:NO actionLinks:NO completionHandler:^(YLPBusiness *business, NSError *error) {}];
 }
 - (void)testBusinessRequestWithId {
     id mockBusinessRequestWithIdWithAllArgs = [self mockBusinessRequestWithAllArgs];
