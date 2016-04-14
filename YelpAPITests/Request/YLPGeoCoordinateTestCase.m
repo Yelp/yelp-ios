@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <YelpAPI/YLPGeoCoordinate.h>
+#import "YLPGeoCoordinate.h"
 
 @interface YLPGeoCoordinateTestCase : XCTestCase
 @property (nonatomic, readonly) double expectedLatitude;

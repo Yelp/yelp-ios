@@ -9,7 +9,7 @@
 #import <OHHTTPStubs/OHHTTPStubs.h>
 #import <OHHTTPStubs/OHPathHelpers.h>
 #import <XCTest/XCTest.h>
-#import <YelpAPI/YLPClient.h>
+#import "YLPClient.h"
 #import "YLPClientTestCaseBase.h"
 
 @interface YLPClientTestCase : YLPClientTestCaseBase

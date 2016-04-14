@@ -6,7 +6,7 @@
 //
 //
 #import <XCTest/XCTest.h>
-#import <YelpAPI/YLPClient.h>
+#import "YLPClient.h"
 
 @interface YLPClientTestCaseBase : XCTestCase
 

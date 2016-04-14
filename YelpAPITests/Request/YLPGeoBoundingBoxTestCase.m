@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <YelpAPI/YLPGeoBoundingBox.h>
+#import "YLPGeoBoundingBox.h"
 
 @interface YLPGeoBoundingBoxTestCase : XCTestCase
 

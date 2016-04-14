@@ -7,8 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <YelpAPI/YLPCoordinate.h>
-#import <YelpAPI/YLPCommonPrivate.h>
+#import "YLPCoordinate.h"
+#import "YLPCommonPrivate.h"
 
 @interface YLPCurrentLatLongTestCase : XCTestCase
 

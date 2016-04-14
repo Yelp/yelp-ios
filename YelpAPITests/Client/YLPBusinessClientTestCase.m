@@ -9,18 +9,18 @@
 #import <OCMock/OCMock.h>
 #import <OHHTTPStubs/OHHTTPStubs.h>
 #import <OHHTTPStubs/OHPathHelpers.h>
-#import <YelpAPI/YLPBusiness.h>
-#import <YelpAPI/YLPCategory.h>
-#import <YelpAPI/YLPClient+Business.h>
-#import <YelpAPI/YLPCoordinate.h>
-#import <YelpAPI/YLPGiftCertificate.h>
-#import <YelpAPI/YLPGiftCertificateOption.h>
-#import <YelpAPI/YLPDeal.h>
-#import <YelpAPI/YLPDealOption.h>
-#import <YelpAPI/YLPLocation.h>
-#import <YelpAPI/YLPReview.h>
-#import <YelpAPI/YLPUser.h>
 #import <XCTest/XCTest.h>
+#import "YLPBusiness.h"
+#import "YLPCategory.h"
+#import "YLPClient+Business.h"
+#import "YLPCoordinate.h"
+#import "YLPGiftCertificate.h"
+#import "YLPGiftCertificateOption.h"
+#import "YLPDeal.h"
+#import "YLPDealOption.h"
+#import "YLPLocation.h"
+#import "YLPReview.h"
+#import "YLPUser.h"
 #import "YLPClientTestCaseBase.h"
 
 @interface YLPBusinessClientTestCase : YLPClientTestCaseBase

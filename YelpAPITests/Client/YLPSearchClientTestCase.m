@@ -9,17 +9,17 @@
 #import <OCMock/OCMock.h>
 #import <OHHTTPStubs/OHHTTPStubs.h>
 #import <OHHTTPStubs/OHPathHelpers.h>
-#import <YelpAPI/YLPBusiness.h>
-#import <YelpAPI/YLPClient+Search.h>
-#import <YelpAPI/YLPCommonPrivate.h>
-#import <YelpAPI/YLPCoordinate.h>
-#import <YelpAPI/YLPCoordinateDelta.h>
-#import <YelpAPI/YLPGeoBoundingBox.h>
-#import <YelpAPI/YLPGeoCoordinate.h>
-#import <YelpAPI/YLPRegion.h>
-#import <YelpAPI/YLPSearch.h>
-#import <YelpAPI/YLPSortType.h>
 #import <XCTest/XCTest.h>
+#import "YLPBusiness.h"
+#import "YLPClient+Search.h"
+#import "YLPCommonPrivate.h"
+#import "YLPCoordinate.h"
+#import "YLPCoordinateDelta.h"
+#import "YLPGeoBoundingBox.h"
+#import "YLPGeoCoordinate.h"
+#import "YLPRegion.h"
+#import "YLPSearch.h"
+#import "YLPSortType.h"
 #import "YLPClientTestCaseBase.h"
 
 @interface YLPSearchClientTestCase : YLPClientTestCaseBase
