@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "134DA9F01CBF2CC2008DD68F"
+               BuildableName = "YelpAPITests.xctest"
+               BlueprintName = "YelpAPITests"
+               ReferencedContainer = "container:YelpAPI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "134DA8B81CBF2484008DD68F"
+            BuildableName = "YelpAPI.framework"
+            BlueprintName = "YelpAPI"
+            ReferencedContainer = "container:YelpAPI.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
