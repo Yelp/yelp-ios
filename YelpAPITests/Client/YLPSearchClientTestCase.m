@@ -12,8 +12,8 @@
 #import <XCTest/XCTest.h>
 #import "YLPBusiness.h"
 #import "YLPClient+Search.h"
-#import "YLPCommonPrivate.h"
 #import "YLPCoordinate.h"
+#import "YLPCommonPrivate.h"
 #import "YLPCoordinateDelta.h"
 #import "YLPGeoBoundingBox.h"
 #import "YLPGeoCoordinate.h"
