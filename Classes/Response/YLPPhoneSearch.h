@@ -5,9 +5,11 @@
 //  Created by David Chen on 2/19/16.
 //
 //
-#import "YLPRegion.h"
+
+#import <Foundation/Foundation.h>
 
 @class YLPBusiness;
+@class YLPRegion;
 
 NS_ASSUME_NONNULL_BEGIN
 

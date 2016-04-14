@@ -6,6 +6,8 @@
 //
 //
 
+#import <Foundation/Foundation.h>
+
 @class YLPDealOption;
 
 NS_ASSUME_NONNULL_BEGIN

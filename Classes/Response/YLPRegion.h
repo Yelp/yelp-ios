@@ -5,6 +5,9 @@
 //  Created by David Chen on 1/20/16.
 //
 //
+
+#import <Foundation/Foundation.h>
+
 @class YLPCoordinate;
 @class YLPCoordinateDelta;
 

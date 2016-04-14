@@ -6,6 +6,8 @@
 //
 //
 
+#import <Foundation/Foundation.h>
+
 @class YLPLocation;
 @class YLPCategory;
 @class YLPReview;

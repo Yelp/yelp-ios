@@ -5,6 +5,9 @@
 //  Created by David Chen on 1/12/16.
 //
 //
+
+#import <Foundation/Foundation.h>
+
 @class YLPCoordinate;
 
 NS_ASSUME_NONNULL_BEGIN

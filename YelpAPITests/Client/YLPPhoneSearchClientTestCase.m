@@ -9,13 +9,13 @@
 #import <OCMock/OCMock.h>
 #import <OHHTTPStubs/OHHTTPStubs.h>
 #import <OHHTTPStubs/OHPathHelpers.h>
-#import <YelpAPI/YLPBusiness.h>
-#import <YelpAPI/YLPClient+PhoneSearch.h>
-#import <YelpAPI/YLPCoordinate.h>
-#import <YelpAPI/YLPCoordinateDelta.h>
-#import <YelpAPI/YLPPhoneSearch.h>
-#import <YelpAPI/YLPRegion.h>
 #import <XCTest/XCTest.h>
+#import "YLPBusiness.h"
+#import "YLPClient+PhoneSearch.h"
+#import "YLPCoordinate.h"
+#import "YLPCoordinateDelta.h"
+#import "YLPPhoneSearch.h"
+#import "YLPRegion.h"
 #import "YLPClientTestCaseBase.h"
 
 @interface YLPPhoneSearchClientTestCase : YLPClientTestCaseBase

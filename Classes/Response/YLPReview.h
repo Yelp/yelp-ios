@@ -5,6 +5,9 @@
 //  Created by David Chen on 1/13/16.
 //
 //
+
+#import <Foundation/Foundation.h>
+
 @class YLPUser;
 
 NS_ASSUME_NONNULL_BEGIN
