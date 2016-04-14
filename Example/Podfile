@@ -4,9 +4,3 @@ use_frameworks!
 target 'YelpAPI_Example', :exclusive => true do
   pod "YelpAPI", :path => "../"
 end
-
-target 'YelpAPI_PodsTests', :exclusive => true do
-  pod 'OCMock', '~> 3.1.5'
-  pod 'OHHTTPStubs', '4.6.0'
-  pod "YelpAPI", :path => "../"
-end
