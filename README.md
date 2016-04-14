@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/Yelp/yelp-ios.svg?branch=master)](https://travis-ci.org/Yelp/yelp-ios)
+
+
 # YelpAPI
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

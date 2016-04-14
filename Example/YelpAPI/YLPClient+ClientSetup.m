@@ -12,7 +12,8 @@
 @implementation YLPClient (ClientSetup)
 
 + (instancetype)newClient {
-    return [[YLPClient alloc] initWithConsumerKey:@"iVCuYETQ-P8VeICYOQS7pA" consumerSecret:@"N3GHCATpE2rQ2N9kYFw6WGDgwZA" token:@"i-T6I4uq2oh3N9JodpnP-VJ58kTXAMtw" tokenSecret:@"SYA4ajJFU-RniwW3Q4k38d9G9WY"];
+    #warning Fill in the API keys below with your developer v2 keys.
+    return [[YLPClient alloc] initWithConsumerKey:@"" consumerSecret:@"" token:@"" tokenSecret:@""];
 }
 
 @end
