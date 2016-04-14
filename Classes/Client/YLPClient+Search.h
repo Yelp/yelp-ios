@@ -7,8 +7,7 @@
 //
 
 #import "YLPClient.h"
-
-@class YLPCurrentLatLong;
+@class YLPCoordinate;
 @class YLPGeoBoundingBox;
 @class YLPGeoCoordinate;
 @class YLPSearch;
@@ -20,7 +19,7 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
 @interface YLPClient (Search)
 
 - (void)searchWithLocation:(NSString *)location
-               currentLatLong:(nullable YLPCurrentLatLong *)cll
+               currentLatLong:(nullable YLPCoordinate *)cll
                          term:(nullable NSString *)term
                         limit:(NSUInteger)limit
                        offset:(NSUInteger)offset
@@ -31,7 +30,7 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
             completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithBounds:(YLPGeoBoundingBox *)bounds
-             currentLatLong:(nullable YLPCurrentLatLong *)cll
+             currentLatLong:(nullable YLPCoordinate *)cll
                        term:(nullable NSString *)term
                       limit:(NSUInteger)limit
                      offset:(NSUInteger)offset
@@ -42,7 +41,7 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
           completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
-                    currentLatLong:(nullable YLPCurrentLatLong *)cll
+                    currentLatLong:(nullable YLPCoordinate *)cll
                               term:(nullable NSString *)term
                              limit:(NSUInteger)limit
                             offset:(NSUInteger)offset
