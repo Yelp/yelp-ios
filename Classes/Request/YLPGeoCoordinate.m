@@ -29,37 +29,12 @@
 }
 
 - (NSString *)description {
-    NSString *baseString = [self latLongString];
-    
-    if (self.accuracy != 0) {
-        baseString = [self accuracyDescription:baseString];
-    }
-    
-    if (self.altitude != 0) {
-        baseString = [self altitudeDescription:baseString];
-    }
-    
-    if (self.altitudeAccuracy != 0) {
-        baseString = [self altitudeAccuracyDescription:baseString];
-    }
-    
-    return baseString;
-}
-
-- (NSString *)latLongString {
-   return [NSString stringWithFormat:@"%f,%f", self.coordinate.latitude, self.coordinate.longitude];
-}
-
-- (NSString *)accuracyDescription:(NSString *)baseString {
-    return [NSString stringWithFormat:@"%@,%f", baseString, self.accuracy];
-}
-
-- (NSString *)altitudeDescription:(NSString *)baseString {
-    return [NSString stringWithFormat:@"%@,%f", baseString, self.altitude];
-}
-
-- (NSString *)altitudeAccuracyDescription:(NSString *)baseString {
-    return [NSString stringWithFormat:@"%@,%f", baseString, self.altitudeAccuracy];
+    return [NSString stringWithFormat:@"%f,%f,%f,%f,%f",
+            self.coordinate.latitude,
+            self.coordinate.longitude,
+            self.accuracy,
+            self.altitude,
+            self.altitudeAccuracy];
 }
 
 @end
