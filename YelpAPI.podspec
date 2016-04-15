@@ -27,7 +27,6 @@ Pod::Spec.new do |s|
 
   s.source_files = "Classes/**/*.{h,m}"
 
-  s.public_header_files = 'Classes/**/*.h'
   s.dependency 'TDOAuth', '~> 1.1'
-  s.private_header_files = 'Classes/Client/YLPClientPrivate.h', 'Classes/Common/YLPCommonPrivate.h', 'Classes/Response/YLPResponsePrivate.h'
+  s.private_header_files = 'Classes/**/*Private.h'
 end
