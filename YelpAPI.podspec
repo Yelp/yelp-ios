@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = "Classes/**/*.{h,m}"
+  s.private_header_files = 'Classes/**/*Private.h'
 
-  s.public_header_files = 'Classes/**/*.h'
   s.dependency 'TDOAuth', '~> 1.1'
 end
