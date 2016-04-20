@@ -7,6 +7,8 @@
 //
 
 #import "YLPClient.h"
+#import "YLPSortType.h"
+
 @class YLPCoordinate;
 @class YLPGeoBoundingBox;
 @class YLPGeoCoordinate;
@@ -23,7 +25,7 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
                          term:(nullable NSString *)term
                         limit:(NSUInteger)limit
                        offset:(NSUInteger)offset
-                         sort:(NSUInteger)sort
+                         sort:(YLPSortType)sort
             completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithLocation:(NSString *)location
@@ -34,7 +36,7 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
                        term:(nullable NSString *)term
                       limit:(NSUInteger)limit
                      offset:(NSUInteger)offset
-                       sort:(NSUInteger)sort
+                       sort:(YLPSortType)sort
           completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithBounds:(YLPGeoBoundingBox *)bounds
@@ -45,7 +47,7 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
                               term:(nullable NSString *)term
                              limit:(NSUInteger)limit
                             offset:(NSUInteger)offset
-                              sort:(NSUInteger)sort
+                              sort:(YLPSortType)sort
                  completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordiante

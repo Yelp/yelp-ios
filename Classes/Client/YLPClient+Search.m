@@ -28,7 +28,7 @@
                          term:(NSString *)term
                         limit:(NSUInteger)limit
                        offset:(NSUInteger)offset
-                         sort:(NSUInteger)sort
+                         sort:(YLPSortType)sort
             completionHandler:(YLPSearchCompletionHandler)completionHandler {
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"location": location}];
@@ -39,7 +39,7 @@
              currentLatLong:(YLPCoordinate *)cll
                        term:(NSString *)term limit:(NSUInteger)limit
                      offset:(NSUInteger)offset
-                       sort:(NSUInteger)sort
+                       sort:(YLPSortType)sort
           completionHandler:(YLPSearchCompletionHandler)completionHandler {
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"bounds": bounds.description}];
@@ -56,7 +56,7 @@
                     currentLatLong:(YLPCoordinate *)cll
                               term:(NSString *)term limit:(NSUInteger)limit
                             offset:(NSUInteger)offset
-                              sort:(NSUInteger)sort
+                              sort:(YLPSortType)sort
                  completionHandler:(YLPSearchCompletionHandler)completionHandler {
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"ll": geoCoordinate.description}];
@@ -74,7 +74,7 @@
                             term:(NSString *)term
                            limit:(NSUInteger)limit
                           offset:(NSUInteger)offset
-                            sort:(NSUInteger)sort
+                            sort:(YLPSortType)sort
                completionHandler:(YLPSearchCompletionHandler)completionHandler {
     
     [params addEntriesFromDictionary:[self paramsWithTerm:term currentLatLong:cll limit:limit offset:offset sort:sort]];
@@ -85,7 +85,7 @@
                        currentLatLong:(YLPCoordinate *)cll
                                 limit:(NSUInteger)limit
                                offset:(NSUInteger)offset
-                                 sort:(NSUInteger) sort {
+                                 sort:(YLPSortType)sort {
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     

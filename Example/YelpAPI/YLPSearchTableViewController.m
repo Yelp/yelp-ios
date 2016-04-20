@@ -10,6 +10,7 @@
 #import "YLPDetailBusinessViewController.h"
 #import "YLPClient+ClientSetup.h"
 #import <YelpAPI/YLPClient+Search.h>
+#import <YelpAPI/YLPSortType.h>
 #import <YelpAPI/YLPSearch.h>
 #import <YelpAPI/YLPBusiness.h>
 
@@ -24,7 +25,7 @@
     [super viewDidLoad];
     self.client = [YLPClient newClient];
     
-    [self.client searchWithLocation:@"San Francisco, CA" currentLatLong:nil term:nil limit:5 offset:0 sort:0 completionHandler:^
+    [self.client searchWithLocation:@"San Francisco, CA" currentLatLong:nil term:nil limit:5 offset:0 sort:YLPSortTypeDistance completionHandler:^
         (YLPSearch *search, NSError* error) {
             self.search = search;
             dispatch_async(dispatch_get_main_queue(), ^{
