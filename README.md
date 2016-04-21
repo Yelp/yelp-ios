@@ -36,11 +36,11 @@ Once you have a `YLPClient` object you can use the various search related functi
 ##### Search With Location
 ```objective-c
 - (void)searchWithLocation:(NSString *)location
-            currentLatLong:(nullable YLPCurrentLatLong *)cll
+            currentLatLong:(nullable YLPCoordinate *)cll
                       term:(nullable NSString *)term
                      limit:(NSUInteger)limit
                     offset:(NSUInteger)offset
-                      sort:(NSUInteger)sort
+                      sort:(YLPSortType)sort
          completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithLocation:(NSString *)location
@@ -50,11 +50,11 @@ Once you have a `YLPClient` object you can use the various search related functi
 ##### Search With Geographic Bounding Box
 ```objective-c
 - (void)searchWithBounds:(YLPGeoBoundingBox *)bounds
-          currentLatLong:(nullable YLPCurrentLatLong *)cll
+          currentLatLong:(nullable YLPCoordinate *)cll
                     term:(nullable NSString *)term
                    limit:(NSUInteger)limit
                   offset:(NSUInteger)offset
-                    sort:(NSUInteger)sort
+                    sort:(YLPSortType)sort
        completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithBounds:(YLPGeoBoundingBox *)bounds
@@ -64,11 +64,11 @@ Once you have a `YLPClient` object you can use the various search related functi
 ##### Search With Geographic Coordinate
 ```objective-c
 - (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
-                 currentLatLong:(nullable YLPCurrentLatLong *)cll
+                 currentLatLong:(nullable YLPCoordinate *)cll
                            term:(nullable NSString *)term
                           limit:(NSUInteger)limit
                          offset:(NSUInteger)offset
-                           sort:(NSUInteger)sort
+                           sort:(YLPSortType)sort
               completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
