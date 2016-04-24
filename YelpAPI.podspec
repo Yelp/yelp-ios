@@ -23,6 +23,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/Yelp/yelp-ios.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '7.0'
+  s.platform     = :osx, '10.9'
   s.requires_arc = true
 
   s.source_files = "Classes/**/*.{h,m}"
