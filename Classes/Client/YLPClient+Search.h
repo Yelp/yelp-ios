@@ -54,7 +54,7 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
                  completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithParams:(NSDictionary *)params
-       completionHandler:(YLPSearchCompletionHandler)completionHandler
+       completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 @end
 
