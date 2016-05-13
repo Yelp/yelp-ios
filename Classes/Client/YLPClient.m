@@ -12,6 +12,7 @@
 #import "YLPClientPrivate.h"
 
 NSString *const kYLPAPIHost = @"api.yelp.com";
+NSString *const kYLPErrorDomain = @"com.yelp.YelpAPI.ErrorDomain";
 
 @implementation YLPClient
 
@@ -61,7 +62,7 @@ NSString *const kYLPAPIHost = @"api.yelp.com";
             completionHandler(responseJSON, nil);
         } else {
             // If a request fails due to systematic errors with the API then an NSError will be returned.
-            error = error ? error : [NSError errorWithDomain:[[NSBundle mainBundle] bundleIdentifier] code:httpResponse.statusCode userInfo:responseJSON];
+            error = error ? error : [NSError errorWithDomain:kYLPErrorDomain code:httpResponse.statusCode userInfo:responseJSON];
             completionHandler(nil, error);
         }
     }] resume];
