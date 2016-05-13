@@ -8,7 +8,6 @@
 
 #import "YLPGeoBoundingBox.h"
 #import "YLPCoordinate.h"
-#import "YLPCommonPrivate.h"
 
 @implementation YLPGeoBoundingBox
 
