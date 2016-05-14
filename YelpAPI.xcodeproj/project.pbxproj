@@ -213,7 +213,6 @@
 		134DA8BB1CBF2484008DD68F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				134DA8BC1CBF2484008DD68F /* YelpAPI.h */,
 				134DA8BE1CBF2484008DD68F /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -223,6 +222,7 @@
 		134DA9801CBF253B008DD68F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				134DA8BC1CBF2484008DD68F /* YelpAPI.h */,
 				134DA9811CBF253B008DD68F /* Client */,
 				134DA98B1CBF253B008DD68F /* Common */,
 				134DA98F1CBF253B008DD68F /* Request */,
