@@ -85,7 +85,6 @@
 /* Begin PBXFileReference section */
 		134DA8B91CBF2484008DD68F /* YelpAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YelpAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		134DA8BC1CBF2484008DD68F /* YelpAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YelpAPI.h; sourceTree = "<group>"; };
-		134DA8BE1CBF2484008DD68F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		134DA9821CBF253B008DD68F /* YLPClient+Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YLPClient+Business.h"; sourceTree = "<group>"; };
 		134DA9831CBF253B008DD68F /* YLPClient+Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YLPClient+Business.m"; sourceTree = "<group>"; };
 		134DA9841CBF253B008DD68F /* YLPClient+PhoneSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YLPClient+PhoneSearch.h"; sourceTree = "<group>"; };
@@ -193,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				134DA9801CBF253B008DD68F /* Classes */,
-				134DA8BB1CBF2484008DD68F /* Supporting Files */,
 				134DA9F21CBF2CC2008DD68F /* YelpAPITests */,
 				134DA9DF1CBF25DF008DD68F /* Frameworks */,
 				134DA8BA1CBF2484008DD68F /* Products */,
@@ -208,15 +206,6 @@
 				134DA9F11CBF2CC2008DD68F /* YelpAPITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		134DA8BB1CBF2484008DD68F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				134DA8BE1CBF2484008DD68F /* Info.plist */,
-			);
-			name = "Supporting Files";
-			path = Framework;
 			sourceTree = "<group>";
 		};
 		134DA9801CBF253B008DD68F /* Classes */ = {
@@ -702,7 +691,6 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -740,7 +728,6 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
