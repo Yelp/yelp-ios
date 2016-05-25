@@ -10,7 +10,6 @@
 #import "YLPCoordinateDelta.h"
 #import "YLPRegion.h"
 #import "YLPResponsePrivate.h"
-#import "YLPCommonPrivate.h"
 
 @implementation YLPRegion
 - (instancetype)initWithDictionary:(NSDictionary *)regionDict {

@@ -10,6 +10,7 @@
 #import <OHHTTPStubs/OHPathHelpers.h>
 #import <XCTest/XCTest.h>
 #import "YLPClient.h"
+#import "YLPClientPrivate.h"
 #import "YLPClientTestCaseBase.h"
 
 @interface YLPClientTestCase : YLPClientTestCaseBase
@@ -85,6 +86,7 @@
     NSURLRequest *req = [self.client requestWithPath:self.bogusTestPath];
     
     [self.client queryWithRequest:req completionHandler:^(NSDictionary *responseJSON, NSError *error) {
+        XCTAssertEqualObjects(kYLPErrorDomain, error.domain);
         XCTAssertEqualObjects(expectedError, error.userInfo);
         XCTAssertEqual((int)error.code, 400);
         [expectation fulfill];

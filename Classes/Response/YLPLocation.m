@@ -8,7 +8,6 @@
 
 #import "YLPLocation.h"
 #import "YLPCoordinate.h"
-#import "YLPCommonPrivate.h"
 
 @implementation YLPLocation
 

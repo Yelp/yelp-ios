@@ -8,7 +8,6 @@
 
 #import <XCTest/XCTest.h>
 #import "YLPCoordinate.h"
-#import "YLPCommonPrivate.h"
 
 @interface YLPCurrentLatLongTestCase : XCTestCase
 
