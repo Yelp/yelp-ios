@@ -11,6 +11,8 @@
 #import "YLPCoordinate.h"
 #import "YLPGeoBoundingBox.h"
 #import "YLPGeoCoordinate.h"
+#import "YLPQuery.h"
+#import "YLPQueryPrivate.h"
 #import "YLPResponsePrivate.h"
 #import "YLPClientPrivate.h"
 
@@ -110,6 +112,12 @@
 
 - (NSURLRequest *)searchRequestWithParams:(NSDictionary *)params {
     return [self requestWithPath:@"/v2/search/" params:params];
+}
+
+- (void)searchWithQuery:(YLPQuery *)query
+      completionHandler:(YLPSearchCompletionHandler)completionHandler {
+    NSDictionary *params = [query parameters];
+    [self searchWithParams:params completionHandler:completionHandler];
 }
 
 - (void)searchWithParams:(NSDictionary *)params
