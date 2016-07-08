@@ -15,6 +15,7 @@
 
 #import "YLPGeoBoundingBox.h"
 #import "YLPGeoCoordinate.h"
+#import "YLPQuery.h"
 #import "YLPSortType.h"
 
 #import "YLPBusiness.h"

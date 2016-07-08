@@ -12,6 +12,7 @@
 @class YLPCoordinate;
 @class YLPGeoBoundingBox;
 @class YLPGeoCoordinate;
+@class YLPQuery;
 @class YLPSearch;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -19,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *_Nullable error);
 
 @interface YLPClient (Search)
+
+- (void)searchWithQuery:(YLPQuery *)query
+      completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithLocation:(NSString *)location
                currentLatLong:(nullable YLPCoordinate *)cll
@@ -50,7 +54,7 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
                               sort:(YLPSortType)sort
                  completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
-- (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordiante
+- (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
                  completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 @end
