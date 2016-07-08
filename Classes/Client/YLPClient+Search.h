@@ -54,7 +54,7 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
                               sort:(YLPSortType)sort
                  completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
-- (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordiante
+- (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
                  completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 @end

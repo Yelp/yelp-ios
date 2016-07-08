@@ -75,9 +75,9 @@
     [self searchWithQuery:query completionHandler:completionHandler];
 }
 
-- (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordiante
+- (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
                  completionHandler:(YLPSearchCompletionHandler)completionHandler {
-    YLPQuery *query = [[YLPQuery alloc] initWithGeoCoordinate:geoCoordiante];
+    YLPQuery *query = [[YLPQuery alloc] initWithGeoCoordinate:geoCoordinate];
     [self searchWithQuery:query completionHandler:completionHandler];
 }
 
