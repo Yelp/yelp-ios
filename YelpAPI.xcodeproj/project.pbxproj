@@ -189,7 +189,9 @@
 				134DA8BA1CBF2484008DD68F /* Products */,
 				F9A41491098A763CF69CEBE9 /* Pods */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		134DA8BA1CBF2484008DD68F /* Products */ = {
 			isa = PBXGroup;

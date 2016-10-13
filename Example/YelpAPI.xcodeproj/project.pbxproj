@@ -78,7 +78,9 @@
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
