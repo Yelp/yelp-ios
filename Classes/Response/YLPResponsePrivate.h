@@ -8,10 +8,6 @@
 #import "YLPBusiness.h"
 #import "YLPCategory.h"
 #import "YLPCoordinateDelta.h"
-#import "YLPDeal.h"
-#import "YLPDealOption.h"
-#import "YLPGiftCertificate.h"
-#import "YLPGiftCertificateOption.h"
 #import "YLPLocation.h"
 #import "YLPPhoneSearch.h"
 #import "YLPRegion.h"
@@ -31,22 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPCoordinateDelta ()
 - (instancetype)initWithLatitudeDelta:(double)latitudeDelta longitudeDelta:(double)longitudeDelta;
-@end
-
-@interface YLPDeal ()
-- (instancetype)initWithDictionary:(NSDictionary *)deal;
-@end
-
-@interface YLPDealOption ()
-- (instancetype)initWithDictionary:(NSDictionary *)dealOption;
-@end
-
-@interface YLPGiftCertificate ()
-- (instancetype)initWithDictionary:(NSDictionary *)giftCertificates;
-@end
-
-@interface YLPGiftCertificateOption ()
-- (instancetype)initWithPrice:(NSUInteger)price formattedPrice:(NSString *)formattedPrice;
 @end
 
 @interface YLPPhoneSearch ()
