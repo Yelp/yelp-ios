@@ -7,25 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <TDOAuth/TDOAuth.h>
 #import "YLPClient.h"
 #import "YLPClientPrivate.h"
 
 NSString *const kYLPAPIHost = @"api.yelp.com";
 NSString *const kYLPErrorDomain = @"com.yelp.YelpAPI.ErrorDomain";
 
+@interface YLPClient ()
+@property (strong, nonatomic) NSString *accessToken;
+@end
+
 @implementation YLPClient
 
-- (instancetype)initWithConsumerKey:(NSString *)consumerKey
-                     consumerSecret:(NSString *)consumerSecret
-                              token:(NSString *)token
-                        tokenSecret:(NSString *)tokenSecret {
-    
+- (instancetype)init {
+    return nil;
+}
+
+- (instancetype)initWithAccessToken:(NSString *)accessToken {
     if (self = [super init]) {
-        _consumerKey = consumerKey;
-        _consumerSecret = consumerSecret;
-        _token = token;
-        _tokenSecret = tokenSecret;
+        _accessToken = accessToken;
     }
     return self;
 }
@@ -35,14 +35,22 @@ NSString *const kYLPErrorDomain = @"com.yelp.YelpAPI.ErrorDomain";
 }
 
 - (NSURLRequest *)requestWithPath:(NSString *)path params:(NSDictionary *)params {
-    return [TDOAuth URLRequestForPath:path
-                        GETParameters:params
-                               scheme:@"https"
-                                 host:kYLPAPIHost
-                          consumerKey:self.consumerKey
-                       consumerSecret:self.consumerSecret
-                          accessToken:self.token
-                          tokenSecret:self.tokenSecret];
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] init];
+    urlComponents.scheme = @"https";
+    urlComponents.host = kYLPAPIHost;
+    urlComponents.path = path;
+
+    NSArray *queryItems = [YLPClient queryItemsForParams:params];
+    if (queryItems.count > 0) {
+        urlComponents.queryItems = queryItems;
+    }
+
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlComponents.URL];
+    request.HTTPMethod = @"GET";
+    NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", self.accessToken];
+    [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
+
+    return request;
 }
 
 - (void)queryWithRequest:(NSURLRequest *)request
@@ -66,6 +74,16 @@ NSString *const kYLPErrorDomain = @"com.yelp.YelpAPI.ErrorDomain";
             completionHandler(nil, error);
         }
     }] resume];
+}
+
++ (NSArray<NSURLQueryItem *> *)queryItemsForParams:(NSDictionary<NSString *, id> *)params {
+    NSMutableArray *queryItems = [NSMutableArray array];
+    for (NSString *name in params) {
+        NSString *value = [params[name] description];
+        NSURLQueryItem *queryItem = [NSURLQueryItem queryItemWithName:name value:value];
+        [queryItems addObject:queryItem];
+    }
+    return queryItems;
 }
 
 @end

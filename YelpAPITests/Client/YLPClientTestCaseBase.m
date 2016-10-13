@@ -9,12 +9,13 @@
 #import <XCTest/XCTest.h>
 #import <OHHTTPStubs/OHHTTPStubs.h>
 #import "YLPClientTestCaseBase.h"
+#import "YLPClientPrivate.h"
 
 @implementation YLPClientTestCaseBase
 
 - (void)setUp {
     [super setUp];
-    self.client = [[YLPClient alloc] initWithConsumerKey:@"consumerKey" consumerSecret:@"consumerSecret" token:@"token" tokenSecret:@"tokenSecret"];
+    self.client = [[YLPClient alloc] initWithAccessToken:@"accessToken"];
     self.bogusTestPath = @"/bogusPath";
 }
 

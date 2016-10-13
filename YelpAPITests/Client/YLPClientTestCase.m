@@ -94,4 +94,13 @@
     [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 
+- (void)testRequestHeaders {
+    NSURLRequest *request = [self.client requestWithPath:self.bogusTestPath];
+
+    XCTAssertEqualObjects(request.HTTPMethod, @"GET");
+    XCTAssertEqualObjects([request valueForHTTPHeaderField:@"Authorization"], @"Bearer accessToken");
+    XCTAssertEqualObjects(request.URL.absoluteString, @"https://api.yelp.com/bogusPath");
+    XCTAssertEqual(request.HTTPBody.length, 0);
+}
+
 @end
