@@ -8,6 +8,7 @@
 
 #import "YLPBusiness.h"
 #import "YLPCategory.h"
+#import "YLPCoordinate.h"
 #import "YLPLocation.h"
 #import "YLPResponsePrivate.h"
 
@@ -26,7 +27,8 @@
         _identifier = businessDict[@"id"];
         
         _categories = [self.class categoriesFromJSONArray:businessDict[@"categories"]];
-        _location = [[YLPLocation alloc] initWithDictionary:businessDict[@"location"]];
+        YLPCoordinate *coordinate = [self.class coordinateFromJSONDictionary:businessDict[@"coordinates"]];
+        _location = [[YLPLocation alloc] initWithDictionary:businessDict[@"location"] coordinate:coordinate];
     }
     return self;
 }
@@ -37,6 +39,17 @@
         [mutableCategories addObject:[[YLPCategory alloc] initWithDictionary:category]];
     }
     return mutableCategories;
+}
+
++ (YLPCoordinate *)coordinateFromJSONDictionary:(NSDictionary *)coordinatesDict {
+    NSNumber *latitude = coordinatesDict[@"latitude"];
+    NSNumber *longitude = coordinatesDict[@"longitude"];
+    if (latitude && longitude) {
+        return [[YLPCoordinate alloc] initWithLatitude:[latitude doubleValue]
+                                             longitude:[longitude doubleValue]];
+    } else {
+        return nil;
+    }
 }
 
 @end

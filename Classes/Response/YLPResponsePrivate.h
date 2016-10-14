@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface YLPLocation ()
-- (instancetype)initWithDictionary:(NSDictionary *)locationDict;
+- (instancetype)initWithDictionary:(NSDictionary *)locationDict coordinate:(nullable YLPCoordinate *)coordinate;
 @end
 
 @interface YLPRegion ()
