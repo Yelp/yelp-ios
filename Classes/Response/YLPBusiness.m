@@ -33,8 +33,8 @@
 
 + (NSArray *)categoriesFromJSONArray:(NSArray *)categoriesJSON {
     NSMutableArray *mutableCategories = [[NSMutableArray alloc] init];
-    for (NSArray *category in categoriesJSON) {
-        [mutableCategories addObject:[[YLPCategory alloc] initWithName:category[0] alias:category[1]]];
+    for (NSDictionary *category in categoriesJSON) {
+        [mutableCategories addObject:[[YLPCategory alloc] initWithDictionary:category]];
     }
     return mutableCategories;
 }

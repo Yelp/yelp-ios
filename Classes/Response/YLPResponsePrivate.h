@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPCategory ()
 - (instancetype)initWithName:(NSString *)name alias:(NSString *)alias;
+- (instancetype)initWithDictionary:(NSDictionary *)categoryDict;
 @end
 
 @interface YLPCoordinateDelta ()
