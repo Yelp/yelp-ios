@@ -19,6 +19,9 @@ extern NSString *const kYLPErrorDomain;
 - (NSURLRequest *)requestWithPath:(NSString *)path params:(nullable NSDictionary *)params;
 - (void)queryWithRequest:(NSURLRequest *)request completionHandler:(void (^)(NSDictionary *responseDict, NSError *error))completionHandler;
 
++ (NSCharacterSet *)URLEncodeAllowedCharacters;
++ (NSURLRequest *)authRequestWithAppId:(NSString *)appId secret:(NSString *)secret;
+
 @end
 
 NS_ASSUME_NONNULL_END

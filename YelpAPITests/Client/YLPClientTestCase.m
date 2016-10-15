@@ -103,4 +103,41 @@
     XCTAssertEqual(request.HTTPBody.length, 0);
 }
 
+- (void)testURLEncode {
+    NSCharacterSet *allowedCharacters = [YLPClient URLEncodeAllowedCharacters];
+
+    XCTAssertEqualObjects([@"abAB01_.-~" stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters], @"abAB01_.-~");
+    XCTAssertEqualObjects([@"ab=AB&01" stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters], @"ab%3DAB%2601");
+}
+
+- (NSDictionary<NSString *, NSString *> *)paramsFromQueryString:(NSString *)string {
+    NSURLComponents *components = [[NSURLComponents alloc] init];
+    components.query = string;
+
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    for (NSURLQueryItem *item in components.queryItems) {
+        params[item.name] = item.value;
+    }
+
+    return params;
+}
+
+- (void)testAuthRequest {
+    NSURLRequest *authRequest = [YLPClient authRequestWithAppId:@"appId" secret:@"appSecret"];
+    XCTAssertEqualObjects(authRequest.HTTPMethod, @"POST");
+    XCTAssertEqualObjects(authRequest.URL.absoluteString, @"https://api.yelp.com/oauth2/token");
+
+    NSString *body = [[NSString alloc] initWithData:authRequest.HTTPBody encoding:NSUTF8StringEncoding];
+    NSDictionary *bodyParams = [self paramsFromQueryString:body];
+    NSDictionary *expectedBodyParams = @{
+        @"grant_type": @"client_credentials",
+        @"client_id": @"appId",
+        @"client_secret": @"appSecret",
+    };
+    XCTAssertEqualObjects(bodyParams, expectedBodyParams);
+
+    XCTAssertNotNil([authRequest valueForHTTPHeaderField:@"Content-Length"]);
+    XCTAssertEqualObjects([authRequest valueForHTTPHeaderField:@"Content-Type"], @"application/x-www-form-urlencoded");
+}
+
 @end
