@@ -9,3 +9,5 @@ target 'YelpAPITests' do
   pod 'OCMock', '~> 3.1.5'
   pod 'OHHTTPStubs', '4.6.0'
 end
+
+target 'YelpAPI_Example'
