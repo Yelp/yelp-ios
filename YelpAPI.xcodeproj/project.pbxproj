@@ -54,7 +54,6 @@
 		134DAA161CBF2D1B008DD68F /* YLPGeoCoordinateTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 134DAA071CBF2D1B008DD68F /* YLPGeoCoordinateTestCase.m */; };
 		134DAA171CBF2D1B008DD68F /* business_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 134DAA091CBF2D1B008DD68F /* business_response.json */; };
 		134DAA181CBF2D1B008DD68F /* error.json in Resources */ = {isa = PBXBuildFile; fileRef = 134DAA0A1CBF2D1B008DD68F /* error.json */; };
-		134DAA191CBF2D1B008DD68F /* minimum_business_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 134DAA0B1CBF2D1B008DD68F /* minimum_business_response.json */; };
 		134DAA1A1CBF2D1B008DD68F /* phone_search_no_region_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 134DAA0C1CBF2D1B008DD68F /* phone_search_no_region_response.json */; };
 		134DAA1B1CBF2D1B008DD68F /* phone_search_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 134DAA0D1CBF2D1B008DD68F /* phone_search_response.json */; };
 		134DAA1C1CBF2D1B008DD68F /* search_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 134DAA0E1CBF2D1B008DD68F /* search_response.json */; };
@@ -163,7 +162,6 @@
 		134DAA071CBF2D1B008DD68F /* YLPGeoCoordinateTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPGeoCoordinateTestCase.m; sourceTree = "<group>"; };
 		134DAA091CBF2D1B008DD68F /* business_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = business_response.json; sourceTree = "<group>"; };
 		134DAA0A1CBF2D1B008DD68F /* error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error.json; sourceTree = "<group>"; };
-		134DAA0B1CBF2D1B008DD68F /* minimum_business_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = minimum_business_response.json; sourceTree = "<group>"; };
 		134DAA0C1CBF2D1B008DD68F /* phone_search_no_region_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = phone_search_no_region_response.json; sourceTree = "<group>"; };
 		134DAA0D1CBF2D1B008DD68F /* phone_search_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = phone_search_response.json; sourceTree = "<group>"; };
 		134DAA0E1CBF2D1B008DD68F /* search_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search_response.json; sourceTree = "<group>"; };
@@ -400,7 +398,6 @@
 			children = (
 				134DAA091CBF2D1B008DD68F /* business_response.json */,
 				134DAA0A1CBF2D1B008DD68F /* error.json */,
-				134DAA0B1CBF2D1B008DD68F /* minimum_business_response.json */,
 				134DAA0C1CBF2D1B008DD68F /* phone_search_no_region_response.json */,
 				134DAA0D1CBF2D1B008DD68F /* phone_search_response.json */,
 				134DAA0E1CBF2D1B008DD68F /* search_response.json */,
@@ -606,7 +603,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				134DAA1A1CBF2D1B008DD68F /* phone_search_no_region_response.json in Resources */,
-				134DAA191CBF2D1B008DD68F /* minimum_business_response.json in Resources */,
 				134DAA1C1CBF2D1B008DD68F /* search_response.json in Resources */,
 				134DAA181CBF2D1B008DD68F /* error.json in Resources */,
 				134DAA171CBF2D1B008DD68F /* business_response.json in Resources */,
