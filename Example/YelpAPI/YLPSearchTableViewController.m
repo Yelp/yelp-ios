@@ -8,14 +8,13 @@
 
 #import "YLPSearchTableViewController.h"
 #import "YLPDetailBusinessViewController.h"
-#import "YLPClient+ClientSetup.h"
+#import "YLPAppDelegate.h"
 #import <YelpAPI/YLPClient+Search.h>
 #import <YelpAPI/YLPSortType.h>
 #import <YelpAPI/YLPSearch.h>
 #import <YelpAPI/YLPBusiness.h>
 
 @interface YLPSearchTableViewController ()
-@property (nonatomic) YLPClient *client;
 @property (nonatomic) YLPSearch *search;
 @end
 
@@ -23,9 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.client = [YLPClient newClient];
     
-    [self.client searchWithLocation:@"San Francisco, CA" currentLatLong:nil term:nil limit:5 offset:0 sort:YLPSortTypeDistance completionHandler:^
+    [[YLPAppDelegate sharedClient] searchWithLocation:@"San Francisco, CA" currentLatLong:nil term:nil limit:5 offset:0 sort:YLPSortTypeDistance completionHandler:^
         (YLPSearch *search, NSError* error) {
             self.search = search;
             dispatch_async(dispatch_get_main_queue(), ^{

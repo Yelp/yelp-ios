@@ -8,13 +8,12 @@
 
 #import "YLPPhoneSearchTableViewController.h"
 #import "YLPDetailBusinessViewController.h"
-#import "YLPClient+ClientSetup.h"
+#import "YLPAppDelegate.h"
 #import <YelpAPI/YLPClient+PhoneSearch.h>
 #import <YelpAPI/YLPPhoneSearch.h>
 #import <YelpAPI/YLPBusiness.h>
 
 @interface YLPPhoneSearchTableViewController ()
-@property (nonatomic) YLPClient *client;
 @property (nonatomic) YLPPhoneSearch *phoneSearch;
 @property (nonatomic) NSError *error;
 @end
@@ -23,10 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.client = [YLPClient newClient];
     
     // Purposefully issue an invalid request.
-    [self.client businessWithPhoneNumber:@"+++4158759656" completionHandler:^
+    [[YLPAppDelegate sharedClient] businessWithPhoneNumber:@"+++4158759656" completionHandler:^
         (YLPPhoneSearch *phoneSearch, NSError* error) {
             self.error = error;
             dispatch_async(dispatch_get_main_queue(), ^{

@@ -8,8 +8,12 @@
 
 @import UIKit;
 
+@class YLPClient;
+
 @interface YLPAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
++ (YLPClient *)sharedClient;
 
 @end

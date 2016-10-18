@@ -8,12 +8,11 @@
 
 #import "YLPBusinessViewController.h"
 #import "YLPDetailBusinessViewController.h"
-#import "YLPClient+ClientSetup.h"
+#import "YLPAppDelegate.h"
 #import <YelpAPI/YLPClient+Business.h>
 #import <YelpAPI/YLPBusiness.h>
 
 @interface YLPBusinessViewController ()
-@property (nonatomic) YLPClient *client;
 @property (nonatomic) YLPBusiness *business;
 
 @end
@@ -22,9 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.client = [YLPClient newClient];
     
-    [self.client businessWithId:@"gary-danko-san-francisco" completionHandler:^
+    [[YLPAppDelegate sharedClient] businessWithId:@"gary-danko-san-francisco" completionHandler:^
         (YLPBusiness *business, NSError* error) {
             self.business = business;
             dispatch_async(dispatch_get_main_queue(), ^{
