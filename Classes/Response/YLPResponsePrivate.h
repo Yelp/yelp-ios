@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface YLPUser ()
-- (instancetype)initWithName:(NSString *)name identifier:(NSString *)identifier imageURLString:(NSURL *)imageURLString;
+- (instancetype)initWithDictionary:(NSDictionary *)userDict;
 @end
 
 NS_ASSUME_NONNULL_END
