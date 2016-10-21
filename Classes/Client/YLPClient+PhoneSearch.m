@@ -8,8 +8,8 @@
 
 #import "YLPClient+PhoneSearch.h"
 #import "YLPClientPrivate.h"
-#import "YLPPhoneSearch.h"
 #import "YLPResponsePrivate.h"
+#import "YLPSearch.h"
 
 
 @implementation YLPClient (PhoneSearch)
@@ -53,8 +53,8 @@
         if (error) {
             completionHandler(nil, error);
         } else {
-            YLPPhoneSearch *phoneSearch = [[YLPPhoneSearch alloc] initWithDictionary:responseDict];
-            completionHandler(phoneSearch, nil);
+            YLPSearch *search = [[YLPSearch alloc] initWithDictionary:responseDict];
+            completionHandler(search, nil);
         }
         
     }];

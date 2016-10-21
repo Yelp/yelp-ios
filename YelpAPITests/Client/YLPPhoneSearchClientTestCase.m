@@ -14,8 +14,8 @@
 #import "YLPClient+PhoneSearch.h"
 #import "YLPCoordinate.h"
 #import "YLPCoordinateDelta.h"
-#import "YLPPhoneSearch.h"
 #import "YLPRegion.h"
+#import "YLPSearch.h"
 #import "YLPClientTestCaseBase.h"
 
 @interface YLPPhoneSearchClientTestCase : YLPClientTestCaseBase
@@ -24,7 +24,7 @@
 
 @interface YLPClient (PhoneSearchTest)
 
-- (void)businessWithParams:(NSDictionary *)params completionHandler:(void (^)(YLPPhoneSearch *phoneSearch, NSError *error))completionHandler;
+- (void)businessWithParams:(NSDictionary *)params completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler;
 @end
 
 @implementation YLPPhoneSearchClientTestCase
@@ -45,7 +45,7 @@
 - (void)testPhoneSearchRequestPassesParameters {
     id mockPhoneSearchRequestWithAllArgs = [self mockPhoneSearchRequestWithAllArgs];
     NSDictionary *params = @{@"cc": @"US", @"category": @"donut", @"phone": @"bogusPhoneNumber"};
-    [self.client businessWithPhoneNumber:@"bogusPhoneNumber" countryCode:@"US" category:@"donut" completionHandler:^(YLPPhoneSearch *phoneSearch, NSError *error) {}];
+    [self.client businessWithPhoneNumber:@"bogusPhoneNumber" countryCode:@"US" category:@"donut" completionHandler:^(YLPSearch *phoneSearch, NSError *error) {}];
     OCMExpect([mockPhoneSearchRequestWithAllArgs businessWithParams:params completionHandler:[OCMArg any]]);
 }
 
@@ -59,7 +59,7 @@
     }];
     
     NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
-    [self.client businessWithPhoneNumber:@"4151231234" completionHandler:^(YLPPhoneSearch *phoneSearchResults, NSError *error) {
+    [self.client businessWithPhoneNumber:@"4151231234" completionHandler:^(YLPSearch *phoneSearchResults, NSError *error) {
         NSArray *actualBusinesses = phoneSearchResults.businesses;
         XCTAssertEqual([actualBusinesses count], 2);
         XCTAssertEqual(phoneSearchResults.total, [expectedResponse[@"total"] integerValue]);
@@ -85,7 +85,7 @@
     }];
     
     NSDictionary *expectedRegion = [self loadExpectedResponse:self.defaultResource][@"region"];
-    [self.client businessWithPhoneNumber:@"4151231234" completionHandler:^(YLPPhoneSearch *phoneSearchResults, NSError *error) {
+    [self.client businessWithPhoneNumber:@"4151231234" completionHandler:^(YLPSearch *phoneSearchResults, NSError *error) {
         YLPRegion *actualRegion = phoneSearchResults.region;
         XCTAssertEqual(actualRegion.center.latitude, [expectedRegion[@"center"][@"latitude"] doubleValue]);
         XCTAssertEqual(actualRegion.span.longitudeDelta, [expectedRegion[@"span"][@"longitude_delta"] doubleValue]);
@@ -105,7 +105,7 @@
         return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.minimalResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
     }];
     
-    [self.client businessWithPhoneNumber:@"4151231234" completionHandler:^(YLPPhoneSearch *phoneSearchResults, NSError *error) {
+    [self.client businessWithPhoneNumber:@"4151231234" completionHandler:^(YLPSearch *phoneSearchResults, NSError *error) {
         YLPRegion *actualRegion = phoneSearchResults.region;
         XCTAssertNil(actualRegion);
         [expectation fulfill];

@@ -7,11 +7,11 @@
 //
 #import "YLPClient.h"
 
-@class YLPPhoneSearch;
+@class YLPSearch;
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^YLPPhoneSearchCompletionHandler)(YLPPhoneSearch * _Nullable phoneSearch, NSError * _Nullable error);
+typedef void(^YLPPhoneSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *_Nullable error);
 
 @interface YLPClient (PhoneSearch)
 
