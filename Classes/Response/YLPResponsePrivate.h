@@ -7,9 +7,7 @@
 //
 #import "YLPBusiness.h"
 #import "YLPCategory.h"
-#import "YLPCoordinateDelta.h"
 #import "YLPLocation.h"
-#import "YLPRegion.h"
 #import "YLPReview.h"
 #import "YLPSearch.h"
 #import "YLPUser.h"
@@ -25,16 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithDictionary:(NSDictionary *)categoryDict;
 @end
 
-@interface YLPCoordinateDelta ()
-- (instancetype)initWithLatitudeDelta:(double)latitudeDelta longitudeDelta:(double)longitudeDelta;
-@end
-
 @interface YLPLocation ()
 - (instancetype)initWithDictionary:(NSDictionary *)locationDict coordinate:(nullable YLPCoordinate *)coordinate;
-@end
-
-@interface YLPRegion ()
-- (instancetype)initWithDictionary:(NSDictionary *)regionDict;
 @end
 
 @interface YLPReview ()

@@ -13,13 +13,10 @@
 #import "YLPBusiness.h"
 #import "YLPClient+PhoneSearch.h"
 #import "YLPCoordinate.h"
-#import "YLPCoordinateDelta.h"
-#import "YLPRegion.h"
 #import "YLPSearch.h"
 #import "YLPClientTestCaseBase.h"
 
 @interface YLPPhoneSearchClientTestCase : YLPClientTestCaseBase
-@property (nonatomic, copy) NSString *minimalResource;
 @end
 
 @interface YLPClient (PhoneSearchTest)
@@ -32,8 +29,6 @@
 - (void)setUp {
     [super setUp];
     self.defaultResource = @"phone_search_response.json";
-    self.minimalResource = @"phone_search_no_region_response.json";
-    
 }
 
 - (id)mockPhoneSearchRequestWithAllArgs {
@@ -61,58 +56,14 @@
     NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
     [self.client businessWithPhoneNumber:@"4151231234" completionHandler:^(YLPSearch *phoneSearchResults, NSError *error) {
         NSArray *actualBusinesses = phoneSearchResults.businesses;
-        XCTAssertEqual([actualBusinesses count], 2);
+        XCTAssertEqual([actualBusinesses count], 1);
         XCTAssertEqual(phoneSearchResults.total, [expectedResponse[@"total"] integerValue]);
         XCTAssertNotNil(actualBusinesses[0]);
-        XCTAssertNotNil(actualBusinesses[1]);
-        XCTAssertNotNil(phoneSearchResults.region);
-        XCTAssertEqualObjects([actualBusinesses[1] class], [YLPBusiness class]);
-        XCTAssertEqualObjects([phoneSearchResults.region class], [YLPRegion class]);
+        XCTAssertEqualObjects([actualBusinesses[0] class], [YLPBusiness class]);
         [expectation fulfill];
         
     }];
     [self waitForExpectationsWithTimeout:5 handler:nil];
-    
-}
-
-- (void)testRegionSetOnPhoneSearch {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Test that YLPRegion is correctly set on YLPPhoneSearch."];
-    
-    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-        return [request.URL.host isEqualToString:kYLPAPIHost];
-    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.defaultResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
-    }];
-    
-    NSDictionary *expectedRegion = [self loadExpectedResponse:self.defaultResource][@"region"];
-    [self.client businessWithPhoneNumber:@"4151231234" completionHandler:^(YLPSearch *phoneSearchResults, NSError *error) {
-        YLPRegion *actualRegion = phoneSearchResults.region;
-        XCTAssertEqual(actualRegion.center.latitude, [expectedRegion[@"center"][@"latitude"] doubleValue]);
-        XCTAssertEqual(actualRegion.span.longitudeDelta, [expectedRegion[@"span"][@"longitude_delta"] doubleValue]);
-        [expectation fulfill];
-        
-    }];
-    [self waitForExpectationsWithTimeout:5 handler:nil];
-    
-}
-
-- (void)testRegionNilWhenRegionNotInResponse {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Test that YLPRegion is set to nil on YLPPhoneSearch, when the response doesn't contain the region key."];
-    
-    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-        return [request.URL.host isEqualToString:kYLPAPIHost];
-    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.minimalResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
-    }];
-    
-    [self.client businessWithPhoneNumber:@"4151231234" completionHandler:^(YLPSearch *phoneSearchResults, NSError *error) {
-        YLPRegion *actualRegion = phoneSearchResults.region;
-        XCTAssertNil(actualRegion);
-        [expectation fulfill];
-        
-    }];
-    [self waitForExpectationsWithTimeout:5 handler:nil];
-    
 }
 
 @end

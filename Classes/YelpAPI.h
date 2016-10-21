@@ -20,9 +20,7 @@
 
 #import "YLPBusiness.h"
 #import "YLPCategory.h"
-#import "YLPCoordinateDelta.h"
 #import "YLPLocation.h"
-#import "YLPRegion.h"
 #import "YLPReview.h"
 #import "YLPSearch.h"
 #import "YLPUser.h"

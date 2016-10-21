@@ -13,10 +13,8 @@
 #import "YLPBusiness.h"
 #import "YLPClient+Search.h"
 #import "YLPCoordinate.h"
-#import "YLPCoordinateDelta.h"
 #import "YLPGeoBoundingBox.h"
 #import "YLPGeoCoordinate.h"
-#import "YLPRegion.h"
 #import "YLPSearch.h"
 #import "YLPSortType.h"
 #import "YLPClientTestCaseBase.h"
@@ -46,20 +44,11 @@
         YLPBusiness *actualFirstBiz = searchResults.businesses[0];
         NSDictionary *expectedFirstBiz = expectedResponse[@"businesses"][0];
         
-        YLPBusiness *actualSecondBiz = searchResults.businesses[1];
-        NSDictionary *expectedSecondBiz = expectedResponse[@"businesses"][1];
-        
-        YLPRegion *actualRegion = searchResults.region;
-        NSDictionary *expectedRegion = expectedResponse[@"region"];
-        
         XCTAssertEqualObjects(actualFirstBiz.name, expectedFirstBiz[@"name"]);
-        XCTAssertEqual(actualSecondBiz.rating, [expectedSecondBiz[@"rating"] doubleValue]);
+        XCTAssertEqual(actualFirstBiz.rating, [expectedFirstBiz[@"rating"] doubleValue]);
         
         XCTAssertEqual(searchResults.total, [expectedResponse[@"total"] intValue]);
         [expectation fulfill];
-        
-        XCTAssertEqual(actualRegion.span.latitudeDelta, [expectedRegion[@"span"][@"latitude_delta"] doubleValue]);
-        XCTAssertEqual(actualRegion.center.longitude, [expectedRegion[@"center"][@"longitude"] doubleValue]);
         
     }];
     [self waitForExpectationsWithTimeout:5 handler:nil];

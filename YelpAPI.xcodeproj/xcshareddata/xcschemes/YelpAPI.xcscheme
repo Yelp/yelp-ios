@@ -37,14 +37,6 @@
                BlueprintName = "YelpAPITests"
                ReferencedContainer = "container:YelpAPI.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "YLPPhoneSearchClientTestCase">
-               </Test>
-               <Test
-                  Identifier = "YLPSearchClientTestCase">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

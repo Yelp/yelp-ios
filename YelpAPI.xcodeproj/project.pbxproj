@@ -28,12 +28,8 @@
 		134DA9C31CBF253B008DD68F /* YLPBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 134DA9971CBF253B008DD68F /* YLPBusiness.m */; };
 		134DA9C41CBF253B008DD68F /* YLPCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 134DA9981CBF253B008DD68F /* YLPCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		134DA9C51CBF253B008DD68F /* YLPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 134DA9991CBF253B008DD68F /* YLPCategory.m */; };
-		134DA9C61CBF253B008DD68F /* YLPCoordinateDelta.h in Headers */ = {isa = PBXBuildFile; fileRef = 134DA99A1CBF253B008DD68F /* YLPCoordinateDelta.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		134DA9C71CBF253B008DD68F /* YLPCoordinateDelta.m in Sources */ = {isa = PBXBuildFile; fileRef = 134DA99B1CBF253B008DD68F /* YLPCoordinateDelta.m */; };
 		134DA9D01CBF253B008DD68F /* YLPLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 134DA9A41CBF253B008DD68F /* YLPLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		134DA9D11CBF253B008DD68F /* YLPLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 134DA9A51CBF253B008DD68F /* YLPLocation.m */; };
-		134DA9D41CBF253B008DD68F /* YLPRegion.h in Headers */ = {isa = PBXBuildFile; fileRef = 134DA9A81CBF253B008DD68F /* YLPRegion.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		134DA9D51CBF253B008DD68F /* YLPRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 134DA9A91CBF253B008DD68F /* YLPRegion.m */; };
 		134DA9D61CBF253B008DD68F /* YLPResponsePrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 134DA9AA1CBF253B008DD68F /* YLPResponsePrivate.h */; };
 		134DA9D71CBF253B008DD68F /* YLPReview.h in Headers */ = {isa = PBXBuildFile; fileRef = 134DA9AB1CBF253B008DD68F /* YLPReview.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		134DA9D81CBF253B008DD68F /* YLPReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 134DA9AC1CBF253B008DD68F /* YLPReview.m */; };
@@ -52,7 +48,6 @@
 		134DAA161CBF2D1B008DD68F /* YLPGeoCoordinateTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 134DAA071CBF2D1B008DD68F /* YLPGeoCoordinateTestCase.m */; };
 		134DAA171CBF2D1B008DD68F /* business_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 134DAA091CBF2D1B008DD68F /* business_response.json */; };
 		134DAA181CBF2D1B008DD68F /* error.json in Resources */ = {isa = PBXBuildFile; fileRef = 134DAA0A1CBF2D1B008DD68F /* error.json */; };
-		134DAA1A1CBF2D1B008DD68F /* phone_search_no_region_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 134DAA0C1CBF2D1B008DD68F /* phone_search_no_region_response.json */; };
 		134DAA1B1CBF2D1B008DD68F /* phone_search_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 134DAA0D1CBF2D1B008DD68F /* phone_search_response.json */; };
 		134DAA1C1CBF2D1B008DD68F /* search_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 134DAA0E1CBF2D1B008DD68F /* search_response.json */; };
 		13640F191DB2C7ED005F551B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13640F181DB2C7ED005F551B /* main.m */; };
@@ -132,12 +127,8 @@
 		134DA9971CBF253B008DD68F /* YLPBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPBusiness.m; sourceTree = "<group>"; };
 		134DA9981CBF253B008DD68F /* YLPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPCategory.h; sourceTree = "<group>"; };
 		134DA9991CBF253B008DD68F /* YLPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPCategory.m; sourceTree = "<group>"; };
-		134DA99A1CBF253B008DD68F /* YLPCoordinateDelta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPCoordinateDelta.h; sourceTree = "<group>"; };
-		134DA99B1CBF253B008DD68F /* YLPCoordinateDelta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPCoordinateDelta.m; sourceTree = "<group>"; };
 		134DA9A41CBF253B008DD68F /* YLPLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPLocation.h; sourceTree = "<group>"; };
 		134DA9A51CBF253B008DD68F /* YLPLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPLocation.m; sourceTree = "<group>"; };
-		134DA9A81CBF253B008DD68F /* YLPRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPRegion.h; sourceTree = "<group>"; };
-		134DA9A91CBF253B008DD68F /* YLPRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPRegion.m; sourceTree = "<group>"; };
 		134DA9AA1CBF253B008DD68F /* YLPResponsePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPResponsePrivate.h; sourceTree = "<group>"; };
 		134DA9AB1CBF253B008DD68F /* YLPReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPReview.h; sourceTree = "<group>"; };
 		134DA9AC1CBF253B008DD68F /* YLPReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPReview.m; sourceTree = "<group>"; };
@@ -158,7 +149,6 @@
 		134DAA071CBF2D1B008DD68F /* YLPGeoCoordinateTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPGeoCoordinateTestCase.m; sourceTree = "<group>"; };
 		134DAA091CBF2D1B008DD68F /* business_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = business_response.json; sourceTree = "<group>"; };
 		134DAA0A1CBF2D1B008DD68F /* error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error.json; sourceTree = "<group>"; };
-		134DAA0C1CBF2D1B008DD68F /* phone_search_no_region_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = phone_search_no_region_response.json; sourceTree = "<group>"; };
 		134DAA0D1CBF2D1B008DD68F /* phone_search_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = phone_search_response.json; sourceTree = "<group>"; };
 		134DAA0E1CBF2D1B008DD68F /* search_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search_response.json; sourceTree = "<group>"; };
 		13640F151DB2C7ED005F551B /* YelpAPI_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelpAPI_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -317,12 +307,8 @@
 				134DA9971CBF253B008DD68F /* YLPBusiness.m */,
 				134DA9981CBF253B008DD68F /* YLPCategory.h */,
 				134DA9991CBF253B008DD68F /* YLPCategory.m */,
-				134DA99A1CBF253B008DD68F /* YLPCoordinateDelta.h */,
-				134DA99B1CBF253B008DD68F /* YLPCoordinateDelta.m */,
 				134DA9A41CBF253B008DD68F /* YLPLocation.h */,
 				134DA9A51CBF253B008DD68F /* YLPLocation.m */,
-				134DA9A81CBF253B008DD68F /* YLPRegion.h */,
-				134DA9A91CBF253B008DD68F /* YLPRegion.m */,
 				134DA9AA1CBF253B008DD68F /* YLPResponsePrivate.h */,
 				134DA9AB1CBF253B008DD68F /* YLPReview.h */,
 				134DA9AC1CBF253B008DD68F /* YLPReview.m */,
@@ -392,7 +378,6 @@
 			children = (
 				134DAA091CBF2D1B008DD68F /* business_response.json */,
 				134DAA0A1CBF2D1B008DD68F /* error.json */,
-				134DAA0C1CBF2D1B008DD68F /* phone_search_no_region_response.json */,
 				134DAA0D1CBF2D1B008DD68F /* phone_search_response.json */,
 				134DAA0E1CBF2D1B008DD68F /* search_response.json */,
 			);
@@ -455,13 +440,11 @@
 			files = (
 				134DA8BD1CBF2484008DD68F /* YelpAPI.h in Headers */,
 				134DA9C41CBF253B008DD68F /* YLPCategory.h in Headers */,
-				134DA9D41CBF253B008DD68F /* YLPRegion.h in Headers */,
 				134DA9BB1CBF253B008DD68F /* YLPCoordinate.h in Headers */,
 				134DA9DB1CBF253B008DD68F /* YLPUser.h in Headers */,
 				134DA9D71CBF253B008DD68F /* YLPReview.h in Headers */,
 				134DA9C11CBF253B008DD68F /* YLPSortType.h in Headers */,
 				134DA9BF1CBF253B008DD68F /* YLPGeoCoordinate.h in Headers */,
-				134DA9C61CBF253B008DD68F /* YLPCoordinateDelta.h in Headers */,
 				134DA9B51CBF253B008DD68F /* YLPClient+Search.h in Headers */,
 				134DA9D91CBF253B008DD68F /* YLPSearch.h in Headers */,
 				134DA9D01CBF253B008DD68F /* YLPLocation.h in Headers */,
@@ -595,7 +578,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				134DAA1A1CBF2D1B008DD68F /* phone_search_no_region_response.json in Resources */,
 				134DAA1C1CBF2D1B008DD68F /* search_response.json in Resources */,
 				134DAA181CBF2D1B008DD68F /* error.json in Resources */,
 				134DAA171CBF2D1B008DD68F /* business_response.json in Resources */,
@@ -744,7 +726,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				134DA9BC1CBF253B008DD68F /* YLPCoordinate.m in Sources */,
-				134DA9D51CBF253B008DD68F /* YLPRegion.m in Sources */,
 				134DA9C31CBF253B008DD68F /* YLPBusiness.m in Sources */,
 				134DA9B21CBF253B008DD68F /* YLPClient+Business.m in Sources */,
 				134DA9DA1CBF253B008DD68F /* YLPSearch.m in Sources */,
@@ -753,7 +734,6 @@
 				134DA9D81CBF253B008DD68F /* YLPReview.m in Sources */,
 				134DA9C01CBF253B008DD68F /* YLPGeoCoordinate.m in Sources */,
 				134DA9BE1CBF253B008DD68F /* YLPGeoBoundingBox.m in Sources */,
-				134DA9C71CBF253B008DD68F /* YLPCoordinateDelta.m in Sources */,
 				134DA9C51CBF253B008DD68F /* YLPCategory.m in Sources */,
 				134DA9DC1CBF253B008DD68F /* YLPUser.m in Sources */,
 				134DA9D11CBF253B008DD68F /* YLPLocation.m in Sources */,

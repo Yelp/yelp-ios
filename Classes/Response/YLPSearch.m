@@ -12,11 +12,8 @@
 @implementation YLPSearch
 - (instancetype)initWithDictionary:(NSDictionary *)searchDict {
     if (self = [super init]) {
-        _total = [searchDict[@"total"] intValue];
+        _total = [searchDict[@"total"] unsignedIntegerValue];
         _businesses = [self.class businessesFromJSONArray:searchDict[@"businesses"]];
-        if (searchDict[@"region"]) {
-            _region = [[YLPRegion alloc] initWithDictionary:searchDict[@"region"]];
-        }
     }
     
     return self;
