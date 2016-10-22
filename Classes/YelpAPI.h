@@ -13,8 +13,6 @@
 
 #import "YLPCoordinate.h"
 
-#import "YLPGeoBoundingBox.h"
-#import "YLPGeoCoordinate.h"
 #import "YLPQuery.h"
 #import "YLPSortType.h"
 

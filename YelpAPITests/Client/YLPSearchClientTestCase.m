@@ -13,8 +13,6 @@
 #import "YLPBusiness.h"
 #import "YLPClient+Search.h"
 #import "YLPCoordinate.h"
-#import "YLPGeoBoundingBox.h"
-#import "YLPGeoCoordinate.h"
 #import "YLPSearch.h"
 #import "YLPSortType.h"
 #import "YLPClientTestCaseBase.h"
