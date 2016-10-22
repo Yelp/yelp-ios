@@ -19,11 +19,6 @@
 @interface YLPPhoneSearchClientTestCase : YLPClientTestCaseBase
 @end
 
-@interface YLPClient (PhoneSearchTest)
-
-- (void)businessWithParams:(NSDictionary *)params completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler;
-@end
-
 @implementation YLPPhoneSearchClientTestCase
 
 - (void)setUp {
@@ -33,15 +28,15 @@
 
 - (id)mockPhoneSearchRequestWithAllArgs {
     id mockPhoneSearchRequestWithAllArgs = OCMPartialMock(self.client);
-    OCMStub([mockPhoneSearchRequestWithAllArgs businessWithParams:[OCMArg any] completionHandler:[OCMArg any]]);
+    OCMStub([mockPhoneSearchRequestWithAllArgs queryWithRequest:[OCMArg any] completionHandler:[OCMArg any]]);
     return mockPhoneSearchRequestWithAllArgs;
 }
 
 - (void)testPhoneSearchRequestPassesParameters {
     id mockPhoneSearchRequestWithAllArgs = [self mockPhoneSearchRequestWithAllArgs];
-    NSDictionary *params = @{@"cc": @"US", @"category": @"donut", @"phone": @"bogusPhoneNumber"};
-    [self.client businessWithPhoneNumber:@"bogusPhoneNumber" countryCode:@"US" category:@"donut" completionHandler:^(YLPSearch *phoneSearch, NSError *error) {}];
-    OCMExpect([mockPhoneSearchRequestWithAllArgs businessWithParams:params completionHandler:[OCMArg any]]);
+    NSDictionary *params = @{@"phone": @"bogusPhoneNumber"};
+    [self.client businessWithPhoneNumber:@"bogusPhoneNumber" completionHandler:^(YLPSearch *phoneSearch, NSError *error) {}];
+    OCMExpect([mockPhoneSearchRequestWithAllArgs requestWithPath:[OCMArg any] params:params]);
 }
 
 - (void)testAttributesSetOnPhoneSearch{

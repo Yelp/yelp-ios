@@ -45,7 +45,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PhoneSearchCell" forIndexPath:indexPath];
-    cell.textLabel.text = self.error.userInfo[@"error"][@"text"];
+    cell.textLabel.text = self.error.userInfo[@"error"][@"description"];
     return cell;
 }
 
