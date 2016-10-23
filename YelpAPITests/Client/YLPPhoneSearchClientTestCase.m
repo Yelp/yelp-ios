@@ -11,6 +11,7 @@
 #import <OHHTTPStubs/OHPathHelpers.h>
 #import <XCTest/XCTest.h>
 #import "YLPBusiness.h"
+#import "YLPClientPrivate.h"
 #import "YLPClient+PhoneSearch.h"
 #import "YLPCoordinate.h"
 #import "YLPSearch.h"
