@@ -6,11 +6,13 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "YLPBaseObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPUser : NSObject
+@interface YLPUser : YLPBaseObject
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @property (nonatomic, copy, readonly) NSString *identifier;
 @property (nonatomic, copy, readonly) NSString *name;

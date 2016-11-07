@@ -6,13 +6,15 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "YLPBaseObject.h"
 
 @class YLPCoordinate;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPLocation : NSObject
+@interface YLPLocation : YLPBaseObject
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @property (nonatomic, readonly, copy) NSString *city;
 @property (nonatomic, readonly, copy) NSString *stateCode;

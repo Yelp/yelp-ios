@@ -6,11 +6,13 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "YLPBaseObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPGiftCertificateOption : NSObject
+@interface YLPGiftCertificateOption : YLPBaseObject
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @property (nonatomic, readonly) NSUInteger price;
 @property (nonatomic, copy, readonly) NSString *formattedPrice;

@@ -6,11 +6,13 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "YLPBaseObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPDealOption : NSObject
+@interface YLPDealOption : YLPBaseObject
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @property (nonatomic, copy, readonly) NSString *title;
 @property (nonatomic, copy, readonly) NSString *formattedPrice;

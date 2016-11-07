@@ -6,13 +6,13 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "YLPBaseObject.h"
 
 @class YLPCoordinate;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPGeoBoundingBox : NSObject
+@interface YLPGeoBoundingBox : YLPBaseObject
 
 @property (nonatomic, copy, readonly) YLPCoordinate *southwestCoordinate;
 @property (nonatomic, copy, readonly) YLPCoordinate *northeastCoordinate;
@@ -20,7 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithSouthWestLongitude:(double)southwestLongitude
                          southWestLatitude:(double)southwestLatitude
                          northEastLatitude:(double)northeastLatitude
-                        northEastLongitude:(double)northeastLongitude;
+                        northEastLongitude:(double)northeastLongitude NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 

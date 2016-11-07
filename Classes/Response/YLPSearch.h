@@ -6,14 +6,16 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "YLPBaseObject.h"
 
 @class YLPRegion;
 @class YLPBusiness;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPSearch : NSObject
+@interface YLPSearch : YLPBaseObject
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @property (nonatomic, nullable, readonly) YLPRegion *region;
 @property (nonatomic, readonly) NSArray<YLPBusiness *> *businesses;

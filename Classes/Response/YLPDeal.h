@@ -6,13 +6,15 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "YLPBaseObject.h"
 
 @class YLPDealOption;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPDeal : NSObject
+@interface YLPDeal : YLPBaseObject
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @property (nonatomic, copy, readonly) NSString *identifier;
 @property (nonatomic, copy, readonly) NSString *title;

@@ -6,7 +6,7 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "YLPBaseObject.h"
 #import "YLPSortType.h"
 
 @class YLPCoordinate;
@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPQuery : NSObject
+@interface YLPQuery : YLPBaseObject
 
 /**
  Initializes a query with a location specified by text.
@@ -23,19 +23,21 @@ NS_ASSUME_NONNULL_BEGIN
  @param cll location as a hint to the geocoder to disambiguate the location text
  */
 - (instancetype)initWithLocation:(NSString *)location
-                  currentLatLong:(nullable YLPCoordinate *)cll;
+                  currentLatLong:(nullable YLPCoordinate *)cll NS_DESIGNATED_INITIALIZER;
 
 /**
  Initializes a query with a location specified by a geographical bounding box.
  @param bounds bounds within which to search
  */
-- (instancetype)initWithBounds:(YLPGeoBoundingBox *)bounds;
+- (instancetype)initWithBounds:(YLPGeoBoundingBox *)bounds NS_DESIGNATED_INITIALIZER;
 
 /**
  Initializes a query with a location specified by a geographic coordinate.
  @param geoCoordinate coordinate around which to search
  */
-- (instancetype)initWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate;
+- (instancetype)initWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
  Search term (e.g. "food", "restaurants"). If term is nil, everything will be searched.

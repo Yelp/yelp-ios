@@ -6,14 +6,16 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "YLPBaseObject.h"
 
 @class YLPCoordinate;
 @class YLPCoordinateDelta;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPRegion : NSObject
+@interface YLPRegion : YLPBaseObject
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @property (nonatomic, readonly) YLPCoordinateDelta *span;
 @property (nonatomic, readonly) YLPCoordinate *center;

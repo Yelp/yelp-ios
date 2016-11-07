@@ -6,13 +6,13 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "YLPBaseObject.h"
 
 @class YLPCoordinate;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPGeoCoordinate : NSObject
+@interface YLPGeoCoordinate : YLPBaseObject
 
 @property (nonatomic, copy, readonly) YLPCoordinate *coordinate;
 @property (nonatomic, readonly) double accuracy;
@@ -23,7 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
                        longitude:(double)longitude
                         accuracy:(double)accuracy
                         altitude:(double)altitude
-                altitudeAccuracy:(double)altitudeAccuracy;
+                altitudeAccuracy:(double)altitudeAccuracy NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 

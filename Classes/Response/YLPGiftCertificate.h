@@ -6,7 +6,7 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "YLPBaseObject.h"
 
 @class YLPGiftCertificateOption;
 
@@ -17,7 +17,10 @@ typedef NS_ENUM(NSInteger, YLPBalanceType) {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPGiftCertificate : NSObject
+@interface YLPGiftCertificate : YLPBaseObject
+
+- (instancetype)init NS_UNAVAILABLE;
+
 @property (nonatomic, copy, readonly) NSString *identifier;
 @property (nonatomic, copy, readonly) NSString *currencyCode;
 @property (nonatomic, readonly) YLPBalanceType unusedBalances;
