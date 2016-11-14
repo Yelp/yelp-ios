@@ -6,6 +6,7 @@
 //
 //
 #import "YLPBusiness.h"
+#import "YLPBusinessReviews.h"
 #import "YLPCategory.h"
 #import "YLPLocation.h"
 #import "YLPReview.h"
@@ -16,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPBusiness ()
 - (instancetype)initWithDictionary:(NSDictionary *)businessDict;
+@end
+
+@interface YLPBusinessReviews ()
+- (instancetype)initWithDictionary:(NSDictionary *)reviewsDict;
 @end
 
 @interface YLPCategory ()
@@ -36,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface YLPUser ()
-- (instancetype)initWithName:(NSString *)name identifier:(NSString *)identifier imageURLString:(NSURL *)imageURLString;
+- (instancetype)initWithDictionary:(NSDictionary *)userDict;
 @end
 
 NS_ASSUME_NONNULL_END

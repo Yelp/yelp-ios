@@ -21,10 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, readonly) double rating;
 
-@property(nonatomic, readonly, copy) NSURL *ratingImageURL;
-@property(nonatomic, readonly, copy) NSURL *ratingImageSmallURL;
-@property(nonatomic, readonly, copy) NSURL *ratingImageLargeURL;
-
 @property(nonatomic, readonly, copy) YLPUser *user;
 
 @end

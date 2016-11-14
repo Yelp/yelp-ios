@@ -6,7 +6,8 @@
 //
 //
 #import <XCTest/XCTest.h>
-#import "YLPClient.h"
+
+@class YLPClient;
 
 @interface YLPClientTestCaseBase : XCTestCase
 
@@ -15,14 +16,5 @@
 @property (nonatomic, copy) NSString *defaultResource;
 
 - (NSDictionary *)loadExpectedResponse:(NSString *)resource;
-
-@end
-
-@interface YLPClient (Testing)
-
-- (NSURLRequest *)requestWithPath:(NSString *)path;
-- (NSURLRequest *)requestWithPath:(NSString *)path params:(NSDictionary *)params;
-
-- (void)queryWithRequest:(NSURLRequest *)request completionHandler:(void (^)(NSDictionary *jsonResponse, NSError *error))completionHandler;
 
 @end

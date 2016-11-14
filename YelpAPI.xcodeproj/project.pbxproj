@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		130408DF1DBA96F200E44AC6 /* reviews_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 130408DE1DBA96F200E44AC6 /* reviews_response.json */; };
+		130408E41DBAAA4600E44AC6 /* YLPClient+Reviews.h in Headers */ = {isa = PBXBuildFile; fileRef = 130408E21DBAAA4600E44AC6 /* YLPClient+Reviews.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		130408E51DBAAA4600E44AC6 /* YLPClient+Reviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 130408E31DBAAA4600E44AC6 /* YLPClient+Reviews.m */; };
+		130408E81DBAB04400E44AC6 /* YLPBusinessReviews.h in Headers */ = {isa = PBXBuildFile; fileRef = 130408E61DBAB04400E44AC6 /* YLPBusinessReviews.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		130408E91DBAB04400E44AC6 /* YLPBusinessReviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 130408E71DBAB04400E44AC6 /* YLPBusinessReviews.m */; };
+		130408EE1DBC0D7B00E44AC6 /* YLPReviewsClientTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130408ED1DBC0D7B00E44AC6 /* YLPReviewsClientTestCase.swift */; };
 		134DA8BD1CBF2484008DD68F /* YelpAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 134DA8BC1CBF2484008DD68F /* YelpAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		134DA9B11CBF253B008DD68F /* YLPClient+Business.h in Headers */ = {isa = PBXBuildFile; fileRef = 134DA9821CBF253B008DD68F /* YLPClient+Business.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		134DA9B21CBF253B008DD68F /* YLPClient+Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 134DA9831CBF253B008DD68F /* YLPClient+Business.m */; };
@@ -98,6 +104,13 @@
 
 /* Begin PBXFileReference section */
 		002DB8E26156F1C9C8A09B36 /* Pods-YelpAPITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpAPITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YelpAPITests/Pods-YelpAPITests.debug.xcconfig"; sourceTree = "<group>"; };
+		130408DE1DBA96F200E44AC6 /* reviews_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reviews_response.json; sourceTree = "<group>"; };
+		130408E21DBAAA4600E44AC6 /* YLPClient+Reviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YLPClient+Reviews.h"; sourceTree = "<group>"; };
+		130408E31DBAAA4600E44AC6 /* YLPClient+Reviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YLPClient+Reviews.m"; sourceTree = "<group>"; };
+		130408E61DBAB04400E44AC6 /* YLPBusinessReviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPBusinessReviews.h; sourceTree = "<group>"; };
+		130408E71DBAB04400E44AC6 /* YLPBusinessReviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPBusinessReviews.m; sourceTree = "<group>"; };
+		130408EC1DBC0D7B00E44AC6 /* YelpAPITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YelpAPITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		130408ED1DBC0D7B00E44AC6 /* YLPReviewsClientTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLPReviewsClientTestCase.swift; sourceTree = "<group>"; };
 		134DA8B91CBF2484008DD68F /* YelpAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YelpAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		134DA8BC1CBF2484008DD68F /* YelpAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YelpAPI.h; sourceTree = "<group>"; };
 		134DA8BE1CBF2484008DD68F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -255,6 +268,8 @@
 				134DA9831CBF253B008DD68F /* YLPClient+Business.m */,
 				134DA9841CBF253B008DD68F /* YLPClient+PhoneSearch.h */,
 				134DA9851CBF253B008DD68F /* YLPClient+PhoneSearch.m */,
+				130408E21DBAAA4600E44AC6 /* YLPClient+Reviews.h */,
+				130408E31DBAAA4600E44AC6 /* YLPClient+Reviews.m */,
 				134DA9861CBF253B008DD68F /* YLPClient+Search.h */,
 				134DA9871CBF253B008DD68F /* YLPClient+Search.m */,
 				134DA9881CBF253B008DD68F /* YLPClient.h */,
@@ -289,6 +304,8 @@
 			children = (
 				134DA9961CBF253B008DD68F /* YLPBusiness.h */,
 				134DA9971CBF253B008DD68F /* YLPBusiness.m */,
+				130408E61DBAB04400E44AC6 /* YLPBusinessReviews.h */,
+				130408E71DBAB04400E44AC6 /* YLPBusinessReviews.m */,
 				134DA9981CBF253B008DD68F /* YLPCategory.h */,
 				134DA9991CBF253B008DD68F /* YLPCategory.m */,
 				134DA9A41CBF253B008DD68F /* YLPLocation.h */,
@@ -322,6 +339,7 @@
 				134DAA051CBF2D1B008DD68F /* Request */,
 				134DAA081CBF2D1B008DD68F /* Responses */,
 				134DA9F51CBF2CC2008DD68F /* Info.plist */,
+				130408EC1DBC0D7B00E44AC6 /* YelpAPITests-Bridging-Header.h */,
 			);
 			path = YelpAPITests;
 			sourceTree = "<group>";
@@ -334,6 +352,7 @@
 				134DA9FF1CBF2D1B008DD68F /* YLPClientTestCaseBase.h */,
 				134DAA001CBF2D1B008DD68F /* YLPClientTestCaseBase.m */,
 				134DAA011CBF2D1B008DD68F /* YLPPhoneSearchClientTestCase.m */,
+				130408ED1DBC0D7B00E44AC6 /* YLPReviewsClientTestCase.swift */,
 				134DAA021CBF2D1B008DD68F /* YLPSearchClientTestCase.m */,
 			);
 			path = Client;
@@ -361,6 +380,7 @@
 				134DAA091CBF2D1B008DD68F /* business_response.json */,
 				134DAA0A1CBF2D1B008DD68F /* error.json */,
 				134DAA0D1CBF2D1B008DD68F /* phone_search_response.json */,
+				130408DE1DBA96F200E44AC6 /* reviews_response.json */,
 				134DAA0E1CBF2D1B008DD68F /* search_response.json */,
 			);
 			path = Responses;
@@ -431,7 +451,9 @@
 				134DA9D01CBF253B008DD68F /* YLPLocation.h in Headers */,
 				134DA9B71CBF253B008DD68F /* YLPClient.h in Headers */,
 				134DA9C21CBF253B008DD68F /* YLPBusiness.h in Headers */,
+				130408E81DBAB04400E44AC6 /* YLPBusinessReviews.h in Headers */,
 				134DA9B11CBF253B008DD68F /* YLPClient+Business.h in Headers */,
+				130408E41DBAAA4600E44AC6 /* YLPClient+Reviews.h in Headers */,
 				134DA9B31CBF253B008DD68F /* YLPClient+PhoneSearch.h in Headers */,
 				13BE49641D2037070002262E /* YLPQuery.h in Headers */,
 				13BE49671D203E000002262E /* YLPQueryPrivate.h in Headers */,
@@ -519,6 +541,7 @@
 					};
 					134DA9F01CBF2CC2008DD68F = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					13640F141DB2C7ED005F551B = {
 						CreatedOnToolsVersion = 8.0;
@@ -561,6 +584,7 @@
 				134DAA1C1CBF2D1B008DD68F /* search_response.json in Resources */,
 				134DAA181CBF2D1B008DD68F /* error.json in Resources */,
 				134DAA171CBF2D1B008DD68F /* business_response.json in Resources */,
+				130408DF1DBA96F200E44AC6 /* reviews_response.json in Resources */,
 				134DAA1B1CBF2D1B008DD68F /* phone_search_response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -707,6 +731,8 @@
 			files = (
 				134DA9BC1CBF253B008DD68F /* YLPCoordinate.m in Sources */,
 				134DA9C31CBF253B008DD68F /* YLPBusiness.m in Sources */,
+				130408E51DBAAA4600E44AC6 /* YLPClient+Reviews.m in Sources */,
+				130408E91DBAB04400E44AC6 /* YLPBusinessReviews.m in Sources */,
 				134DA9B21CBF253B008DD68F /* YLPClient+Business.m in Sources */,
 				134DA9DA1CBF253B008DD68F /* YLPSearch.m in Sources */,
 				13BE49651D2037070002262E /* YLPQuery.m in Sources */,
@@ -725,6 +751,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				134DAA131CBF2D1B008DD68F /* YLPSearchClientTestCase.m in Sources */,
+				130408EE1DBC0D7B00E44AC6 /* YLPReviewsClientTestCase.swift in Sources */,
 				134DAA141CBF2D1B008DD68F /* YLPCoordinateTestCase.m in Sources */,
 				134DAA101CBF2D1B008DD68F /* YLPClientTestCase.m in Sources */,
 				134DAA121CBF2D1B008DD68F /* YLPPhoneSearchClientTestCase.m in Sources */,
@@ -798,6 +825,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -822,6 +850,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -923,6 +952,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yelp.YelpAPITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "YelpAPITests/YelpAPITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -947,6 +978,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yelp.YelpAPITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "YelpAPITests/YelpAPITests-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

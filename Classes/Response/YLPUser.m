@@ -10,11 +10,15 @@
 
 @implementation YLPUser
 
-- (instancetype)initWithName:(NSString *)name identifier:(NSString *)identifier imageURLString:(NSString *)imageURLString {
+- (instancetype)initWithDictionary:(NSDictionary *)userDict {
     if (self = [super init]) {
-        _identifier = identifier;
-        _name = name;
-        _imageURL = imageURLString ? [NSURL URLWithString:imageURLString] : nil;
+        _name = userDict[@"name"];
+        id imageURL = userDict[@"image_url"];
+        if (imageURL && ![imageURL isEqual:[NSNull null]]) {
+            _imageURL = [NSURL URLWithString:imageURL];
+        } else {
+            _imageURL = nil;
+        }
     }
     return self;
 }
