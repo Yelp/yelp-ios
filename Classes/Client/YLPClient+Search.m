@@ -9,8 +9,6 @@
 #import "YLPSearch.h"
 #import "YLPClient+Search.h"
 #import "YLPCoordinate.h"
-#import "YLPGeoBoundingBox.h"
-#import "YLPGeoCoordinate.h"
 #import "YLPQuery.h"
 #import "YLPQueryPrivate.h"
 #import "YLPResponsePrivate.h"
@@ -19,19 +17,18 @@
 @implementation YLPClient (Search)
 
 - (void)searchWithLocation:(NSString *)location
-            completionHandler:(YLPSearchCompletionHandler)completionHandler {
-    YLPQuery *query = [[YLPQuery alloc] initWithLocation:location currentLatLong:nil];
+         completionHandler:(YLPSearchCompletionHandler)completionHandler {
+    YLPQuery *query = [[YLPQuery alloc] initWithLocation:location];
     [self searchWithQuery:query completionHandler:completionHandler];
 }
 
 - (void)searchWithLocation:(NSString *)location
-               currentLatLong:(YLPCoordinate *)cll
-                         term:(NSString *)term
-                        limit:(NSUInteger)limit
-                       offset:(NSUInteger)offset
-                         sort:(YLPSortType)sort
-            completionHandler:(YLPSearchCompletionHandler)completionHandler {
-    YLPQuery *query = [[YLPQuery alloc] initWithLocation:location currentLatLong:cll];
+                      term:(NSString *)term
+                     limit:(NSUInteger)limit
+                    offset:(NSUInteger)offset
+                      sort:(YLPSortType)sort
+         completionHandler:(YLPSearchCompletionHandler)completionHandler {
+    YLPQuery *query = [[YLPQuery alloc] initWithLocation:location];
     query.term = term;
     query.limit = limit;
     query.offset = offset;
@@ -39,14 +36,12 @@
     [self searchWithQuery:query completionHandler:completionHandler];
 }
 
-- (void)searchWithBounds:(YLPGeoBoundingBox *)bounds
-             currentLatLong:(YLPCoordinate *)cll
-                       term:(NSString *)term limit:(NSUInteger)limit
-                     offset:(NSUInteger)offset
-                       sort:(YLPSortType)sort
-          completionHandler:(YLPSearchCompletionHandler)completionHandler {
-    YLPQuery *query = [[YLPQuery alloc] initWithBounds:bounds];
-    query.currentLatLong = cll;
+- (void)searchWithCoordinate:(YLPCoordinate *)coordinate
+                        term:(NSString *)term limit:(NSUInteger)limit
+                      offset:(NSUInteger)offset
+                        sort:(YLPSortType)sort
+           completionHandler:(YLPSearchCompletionHandler)completionHandler {
+    YLPQuery *query = [[YLPQuery alloc] initWithCoordinate:coordinate];
     query.term = term;
     query.limit = limit;
     query.offset = offset;
@@ -54,35 +49,14 @@
     [self searchWithQuery:query completionHandler:completionHandler];
 }
 
-- (void)searchWithBounds:(YLPGeoBoundingBox *)bounds
-          completionHandler:(YLPSearchCompletionHandler)completionHandler {
-    YLPQuery *query = [[YLPQuery alloc] initWithBounds:bounds];
-    [self searchWithQuery:query completionHandler:completionHandler];
-}
-
-- (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
-                    currentLatLong:(YLPCoordinate *)cll
-                              term:(NSString *)term limit:(NSUInteger)limit
-                            offset:(NSUInteger)offset
-                              sort:(YLPSortType)sort
-                 completionHandler:(YLPSearchCompletionHandler)completionHandler {
-    YLPQuery *query = [[YLPQuery alloc] initWithGeoCoordinate:geoCoordinate];
-    query.currentLatLong = cll;
-    query.term = term;
-    query.limit = limit;
-    query.offset = offset;
-    query.sort = sort;
-    [self searchWithQuery:query completionHandler:completionHandler];
-}
-
-- (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
-                 completionHandler:(YLPSearchCompletionHandler)completionHandler {
-    YLPQuery *query = [[YLPQuery alloc] initWithGeoCoordinate:geoCoordinate];
+- (void)searchWithCoordinate:(YLPCoordinate *)coordinate
+           completionHandler:(YLPSearchCompletionHandler)completionHandler {
+    YLPQuery *query = [[YLPQuery alloc] initWithCoordinate:coordinate];
     [self searchWithQuery:query completionHandler:completionHandler];
 }
 
 - (NSURLRequest *)searchRequestWithParams:(NSDictionary *)params {
-    return [self requestWithPath:@"/v2/search/" params:params];
+    return [self requestWithPath:@"/v3/businesses/search" params:params];
 }
 
 - (void)searchWithQuery:(YLPQuery *)query
@@ -99,7 +73,6 @@
         }
         
     }];
-    
 }
 
 @end

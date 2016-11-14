@@ -8,14 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class YLPRegion;
 @class YLPBusiness;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPSearch : NSObject
 
-@property (nonatomic, nullable, readonly) YLPRegion *region;
 @property (nonatomic, readonly) NSArray<YLPBusiness *> *businesses;
 @property (nonatomic, readonly) NSUInteger total;
 

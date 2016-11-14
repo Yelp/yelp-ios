@@ -10,8 +10,6 @@
 #import "YLPSortType.h"
 
 @class YLPCoordinate;
-@class YLPGeoBoundingBox;
-@class YLPGeoCoordinate;
 @class YLPQuery;
 @class YLPSearch;
 
@@ -25,37 +23,24 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
       completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithLocation:(NSString *)location
-               currentLatLong:(nullable YLPCoordinate *)cll
-                         term:(nullable NSString *)term
-                        limit:(NSUInteger)limit
-                       offset:(NSUInteger)offset
-                         sort:(YLPSortType)sort
-            completionHandler:(YLPSearchCompletionHandler)completionHandler;
+                      term:(nullable NSString *)term
+                     limit:(NSUInteger)limit
+                    offset:(NSUInteger)offset
+                      sort:(YLPSortType)sort
+         completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithLocation:(NSString *)location
-            completionHandler:(YLPSearchCompletionHandler)completionHandler;
+         completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
-- (void)searchWithBounds:(YLPGeoBoundingBox *)bounds
-             currentLatLong:(nullable YLPCoordinate *)cll
-                       term:(nullable NSString *)term
-                      limit:(NSUInteger)limit
-                     offset:(NSUInteger)offset
-                       sort:(YLPSortType)sort
-          completionHandler:(YLPSearchCompletionHandler)completionHandler;
+- (void)searchWithCoordinate:(YLPCoordinate *)coordinate
+                        term:(nullable NSString *)term
+                       limit:(NSUInteger)limit
+                      offset:(NSUInteger)offset
+                        sort:(YLPSortType)sort
+           completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
-- (void)searchWithBounds:(YLPGeoBoundingBox *)bounds
-          completionHandler:(YLPSearchCompletionHandler)completionHandler;
-
-- (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
-                    currentLatLong:(nullable YLPCoordinate *)cll
-                              term:(nullable NSString *)term
-                             limit:(NSUInteger)limit
-                            offset:(NSUInteger)offset
-                              sort:(YLPSortType)sort
-                 completionHandler:(YLPSearchCompletionHandler)completionHandler;
-
-- (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
-                 completionHandler:(YLPSearchCompletionHandler)completionHandler;
+- (void)searchWithCoordinate:(YLPCoordinate *)coordinate
+           completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 @end
 

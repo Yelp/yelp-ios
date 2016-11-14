@@ -11,5 +11,6 @@
 typedef NS_ENUM(NSUInteger, YLPSortType) {
     YLPSortTypeBestMatched,
     YLPSortTypeDistance,
-    YLPSortTypeHighestRated
+    YLPSortTypeHighestRated,
+    YLPSortTypeMostReviewed,
 };

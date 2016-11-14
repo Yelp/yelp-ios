@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[YLPAppDelegate sharedClient] searchWithLocation:@"San Francisco, CA" currentLatLong:nil term:nil limit:5 offset:0 sort:YLPSortTypeDistance completionHandler:^
+    [[YLPAppDelegate sharedClient] searchWithLocation:@"San Francisco, CA" term:nil limit:5 offset:0 sort:YLPSortTypeDistance completionHandler:^
         (YLPSearch *search, NSError* error) {
             self.search = search;
             dispatch_async(dispatch_get_main_queue(), ^{

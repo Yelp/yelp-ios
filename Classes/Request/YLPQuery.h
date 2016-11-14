@@ -10,8 +10,6 @@
 #import "YLPSortType.h"
 
 @class YLPCoordinate;
-@class YLPGeoBoundingBox;
-@class YLPGeoCoordinate;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,22 +18,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Initializes a query with a location specified by text.
  @param location the particular neighborhood, address or city to search in
- @param cll location as a hint to the geocoder to disambiguate the location text
  */
-- (instancetype)initWithLocation:(NSString *)location
-                  currentLatLong:(nullable YLPCoordinate *)cll;
+- (instancetype)initWithLocation:(NSString *)location;
 
 /**
- Initializes a query with a location specified by a geographical bounding box.
- @param bounds bounds within which to search
+ Initializes a query with a location specified by a coordinate.
+ @param coordinate coordinate around which to search
  */
-- (instancetype)initWithBounds:(YLPGeoBoundingBox *)bounds;
-
-/**
- Initializes a query with a location specified by a geographic coordinate.
- @param geoCoordinate coordinate around which to search
- */
-- (instancetype)initWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate;
+- (instancetype)initWithCoordinate:(YLPCoordinate *)coordinate;
 
 /**
  Search term (e.g. "food", "restaurants"). If term is nil, everything will be searched.

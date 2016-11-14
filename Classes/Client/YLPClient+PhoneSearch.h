@@ -7,21 +7,16 @@
 //
 #import "YLPClient.h"
 
-@class YLPPhoneSearch;
+@class YLPSearch;
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^YLPPhoneSearchCompletionHandler)(YLPPhoneSearch * _Nullable phoneSearch, NSError * _Nullable error);
+typedef void(^YLPPhoneSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *_Nullable error);
 
 @interface YLPClient (PhoneSearch)
 
 - (void)businessWithPhoneNumber:(NSString *)phoneNumber
-                       countryCode:(nullable NSString *)countryCode
-                          category:(nullable NSString *)category
-                 completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler;
-
-- (void)businessWithPhoneNumber:(NSString *)phoneNumber
-                 completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler;
+              completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler;
 
 @end
 
