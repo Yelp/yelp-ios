@@ -16,7 +16,7 @@
 - (NSURLRequest *)businessRequestWithId:(NSString *)businessId
                                  params:(NSDictionary *)params {
     
-    NSString *businessPath = [@"/v2/business/" stringByAppendingString:businessId];
+    NSString *businessPath = [@"/v3/businesses/" stringByAppendingString:businessId];
     return [self requestWithPath:businessPath params:params];
 }
 
