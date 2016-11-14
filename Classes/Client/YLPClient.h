@@ -14,10 +14,11 @@ extern NSString *const kYLPAPIHost;
 
 @interface YLPClient : NSObject
 
-- (instancetype)initWithConsumerKey:(NSString *)consumerKey
-                     consumerSecret:(NSString *)consumerSecret
-                              token:(NSString *)token
-                        tokenSecret:(NSString *)tokenSecret;
+- (instancetype)init NS_UNAVAILABLE;
+
++ (void)authorizeWithAppId:(NSString *)appId
+                    secret:(NSString *)secret
+         completionHandler:(void (^)(YLPClient *_Nullable client, NSError *_Nullable error))completionHandler;
 
 @end
 

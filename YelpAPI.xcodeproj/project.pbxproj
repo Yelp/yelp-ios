@@ -71,7 +71,6 @@
 		13640F321DB2CA0E005F551B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13640F311DB2CA0E005F551B /* Images.xcassets */; };
 		13640F441DB2CAA1005F551B /* YLPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13640F371DB2CAA1005F551B /* YLPAppDelegate.m */; };
 		13640F451DB2CAA1005F551B /* YLPBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13640F391DB2CAA1005F551B /* YLPBusinessViewController.m */; };
-		13640F461DB2CAA1005F551B /* YLPClient+ClientSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 13640F3B1DB2CAA1005F551B /* YLPClient+ClientSetup.m */; };
 		13640F471DB2CAA1005F551B /* YLPDetailBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13640F3D1DB2CAA1005F551B /* YLPDetailBusinessViewController.m */; };
 		13640F481DB2CAA1005F551B /* YLPPhoneSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13640F3F1DB2CAA1005F551B /* YLPPhoneSearchTableViewController.m */; };
 		13640F491DB2CAA1005F551B /* YLPSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13640F411DB2CAA1005F551B /* YLPSearchTableViewController.m */; };
@@ -194,8 +193,6 @@
 		13640F371DB2CAA1005F551B /* YLPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPAppDelegate.m; sourceTree = "<group>"; };
 		13640F381DB2CAA1005F551B /* YLPBusinessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPBusinessViewController.h; sourceTree = "<group>"; };
 		13640F391DB2CAA1005F551B /* YLPBusinessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPBusinessViewController.m; sourceTree = "<group>"; };
-		13640F3A1DB2CAA1005F551B /* YLPClient+ClientSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YLPClient+ClientSetup.h"; sourceTree = "<group>"; };
-		13640F3B1DB2CAA1005F551B /* YLPClient+ClientSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YLPClient+ClientSetup.m"; sourceTree = "<group>"; };
 		13640F3C1DB2CAA1005F551B /* YLPDetailBusinessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPDetailBusinessViewController.h; sourceTree = "<group>"; };
 		13640F3D1DB2CAA1005F551B /* YLPDetailBusinessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPDetailBusinessViewController.m; sourceTree = "<group>"; };
 		13640F3E1DB2CAA1005F551B /* YLPPhoneSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPPhoneSearchTableViewController.h; sourceTree = "<group>"; };
@@ -445,8 +442,6 @@
 				13640F371DB2CAA1005F551B /* YLPAppDelegate.m */,
 				13640F381DB2CAA1005F551B /* YLPBusinessViewController.h */,
 				13640F391DB2CAA1005F551B /* YLPBusinessViewController.m */,
-				13640F3A1DB2CAA1005F551B /* YLPClient+ClientSetup.h */,
-				13640F3B1DB2CAA1005F551B /* YLPClient+ClientSetup.m */,
 				13640F3C1DB2CAA1005F551B /* YLPDetailBusinessViewController.h */,
 				13640F3D1DB2CAA1005F551B /* YLPDetailBusinessViewController.m */,
 				13640F3E1DB2CAA1005F551B /* YLPPhoneSearchTableViewController.h */,
@@ -834,7 +829,6 @@
 				13640F441DB2CAA1005F551B /* YLPAppDelegate.m in Sources */,
 				13640F471DB2CAA1005F551B /* YLPDetailBusinessViewController.m in Sources */,
 				13640F4A1DB2CAA1005F551B /* YLPViewController.m in Sources */,
-				13640F461DB2CAA1005F551B /* YLPClient+ClientSetup.m in Sources */,
 				13640F491DB2CAA1005F551B /* YLPSearchTableViewController.m in Sources */,
 				13640F451DB2CAA1005F551B /* YLPBusinessViewController.m in Sources */,
 				13640F481DB2CAA1005F551B /* YLPPhoneSearchTableViewController.m in Sources */,
