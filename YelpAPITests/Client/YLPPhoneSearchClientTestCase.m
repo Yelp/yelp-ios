@@ -56,7 +56,6 @@
         XCTAssertNotNil(actualBusinesses[0]);
         XCTAssertEqualObjects([actualBusinesses[0] class], [YLPBusiness class]);
         [expectation fulfill];
-        
     }];
     [self waitForExpectationsWithTimeout:5 handler:nil];
 }

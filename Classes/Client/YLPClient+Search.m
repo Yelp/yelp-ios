@@ -17,17 +17,17 @@
 @implementation YLPClient (Search)
 
 - (void)searchWithLocation:(NSString *)location
-            completionHandler:(YLPSearchCompletionHandler)completionHandler {
+         completionHandler:(YLPSearchCompletionHandler)completionHandler {
     YLPQuery *query = [[YLPQuery alloc] initWithLocation:location];
     [self searchWithQuery:query completionHandler:completionHandler];
 }
 
 - (void)searchWithLocation:(NSString *)location
-                         term:(NSString *)term
-                        limit:(NSUInteger)limit
-                       offset:(NSUInteger)offset
-                         sort:(YLPSortType)sort
-            completionHandler:(YLPSearchCompletionHandler)completionHandler {
+                      term:(NSString *)term
+                     limit:(NSUInteger)limit
+                    offset:(NSUInteger)offset
+                      sort:(YLPSortType)sort
+         completionHandler:(YLPSearchCompletionHandler)completionHandler {
     YLPQuery *query = [[YLPQuery alloc] initWithLocation:location];
     query.term = term;
     query.limit = limit;
@@ -37,10 +37,10 @@
 }
 
 - (void)searchWithCoordinate:(YLPCoordinate *)coordinate
-                              term:(NSString *)term limit:(NSUInteger)limit
-                            offset:(NSUInteger)offset
-                              sort:(YLPSortType)sort
-                 completionHandler:(YLPSearchCompletionHandler)completionHandler {
+                        term:(NSString *)term limit:(NSUInteger)limit
+                      offset:(NSUInteger)offset
+                        sort:(YLPSortType)sort
+           completionHandler:(YLPSearchCompletionHandler)completionHandler {
     YLPQuery *query = [[YLPQuery alloc] initWithCoordinate:coordinate];
     query.term = term;
     query.limit = limit;
@@ -50,7 +50,7 @@
 }
 
 - (void)searchWithCoordinate:(YLPCoordinate *)coordinate
-                 completionHandler:(YLPSearchCompletionHandler)completionHandler {
+           completionHandler:(YLPSearchCompletionHandler)completionHandler {
     YLPQuery *query = [[YLPQuery alloc] initWithCoordinate:coordinate];
     [self searchWithQuery:query completionHandler:completionHandler];
 }
@@ -73,7 +73,6 @@
         }
         
     }];
-    
 }
 
 @end

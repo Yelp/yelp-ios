@@ -23,24 +23,24 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
       completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithLocation:(NSString *)location
-                         term:(nullable NSString *)term
-                        limit:(NSUInteger)limit
-                       offset:(NSUInteger)offset
-                         sort:(YLPSortType)sort
-            completionHandler:(YLPSearchCompletionHandler)completionHandler;
+                      term:(nullable NSString *)term
+                     limit:(NSUInteger)limit
+                    offset:(NSUInteger)offset
+                      sort:(YLPSortType)sort
+         completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithLocation:(NSString *)location
-            completionHandler:(YLPSearchCompletionHandler)completionHandler;
+         completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithCoordinate:(YLPCoordinate *)coordinate
-                              term:(nullable NSString *)term
-                             limit:(NSUInteger)limit
-                            offset:(NSUInteger)offset
-                              sort:(YLPSortType)sort
-                 completionHandler:(YLPSearchCompletionHandler)completionHandler;
+                        term:(nullable NSString *)term
+                       limit:(NSUInteger)limit
+                      offset:(NSUInteger)offset
+                        sort:(YLPSortType)sort
+           completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithCoordinate:(YLPCoordinate *)coordinate
-                 completionHandler:(YLPSearchCompletionHandler)completionHandler;
+           completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 @end
 

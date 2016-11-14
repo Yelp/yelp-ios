@@ -20,7 +20,7 @@
 }
 
 - (void)businessWithPhoneNumber:(NSString *)phoneNumber
-                 completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler {
+              completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler {
     NSDictionary *params = @{@"phone": phoneNumber};
     NSURLRequest *req = [self businessRequestWithParams:params];
     
@@ -31,9 +31,7 @@
             YLPSearch *search = [[YLPSearch alloc] initWithDictionary:responseDict];
             completionHandler(search, nil);
         }
-        
     }];
-    
 }
 
 @end
