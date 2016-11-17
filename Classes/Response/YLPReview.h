@@ -14,14 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPReview : NSObject
 
-@property(nonatomic, readonly, copy) NSString *identifier;
 @property(nonatomic, readonly, copy) NSString *excerpt;
 
 @property(nonatomic, readonly, copy) NSDate *timeCreated;
 
 @property(nonatomic, readonly) double rating;
 
-@property(nonatomic, readonly, copy) YLPUser *user;
+@property(nonatomic, readonly) YLPUser *user;
 
 @end
 

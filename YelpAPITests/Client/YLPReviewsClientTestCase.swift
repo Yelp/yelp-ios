@@ -70,4 +70,14 @@ class YLPReviewsClientTestCase: YLPClientTestCaseBase {
         XCTAssertEqual(user.name, "Ella A.")
         XCTAssertNotNil(user.imageURL)
     }
+
+    func testUserParsingNullImage() {
+        let userJSON: [String: Any] = [
+            "name": "Ella A.",
+            "image_url": NSNull(),
+        ]
+
+        let user = YLPUser(dictionary: userJSON)
+        XCTAssertNil(user.imageURL)
+    }
 }

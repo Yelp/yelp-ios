@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly, copy) NSArray<YLPCategory *> *categories;
 
-@property (nonatomic, readonly, copy) YLPLocation *location;
+@property (nonatomic, readonly) YLPLocation *location;
 
 @end
 

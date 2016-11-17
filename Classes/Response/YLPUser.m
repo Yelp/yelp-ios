@@ -7,18 +7,15 @@
 //
 
 #import "YLPUser.h"
+#import "YLPResponsePrivate.h"
 
 @implementation YLPUser
 
 - (instancetype)initWithDictionary:(NSDictionary *)userDict {
     if (self = [super init]) {
         _name = userDict[@"name"];
-        id imageURL = userDict[@"image_url"];
-        if (imageURL && ![imageURL isEqual:[NSNull null]]) {
-            _imageURL = [NSURL URLWithString:imageURL];
-        } else {
-            _imageURL = nil;
-        }
+        NSString *imageURLString = [userDict ylp_objectMaybeNullForKey:@"image_url"];
+        _imageURL = imageURLString ? [NSURL URLWithString:imageURLString] : nil;
     }
     return self;
 }

@@ -23,8 +23,9 @@
         _reviewCount = [businessDict[@"review_count"] integerValue];
         
         _name = businessDict[@"name"];
-        _phone = businessDict[@"phone"];
         _identifier = businessDict[@"id"];
+        NSString *phone = [businessDict ylp_objectMaybeNullForKey:@"phone"];
+        _phone = phone.length > 0 ? phone : nil;
         
         _categories = [self.class categoriesFromJSONArray:businessDict[@"categories"]];
         YLPCoordinate *coordinate = [self.class coordinateFromJSONDictionary:businessDict[@"coordinates"]];
@@ -42,8 +43,8 @@
 }
 
 + (YLPCoordinate *)coordinateFromJSONDictionary:(NSDictionary *)coordinatesDict {
-    NSNumber *latitude = coordinatesDict[@"latitude"];
-    NSNumber *longitude = coordinatesDict[@"longitude"];
+    NSNumber *latitude = [coordinatesDict ylp_objectMaybeNullForKey:@"latitude"];
+    NSNumber *longitude = [coordinatesDict ylp_objectMaybeNullForKey:@"longitude"];
     if (latitude && longitude) {
         return [[YLPCoordinate alloc] initWithLatitude:[latitude doubleValue]
                                              longitude:[longitude doubleValue]];

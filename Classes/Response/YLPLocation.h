@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly, copy) NSArray<NSString *> *address;
 
-@property (nonatomic, readonly, nullable, copy) YLPCoordinate *coordinate;
+@property (nonatomic, readonly, nullable) YLPCoordinate *coordinate;
 
 @end
 
