@@ -15,6 +15,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface NSDictionary<KeyType, ObjectType> (YLPUtils)
+- (nullable ObjectType)ylp_objectMaybeNullForKey:(KeyType)key;
+@end
+
 @interface YLPBusiness ()
 - (instancetype)initWithDictionary:(NSDictionary *)businessDict;
 @end

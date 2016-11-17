@@ -8,6 +8,7 @@
 
 #import "YLPLocation.h"
 #import "YLPCoordinate.h"
+#import "YLPResponsePrivate.h"
 
 @implementation YLPLocation
 
@@ -20,7 +21,11 @@
         
         NSMutableArray *address = [NSMutableArray array];
         for (NSString *addressKey in @[@"address1", @"address2", @"address3"]) {
-            [address addObject:location[addressKey]];
+            NSString *addressLine = [location ylp_objectMaybeNullForKey:addressKey];
+            // Skip empty lines
+            if (addressLine.length > 0) {
+                [address addObject:addressLine];
+            }
         }
         _address = address;
 

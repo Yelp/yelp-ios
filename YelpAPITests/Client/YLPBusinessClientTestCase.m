@@ -15,6 +15,7 @@
 #import "YLPClient+Business.h"
 #import "YLPCoordinate.h"
 #import "YLPLocation.h"
+#import "YLPResponsePrivate.h"
 #import "YLPReview.h"
 #import "YLPUser.h"
 #import "YLPClientTestCaseBase.h"
@@ -121,6 +122,23 @@
         
     }];
     [self waitForExpectationsWithTimeout:5 handler:nil];
+}
+
+- (void)testLocationParsingNullAddressLine {
+    NSDictionary *locationJSON = @{
+        @"address1": @"549 Castro St",
+        @"address2": [NSNull null],
+        @"address3": @"",
+        @"city": @"San Francisco",
+        @"country": @"US",
+        @"state": @"CA",
+        @"zip_code": @"94114",
+    };
+    YLPLocation *location = [[YLPLocation alloc] initWithDictionary:locationJSON coordinate:nil];
+
+    // Test that null and empty lines are properly stripped from the address
+    XCTAssertEqual(location.address.count, 1);
+    XCTAssertEqualObjects(location.address, @[@"549 Castro St"]);
 }
 
 @end
