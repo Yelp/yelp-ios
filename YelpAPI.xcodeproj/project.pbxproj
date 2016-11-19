@@ -62,6 +62,7 @@
 		13640F4C1DB2CAD6005F551B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13640F4B1DB2CAD6005F551B /* Main.storyboard */; };
 		13640F4D1DB2CBCB005F551B /* YelpAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 134DA8B91CBF2484008DD68F /* YelpAPI.framework */; };
 		13640F4E1DB2CBCB005F551B /* YelpAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 134DA8B91CBF2484008DD68F /* YelpAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		139DD6B51DE0CF27002F9BF5 /* YLPClient+Futures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139DD6B41DE0CF27002F9BF5 /* YLPClient+Futures.swift */; };
 		13BE49641D2037070002262E /* YLPQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 13BE49621D2037070002262E /* YLPQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13BE49651D2037070002262E /* YLPQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BE49631D2037070002262E /* YLPQuery.m */; };
 		13BE49671D203E000002262E /* YLPQueryPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 13BE49661D203D6D0002262E /* YLPQueryPrivate.h */; };
@@ -172,6 +173,7 @@
 		13640F421DB2CAA1005F551B /* YLPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPViewController.h; sourceTree = "<group>"; };
 		13640F431DB2CAA1005F551B /* YLPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPViewController.m; sourceTree = "<group>"; };
 		13640F4B1DB2CAD6005F551B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		139DD6B41DE0CF27002F9BF5 /* YLPClient+Futures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YLPClient+Futures.swift"; sourceTree = "<group>"; };
 		13BE49621D2037070002262E /* YLPQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPQuery.h; sourceTree = "<group>"; };
 		13BE49631D2037070002262E /* YLPQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPQuery.m; sourceTree = "<group>"; };
 		13BE49661D203D6D0002262E /* YLPQueryPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLPQueryPrivate.h; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				134DA98B1CBF253B008DD68F /* Common */,
 				134DA98F1CBF253B008DD68F /* Request */,
 				134DA9951CBF253B008DD68F /* Response */,
+				139DD6B31DE0CED9002F9BF5 /* Futures */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -423,6 +426,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		139DD6B31DE0CED9002F9BF5 /* Futures */ = {
+			isa = PBXGroup;
+			children = (
+				139DD6B41DE0CF27002F9BF5 /* YLPClient+Futures.swift */,
+			);
+			path = Futures;
+			sourceTree = "<group>";
+		};
 		F9A41491098A763CF69CEBE9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +552,7 @@
 				TargetAttributes = {
 					134DA8B81CBF2484008DD68F = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0810;
 					};
 					134DA9F01CBF2CC2008DD68F = {
 						CreatedOnToolsVersion = 7.3;
@@ -747,6 +759,7 @@
 				134DA9D11CBF253B008DD68F /* YLPLocation.m in Sources */,
 				134DA9B81CBF253B008DD68F /* YLPClient.m in Sources */,
 				134DA9B61CBF253B008DD68F /* YLPClient+Search.m in Sources */,
+				139DD6B51DE0CF27002F9BF5 /* YLPClient+Futures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -829,7 +842,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -854,7 +868,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
@@ -957,7 +971,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "YelpAPITests/YelpAPITests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
