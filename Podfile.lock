@@ -1,4 +1,6 @@
 PODS:
+  - BrightFutures (5.1.0):
+    - Result (~> 3.0)
   - OCMock (3.1.5)
   - OHHTTPStubs (4.6.0):
     - OHHTTPStubs/Default (= 4.6.0)
@@ -13,15 +15,19 @@ PODS:
   - OHHTTPStubs/NSURLSession (4.6.0):
     - OHHTTPStubs/Core
   - OHHTTPStubs/OHPathHelpers (4.6.0)
+  - Result (3.0.0)
 
 DEPENDENCIES:
+  - BrightFutures (~> 5.1)
   - OCMock (~> 3.1.5)
   - OHHTTPStubs (= 4.6.0)
 
 SPEC CHECKSUMS:
+  BrightFutures: 62aafb1a63520eda91c9286bf4be33e58e043938
   OCMock: 4c2925291f80407c3738dd1db14d21d0cc278864
   OHHTTPStubs: cb1aefbbeb4de4e741644455d4b945538e5248a2
+  Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
 
-PODFILE CHECKSUM: d80f38e55f174c740231c511353a6861c5648b4d
+PODFILE CHECKSUM: 559cabc482f17fb0890dd9de6da07918db4be401
 
 COCOAPODS: 1.1.0.rc.3
