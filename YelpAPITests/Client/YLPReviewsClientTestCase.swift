@@ -37,6 +37,23 @@ class YLPReviewsClientTestCase: YLPClientTestCaseBase {
         waitForExpectations(timeout: 5, handler: nil)
     }
 
+    func testGetReviewsFuture() {
+        let expect = expectation(description: "Test that reviews were returned.")
+
+        OHHTTPStubs.stubRequests(passingTest: { $0.url?.host == kYLPAPIHost }) { _ in
+            return OHHTTPStubsResponse(fileAtPath: OHPathForFile(self.defaultResource, type(of: self))!,
+                                       statusCode: 200,
+                                       headers: ["Content-Type": "application/json"])
+        }
+
+        client.reviewsForBusiness(withId: "bizId").onSuccess { reviews in
+            XCTAssertEqual(reviews.reviews.count, 3)
+            expect.fulfill()
+        }
+
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+
     func testBusinessReviewsParsing() {
         guard let reviewsResponseJSON = loadExpectedResponse(defaultResource) else {
             XCTFail("Could not load reviews JSON")
