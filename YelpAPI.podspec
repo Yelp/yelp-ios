@@ -25,7 +25,17 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
   s.requires_arc = true
+  s.default_subspec = 'Core'
 
-  s.source_files = "Classes/**/*.{h,m}"
-  s.private_header_files = 'Classes/**/*Private.h'
+  s.subspec 'Core' do |cs|
+    cs.source_files = "Classes/**/*.{h,m}"
+    cs.private_header_files = 'Classes/**/*Private.h'
+  end
+
+  s.subspec 'Futures' do |fs|
+    fs.dependency 'YelpAPI/Core'
+    fs.dependency 'BrightFutures', '~> 5.0'
+
+    fs.source_files = "Classes/Futures/*.swift"
+  end
 end
