@@ -16,14 +16,8 @@ typedef void(^YLPBusinessCompletionHandler)(YLPBusiness * _Nullable business, NS
 @interface YLPClient (Business)
 
 - (void)businessWithId:(NSString *)businessId
-        completionHandler:(YLPBusinessCompletionHandler)completionHandler;
+     completionHandler:(YLPBusinessCompletionHandler)completionHandler;
 
-- (void)businessWithId:(NSString *)businessId
-              countryCode:(nullable NSString *)countryCode
-             languageCode:(nullable NSString *)languageCode
-           languageFilter:(BOOL)languageFilter
-              actionLinks:(BOOL)actionLinks
-        completionHandler:(YLPBusinessCompletionHandler)completionHandler;
 @end
 
 NS_ASSUME_NONNULL_END
