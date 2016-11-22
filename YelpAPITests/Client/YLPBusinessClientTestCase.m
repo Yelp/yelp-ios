@@ -25,7 +25,7 @@
 
 @interface YLPClient (BusinessClientTest)
 
-- (void)businessWithId:(NSString *)businessId params:(NSDictionary *)params completionHandler:(void (^)(YLPBusiness *business, NSError *error))completionHandler;
+- (NSURLRequest *)businessRequestWithId:(NSString *)businessId;
 
 @end
 
@@ -36,21 +36,10 @@
     self.defaultResource = @"business_response.json";
 }
 
-- (id)mockBusinessRequestWithAllArgs {
-    id mockBusinessRequestWithAllArgs = OCMPartialMock(self.client);
-    OCMStub([mockBusinessRequestWithAllArgs businessWithId:[OCMArg any] params:[OCMArg any] completionHandler:[OCMArg any]]);
-    return mockBusinessRequestWithAllArgs;
-}
-
-- (void)testNullParams {
-    [self.client businessWithId:@"gary-danko" countryCode:@"" languageCode:@"" languageFilter:NO actionLinks:NO completionHandler:^(YLPBusiness *business, NSError *error) {}];
-    [self.client businessWithId:@"gary-danko-san-francisco" countryCode:nil languageCode:nil languageFilter:NO actionLinks:NO completionHandler:^(YLPBusiness *business, NSError *error) {}];
-}
 - (void)testBusinessRequestWithId {
-    id mockBusinessRequestWithIdWithAllArgs = [self mockBusinessRequestWithAllArgs];
-    [self.client businessWithId:@"bogusBusinessId" completionHandler:^(YLPBusiness *business, NSError *error) {}];
-    
-    OCMVerify([mockBusinessRequestWithIdWithAllArgs businessWithId:@"bogusBusinessId" params:nil completionHandler:[OCMArg any]]);
+    NSURLRequest *request = [self.client businessRequestWithId:@"bogusBusinessId"];
+    // Assert that the business id is inserted into the path properly
+    XCTAssertEqualObjects(request.URL.path, @"/v3/businesses/bogusBusinessId");
 }
 
 - (void)testBusinessRequestResult {
