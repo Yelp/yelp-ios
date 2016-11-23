@@ -19,23 +19,15 @@ NS_ASSUME_NONNULL_BEGIN
  Initializes a query with a location specified by text.
  @param location the particular neighborhood, address or city to search in
  */
-<<<<<<< HEAD
 - (instancetype)initWithLocation:(NSString *)location NS_DESIGNATED_INITIALIZER;
-=======
-- (instancetype)initWithLocation:(NSString *)location;
->>>>>>> Yelp/master
 
 /**
  Initializes a query with a location specified by a coordinate.
  @param coordinate coordinate around which to search
  */
-<<<<<<< HEAD
 - (instancetype)initWithCoordinate:(YLPCoordinate *)coordinate NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
-=======
-- (instancetype)initWithCoordinate:(YLPCoordinate *)coordinate;
->>>>>>> Yelp/master
 
 /**
  Search term (e.g. "food", "restaurants"). If term is nil, everything will be searched.
