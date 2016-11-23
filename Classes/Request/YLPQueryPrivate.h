@@ -10,7 +10,6 @@
 
 typedef NS_ENUM(NSUInteger, YLPSearchMode) {
     YLPSearchModeLocation,
-    YLPSearchModeBounds,
     YLPSearchModeCoordinate,
 };
 
@@ -20,9 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (assign, nonatomic) YLPSearchMode mode;
 @property (copy, nonatomic, nullable) NSString *location;
-@property (strong, nonatomic, nullable) YLPCoordinate *currentLatLong;
-@property (strong, nonatomic, nullable) YLPGeoBoundingBox *bounds;
-@property (strong, nonatomic, nullable) YLPGeoCoordinate *geoCoordinate;
+@property (strong, nonatomic, nullable) YLPCoordinate *coordinate;
 
 - (NSDictionary *)parameters;
 

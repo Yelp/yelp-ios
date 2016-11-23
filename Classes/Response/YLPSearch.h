@@ -8,7 +8,6 @@
 
 #import "YLPBaseObject.h"
 
-@class YLPRegion;
 @class YLPBusiness;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -17,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-@property (nonatomic, nullable, readonly) YLPRegion *region;
 @property (nonatomic, readonly) NSArray<YLPBusiness *> *businesses;
 @property (nonatomic, readonly) NSUInteger total;
 

@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-@property (nonatomic, copy, readonly) NSString *identifier;
 @property (nonatomic, copy, readonly) NSString *name;
 
 @property (nonatomic, copy, nullable, readonly) NSURL *imageURL;

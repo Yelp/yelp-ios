@@ -6,59 +6,34 @@
 //
 //
 #import "YLPBusiness.h"
+#import "YLPBusinessReviews.h"
 #import "YLPCategory.h"
-#import "YLPCoordinateDelta.h"
-#import "YLPDeal.h"
-#import "YLPDealOption.h"
-#import "YLPGiftCertificate.h"
-#import "YLPGiftCertificateOption.h"
 #import "YLPLocation.h"
-#import "YLPPhoneSearch.h"
-#import "YLPRegion.h"
 #import "YLPReview.h"
 #import "YLPSearch.h"
 #import "YLPUser.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface NSDictionary<KeyType, ObjectType> (YLPUtils)
+- (nullable ObjectType)ylp_objectMaybeNullForKey:(KeyType)key;
+@end
+
 @interface YLPBusiness ()
 - (instancetype)initWithDictionary:(NSDictionary *)businessDict;
 @end
 
+@interface YLPBusinessReviews ()
+- (instancetype)initWithDictionary:(NSDictionary *)reviewsDict;
+@end
+
 @interface YLPCategory ()
 - (instancetype)initWithName:(NSString *)name alias:(NSString *)alias;
-@end
-
-@interface YLPCoordinateDelta ()
-- (instancetype)initWithLatitudeDelta:(double)latitudeDelta longitudeDelta:(double)longitudeDelta;
-@end
-
-@interface YLPDeal ()
-- (instancetype)initWithDictionary:(NSDictionary *)deal;
-@end
-
-@interface YLPDealOption ()
-- (instancetype)initWithDictionary:(NSDictionary *)dealOption;
-@end
-
-@interface YLPGiftCertificate ()
-- (instancetype)initWithDictionary:(NSDictionary *)giftCertificates;
-@end
-
-@interface YLPGiftCertificateOption ()
-- (instancetype)initWithPrice:(NSUInteger)price formattedPrice:(NSString *)formattedPrice;
-@end
-
-@interface YLPPhoneSearch ()
-- (instancetype)initWithDictionary:(NSDictionary *)phoneSearch;
+- (instancetype)initWithDictionary:(NSDictionary *)categoryDict;
 @end
 
 @interface YLPLocation ()
-- (instancetype)initWithDictionary:(NSDictionary *)locationDict;
-@end
-
-@interface YLPRegion ()
-- (instancetype)initWithDictionary:(NSDictionary *)regionDict;
+- (instancetype)initWithDictionary:(NSDictionary *)locationDict coordinate:(nullable YLPCoordinate *)coordinate;
 @end
 
 @interface YLPReview ()
@@ -70,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface YLPUser ()
-- (instancetype)initWithName:(NSString *)name identifier:(NSString *)identifier imageURLString:(NSURL *)imageURLString;
+- (instancetype)initWithDictionary:(NSDictionary *)userDict;
 @end
 
 NS_ASSUME_NONNULL_END

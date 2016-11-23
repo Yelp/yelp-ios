@@ -19,4 +19,9 @@
     return self;
 }
 
+- (instancetype)initWithDictionary:(NSDictionary *)categoryDict {
+    return [self initWithName:categoryDict[@"title"]
+                        alias:categoryDict[@"alias"]];
+}
+
 @end

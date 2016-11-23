@@ -1,128 +1,88 @@
 {
-    "is_claimed": true,
     "rating": 4.5,
-    "mobile_url": "http://m.yelp.com/biz/gary-danko-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_business&utm_source=iVCuYETQ-P8VeICYOQS7pA",
-    "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
     "review_count": 4350,
     "name": "Gary Danko",
-    "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
-    "url": "http://www.yelp.com/biz/gary-danko-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_business&utm_source=iVCuYETQ-P8VeICYOQS7pA",
+    "url": "https://www.yelp.com/biz/gary-danko-san-francisco?adjust_creative=046GAQFxzvh9l3_I3-uxOw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=046GAQFxzvh9l3_I3-uxOw",
     "categories": [
-                   [
-                    "American (New)",
-                    "newamerican"
-                    ]
+                   {
+                   "title": "American (New)",
+                   "alias": "newamerican"
+                   },
+                   {
+                   "title": "French",
+                   "alias": "french"
+                   }
                    ],
-    "menu_date_updated": 1441955932,
-    "gift_certificates": [
-                          {
-                          "url": "http://www.yelp.com/gift-certificates/contigo-san-francisco-2?utm_campaign=yelp_api&utm_medium=api_v2_business&utm_source=iVCuYETQ-P8VeICYOQS7pA",
-                          "unused_balances": "CREDIT",
-                          "options": [
-                                      {
-                                      "price": 2500,
-                                      "formatted_price": "$25"
-                                      },
-                                      {
-                                      "price": 5000,
-                                      "formatted_price": "$50"
-                                      },
-                                      {
-                                      "price": 7500,
-                                      "formatted_price": "$75"
-                                      },
-                                      {
-                                      "price": 10000,
-                                      "formatted_price": "$100"
-                                      },
-                                      {
-                                      "price": 15000,
-                                      "formatted_price": "$150"
-                                      },
-                                      {
-                                      "price": 25000, 
-                                      "formatted_price": "$250"
-                                      }, 
-                                      {
-                                      "price": 50000, 
-                                      "formatted_price": "$500"
-                                      }
-                                      ], 
-                          "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/P4fOqdkNW7SjKpSOoYw3bA/m.jpg", 
-                          "id": "P49dRkayDYoP_QBfBl3gKg", 
-                          "currency_code": "USD"
-                          }
-                          ],
-    "deals": [
+    "hours": [
               {
-              "is_popular": true,
-              "what_you_get": "You get a voucher redeemable for $100 at Big Leprechaun Moving & Storage.\nPrint out your voucher, or redeem on your phone with the <a href=\"http://www.yelp.com/mobile?source=deal_marketing\">Yelp app</a>.",
-              "time_start": 1431727795,
-              "title": "$50 for $100",
-              "url": "http://www.yelp.com/deals/big-leprechaun-moving-and-storage-san-francisco-4?utm_campaign=yelp_api&utm_medium=api_v2_business&utm_source=iVCuYETQ-P8VeICYOQS7pA",
-              "additional_restrictions": "Promotion lasts for 1 year from date of purchase. After that period, your voucher is redeemable for the amount you paid, less any value you may have received. Not valid with other vouchers, certificates, or offers. Only 1 voucher(s) can be purchased and redeemed per person. Up to 3 can be purchased as gifts for others. Subject to the <a target=\"_blank\" href=\"http://www.yelp.com/tos/general_b2c_us_20120911\">General Terms</a>.",
-              "options": [
-                          {
-                          "original_price": 10000,
-                          "title": "$50 for $100",
-                          "price": 5000,
-                          "purchase_url": "https://www.yelp.com/checkout/deal/jmbNovKx_jgMyIkJ3V5tqg?utm_campaign=yelp_api&utm_medium=api_v2_business&utm_source=iVCuYETQ-P8VeICYOQS7pA",
-                          "formatted_original_price": "$100",
-                          "formatted_price": "$50",
-                          "is_quantity_limited": false
-                          }
-                          ],
-              "image_url": "http://s3-media3.fl.yelpcdn.com/dphoto/8B9P16dnC1BbokP-M--Gqw/m.jpg",
-              "id": "mYdUk7L9IOmVJVfBDZvqvQ",
-              "currency_code": "USD"
+              "is_open_now": false,
+              "hours_type": "REGULAR",
+              "open": [
+                       {
+                       "is_overnight": false,
+                       "day": 0,
+                       "end": "2200",
+                       "start": "1730"
+                       },
+                       {
+                       "is_overnight": false,
+                       "day": 1,
+                       "end": "2200",
+                       "start": "1730"
+                       },
+                       {
+                       "is_overnight": false,
+                       "day": 2,
+                       "end": "2200",
+                       "start": "1730"
+                       },
+                       {
+                       "is_overnight": false,
+                       "day": 3,
+                       "end": "2200",
+                       "start": "1730"
+                       },
+                       {
+                       "is_overnight": false,
+                       "day": 4,
+                       "end": "2200",
+                       "start": "1730"
+                       },
+                       {
+                       "is_overnight": false,
+                       "day": 5,
+                       "end": "2200",
+                       "start": "1730"
+                       },
+                       {
+                       "is_overnight": false,
+                       "day": 6,
+                       "end": "2200",
+                       "start": "1730"
+                       }
+                       ]
               }
-    ],
-    "reviews": [
-                {
-                "rating": 5,
-                "excerpt": "I had been wanting to go here for some time now and my boyfriend finally made reservations for my birthday. We didn't have to wait 3 months like others...",
-                "time_created": 1451413287,
-                "rating_image_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
-                "rating_image_small_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
-                "user": {
-                "image_url": "http://s3-media4.fl.yelpcdn.com/photo/Mn3DgnGELzPzlYKsG27hZg/ms.jpg",
-                "id": "sCshdCwCQlXh_NVcPeTObg",
-                "name": "Lena V."
-                },
-                "rating_image_large_url": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-                "id": "edLGlfy7hCgUtvT8xhk5YA"
-                }
-                ],
-    "phone": "4157492060",
-    "snippet_text": "I had been wanting to go here for some time now and my boyfriend finally made reservations for my birthday. We didn't have to wait 3 months like others...",
-    "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/UMuLfbLrWnkQyrEToDq9bg/ms.jpg",
-    "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/Mn3DgnGELzPzlYKsG27hZg/ms.jpg",
-    "display_phone": "+1-415-749-2060",
-    "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
-    "menu_provider": "single_platform",
+              ],
+    "photos": [
+               "https://s3-media2.fl.yelpcdn.com/bphoto/MWMKouFOmJk3DX6pIuWUwQ/o.jpg",
+               "https://s3-media1.fl.yelpcdn.com/bphoto/8A5W_BZbMldUaf1v6HKfSQ/o.jpg",
+               "https://s3-media4.fl.yelpcdn.com/bphoto/GQf1i31oeIQKUPLN1bwkVQ/o.jpg"
+               ],
+    "phone": "+14157492060",
+    "price": "$$$$",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/MWMKouFOmJk3DX6pIuWUwQ/o.jpg",
     "id": "gary-danko-san-francisco",
-    "is_closed": false,
     "location": {
         "city": "San Francisco",
-        "display_address": [
-                            "800 N Point St",
-                            "Russian Hill",
-                            "San Francisco, CA 94109"
-                            ],
-        "geo_accuracy": 8.0,
-        "neighborhoods": [
-                          "Russian Hill",
-                          "Fisherman's Wharf"
-                          ],
-        "postal_code": "94109",
-        "country_code": "US",
-        "address": [
-                    "800 N Point St"
-                    ], 
-        "coordinate": {
-            "latitude": 37.80587, 
-            "longitude": -122.42058
-        }, 
-        "state_code": "CA"
+        "zip_code": "94109",
+        "country": "US",
+        "address1": "800 N Point St",
+        "address2": "",
+        "address3": "",
+        "state": "CA"
+    },
+    "coordinates": {
+        "latitude": 37.80587,
+        "longitude": -122.42058
     }
 }

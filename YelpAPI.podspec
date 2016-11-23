@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "YelpAPI"
-  s.version          = "1.1.0"
+  s.version          = "2.0.0"
   s.summary          = "Objective-C client library for accessing the Yelp Public API."
 
   s.description      = <<-DESC
@@ -22,12 +22,10 @@ Pod::Spec.new do |s|
   s.author           = 'Yelp'
   s.source           = { :git => "https://github.com/Yelp/yelp-ios.git", :tag => s.version.to_s }
 
-  s.ios.deployment_target = '7.0'
-  s.osx.deployment_target = '10.9'
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.10'
   s.requires_arc = true
 
   s.source_files = "Classes/**/*.{h,m}"
   s.private_header_files = 'Classes/**/*Private.h'
-
-  s.dependency 'TDOAuth', '~> 1.1'
 end

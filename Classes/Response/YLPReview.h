@@ -16,18 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-@property(nonatomic, readonly, copy) NSString *identifier;
 @property(nonatomic, readonly, copy) NSString *excerpt;
 
 @property(nonatomic, readonly, copy) NSDate *timeCreated;
 
 @property(nonatomic, readonly) double rating;
 
-@property(nonatomic, readonly, copy) NSURL *ratingImageURL;
-@property(nonatomic, readonly, copy) NSURL *ratingImageSmallURL;
-@property(nonatomic, readonly, copy) NSURL *ratingImageLargeURL;
-
-@property(nonatomic, readonly, copy) YLPUser *user;
+@property(nonatomic, readonly) YLPUser *user;
 
 @end
 

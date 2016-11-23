@@ -15,17 +15,24 @@
 - (instancetype)initWithDictionary:(NSDictionary *)reviewDict {
     if (self = [super init]) {
         _rating = [reviewDict[@"rating"] doubleValue];
-        _excerpt = reviewDict[@"excerpt"];
-        _timeCreated = [NSDate dateWithTimeIntervalSince1970:[reviewDict[@"time_created"] doubleValue]];
-        _ratingImageURL = [NSURL URLWithString:reviewDict[@"rating_image_url"]];
-        _ratingImageSmallURL = [NSURL URLWithString:reviewDict[@"rating_image_small_url"]];
-        _ratingImageLargeURL = [NSURL URLWithString:reviewDict[@"rating_image_large_url"]];
-        
-        _user = [[YLPUser alloc] initWithName:reviewDict[@"user"][@"name"] identifier:reviewDict[@"user"][@"id"] imageURLString:reviewDict[@"user"][@"image_url"]];
-        
+        _excerpt = reviewDict[@"text"];
+        _timeCreated = [self.class dateFromTimestamp:reviewDict[@"time_created"]];
+        _user = [[YLPUser alloc] initWithDictionary:reviewDict[@"user"]];
     }
     
     return self;
+}
+
++ (NSDate *)dateFromTimestamp:(NSString *)timestamp {
+    static NSDateFormatter *dateFormatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"yyyy-MM-dd' 'HH:mm:ss";
+        dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"PST"];
+    });
+
+    return [dateFormatter dateFromString:timestamp];
 }
 
 @end

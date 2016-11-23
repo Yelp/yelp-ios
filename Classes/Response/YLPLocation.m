@@ -8,27 +8,28 @@
 
 #import "YLPLocation.h"
 #import "YLPCoordinate.h"
+#import "YLPResponsePrivate.h"
 
 @implementation YLPLocation
 
-- (instancetype)initWithDictionary:(NSDictionary *)location {
+- (instancetype)initWithDictionary:(NSDictionary *)location coordinate:(YLPCoordinate *)coordinate {
     if (self = [super init]) {
         _city = location[@"city"];
-        _stateCode = location[@"state_code"];
-        _postalCode = location[@"postal_code"];
-        _countryCode = location[@"country_code"];
-        _crossStreets = location[@"cross_streets"];
+        _stateCode = location[@"state"];
+        _postalCode = location[@"zip_code"];
+        _countryCode = location[@"country"];
         
-        _displayAddress = location[@"display_address"];
-        _neighborhoods = location[@"neighborhoods"];
-        _address = location[@"address"];
-        
-        _geoAccuracy = [location[@"geo_accuracy"] doubleValue];
-        NSNumber *latitude = location[@"coordinate"][@"latitude"];
-        NSNumber *longitude = location[@"coordinate"][@"longitude"];
-        if (latitude && longitude) {
-            _coordinate = [[YLPCoordinate alloc] initWithLatitude:[latitude doubleValue] longitude:[longitude doubleValue]];
+        NSMutableArray *address = [NSMutableArray array];
+        for (NSString *addressKey in @[@"address1", @"address2", @"address3"]) {
+            NSString *addressLine = [location ylp_objectMaybeNullForKey:addressKey];
+            // Skip empty lines
+            if (addressLine.length > 0) {
+                [address addObject:addressLine];
+            }
         }
+        _address = address;
+
+        _coordinate = coordinate;
     }
     
     return self;

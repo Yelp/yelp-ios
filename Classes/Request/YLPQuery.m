@@ -9,32 +9,21 @@
 #import "YLPQuery.h"
 #import "YLPQueryPrivate.h"
 #import "YLPCoordinate.h"
-#import "YLPGeoBoundingBox.h"
-#import "YLPGeoCoordinate.h"
 
 @implementation YLPQuery
 
-- (instancetype)initWithLocation:(NSString *)location currentLatLong:(nullable YLPCoordinate *)cll {
+- (instancetype)initWithLocation:(NSString *)location {
     if (self = [super init]) {
         _mode = YLPSearchModeLocation;
         _location = [location copy];
-        _currentLatLong = cll;
     }
     return self;
 }
 
-- (instancetype)initWithBounds:(YLPGeoBoundingBox *)bounds {
-    if (self = [super init]) {
-        _mode = YLPSearchModeBounds;
-        _bounds = bounds;
-    }
-    return self;
-}
-
-- (instancetype)initWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate {
+- (instancetype)initWithCoordinate:(YLPCoordinate *)coordinate {
     if (self = [super init]) {
         _mode = YLPSearchModeCoordinate;
-        _geoCoordinate = geoCoordinate;
+        _coordinate = coordinate;
     }
     return self;
 }
@@ -43,23 +32,31 @@
     return _categoryFilter ?: @[];
 }
 
+- (NSString *)sortParameter {
+    switch (self.sort) {
+        case YLPSortTypeBestMatched:
+            return @"best_match";
+        case YLPSortTypeHighestRated:
+            return @"rating";
+        case YLPSortTypeDistance:
+            return @"distance";
+        case YLPSortTypeMostReviewed:
+            return @"review_count";
+    }
+}
+
 - (NSDictionary *)parameters {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     switch (self.mode) {
         case YLPSearchModeLocation:
             params[@"location"] = self.location;
             break;
-        case YLPSearchModeBounds:
-            params[@"bounds"] = self.bounds.description;
-            break;
         case YLPSearchModeCoordinate:
-            params[@"ll"] = self.geoCoordinate.description;
+            params[@"latitude"] = @(self.coordinate.latitude);
+            params[@"longitude"] = @(self.coordinate.longitude);
             break;
     }
 
-    if (self.currentLatLong) {
-        params[@"cll"] = self.currentLatLong.description;
-    }
     if (self.term) {
         params[@"term"] = self.term;
     }
@@ -69,17 +66,17 @@
     if (self.offset) {
         params[@"offset"] = @(self.offset);
     }
-    if (self.sort) {
-        params[@"sort"] = @(self.sort);
+    if (self.sort != YLPSortTypeBestMatched) {
+        params[@"sort_by"] = [self sortParameter];
     }
     if (self.categoryFilter.count > 0) {
-        params[@"category_filter"] = [self.categoryFilter componentsJoinedByString:@","];
+        params[@"categories"] = [self.categoryFilter componentsJoinedByString:@","];
     }
     if (self.radiusFilter > 0) {
-        params[@"radius_filter"] = @(self.radiusFilter);
+        params[@"radius"] = @(self.radiusFilter);
     }
     if (self.dealsFilter) {
-        params[@"deals_filter"] = @(YES);
+        params[@"attributes"] = @"deals";
     }
 
     return params;

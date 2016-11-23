@@ -22,8 +22,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.businessName.text = self.business.name;
-    self.businessPhone.text = self.business.displayPhone;
-    self.businessAddress.text = self.business.location.displayAddress[0];
+    self.businessPhone.text = self.business.phone;
+    self.businessAddress.text = self.business.location.address[0];
 }
 
 @end
