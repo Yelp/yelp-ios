@@ -23,20 +23,24 @@ pod "YelpAPI"
 
 ## Usage
 ### Basic Usage
+
+Before you can make any requests to the API, you must create a `YLPClient`
+by authorizing with the API using [your app's ID and secret](https://www.yelp.com/developers/v3/manage_app):
+
 ```objective-c
-    YLPClient *client = [[YLPClient alloc]initWithConsumerKey:<key>
-                                               consumerSecret:<consumer_secret>
-                                                        token:<token>
-                                                  tokenSecret:<token_secret>];
+[YLPClient authorizeWithAppId:<id> secret:<secret> completionHandler:^
+    (YLPClient *client, NSError *error) {
+    // Save your newly authorized client
+    self.client = client;
+}];
 ```
 
-### [Search API](http://www.yelp.com/developers/documentation/v2/search_api)
+### [Search API](https://www.yelp.com/developers/documentation/v3/business_search)
 Once you have a `YLPClient` object you can use the various search related function:
 
 ##### Search With Location
 ```objective-c
 - (void)searchWithLocation:(NSString *)location
-            currentLatLong:(nullable YLPCoordinate *)cll
                       term:(nullable NSString *)term
                      limit:(NSUInteger)limit
                     offset:(NSUInteger)offset
@@ -47,38 +51,23 @@ Once you have a `YLPClient` object you can use the various search related functi
          completionHandler:(YLPSearchCompletionHandler)completionHandler;
 ```
 ---
-##### Search With Geographic Bounding Box
+##### Search With Coordinate
 ```objective-c
-- (void)searchWithBounds:(YLPGeoBoundingBox *)bounds
-          currentLatLong:(nullable YLPCoordinate *)cll
-                    term:(nullable NSString *)term
-                   limit:(NSUInteger)limit
-                  offset:(NSUInteger)offset
-                    sort:(YLPSortType)sort
-       completionHandler:(YLPSearchCompletionHandler)completionHandler;
+- (void)searchWithCoordinate:(YLPCoordinate *)coordinate
+                        term:(nullable NSString *)term
+                       limit:(NSUInteger)limit
+                      offset:(NSUInteger)offset
+                        sort:(YLPSortType)sort
+           completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
-- (void)searchWithBounds:(YLPGeoBoundingBox *)bounds
-       completionHandler:(YLPSearchCompletionHandler)completionHandler;
-```
----
-##### Search With Geographic Coordinate
-```objective-c
-- (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
-                 currentLatLong:(nullable YLPCoordinate *)cll
-                           term:(nullable NSString *)term
-                          limit:(NSUInteger)limit
-                         offset:(NSUInteger)offset
-                           sort:(YLPSortType)sort
-              completionHandler:(YLPSearchCompletionHandler)completionHandler;
-
-- (void)searchWithGeoCoordinate:(YLPGeoCoordinate *)geoCoordinate
-              completionHandler:(YLPSearchCompletionHandler)completionHandler;
+- (void)searchWithCoordinate:(YLPCoordinate *)coordinate
+           completionHandler:(YLPSearchCompletionHandler)completionHandler;
 ``` 
 
 Each interface provides a different way to query the Search API depending on the
-type of information that you have on hand. There are three different methods of 
+type of information that you have on hand. There are two different methods of
 querying the Search API, each of which accepts a different format for location input.
-Consequentially, there are three sets of functions in the clientlib to support
+Consequentially, there are two sets of functions in the clientlib to support
 calls into each version of the Search API. Each set of functions contains a 
 version to call the API with only the required parameters, while another which 
 accepts arguments for all optional parameters. 
@@ -97,18 +86,11 @@ will be returned in the `NSError*` object.
 }];
 ``` 
 
-### [Business API](https://www.yelp.com/developers/documentation/v2/business)
+### [Business API](https://www.yelp.com/developers/documentation/v3/business)
 The `YLPClient` object will also provide access to the Business API, the
 relevant functions are:
 
 ```objective-c
-- (void)businessWithId:(NSString *)businessId
-           countryCode:(nullable NSString *)countryCode
-          languageCode:(nullable NSString *)languageCode
-        languageFilter:(BOOL)languageFilter
-           actionLinks:(BOOL)actionLinks
-     completionHandler:(YLPBusinessCompletionHandler)completionHandler;
-
 - (void)businessWithId:(NSString *)businessId
      completionHandler:(YLPBusinessCompletionHandler)completionHandler;
 ```
@@ -127,30 +109,50 @@ be returned in the `NSError*` object.
 }];
 ```
 
-### [Phone Search API](https://www.yelp.com/developers/documentation/v2/phone_search)
+### [Phone Search API](https://www.yelp.com/developers/documentation/v3/business_search_phone)
 The `YLPClient` object will also provide access to the Phone Search API,
 the relevant functions are:
 
 ```objective-c
 - (void)businessWithPhoneNumber:(NSString *)phoneNumber
-                    countryCode:(nullable NSString *)countryCode
-                       category:(nullable NSString *)category
-              completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler;
-
-- (void)businessWithPhoneNumber:(NSString *)phoneNumber
               completionHandler:(YLPPhoneSearchCompletionHandler)completionHandler;
 ```
 
-`YLPPhoneSearchCompletionHandler` is a block which takes a `YLPPhoneSearch*` and an `NSError*`
+`YLPPhoneSearchCompletionHandler` is a block which takes a `YLPSearch*` and an `NSError*`
 object as arguments. Upon successful completion of an API call the result will be returned
-in the `YLPPhoneSearchCompletionHandler*` object, alternatively errors will be
+in the `YLPSearch*` object, alternatively errors will be
 returned in the `NSError*` object. 
 
 #### Example Phone Search Usage
 
 ```objective-c
-[self.client businessWithPhoneNumber:@"4159083801" completionHandler:^
-    (YLPPhoneSearch *search, NSError *error) {
+[self.client businessWithPhoneNumber:@"+14159083801" completionHandler:^
+    (YLPSearch *search, NSError *error) {
+    // Perform any tasks you need to here
+}];
+```
+
+### [Reviews API](https://www.yelp.com/developers/documentation/v3/business_reviews)
+The `YLPClient` object also provides access to the Reviews API.
+The relevant methods are:
+
+``` objc
+- (void)reviewsForBusinessWithId:(NSString *)businessId
+               completionHandler:(YLPReviewsCompletionHandler)completionHandler;
+
+- (void)reviewsForBusinessWithId:(NSString *)businessId
+                          locale:(nullable NSString *)locale
+               completionHandler:(YLPReviewsCompletionHandler)completionHandler;
+```
+
+Upon completion, the `YLPReviewsCompletionHandler` will be passed either
+a `YLPBusinessReviews*` object on success, or an `NSError*` object if there was an error.
+
+#### Example Reviews Usage
+
+```objective-c
+[self.client reviewsForBusinessWithId:@"yelp-san-francisco" completionHandler:^
+    (YLPBusinessReviews *reviews, NSError *error) {
     // Perform any tasks you need to here
 }];
 ```
@@ -158,10 +160,10 @@ returned in the `NSError*` object.
 ## Responses
 A `Response` object is a data structure returned after each successful API call. The objects are
 readily available to be used. They will contain all available response fields as
-documented in our [API documentation](https://www.yelp.com/developers/documentation/v2/overview).
+documented in our [API documentation](https://www.yelp.com/developers/documentation/v3).
 
 `Response` objects returned by an API call may contain other `Response` objects.
-For example, the `YLPPhoneSearch` object contains an array of `YLPBusiness` objects as well.
+For example, the `YLPSearch` object contains an array of `YLPBusiness` objects as well.
 All `Response` objects can be found [here](https://github.com/Yelp/yelp-ios/tree/master/Classes/Response)
 
 ## Contributing
