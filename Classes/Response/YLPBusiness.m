@@ -16,6 +16,8 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)businessDict {
     if (self = [super init]) {
+        _closed = [businessDict[@"is_closed"] boolValue];
+
         _URL = [[NSURL alloc] initWithString:businessDict[@"url"]];
         NSString *imageURLString = [businessDict ylp_objectMaybeNullForKey:@"image_url"];
         _imageURL = imageURLString.length > 0 ? [[NSURL alloc] initWithString:imageURLString] : nil;
