@@ -6,26 +6,28 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "YLPBaseObject.h"
 #import "YLPSortType.h"
 
 @class YLPCoordinate;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPQuery : NSObject
+@interface YLPQuery : YLPBaseObject
 
 /**
  Initializes a query with a location specified by text.
  @param location the particular neighborhood, address or city to search in
  */
-- (instancetype)initWithLocation:(NSString *)location;
+- (instancetype)initWithLocation:(NSString *)location NS_DESIGNATED_INITIALIZER;
 
 /**
  Initializes a query with a location specified by a coordinate.
  @param coordinate coordinate around which to search
  */
-- (instancetype)initWithCoordinate:(YLPCoordinate *)coordinate;
+- (instancetype)initWithCoordinate:(YLPCoordinate *)coordinate NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
  Search term (e.g. "food", "restaurants"). If term is nil, everything will be searched.

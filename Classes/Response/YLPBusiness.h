@@ -6,14 +6,16 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "YLPBaseObject.h"
 
 @class YLPLocation;
 @class YLPCategory;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPBusiness : NSObject
+@interface YLPBusiness : YLPBaseObject
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @property (nonatomic, getter=isClosed, readonly) BOOL closed;
 

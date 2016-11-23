@@ -6,13 +6,15 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "YLPBaseObject.h"
 
 @class YLPBusiness;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YLPSearch : NSObject
+@interface YLPSearch : YLPBaseObject
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @property (nonatomic, readonly) NSArray<YLPBusiness *> *businesses;
 @property (nonatomic, readonly) NSUInteger total;

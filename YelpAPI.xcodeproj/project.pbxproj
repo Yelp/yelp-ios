@@ -66,6 +66,8 @@
 		13BE49651D2037070002262E /* YLPQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BE49631D2037070002262E /* YLPQuery.m */; };
 		13BE49671D203E000002262E /* YLPQueryPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 13BE49661D203D6D0002262E /* YLPQueryPrivate.h */; };
 		13BE49691D2056C70002262E /* YLPQueryTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BE49681D2056C70002262E /* YLPQueryTestCase.m */; };
+		150149F91DD0452E0023037A /* YLPBaseObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 150149F71DD0452E0023037A /* YLPBaseObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		150149FA1DD0452E0023037A /* YLPBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 150149F81DD0452E0023037A /* YLPBaseObject.m */; };
 		13D8661E1DDE402D0051C1A0 /* NSDictionary+YLPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D8661C1DDE402D0051C1A0 /* NSDictionary+YLPUtils.m */; };
 		2938CD961893BBC9FB96A9A1 /* Pods_YelpAPI_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940F602628A3DC514173CCBB /* Pods_YelpAPI_Example.framework */; };
 		4D1C48BD7C6555E51CC7DB7B /* Pods_YelpAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2DA62F3AB4E9CED8852687 /* Pods_YelpAPI.framework */; };
@@ -176,6 +178,8 @@
 		13BE49631D2037070002262E /* YLPQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPQuery.m; sourceTree = "<group>"; };
 		13BE49661D203D6D0002262E /* YLPQueryPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLPQueryPrivate.h; sourceTree = "<group>"; };
 		13BE49681D2056C70002262E /* YLPQueryTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPQueryTestCase.m; sourceTree = "<group>"; };
+		150149F71DD0452E0023037A /* YLPBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPBaseObject.h; sourceTree = "<group>"; };
+		150149F81DD0452E0023037A /* YLPBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPBaseObject.m; sourceTree = "<group>"; };
 		13D8661C1DDE402D0051C1A0 /* NSDictionary+YLPUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YLPUtils.m"; sourceTree = "<group>"; };
 		2E0DC5F670084B64ECD1DB90 /* Pods-YelpAPI_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpAPI_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-YelpAPI_Example/Pods-YelpAPI_Example.release.xcconfig"; sourceTree = "<group>"; };
 		57A6A7BEE7B82D4C749B5DA5 /* Pods-YelpAPITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpAPITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YelpAPITests/Pods-YelpAPITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -320,6 +324,8 @@
 				134DA9AE1CBF253B008DD68F /* YLPSearch.m */,
 				134DA9AF1CBF253B008DD68F /* YLPUser.h */,
 				134DA9B01CBF253B008DD68F /* YLPUser.m */,
+				150149F71DD0452E0023037A /* YLPBaseObject.h */,
+				150149F81DD0452E0023037A /* YLPBaseObject.m */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -459,6 +465,7 @@
 				130408E41DBAAA4600E44AC6 /* YLPClient+Reviews.h in Headers */,
 				134DA9B31CBF253B008DD68F /* YLPClient+PhoneSearch.h in Headers */,
 				13BE49641D2037070002262E /* YLPQuery.h in Headers */,
+				150149F91DD0452E0023037A /* YLPBaseObject.h in Headers */,
 				13BE49671D203E000002262E /* YLPQueryPrivate.h in Headers */,
 				134DA9B91CBF253B008DD68F /* YLPClientPrivate.h in Headers */,
 				134DA9D61CBF253B008DD68F /* YLPResponsePrivate.h in Headers */,
@@ -742,6 +749,11 @@
 				13BE49651D2037070002262E /* YLPQuery.m in Sources */,
 				134DA9B41CBF253B008DD68F /* YLPClient+PhoneSearch.m in Sources */,
 				134DA9D81CBF253B008DD68F /* YLPReview.m in Sources */,
+				134DA9C01CBF253B008DD68F /* YLPGeoCoordinate.m in Sources */,
+				150149FA1DD0452E0023037A /* YLPBaseObject.m in Sources */,
+				134DA9BE1CBF253B008DD68F /* YLPGeoBoundingBox.m in Sources */,
+				134DA9C71CBF253B008DD68F /* YLPCoordinateDelta.m in Sources */,
+				134DA9CD1CBF253B008DD68F /* YLPGiftCertificate.m in Sources */,
 				134DA9C51CBF253B008DD68F /* YLPCategory.m in Sources */,
 				134DA9DC1CBF253B008DD68F /* YLPUser.m in Sources */,
 				134DA9D11CBF253B008DD68F /* YLPLocation.m in Sources */,

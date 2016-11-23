@@ -39,17 +39,17 @@ NSString *const kYLPErrorDomain = @"com.yelp.YelpAPI.ErrorDomain";
     urlComponents.scheme = @"https";
     urlComponents.host = kYLPAPIHost;
     urlComponents.path = path;
-
+    
     NSArray *queryItems = [YLPClient queryItemsForParams:params];
     if (queryItems.count > 0) {
         urlComponents.queryItems = queryItems;
     }
-
+    
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlComponents.URL];
     request.HTTPMethod = @"GET";
     NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", self.accessToken];
     [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
-
+    
     return request;
 }
 
@@ -110,19 +110,19 @@ NSString *const kYLPErrorDomain = @"com.yelp.YelpAPI.ErrorDomain";
     urlComponents.scheme = @"https";
     urlComponents.host = kYLPAPIHost;
     urlComponents.path = @"/oauth2/token";
-
+    
     NSCharacterSet *allowedCharacters = [self URLEncodeAllowedCharacters];
     NSString *body = [NSString stringWithFormat:@"grant_type=client_credentials&client_id=%@&client_secret=%@",
                       [appId stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters],
                       [secret stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters]];
     NSData *bodyData = [body dataUsingEncoding:NSUTF8StringEncoding];
-
+    
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlComponents.URL];
     request.HTTPMethod = @"POST";
     request.HTTPBody = bodyData;
     [request setValue:[NSString stringWithFormat:@"%zd", bodyData.length] forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-
+    
     return request;
 }
 
