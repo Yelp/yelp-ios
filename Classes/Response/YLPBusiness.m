@@ -17,7 +17,8 @@
 - (instancetype)initWithDictionary:(NSDictionary *)businessDict {
     if (self = [super init]) {
         _URL = [[NSURL alloc] initWithString:businessDict[@"url"]];
-        _imageURL = businessDict[@"image_url"] ? [[NSURL alloc] initWithString:businessDict[@"image_url"]] : nil;
+        NSString *imageURLString = [businessDict ylp_objectMaybeNullForKey:@"image_url"];
+        _imageURL = imageURLString.length > 0 ? [[NSURL alloc] initWithString:imageURLString] : nil;
         
         _rating = [businessDict[@"rating"] doubleValue];
         _reviewCount = [businessDict[@"review_count"] integerValue];
