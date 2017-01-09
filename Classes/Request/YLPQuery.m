@@ -60,8 +60,17 @@
     if (self.term) {
         params[@"term"] = self.term;
     }
+    if (self.price) {
+        params[@"price"] = self.price;
+    }
+    if (self.locale) {
+        params[@"locale"] = self.locale;
+    }
     if (self.limit) {
         params[@"limit"] = @(self.limit);
+    }
+    if (self.openAt > 0) {
+        params[@"open_at"] = @(self.openAt);
     }
     if (self.offset) {
         params[@"offset"] = @(self.offset);
@@ -75,8 +84,15 @@
     if (self.radiusFilter > 0) {
         params[@"radius"] = @(self.radiusFilter);
     }
-    if (self.dealsFilter) {
+    if (self.dealsFilter && self.hotAndNewFilter) {
+        params[@"attributes"] = @"deals,hot_and_new";
+    } else if (self.dealsFilter) {
         params[@"attributes"] = @"deals";
+    } else if (self.hotAndNewFilter) {
+        params[@"attributes"] = @"hot_and_new";
+    }
+    if (self.openNow && self.openAt == 0) {
+        params[@"open_now"] = @(true);
     }
 
     return params;
