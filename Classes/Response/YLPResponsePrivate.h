@@ -7,7 +7,9 @@
 //
 #import "YLPBusiness.h"
 #import "YLPBusinessReviews.h"
+#import "YLPBusinessHours.h"
 #import "YLPCategory.h"
+#import "YLPHour.h"
 #import "YLPLocation.h"
 #import "YLPReview.h"
 #import "YLPSearch.h"
@@ -27,9 +29,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithDictionary:(NSDictionary *)reviewsDict;
 @end
 
+@interface YLPBusinessHours ()
+- (instancetype)initWithDictionary:(NSDictionary *)hoursDict;
+@end
+
 @interface YLPCategory ()
 - (instancetype)initWithName:(NSString *)name alias:(NSString *)alias;
 - (instancetype)initWithDictionary:(NSDictionary *)categoryDict;
+@end
+
+@interface YLPHour ()
+- (instancetype)initWithDictionary:(NSDictionary *)hourDict;
 @end
 
 @interface YLPLocation ()

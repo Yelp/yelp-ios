@@ -8,6 +8,7 @@
 
 #import "YLPBusiness.h"
 #import "YLPCategory.h"
+//#import "YLPBusinessHours.h"
 #import "YLPCoordinate.h"
 #import "YLPLocation.h"
 #import "YLPResponsePrivate.h"
@@ -30,11 +31,26 @@
         NSString *phone = [businessDict ylp_objectMaybeNullForKey:@"phone"];
         _phone = phone.length > 0 ? phone : nil;
         
+        NSArray *photos = [businessDict ylp_objectMaybeNullForKey:@"photos"];
+        _photos = photos.count > 0 ? photos : nil;
+        
+        NSArray *hours = [businessDict ylp_objectMaybeNullForKey:@"hours"];
+        _hours = hours.count > 0 ? [self.class hoursFromJSONArray:businessDict[@"hours"]] : nil;
+        
         _categories = [self.class categoriesFromJSONArray:businessDict[@"categories"]];
         YLPCoordinate *coordinate = [self.class coordinateFromJSONDictionary:businessDict[@"coordinates"]];
         _location = [[YLPLocation alloc] initWithDictionary:businessDict[@"location"] coordinate:coordinate];
     }
     return self;
+}
+
++ (NSArray *)hoursFromJSONArray:(NSArray *)hoursJSON {
+    NSMutableArray *mutableHours = [[NSMutableArray alloc] init];
+    for (NSDictionary *hour in hoursJSON) {
+        [mutableHours addObject:[[YLPBusinessHours alloc] initWithDictionary:hour]];
+        [mutableHours addObject:hour];
+    }
+    return mutableHours;
 }
 
 + (NSArray *)categoriesFromJSONArray:(NSArray *)categoriesJSON {

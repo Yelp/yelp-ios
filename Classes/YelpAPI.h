@@ -19,7 +19,9 @@
 
 #import "YLPBusiness.h"
 #import "YLPBusinessReviews.h"
+#import "YLPBusinessHours.h"
 #import "YLPCategory.h"
+#import "YLPHour.h"
 #import "YLPLocation.h"
 #import "YLPReview.h"
 #import "YLPSearch.h"
