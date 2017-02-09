@@ -141,4 +141,19 @@ NSString *const kYLPErrorDomain = @"com.yelp.YelpAPI.ErrorDomain";
     }];
 }
 
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    
+    if (self = [super init]) {
+        self.accessToken = [aDecoder decodeObjectForKey:@"accessToken"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+
+    [aCoder encodeObject:self.accessToken forKey:@"accessToken"];
+}
+
 @end
