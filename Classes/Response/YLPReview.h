@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, readonly) YLPUser *user;
 
+@property (nonatomic, readonly, copy) NSURL *URL;
+
 @end
 
 NS_ASSUME_NONNULL_END
