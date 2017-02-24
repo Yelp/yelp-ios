@@ -18,6 +18,7 @@
         _excerpt = reviewDict[@"text"];
         _timeCreated = [self.class dateFromTimestamp:reviewDict[@"time_created"]];
         _user = [[YLPUser alloc] initWithDictionary:reviewDict[@"user"]];
+        _URL = [[NSURL alloc] initWithString:businessDict[@"url"]];
     }
     
     return self;
