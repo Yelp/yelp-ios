@@ -10,6 +10,7 @@
 #import "YLPCategory.h"
 #import "YLPCoordinate.h"
 #import "YLPLocation.h"
+#import "YLPOpenHours.h"
 #import "YLPResponsePrivate.h"
 
 @implementation YLPBusiness
@@ -31,11 +32,23 @@
         _phone = phone.length > 0 ? phone : nil;
         
         _categories = [self.class categoriesFromJSONArray:businessDict[@"categories"]];
+        
+        _openHours = [self.class openHoursFromJSONArray:businessDict[@"hours"]];
+        
         YLPCoordinate *coordinate = [self.class coordinateFromJSONDictionary:businessDict[@"coordinates"]];
         _location = [[YLPLocation alloc] initWithDictionary:businessDict[@"location"] coordinate:coordinate];
     }
     return self;
 }
+
++ (NSArray *)openHoursFromJSONArray:(NSArray *)openHoursJSON {
+    NSMutableArray *mutableOpenHours = [[NSMutableArray alloc] init];
+    for (NSDictionary *openHours in openHoursJSON) {
+        [mutableOpenHours addObject:[[YLPOpenHours alloc] initWithDictionary:openHours]];
+    }
+    return mutableOpenHours;
+}
+
 
 + (NSArray *)categoriesFromJSONArray:(NSArray *)categoriesJSON {
     NSMutableArray *mutableCategories = [[NSMutableArray alloc] init];

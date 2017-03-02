@@ -10,6 +10,7 @@
 
 @class YLPLocation;
 @class YLPCategory;
+@class YLPOpenHours;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *identifier;
 
 @property (nonatomic, readonly, copy) NSArray<YLPCategory *> *categories;
+
+@property (nonatomic, readonly, copy) NSArray<YLPOpenHours *> *openHours;
 
 @property (nonatomic, readonly) YLPLocation *location;
 
