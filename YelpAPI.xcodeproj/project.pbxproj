@@ -70,9 +70,9 @@
 		2938CD961893BBC9FB96A9A1 /* Pods_YelpAPI_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940F602628A3DC514173CCBB /* Pods_YelpAPI_Example.framework */; };
 		4D1C48BD7C6555E51CC7DB7B /* Pods_YelpAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2DA62F3AB4E9CED8852687 /* Pods_YelpAPI.framework */; };
 		E649614BDA7B6533CF642746 /* Pods_YelpAPITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C801DC94688578238D1B1D4D /* Pods_YelpAPITests.framework */; };
-		FFEF5E2E1E68C4EE00F3A258 /* YLPTimeInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = FFEF5E2C1E68C4EE00F3A258 /* YLPTimeInterval.h */; };
+		FFEF5E2E1E68C4EE00F3A258 /* YLPTimeInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = FFEF5E2C1E68C4EE00F3A258 /* YLPTimeInterval.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFEF5E2F1E68C4EE00F3A258 /* YLPTimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEF5E2D1E68C4EE00F3A258 /* YLPTimeInterval.m */; };
-		FFEF5E321E68C93600F3A258 /* YLPOpenHours.h in Headers */ = {isa = PBXBuildFile; fileRef = FFEF5E301E68C93600F3A258 /* YLPOpenHours.h */; };
+		FFEF5E321E68C93600F3A258 /* YLPOpenHours.h in Headers */ = {isa = PBXBuildFile; fileRef = FFEF5E301E68C93600F3A258 /* YLPOpenHours.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFEF5E331E68C93600F3A258 /* YLPOpenHours.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEF5E311E68C93600F3A258 /* YLPOpenHours.m */; };
 		FFEF5E361E68F7E600F3A258 /* YLPOpenHours.h in Sources */ = {isa = PBXBuildFile; fileRef = FFEF5E301E68C93600F3A258 /* YLPOpenHours.h */; };
 		FFEF5E371E68F7EC00F3A258 /* YLPTimeInterval.h in Sources */ = {isa = PBXBuildFile; fileRef = FFEF5E2C1E68C4EE00F3A258 /* YLPTimeInterval.h */; };
@@ -457,11 +457,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFEF5E2E1E68C4EE00F3A258 /* YLPTimeInterval.h in Headers */,
 				134DA8BD1CBF2484008DD68F /* YelpAPI.h in Headers */,
 				134DA9C41CBF253B008DD68F /* YLPCategory.h in Headers */,
 				134DA9BB1CBF253B008DD68F /* YLPCoordinate.h in Headers */,
-				FFEF5E321E68C93600F3A258 /* YLPOpenHours.h in Headers */,
 				134DA9DB1CBF253B008DD68F /* YLPUser.h in Headers */,
 				134DA9D71CBF253B008DD68F /* YLPReview.h in Headers */,
 				134DA9C11CBF253B008DD68F /* YLPSortType.h in Headers */,
@@ -469,6 +467,8 @@
 				134DA9D91CBF253B008DD68F /* YLPSearch.h in Headers */,
 				134DA9D01CBF253B008DD68F /* YLPLocation.h in Headers */,
 				134DA9B71CBF253B008DD68F /* YLPClient.h in Headers */,
+				FFEF5E2E1E68C4EE00F3A258 /* YLPTimeInterval.h in Headers */,
+				FFEF5E321E68C93600F3A258 /* YLPOpenHours.h in Headers */,
 				134DA9C21CBF253B008DD68F /* YLPBusiness.h in Headers */,
 				130408E81DBAB04400E44AC6 /* YLPBusinessReviews.h in Headers */,
 				134DA9B11CBF253B008DD68F /* YLPClient+Business.h in Headers */,
