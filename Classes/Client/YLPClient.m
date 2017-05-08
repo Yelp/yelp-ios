@@ -39,7 +39,7 @@ NSString *const kYLPErrorDomain = @"com.yelp.YelpAPI.ErrorDomain";
     urlComponents.scheme = @"https";
     urlComponents.host = kYLPAPIHost;
     urlComponents.path = path;
-
+    
     NSArray *queryItems = [YLPClient queryItemsForParams:params];
     if (queryItems.count > 0) {
         urlComponents.queryItems = queryItems;

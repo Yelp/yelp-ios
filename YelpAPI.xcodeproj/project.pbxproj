@@ -68,6 +68,11 @@
 		13BE49691D2056C70002262E /* YLPQueryTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BE49681D2056C70002262E /* YLPQueryTestCase.m */; };
 		13D8661E1DDE402D0051C1A0 /* NSDictionary+YLPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D8661C1DDE402D0051C1A0 /* NSDictionary+YLPUtils.m */; };
 		2938CD961893BBC9FB96A9A1 /* Pods_YelpAPI_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940F602628A3DC514173CCBB /* Pods_YelpAPI_Example.framework */; };
+		460A04AD1EBEA6760086B7DE /* YLPAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4606FCFD1EBE826700191DB9 /* YLPAutocompleteTableViewController.m */; };
+		46DFA92F1EBD7E44002C0277 /* YLPClient+Autocomplete.h in Headers */ = {isa = PBXBuildFile; fileRef = 46DFA92D1EBD7E44002C0277 /* YLPClient+Autocomplete.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46DFA9301EBD7E44002C0277 /* YLPClient+Autocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DFA92E1EBD7E44002C0277 /* YLPClient+Autocomplete.m */; };
+		46DFA9371EBD81C3002C0277 /* YLPAutocomplete.h in Headers */ = {isa = PBXBuildFile; fileRef = 46DFA9351EBD81C3002C0277 /* YLPAutocomplete.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46DFA9381EBD81C3002C0277 /* YLPAutocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DFA9361EBD81C3002C0277 /* YLPAutocomplete.m */; };
 		4D1C48BD7C6555E51CC7DB7B /* Pods_YelpAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2DA62F3AB4E9CED8852687 /* Pods_YelpAPI.framework */; };
 		E649614BDA7B6533CF642746 /* Pods_YelpAPITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C801DC94688578238D1B1D4D /* Pods_YelpAPITests.framework */; };
 /* End PBXBuildFile section */
@@ -178,6 +183,12 @@
 		13BE49681D2056C70002262E /* YLPQueryTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPQueryTestCase.m; sourceTree = "<group>"; };
 		13D8661C1DDE402D0051C1A0 /* NSDictionary+YLPUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YLPUtils.m"; sourceTree = "<group>"; };
 		2E0DC5F670084B64ECD1DB90 /* Pods-YelpAPI_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpAPI_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-YelpAPI_Example/Pods-YelpAPI_Example.release.xcconfig"; sourceTree = "<group>"; };
+		4606FCFC1EBE826700191DB9 /* YLPAutocompleteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPAutocompleteTableViewController.h; sourceTree = "<group>"; };
+		4606FCFD1EBE826700191DB9 /* YLPAutocompleteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPAutocompleteTableViewController.m; sourceTree = "<group>"; };
+		46DFA92D1EBD7E44002C0277 /* YLPClient+Autocomplete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YLPClient+Autocomplete.h"; sourceTree = "<group>"; };
+		46DFA92E1EBD7E44002C0277 /* YLPClient+Autocomplete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YLPClient+Autocomplete.m"; sourceTree = "<group>"; };
+		46DFA9351EBD81C3002C0277 /* YLPAutocomplete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPAutocomplete.h; sourceTree = "<group>"; };
+		46DFA9361EBD81C3002C0277 /* YLPAutocomplete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPAutocomplete.m; sourceTree = "<group>"; };
 		57A6A7BEE7B82D4C749B5DA5 /* Pods-YelpAPITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpAPITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YelpAPITests/Pods-YelpAPITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A2DA62F3AB4E9CED8852687 /* Pods_YelpAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YelpAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		940F602628A3DC514173CCBB /* Pods_YelpAPI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YelpAPI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +277,8 @@
 		134DA9811CBF253B008DD68F /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				46DFA92D1EBD7E44002C0277 /* YLPClient+Autocomplete.h */,
+				46DFA92E1EBD7E44002C0277 /* YLPClient+Autocomplete.m */,
 				134DA9821CBF253B008DD68F /* YLPClient+Business.h */,
 				134DA9831CBF253B008DD68F /* YLPClient+Business.m */,
 				134DA9841CBF253B008DD68F /* YLPClient+PhoneSearch.h */,
@@ -305,6 +318,8 @@
 			isa = PBXGroup;
 			children = (
 				13D8661C1DDE402D0051C1A0 /* NSDictionary+YLPUtils.m */,
+				46DFA9351EBD81C3002C0277 /* YLPAutocomplete.h */,
+				46DFA9361EBD81C3002C0277 /* YLPAutocomplete.m */,
 				134DA9961CBF253B008DD68F /* YLPBusiness.h */,
 				134DA9971CBF253B008DD68F /* YLPBusiness.m */,
 				130408E61DBAB04400E44AC6 /* YLPBusinessReviews.h */,
@@ -397,6 +412,8 @@
 				13640F171DB2C7ED005F551B /* Supporting Files */,
 				13640F361DB2CAA1005F551B /* YLPAppDelegate.h */,
 				13640F371DB2CAA1005F551B /* YLPAppDelegate.m */,
+				4606FCFC1EBE826700191DB9 /* YLPAutocompleteTableViewController.h */,
+				4606FCFD1EBE826700191DB9 /* YLPAutocompleteTableViewController.m */,
 				13640F381DB2CAA1005F551B /* YLPBusinessViewController.h */,
 				13640F391DB2CAA1005F551B /* YLPBusinessViewController.m */,
 				13640F3C1DB2CAA1005F551B /* YLPDetailBusinessViewController.h */,
@@ -454,6 +471,7 @@
 				134DA9D01CBF253B008DD68F /* YLPLocation.h in Headers */,
 				134DA9B71CBF253B008DD68F /* YLPClient.h in Headers */,
 				134DA9C21CBF253B008DD68F /* YLPBusiness.h in Headers */,
+				46DFA9371EBD81C3002C0277 /* YLPAutocomplete.h in Headers */,
 				130408E81DBAB04400E44AC6 /* YLPBusinessReviews.h in Headers */,
 				134DA9B11CBF253B008DD68F /* YLPClient+Business.h in Headers */,
 				130408E41DBAAA4600E44AC6 /* YLPClient+Reviews.h in Headers */,
@@ -462,6 +480,7 @@
 				13BE49671D203E000002262E /* YLPQueryPrivate.h in Headers */,
 				134DA9B91CBF253B008DD68F /* YLPClientPrivate.h in Headers */,
 				134DA9D61CBF253B008DD68F /* YLPResponsePrivate.h in Headers */,
+				46DFA92F1EBD7E44002C0277 /* YLPClient+Autocomplete.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,7 +681,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8EDD71EF72B9C9588598EA79 /* [CP] Copy Pods Resources */ = {
@@ -692,7 +711,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		BA5D51B33FEC3FC9B6DD798D /* [CP] Embed Pods Frameworks */ = {
@@ -722,7 +741,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -734,8 +753,10 @@
 			files = (
 				134DA9BC1CBF253B008DD68F /* YLPCoordinate.m in Sources */,
 				134DA9C31CBF253B008DD68F /* YLPBusiness.m in Sources */,
+				46DFA9381EBD81C3002C0277 /* YLPAutocomplete.m in Sources */,
 				130408E51DBAAA4600E44AC6 /* YLPClient+Reviews.m in Sources */,
 				130408E91DBAB04400E44AC6 /* YLPBusinessReviews.m in Sources */,
+				46DFA9301EBD7E44002C0277 /* YLPClient+Autocomplete.m in Sources */,
 				134DA9B21CBF253B008DD68F /* YLPClient+Business.m in Sources */,
 				134DA9DA1CBF253B008DD68F /* YLPSearch.m in Sources */,
 				13D8661E1DDE402D0051C1A0 /* NSDictionary+YLPUtils.m in Sources */,
@@ -774,6 +795,7 @@
 				13640F4A1DB2CAA1005F551B /* YLPViewController.m in Sources */,
 				13640F491DB2CAA1005F551B /* YLPSearchTableViewController.m in Sources */,
 				13640F451DB2CAA1005F551B /* YLPBusinessViewController.m in Sources */,
+				460A04AD1EBEA6760086B7DE /* YLPAutocompleteTableViewController.m in Sources */,
 				13640F481DB2CAA1005F551B /* YLPPhoneSearchTableViewController.m in Sources */,
 				13640F191DB2C7ED005F551B /* main.m in Sources */,
 			);
@@ -809,6 +831,7 @@
 		134DA8B21CBF2417008DD68F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
@@ -836,6 +859,7 @@
 		134DA8B31CBF2417008DD68F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;

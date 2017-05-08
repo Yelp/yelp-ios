@@ -37,6 +37,14 @@
     return self;
 }
 
+-(instancetype)initWithAutocompleteDictionary:(NSDictionary *)autocompleteDict {
+    if (self = [super init]) {
+        _name = autocompleteDict[@"name"];
+        _identifier = autocompleteDict[@"id"];
+    }
+    return self;
+}
+
 + (NSArray *)categoriesFromJSONArray:(NSArray *)categoriesJSON {
     NSMutableArray *mutableCategories = [[NSMutableArray alloc] init];
     for (NSDictionary *category in categoriesJSON) {
