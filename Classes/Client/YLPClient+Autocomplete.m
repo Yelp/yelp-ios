@@ -15,8 +15,9 @@
 
 @implementation YLPClient (Autocomplete)
 
-- (NSURLRequest *)autoCompleteRequestWithParams:(NSDictionary *)params term:(NSString *)term {
+- (NSURLRequest *)autoCompleteRequestWithParams:(NSDictionary *)params {
     NSString *phoneSearchPath = @"/v3/autocomplete";
+    
     return [self requestWithPath:phoneSearchPath params:params];
 }
 
@@ -29,17 +30,13 @@
     NSDictionary *params = [query parameters];
 
     NSMutableDictionary *mutablesParams = [params mutableCopy];
-    mutablesParams[@"text"] = @"Bakery";
+    mutablesParams[@"text"] = term;
     
     if (locale) {
         mutablesParams[@"locale"] = locale;
     }
 
-    NSURLRequest *request = [self autoCompleteRequestWithParams:mutablesParams term:term];
-    
-    NSLog(@"request %@", request);
-    NSLog(@"request url %@", request.URL);
-    NSLog(@"request body %@", request.allHTTPHeaderFields);
+    NSURLRequest *request = [self autoCompleteRequestWithParams:mutablesParams];
     
     [self queryWithRequest:request completionHandler:^(NSDictionary * _Nonnull responseDict, NSError * _Nonnull error) {
         if (error) {

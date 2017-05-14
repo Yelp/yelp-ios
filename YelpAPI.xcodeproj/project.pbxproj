@@ -69,6 +69,8 @@
 		13D8661E1DDE402D0051C1A0 /* NSDictionary+YLPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D8661C1DDE402D0051C1A0 /* NSDictionary+YLPUtils.m */; };
 		2938CD961893BBC9FB96A9A1 /* Pods_YelpAPI_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940F602628A3DC514173CCBB /* Pods_YelpAPI_Example.framework */; };
 		460A04AD1EBEA6760086B7DE /* YLPAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4606FCFD1EBE826700191DB9 /* YLPAutocompleteTableViewController.m */; };
+		46BDE42D1EC8B05800C32067 /* autocomplete_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 46BDE42C1EC8B05800C32067 /* autocomplete_response.json */; };
+		46BDE42F1EC8B0D400C32067 /* YLPAutocompleteClientTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BDE42E1EC8B0D400C32067 /* YLPAutocompleteClientTestCase.m */; };
 		46DFA92F1EBD7E44002C0277 /* YLPClient+Autocomplete.h in Headers */ = {isa = PBXBuildFile; fileRef = 46DFA92D1EBD7E44002C0277 /* YLPClient+Autocomplete.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46DFA9301EBD7E44002C0277 /* YLPClient+Autocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DFA92E1EBD7E44002C0277 /* YLPClient+Autocomplete.m */; };
 		46DFA9371EBD81C3002C0277 /* YLPAutocomplete.h in Headers */ = {isa = PBXBuildFile; fileRef = 46DFA9351EBD81C3002C0277 /* YLPAutocomplete.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -185,6 +187,8 @@
 		2E0DC5F670084B64ECD1DB90 /* Pods-YelpAPI_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpAPI_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-YelpAPI_Example/Pods-YelpAPI_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4606FCFC1EBE826700191DB9 /* YLPAutocompleteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPAutocompleteTableViewController.h; sourceTree = "<group>"; };
 		4606FCFD1EBE826700191DB9 /* YLPAutocompleteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPAutocompleteTableViewController.m; sourceTree = "<group>"; };
+		46BDE42C1EC8B05800C32067 /* autocomplete_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = autocomplete_response.json; sourceTree = "<group>"; };
+		46BDE42E1EC8B0D400C32067 /* YLPAutocompleteClientTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPAutocompleteClientTestCase.m; sourceTree = "<group>"; };
 		46DFA92D1EBD7E44002C0277 /* YLPClient+Autocomplete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YLPClient+Autocomplete.h"; sourceTree = "<group>"; };
 		46DFA92E1EBD7E44002C0277 /* YLPClient+Autocomplete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YLPClient+Autocomplete.m"; sourceTree = "<group>"; };
 		46DFA9351EBD81C3002C0277 /* YLPAutocomplete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPAutocomplete.h; sourceTree = "<group>"; };
@@ -365,6 +369,7 @@
 		134DA9FC1CBF2D1B008DD68F /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				46BDE42E1EC8B0D400C32067 /* YLPAutocompleteClientTestCase.m */,
 				134DA9FD1CBF2D1B008DD68F /* YLPBusinessClientTestCase.m */,
 				134DA9FE1CBF2D1B008DD68F /* YLPClientTestCase.m */,
 				134DA9FF1CBF2D1B008DD68F /* YLPClientTestCaseBase.h */,
@@ -395,6 +400,7 @@
 		134DAA081CBF2D1B008DD68F /* Responses */ = {
 			isa = PBXGroup;
 			children = (
+				46BDE42C1EC8B05800C32067 /* autocomplete_response.json */,
 				134DAA091CBF2D1B008DD68F /* business_response.json */,
 				134DAA0A1CBF2D1B008DD68F /* error.json */,
 				134DAA0D1CBF2D1B008DD68F /* phone_search_response.json */,
@@ -603,6 +609,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46BDE42D1EC8B05800C32067 /* autocomplete_response.json in Resources */,
 				134DAA1C1CBF2D1B008DD68F /* search_response.json in Resources */,
 				134DAA181CBF2D1B008DD68F /* error.json in Resources */,
 				134DAA171CBF2D1B008DD68F /* business_response.json in Resources */,
@@ -775,6 +782,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46BDE42F1EC8B0D400C32067 /* YLPAutocompleteClientTestCase.m in Sources */,
 				134DAA131CBF2D1B008DD68F /* YLPSearchClientTestCase.m in Sources */,
 				130408EE1DBC0D7B00E44AC6 /* YLPReviewsClientTestCase.swift in Sources */,
 				134DAA141CBF2D1B008DD68F /* YLPCoordinateTestCase.m in Sources */,

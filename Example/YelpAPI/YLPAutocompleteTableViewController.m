@@ -30,27 +30,21 @@
     double lat = 37.7613570;
     double longi = -122.4243770;
     
-    
-    
     YLPCoordinate *myCoordinate = [[YLPCoordinate alloc] initWithLatitude:lat longitude:longi];
    
     
     [[YLPAppDelegate sharedClient] fetchAutocompleteSuggestionsWithTerm:@"Bakery" coordinate:myCoordinate locale:nil completionHandler:^(YLPAutocomplete * _Nullable autocomplete, NSError * _Nullable error) {
         self.autoCompleteResults = autocomplete;
-        //NSLog(@"self.autocompleteresults %@", self.autoCompleteResults.bus);
+        
         if (error) {
-            NSLog(@"error: %@", error);
             return;
         }
-        NSLog(@"autoComplete %@", autocomplete);
-        self.myBusinesses = [NSArray arrayWithArray:self.autoCompleteResults.businesses];
+        
+        _myBusinesses = [NSArray arrayWithArray:self.autoCompleteResults.businesses];
         _myCategories = [self.autoCompleteResults.categories copy];
         _myTerms = [self.autoCompleteResults.terms copy];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"businesses %@", self.myBusinesses);
-            NSLog(@"categories %@", _autoCompleteResults.categories);
-            NSLog(@"terms %@", _autoCompleteResults.terms);
             [self.tableView reloadData];
         });
     }];

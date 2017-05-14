@@ -28,8 +28,6 @@
         [mutableBusinessesJSON addObject:[[YLPBusiness alloc] initWithAutocompleteDictionary:business]];
     }
     
-    NSLog(@"businessFromJSONArray %@", mutableBusinessesJSON);
-    
     return mutableBusinessesJSON;
 }
 

@@ -49,7 +49,7 @@ NSString *const kYLPErrorDomain = @"com.yelp.YelpAPI.ErrorDomain";
     request.HTTPMethod = @"GET";
     NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", self.accessToken];
     [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
-
+    
     return request;
 }
 
