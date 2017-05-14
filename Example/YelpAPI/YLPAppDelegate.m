@@ -24,8 +24,8 @@
 #pragma mark UIApplicationDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    #warning Fill in the API keys below with your developer v3 keys.
-    [YLPClient authorizeWithAppId:@"" secret:@"" completionHandler:^(YLPClient *client, NSError *error) {
+    //#warning Fill in the API keys below with your developer v3 keys.
+    [YLPClient authorizeWithAppId:@"8cbcG2k1yBueQLxmEXjffA" secret:@"7TYd6Rnrclqzm2KyuJ51xlAR3FrdKV4nha6FnAZe9TBHdN2AQQlw8ERIi1vhMH7n" completionHandler:^(YLPClient *client, NSError *error) {
         self.client = client;
         if (!client) {
             NSLog(@"Authentication failed: %@", error);

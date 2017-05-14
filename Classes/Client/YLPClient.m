@@ -39,7 +39,7 @@ NSString *const kYLPErrorDomain = @"com.yelp.YelpAPI.ErrorDomain";
     urlComponents.scheme = @"https";
     urlComponents.host = kYLPAPIHost;
     urlComponents.path = path;
-
+    
     NSArray *queryItems = [YLPClient queryItemsForParams:params];
     if (queryItems.count > 0) {
         urlComponents.queryItems = queryItems;
@@ -49,7 +49,7 @@ NSString *const kYLPErrorDomain = @"com.yelp.YelpAPI.ErrorDomain";
     request.HTTPMethod = @"GET";
     NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", self.accessToken];
     [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
-
+    
     return request;
 }
 

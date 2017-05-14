@@ -5,6 +5,7 @@
 //  Created by David Chen on 1/11/16.
 //
 //
+#import "YLPAutocomplete.h"
 #import "YLPBusiness.h"
 #import "YLPBusinessReviews.h"
 #import "YLPCategory.h"
@@ -15,12 +16,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface YLPAutocomplete ()
+- (instancetype)initWithDictionary:(NSDictionary *)autocompleteDict;
+@end
+
 @interface NSDictionary<KeyType, ObjectType> (YLPUtils)
 - (nullable ObjectType)ylp_objectMaybeNullForKey:(KeyType)key;
 @end
 
 @interface YLPBusiness ()
 - (instancetype)initWithDictionary:(NSDictionary *)businessDict;
+- (instancetype)initWithAutocompleteDictionary:(NSDictionary *)autocompleteDict;
 @end
 
 @interface YLPBusinessReviews ()

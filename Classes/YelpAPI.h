@@ -11,6 +11,9 @@
 #import "YLPClient+PhoneSearch.h"
 #import "YLPClient+Reviews.h"
 #import "YLPClient+Search.h"
+#import "YLPClient+Autocomplete.h"
+
+#import "YLPAutocomplete.h"
 
 #import "YLPCoordinate.h"
 
