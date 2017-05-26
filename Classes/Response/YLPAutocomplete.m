@@ -42,13 +42,13 @@
 }
 
 + (NSArray *)termsFromJSONArray:(NSArray *)termsJSON {
-    NSMutableArray<NSString *> *mutableTermsJSON = [[NSMutableArray alloc] init];
+    NSMutableArray *terms = [[NSMutableArray alloc] init];
     
-    for (NSDictionary *term in termsJSON) {
-        [mutableTermsJSON addObject: term[@"text"]];
+    for (NSDictionary *text in termsJSON) {
+        [terms addObject:text];
     }
-    
-    return mutableTermsJSON;
+
+    return terms;
 }
 
 @end

@@ -141,7 +141,7 @@
     [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 
-- (void) testFetchAutocompleteResultsForSearchTerms {
+- (void) testFetchAutocompleteResultsForSearchTermsWithCoordinates {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Autocomplete query test, success case."];
     
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
@@ -170,9 +170,43 @@
             [terms addObject:dict];
         }
         
-        XCTAssertEqualObjects(terms[0], expectedFirstText[@"text"]);
-        XCTAssertEqualObjects(terms[1], expectedSecondText[@"text"]);
-        XCTAssertEqualObjects(terms[2], expectedThirdText[@"text"]);
+        XCTAssertEqualObjects(terms[0], expectedFirstText);
+        XCTAssertEqualObjects(terms[1], expectedSecondText);
+        XCTAssertEqualObjects(terms[2], expectedThirdText);
+        
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:5 handler:nil];
+}
+
+- (void) testFetchAutoCompleteResultsForSearchTerms {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Autocomplete query test, success case."];
+    
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return [request.URL.host isEqualToString:kYLPAPIHost];
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.defaultResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+    }];
+    
+    NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
+    NSDictionary *expectedFirstText = expectedResponse[@"terms"][0];
+    NSDictionary *expectedSecondText = expectedResponse[@"terms"][1];
+    NSDictionary *expectedThirdText = expectedResponse[@"terms"][2];
+    
+    [self.client fetchAutocompleteSuggestionsWithTerm:@"Bakery" coordinate:nil locale:nil completionHandler:^(YLPAutocomplete * _Nullable autocomplete, NSError * _Nullable error) {
+        
+        XCTAssertNil(error);
+        
+        NSMutableArray *terms = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *dict in autocomplete.terms) {
+            [terms addObject:dict];
+        }
+        
+        XCTAssertEqualObjects(terms[0], expectedFirstText);
+        XCTAssertEqualObjects(terms[1], expectedSecondText);
+        XCTAssertEqualObjects(terms[2], expectedThirdText);
         
         [expectation fulfill];
     }];

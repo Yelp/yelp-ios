@@ -19,7 +19,7 @@ typedef void(^YLPAutocompleteCompletionHandler)(YLPAutocomplete *_Nullable autoc
 @interface YLPClient (Autocomplete)
 
 - (void)fetchAutocompleteSuggestionsWithTerm:(NSString *)term
-                                  coordinate:(YLPCoordinate *)coordinate
+                                  coordinate:(nullable YLPCoordinate *)coordinate
                                       locale:(nullable NSString *)locale
                            completionHandler:(YLPAutocompleteCompletionHandler)completionHandler;
 

@@ -18,25 +18,29 @@
 - (NSURLRequest *)autoCompleteRequestWithParams:(NSDictionary *)params {
     NSString *autoCompletePath = @"/v3/autocomplete";
     
-    return [self requestWithPath:phoneSearchPath params:params];
+    return [self requestWithPath:autoCompletePath params:params];
 }
 
 - (void)fetchAutocompleteSuggestionsWithTerm:(NSString *)term
                                   coordinate:(YLPCoordinate *)coordinate
                                       locale:(NSString *)locale
                            completionHandler:(YLPAutocompleteCompletionHandler)completionHandler {
-    YLPQuery *query = [[YLPQuery alloc] initWithCoordinate: coordinate];
     
-    NSDictionary *params = [query parameters];
-
-    NSMutableDictionary *mutablesParams = [params mutableCopy];
-    mutablesParams[@"text"] = term;
+    NSMutableDictionary *mutableParams = [[NSMutableDictionary alloc] init];
+    
+    if (coordinate) {
+        YLPQuery *query = [[YLPQuery alloc] initWithCoordinate: coordinate];
+        NSDictionary *params = [query parameters];
+        mutableParams = [params mutableCopy];
+    }
+    
+    mutableParams[@"text"] = term;
     
     if (locale) {
-        mutablesParams[@"locale"] = locale;
+        mutableParams[@"locale"] = locale;
     }
 
-    NSURLRequest *request = [self autoCompleteRequestWithParams:mutablesParams];
+    NSURLRequest *request = [self autoCompleteRequestWithParams:mutableParams];
     
     [self queryWithRequest:request completionHandler:^(NSDictionary * _Nonnull responseDict, NSError * _Nonnull error) {
         if (error) {

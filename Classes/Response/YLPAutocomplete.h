@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) NSArray<YLPBusiness *> *businesses;
 @property (nonatomic, readonly) NSArray<YLPCategory *> *categories;
-@property (nonatomic, readonly) NSArray<NSString *> *terms;
+@property (nonatomic, readonly) NSArray<NSDictionary *> *terms;
 
 @end
 

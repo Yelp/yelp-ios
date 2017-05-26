@@ -18,7 +18,7 @@
 @property (nonatomic) YLPAutocomplete *autoCompleteResults;
 @property (nonatomic, copy, readwrite) NSArray<YLPBusiness *> *myBusinesses;
 @property (nonatomic, copy, readwrite) NSArray<YLPCategory *> *myCategories;
-@property (nonatomic, copy, readwrite) NSArray<NSString *> *myTerms;
+@property (nonatomic, copy, readwrite) NSArray<NSDictionary *> *myTerms;
 
 @end
 
@@ -86,7 +86,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AutocompleteCell" forIndexPath:indexPath];
     
     if (indexPath.section == 0) {
-        cell.textLabel.text =  self.myTerms[indexPath.row];
+        cell.textLabel.text =  self.myTerms[indexPath.row][@"text"];
     } else if (indexPath.section == 1){
         cell.textLabel.text =  self.myBusinesses[indexPath.row].name;
     } else if (indexPath.section == 2) {
