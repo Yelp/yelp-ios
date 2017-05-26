@@ -16,7 +16,7 @@
 @implementation YLPClient (Autocomplete)
 
 - (NSURLRequest *)autoCompleteRequestWithParams:(NSDictionary *)params {
-    NSString *phoneSearchPath = @"/v3/autocomplete";
+    NSString *autoCompletePath = @"/v3/autocomplete";
     
     return [self requestWithPath:phoneSearchPath params:params];
 }
