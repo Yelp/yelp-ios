@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "YelpAPI"
-  s.version          = "2.0.0"
+  s.version          = "3.0.0"
   s.summary          = "Objective-C client library for accessing the Yelp Public API."
 
   s.description      = <<-DESC
