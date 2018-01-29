@@ -15,7 +15,7 @@
 
 - (void)setUp {
     [super setUp];
-    self.client = [[YLPClient alloc] initWithAccessToken:@"accessToken"];
+    self.client = [[YLPClient alloc] initWithAPIKey:@"API_KEY"];
     self.bogusTestPath = @"/bogusPath";
 }
 
