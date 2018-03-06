@@ -24,3 +24,5 @@
 #import "YLPReview.h"
 #import "YLPSearch.h"
 #import "YLPUser.h"
+#import "YLPTimeInterval.h"
+#import "YLPOpenHours.h"
