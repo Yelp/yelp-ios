@@ -1,0 +1,118 @@
+{
+    "businesses": [{
+            "id": "M8uUZvrIgi30n2FG6jJtJA",
+            "alias": "cooks-cafe-san-francisco",
+            "name": "Cooks' Cafe",
+            "coordinates": {
+                "latitude": null,
+                "longitude": null
+            },
+            "location": {
+                "address1": "",
+                "address2": "",
+                "address3": "",
+                "city": "San Francisco",
+                "zip_code": "",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "San Francisco, CA"
+                ]
+            },
+            "phone": "+14157051860",
+            "display_phone": "(415) 705-1860"
+        },
+        {
+            "id": "fj0xXSQlioGcGutdmeYgKw",
+            "alias": "cafe-society-san-francisco-4",
+            "name": "Cafe Society",
+            "coordinates": {
+                "latitude": 37.77448,
+                "longitude": -122.40916
+            },
+            "location": {
+                "address1": "",
+                "address2": "",
+                "address3": "",
+                "city": "San Francisco",
+                "zip_code": "94103",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "San Francisco, CA 94103"
+                ]
+            },
+            "phone": "+14153058381",
+            "display_phone": "(415) 305-8381"
+        },
+        {
+            "id": "vt_5lTfNKZo7V0tun2VvJQ",
+            "alias": "kindle-cafe-san-francisco",
+            "name": "Kindle Cafe",
+            "coordinates": {
+                "latitude": 37.77915,
+                "longitude": -122.42062
+            },
+            "location": {
+                "address1": "",
+                "address2": "",
+                "address3": "",
+                "city": "San Francisco",
+                "zip_code": "94102",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "San Francisco, CA 94102"
+                ]
+            },
+            "phone": "",
+            "display_phone": ""
+        },
+        {
+            "id": "XWTnXLLQOHx4AxERPHQJ_w",
+            "alias": "info-cafe-san-francisco",
+            "name": "Info Cafe",
+            "coordinates": {
+                "latitude": 37.77991,
+                "longitude": -122.42112
+            },
+            "location": {
+                "address1": "",
+                "address2": "",
+                "address3": "",
+                "city": "San Francisco",
+                "zip_code": "94102",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "San Francisco, CA 94102"
+                ]
+            },
+            "phone": "+14153924636",
+            "display_phone": "(415) 392-4636"
+        },
+        {
+            "id": "lRakouwGTkaaQpTg8WH6SQ",
+            "alias": "cafe-1134-san-francisco",
+            "name": "Cafe 1134",
+            "coordinates": {
+                "latitude": 37.79154,
+                "longitude": -122.42005
+            },
+            "location": {
+                "address1": "",
+                "address2": "",
+                "address3": "",
+                "city": "San Francisco",
+                "zip_code": "94109",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "San Francisco, CA 94109"
+                ]
+            },
+            "phone": "+14158675309",
+            "display_phone": "(415) 867-5309"
+        }
+    ]
+}

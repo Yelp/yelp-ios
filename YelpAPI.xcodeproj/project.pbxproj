@@ -67,6 +67,10 @@
 		13BE49671D203E000002262E /* YLPQueryPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 13BE49661D203D6D0002262E /* YLPQueryPrivate.h */; };
 		13BE49691D2056C70002262E /* YLPQueryTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BE49681D2056C70002262E /* YLPQueryTestCase.m */; };
 		13D8661E1DDE402D0051C1A0 /* NSDictionary+YLPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D8661C1DDE402D0051C1A0 /* NSDictionary+YLPUtils.m */; };
+		2515FA7C2075B0C40098AE98 /* YLPBusinessMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 2515FA7A2075B0C40098AE98 /* YLPBusinessMatch.h */; };
+		2515FA7D2075B0C40098AE98 /* YLPBusinessMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2515FA7B2075B0C40098AE98 /* YLPBusinessMatch.m */; };
+		2515FA812076C0700098AE98 /* YLPBusinessMatchClientTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2515FA802076C0700098AE98 /* YLPBusinessMatchClientTestCase.m */; };
+		25B4DDE7207828EE006C134C /* business_match_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 25B4DDE6207828EE006C134C /* business_match_response.json */; };
 		2938CD961893BBC9FB96A9A1 /* Pods_YelpAPI_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940F602628A3DC514173CCBB /* Pods_YelpAPI_Example.framework */; };
 		4D1C48BD7C6555E51CC7DB7B /* Pods_YelpAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2DA62F3AB4E9CED8852687 /* Pods_YelpAPI.framework */; };
 		E649614BDA7B6533CF642746 /* Pods_YelpAPITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C801DC94688578238D1B1D4D /* Pods_YelpAPITests.framework */; };
@@ -177,6 +181,10 @@
 		13BE49661D203D6D0002262E /* YLPQueryPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLPQueryPrivate.h; sourceTree = "<group>"; };
 		13BE49681D2056C70002262E /* YLPQueryTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPQueryTestCase.m; sourceTree = "<group>"; };
 		13D8661C1DDE402D0051C1A0 /* NSDictionary+YLPUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YLPUtils.m"; sourceTree = "<group>"; };
+		2515FA7A2075B0C40098AE98 /* YLPBusinessMatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLPBusinessMatch.h; sourceTree = "<group>"; };
+		2515FA7B2075B0C40098AE98 /* YLPBusinessMatch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLPBusinessMatch.m; sourceTree = "<group>"; };
+		2515FA802076C0700098AE98 /* YLPBusinessMatchClientTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLPBusinessMatchClientTestCase.m; sourceTree = "<group>"; };
+		25B4DDE6207828EE006C134C /* business_match_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = business_match_response.json; sourceTree = "<group>"; };
 		2E0DC5F670084B64ECD1DB90 /* Pods-YelpAPI_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpAPI_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-YelpAPI_Example/Pods-YelpAPI_Example.release.xcconfig"; sourceTree = "<group>"; };
 		57A6A7BEE7B82D4C749B5DA5 /* Pods-YelpAPITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpAPITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YelpAPITests/Pods-YelpAPITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A2DA62F3AB4E9CED8852687 /* Pods_YelpAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YelpAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -320,6 +328,8 @@
 				134DA9AE1CBF253B008DD68F /* YLPSearch.m */,
 				134DA9AF1CBF253B008DD68F /* YLPUser.h */,
 				134DA9B01CBF253B008DD68F /* YLPUser.m */,
+				2515FA7A2075B0C40098AE98 /* YLPBusinessMatch.h */,
+				2515FA7B2075B0C40098AE98 /* YLPBusinessMatch.m */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -357,6 +367,7 @@
 				134DAA011CBF2D1B008DD68F /* YLPPhoneSearchClientTestCase.m */,
 				130408ED1DBC0D7B00E44AC6 /* YLPReviewsClientTestCase.swift */,
 				134DAA021CBF2D1B008DD68F /* YLPSearchClientTestCase.m */,
+				2515FA802076C0700098AE98 /* YLPBusinessMatchClientTestCase.m */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -385,6 +396,7 @@
 				134DAA0D1CBF2D1B008DD68F /* phone_search_response.json */,
 				130408DE1DBA96F200E44AC6 /* reviews_response.json */,
 				134DAA0E1CBF2D1B008DD68F /* search_response.json */,
+				25B4DDE6207828EE006C134C /* business_match_response.json */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -457,6 +469,7 @@
 				130408E81DBAB04400E44AC6 /* YLPBusinessReviews.h in Headers */,
 				134DA9B11CBF253B008DD68F /* YLPClient+Business.h in Headers */,
 				130408E41DBAAA4600E44AC6 /* YLPClient+Reviews.h in Headers */,
+				2515FA7C2075B0C40098AE98 /* YLPBusinessMatch.h in Headers */,
 				134DA9B31CBF253B008DD68F /* YLPClient+PhoneSearch.h in Headers */,
 				13BE49641D2037070002262E /* YLPQuery.h in Headers */,
 				13BE49671D203E000002262E /* YLPQueryPrivate.h in Headers */,
@@ -584,6 +597,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25B4DDE7207828EE006C134C /* business_match_response.json in Resources */,
 				134DAA1C1CBF2D1B008DD68F /* search_response.json in Resources */,
 				134DAA181CBF2D1B008DD68F /* error.json in Resources */,
 				134DAA171CBF2D1B008DD68F /* business_response.json in Resources */,
@@ -662,7 +676,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8EDD71EF72B9C9588598EA79 /* [CP] Copy Pods Resources */ = {
@@ -692,7 +706,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		BA5D51B33FEC3FC9B6DD798D /* [CP] Embed Pods Frameworks */ = {
@@ -722,7 +736,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -743,6 +757,7 @@
 				134DA9B41CBF253B008DD68F /* YLPClient+PhoneSearch.m in Sources */,
 				134DA9D81CBF253B008DD68F /* YLPReview.m in Sources */,
 				134DA9C51CBF253B008DD68F /* YLPCategory.m in Sources */,
+				2515FA7D2075B0C40098AE98 /* YLPBusinessMatch.m in Sources */,
 				134DA9DC1CBF253B008DD68F /* YLPUser.m in Sources */,
 				134DA9D11CBF253B008DD68F /* YLPLocation.m in Sources */,
 				134DA9B81CBF253B008DD68F /* YLPClient.m in Sources */,
@@ -756,6 +771,7 @@
 			files = (
 				134DAA131CBF2D1B008DD68F /* YLPSearchClientTestCase.m in Sources */,
 				130408EE1DBC0D7B00E44AC6 /* YLPReviewsClientTestCase.swift in Sources */,
+				2515FA812076C0700098AE98 /* YLPBusinessMatchClientTestCase.m in Sources */,
 				134DAA141CBF2D1B008DD68F /* YLPCoordinateTestCase.m in Sources */,
 				134DAA101CBF2D1B008DD68F /* YLPClientTestCase.m in Sources */,
 				134DAA121CBF2D1B008DD68F /* YLPPhoneSearchClientTestCase.m in Sources */,

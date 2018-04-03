@@ -12,11 +12,13 @@
 #import "YLPReview.h"
 #import "YLPSearch.h"
 #import "YLPUser.h"
+#import "YLPBusinessMatch.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDictionary<KeyType, ObjectType> (YLPUtils)
 - (nullable ObjectType)ylp_objectMaybeNullForKey:(KeyType)key;
+- (nullable ObjectType)ylp_arrayMaybeNullForKey:(KeyType)key;
 @end
 
 @interface YLPBusiness ()
@@ -46,6 +48,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPUser ()
 - (instancetype)initWithDictionary:(NSDictionary *)userDict;
+@end
+
+@interface YLPBusinessMatch ()
+- (instancetype)initWithDictionary:(NSDictionary *)businessDict;
++ (NSArray *)businessMatchesFromJSONArray:(NSArray *)businessMatchesJSON;
 @end
 
 NS_ASSUME_NONNULL_END
