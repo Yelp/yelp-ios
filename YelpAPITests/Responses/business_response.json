@@ -3,71 +3,67 @@
     "review_count": 4350,
     "name": "Gary Danko",
     "url": "https://www.yelp.com/biz/gary-danko-san-francisco?adjust_creative=046GAQFxzvh9l3_I3-uxOw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=046GAQFxzvh9l3_I3-uxOw",
-    "categories": [
-                   {
-                   "title": "American (New)",
-                   "alias": "newamerican"
-                   },
-                   {
-                   "title": "French",
-                   "alias": "french"
-                   }
-                   ],
-    "hours": [
-              {
-              "is_open_now": false,
-              "hours_type": "REGULAR",
-              "open": [
-                       {
-                       "is_overnight": false,
-                       "day": 0,
-                       "end": "2200",
-                       "start": "1730"
-                       },
-                       {
-                       "is_overnight": false,
-                       "day": 1,
-                       "end": "2200",
-                       "start": "1730"
-                       },
-                       {
-                       "is_overnight": false,
-                       "day": 2,
-                       "end": "2200",
-                       "start": "1730"
-                       },
-                       {
-                       "is_overnight": false,
-                       "day": 3,
-                       "end": "2200",
-                       "start": "1730"
-                       },
-                       {
-                       "is_overnight": false,
-                       "day": 4,
-                       "end": "2200",
-                       "start": "1730"
-                       },
-                       {
-                       "is_overnight": false,
-                       "day": 5,
-                       "end": "2200",
-                       "start": "1730"
-                       },
-                       {
-                       "is_overnight": false,
-                       "day": 6,
-                       "end": "2200",
-                       "start": "1730"
-                       }
-                       ]
-              }
-              ],
+    "categories": [{
+            "title": "American (New)",
+            "alias": "newamerican"
+        },
+        {
+            "title": "French",
+            "alias": "french"
+        }
+    ],
+    "hours": [{
+        "is_open_now": false,
+        "hours_type": "REGULAR",
+        "open": [{
+                "is_overnight": false,
+                "day": 0,
+                "end": "2200",
+                "start": "1730"
+            },
+            {
+                "is_overnight": false,
+                "day": 1,
+                "end": "2200",
+                "start": "1730"
+            },
+            {
+                "is_overnight": false,
+                "day": 2,
+                "end": "2200",
+                "start": "1730"
+            },
+            {
+                "is_overnight": false,
+                "day": 3,
+                "end": "2200",
+                "start": "1730"
+            },
+            {
+                "is_overnight": false,
+                "day": 4,
+                "end": "2200",
+                "start": "1730"
+            },
+            {
+                "is_overnight": false,
+                "day": 5,
+                "end": "2200",
+                "start": "1730"
+            },
+            {
+                "is_overnight": false,
+                "day": 6,
+                "end": "2200",
+                "start": "1730"
+            }
+        ]
+    }],
     "photos": [
-               "https://s3-media2.fl.yelpcdn.com/bphoto/MWMKouFOmJk3DX6pIuWUwQ/o.jpg",
-               "https://s3-media1.fl.yelpcdn.com/bphoto/8A5W_BZbMldUaf1v6HKfSQ/o.jpg",
-               "https://s3-media4.fl.yelpcdn.com/bphoto/GQf1i31oeIQKUPLN1bwkVQ/o.jpg"
-               ],
+        "https://s3-media2.fl.yelpcdn.com/bphoto/MWMKouFOmJk3DX6pIuWUwQ/o.jpg",
+        "https://s3-media1.fl.yelpcdn.com/bphoto/8A5W_BZbMldUaf1v6HKfSQ/o.jpg",
+        "https://s3-media4.fl.yelpcdn.com/bphoto/GQf1i31oeIQKUPLN1bwkVQ/o.jpg"
+    ],
     "phone": "+14157492060",
     "price": "$$$$",
     "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/MWMKouFOmJk3DX6pIuWUwQ/o.jpg",

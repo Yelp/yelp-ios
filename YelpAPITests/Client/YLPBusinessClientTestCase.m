@@ -42,32 +42,6 @@
     XCTAssertEqualObjects(request.URL.path, @"/v3/businesses/bogusBusinessId");
 }
 
-- (void)testBusinessRequestResult {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Business query test, success case."];
-
-    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-        return [request.URL.host isEqualToString:kYLPAPIHost];
-    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(self.defaultResource, self.class) statusCode:200 headers:@{@"Content-Type":@"application/json"}];
-    }];
-    
-    NSDictionary *expectedResponse = [self loadExpectedResponse:self.defaultResource];
-    
-    [self.client businessWithId:@"gary-danko-san-francisco" completionHandler:^(YLPBusiness *business, NSError *error) {
-        XCTAssertNil(error);
-        //String assignment testing
-        XCTAssertEqualObjects(business.identifier, @"gary-danko-san-francisco");
-        //URL assignment testing
-        XCTAssertEqualObjects([business.URL absoluteString], [expectedResponse objectForKey:@"url"]);
-        //Number assignment testing
-        XCTAssertEqual(business.rating, [expectedResponse[@"rating"] doubleValue]);
-        [expectation fulfill];
-        
-    }];
-    
-    [self waitForExpectationsWithTimeout:5 handler:nil];
-}
-
 - (void)testCategoriesOnBusinessSetCorrectly {
     XCTestExpectation *expectation = [self expectationWithDescription:@"YLPCategory on YLPBusiness success case."];
     

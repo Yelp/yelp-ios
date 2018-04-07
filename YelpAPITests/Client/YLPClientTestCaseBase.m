@@ -26,7 +26,8 @@
 
 - (NSDictionary *)loadExpectedResponse:(NSString *)resource {
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
-    NSString *filePath = [bundle pathForResource:resource ofType:@""];
-    return [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:0 error:nil];
+    NSString *filePath = [[bundle resourcePath] stringByAppendingPathComponent:resource];
+    NSData *fileData = [NSData dataWithContentsOfFile:filePath];
+    return [NSJSONSerialization JSONObjectWithData:fileData options:0 error:nil];
 }
 @end
