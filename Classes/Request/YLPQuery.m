@@ -73,7 +73,7 @@
         params[@"categories"] = [self.categoryFilter componentsJoinedByString:@","];
     }
     if (self.radiusFilter > 0) {
-        params[@"radius"] = @(self.radiusFilter);
+        params[@"radius"] = @(@(round(self.radiusFilter)).intValue);
     }
     if (self.dealsFilter) {
         params[@"attributes"] = @"deals";
