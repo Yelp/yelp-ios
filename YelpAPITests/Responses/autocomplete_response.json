@@ -1,0 +1,41 @@
+{
+    "categories": [
+        {
+            "alias": "bakeries",
+            "title": "Bakeries"
+        },
+        {
+            "alias": "cupcakes",
+            "title": "Cupcakes"
+        },
+        {
+            "alias": "desserts",
+            "title": "Desserts"
+        }
+    ],
+    "businesses": [
+        {
+        "name": "Specialty's Café & Bakery",
+        "id": "5l8QQIMUs7KJrcfq23_lmA"
+        },
+        {
+        "text": "Tartine Bakery & Cafe",
+        "id": "ri7UUYmx21AgSpRsf4-9QA"
+        },
+        {
+        "text": "Corner Bakery Cafe",
+        "id": "4jSGcAOcvz0lxwoQrkYFCg"
+        }
+    ],
+    "terms": [
+        {
+            "text": "Bakery Birthday Cake"
+        },
+        {
+            "text": "85°c Bakery Cafe"
+        },
+        {
+            "text": "Porto's Bakery & Cafe"
+        }
+    ]
+}

@@ -37,7 +37,8 @@
 }
 
 - (void)searchWithCoordinate:(YLPCoordinate *)coordinate
-                        term:(NSString *)term limit:(NSUInteger)limit
+                        term:(NSString *)term
+                       limit:(NSUInteger)limit
                       offset:(NSUInteger)offset
                         sort:(YLPSortType)sort
            completionHandler:(YLPSearchCompletionHandler)completionHandler {
