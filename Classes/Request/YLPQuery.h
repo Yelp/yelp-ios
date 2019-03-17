@@ -33,9 +33,29 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic, nullable) NSString *term;
 
 /**
+ Search price ("1", "2", "3", or "4"). If term is nil, everything will be searched.
+ */
+@property (copy, nonatomic, nullable) NSString *price;
+
+/**
+ Search locale, language to return the business information in.
+ */
+@property (copy, nonatomic, nullable) NSString *locale;
+
+/**
  Number of business results to return. If 0, the API maximum of 20 results will be returned.
  */
 @property (assign, nonatomic) NSUInteger limit;
+
+/**
+ An integer represending the Unix time in the same timezone of the search location. If specified, it will return business open at the given time.
+ */
+@property (assign, nonatomic) NSUInteger openAt;
+
+/**
+ Whether to exclusively search for businesses open now. If openAt has value > 0 then only openAt is used.
+ */
+@property (assign, nonatomic) BOOL openNow;
 
 /**
  Amount by which to offset the list of returned business. The default is 0.
@@ -61,6 +81,11 @@ NS_ASSUME_NONNULL_BEGIN
  Whether to exclusively search for businesses with deals.
  */
 @property (assign, nonatomic) BOOL dealsFilter;
+
+/**
+ Whether to exclusively search for businesses that are hot and new.
+ */
+@property (assign, nonatomic) BOOL hotAndNewFilter;
 
 @end
 
